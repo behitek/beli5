@@ -138,30 +138,6 @@ npm run clear      # Clear Docusaurus cache
 npm run deploy     # Deploy to GitHub Pages (if configured)
 ```
 
-## 🦀 Why Rust Instead of HTML?
-
-We replaced HTML with **Rust** because:
-
-### 🛡️ **Safety First Approach**
-- Rust teaches memory safety from the beginning
-- Perfect for learning good programming habits
-- Prevents common programming mistakes automatically
-
-### ⚡ **Performance & Modern Development**
-- Rust is used by major tech companies (Discord, Dropbox, Firefox)
-- Growing rapidly in popularity
-- Excellent for both beginners and advanced projects
-
-### 🎯 **Unique Learning Experience**
-- Different from typical beginner languages
-- Teaches system-level concepts in a safe way
-- Builds confidence through compiler guidance
-
-### 🌟 **Career Relevance**
-- High demand in the job market
-- Used for web backends, system programming, and blockchain
-- Excellent foundation for understanding computer science concepts
-
 ## 📖 Tutorial Structure
 
 Each programming language follows the same learning progression:

@@ -1,10 +1,11 @@
-# 🤖 AI Programming Tutorials - ELI5 Style (with Rust!)
+# 🤖 Beli5 - Programming Made Simple
 
 [![Built with Docusaurus](https://img.shields.io/badge/Built%20with-Docusaurus-blue)](https://docusaurus.io/)
-[![AI Generated](https://img.shields.io/badge/Content-AI%20Generated-brightgreen)](https://github.com/your-org/ai-programming-tutorials)
-[![ELI5 Style](https://img.shields.io/badge/Style-ELI5%20(Explain%20Like%20I'm%205)-yellow)](https://github.com/your-org/ai-programming-tutorials)
+[![AI Generated](https://img.shields.io/badge/Content-AI%20Generated-brightgreen)](https://github.com/behitek/beli5)
+[![ELI5 Style](https://img.shields.io/badge/Style-ELI5%20(Explain%20Like%20I'm%205)-yellow)](https://github.com/behitek/beli5)
+[![Live Site](https://img.shields.io/badge/Live%20Site-GitHub%20Pages-success)](https://behitek.github.io/beli5/)
 
-> **AI-Generated Programming Tutorials Explained Like You're 5**  
+> **Behitek + ELI5: AI-Generated Programming Tutorials Explained Like You're 5**  
 > Learn Python, Java, C++, and Rust through fun analogies and simple explanations designed for complete beginners!
 
 ## 🎯 What Makes This Special?
@@ -28,8 +29,8 @@ This project creates **separate, comprehensive tutorial websites** for each prog
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-org/ai-programming-tutorials.git
-   cd ai-programming-tutorials
+   git clone https://github.com/behitek/beli5.git
+   cd beli5
    ```
 
 2. **Install dependencies**
@@ -53,7 +54,7 @@ This project creates **separate, comprehensive tutorial websites** for each prog
 ## 📁 Project Structure
 
 ```
-ai-programming-tutorials/
+beli5/
 ├── 📄 README.md                    # This file
 ├── 📄 docusaurus.config.ts         # Main Docusaurus configuration
 ├── 📄 package.json                 # Dependencies and scripts

@@ -1,0 +1,168 @@
+/**
+ * Custom CSS for AI Programming Tutorials with Rust
+ * Designed to be kid-friendly and encourage learning
+ */
+
+/* Kid-friendly color scheme */
+:root {
+  /* Primary colors - friendly blue-purple */
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
+  
+  /* Fun accent colors */
+  --ifm-color-success: #10b981;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-danger: #ef4444;
+  --ifm-color-info: #3b82f6;
+  
+  /* Typography improvements for young readers */
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.1);
+  
+  /* Spacing for better readability */
+  --ifm-paragraph-margin-bottom: 1.2rem;
+  --ifm-heading-margin-bottom: 1rem;
+}
+
+/* Dark mode with warmer colors */
+[data-theme='dark'] {
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #4f46e5;
+  --ifm-color-primary-darkest: #4338ca;
+  --ifm-color-primary-light: #a5b4fc;
+  --ifm-color-primary-lighter: #c7d2fe;
+  --ifm-color-primary-lightest: #e0e7ff;
+  --docusaurus-highlighted-code-line-bg: rgba(129, 140, 248, 0.2);
+}
+
+/* Make the hero section more engaging */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.hero__title {
+  font-size: 3rem !important;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Fun button styles */
+.button {
+  border-radius: 25px !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Code block improvements for kids */
+.prism-code {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-radius: 12px;
+}
+
+/* Make admonitions more engaging */
+.admonition {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admonition-heading {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Language-specific color themes */
+.rust-theme {
+  --ifm-color-primary: #ce422b;
+  --ifm-color-primary-dark: #b73725;
+  --ifm-color-primary-darker: #ac3423;
+  --ifm-color-primary-darkest: #8e2b1d;
+  --ifm-color-primary-light: #d1502f;
+  --ifm-color-primary-lighter: #d45a39;
+  --ifm-color-primary-lightest: #db7052;
+}
+
+.python-theme {
+  --ifm-color-primary: #3776ab;
+  --ifm-color-primary-dark: #326395;
+  --ifm-color-primary-darker: #2f5e8c;
+  --ifm-color-primary-darkest: #264d73;
+  --ifm-color-primary-light: #4b89c3;
+  --ifm-color-primary-lighter: #5a93cc;
+  --ifm-color-primary-lightest: #7aa7d6;
+}
+
+.java-theme {
+  --ifm-color-primary: #ed8b00;
+  --ifm-color-primary-dark: #d57c00;
+  --ifm-color-primary-darker: #c87500;
+  --ifm-color-primary-darkest: #a56000;
+  --ifm-color-primary-light: #f09a1a;
+  --ifm-color-primary-lighter: #f2a533;
+  --ifm-color-primary-lightest: #f5b85c;
+}
+
+.cpp-theme {
+  --ifm-color-primary: #00599c;
+  --ifm-color-primary-dark: #004f8a;
+  --ifm-color-primary-darker: #004a82;
+  --ifm-color-primary-darkest: #003d6b;
+  --ifm-color-primary-light: #0063ae;
+  --ifm-color-primary-lighter: #0069b6;
+  --ifm-color-primary-lightest: #1a7bc4;
+}
+
+/* Responsive improvements for mobile devices */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.5rem !important;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Add some playful animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.button--primary:hover {
+  animation: bounce 0.6s ease-in-out;
+}

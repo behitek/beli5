@@ -28,7 +28,7 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: build/beli5
 
   deploy:
     name: Deploy to GitHub Pages

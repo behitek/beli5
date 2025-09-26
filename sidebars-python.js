@@ -25,21 +25,12 @@ const sidebars = {
             collapsed: false,
             items: [
                 'basics/what-is-python',
+                'basics/installing-python',
+                'basics/python-environment',
                 'basics/first-program',
                 'basics/printing-messages',
                 'basics/getting-input',
                 'basics/comments',
-                'basics/variables-boxes',
-                'basics/basic-math',
-                'basics/comparing-things',
-            ],
-        },
-        {
-            type: 'category',
-            label: '🎮 Dự Án Thực Hành',
-            collapsed: false,
-            items: [
-                'projects/mad-libs',
             ],
         },
         {

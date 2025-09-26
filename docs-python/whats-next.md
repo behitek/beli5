@@ -1,198 +1,467 @@
 ---
-sidebar_position: 100
-title: 🚀 What's Next?
-description: Your next steps after learning Python basics
-keywords: [python, next steps, advanced, projects, career, AI]
+sidebar_position: 98
+title: "🚀 Bước Tiếp Theo Sau Python Cơ Bản"
+description: "Lộ trình học Python tiếp theo, từ intermediate đến advanced. Khám phá frameworks, career paths và cơ hội phát triển với Python!"
+keywords: ["python", "lộ trình", "career", "frameworks", "advanced", "next steps"]
 ---
 
-# 🚀 What's Next in Your Python Journey?
+# 🚀 Bước Tiếp Theo Sau Python Cơ Bản
 
-:::info 🤖 AI-Generated Content
-This content is created by AI to help you plan your next steps in programming! Your Python adventure is just beginning! 🎉
+:::tip 🎊 Chúc Mừng!
+Bạn đã hoàn thành phần Python cơ bản! Con rắn Python của bạn giờ đã biết "nói chuyện", "tính toán", "nhớ thông tin" và "đưa ra quyết định". Đây là nền tảng vững chắc để bước vào thế giới Python rộng lớn hơn!
 :::
 
-## Congratulations, Python Programmer! 🎉
+## 🎯 Bạn Đã Học Được Gì?
 
-You've made it through the Python tutorials! That's amazing! 🐍✨
+### ✅ **Kỹ Năng Cơ Bản Đã Thành Thạo**
 
-You now know how to:
-- Talk to computers using Python
-- Create variables (boxes for information)
-- Make decisions with if/then statements
-- Repeat things with loops
-- Organize code with functions
-- Build simple projects
-
-**You're officially a Python programmer!** 👨‍💻👩‍💻
-
-## Your Python Skills Level 📊
-
-### 🟢 **Beginner Python Programmer** (That's You!)
-- You can write simple programs
-- You understand basic Python concepts
-- You can fix simple bugs
-- You're ready for bigger challenges!
-
-### 🟡 **Next Level: Intermediate Python**
-- Build games and apps
-- Work with files and data
-- Create programs with graphics
-- Learn about web programming
-
-### 🔴 **Future Goal: Advanced Python**
-- Build professional applications
-- Work with databases
-- Create artificial intelligence programs
-- Contribute to open-source projects
-
-## What Should You Learn Next? 🤔
-
-### Option 1: 🎮 **Make Games with Python**
-**Great if you like**: Games, graphics, interactive programs  
-**You'll learn**: Pygame library, game loops, sprites, collision detection  
-**Cool projects**: Snake game, Pong, simple RPG adventures
-
-```python
-# You could make games like this!
-import pygame
-# ... game code that creates moving characters and fun gameplay!
+```mermaid
+mindmap
+  root((🐍 Python Cơ Bản))
+    📥 Input Output
+      print function
+      input function
+      String formatting
+    📦 Variables
+      Naming conventions
+      Data types
+      Type conversion
+    🧮 Basic Math
+      Arithmetic operators
+      Comparison operators
+      Boolean logic
+    💭 Comments
+      Single line comments
+      Documentation
+      Code organization
+    🔧 Environment
+      IDLE usage
+      File creation
+      Running programs
 ```
 
-### Option 2: 🌐 **Build Websites with Python**
-**Great if you like**: Websites, sharing your creations, building tools  
-**You'll learn**: Flask or Django frameworks, web development, databases  
-**Cool projects**: Personal blog, photo gallery, simple social media
+### 🏆 **Thành Tựu Đáng Tự Hào**
+- ✨ **Viết chương trình đầu tiên** và thấy nó chạy thành công
+- 🗣️ **Giao tiếp với Python** thông qua print() và input()
+- 🧠 **Hiểu cách máy tính "suy nghĩ"** với variables và data types
+- 🔧 **Biết cách tìm và sửa lỗi** cơ bản
+- 💪 **Tự tin với môi trường lập trình** Python
 
-### Option 3: 🤖 **Artificial Intelligence and Data**
-**Great if you like**: Smart programs, analyzing information, predictions  
-**You'll learn**: Machine learning libraries, data analysis, AI basics  
-**Cool projects**: Chatbots, image recognition, data visualization
+## 🗺️ Lộ Trình Tiếp Theo
 
-### Option 4: 🔧 **Automation and Tools**
-**Great if you like**: Making life easier, organizing things, productivity  
-**You'll learn**: File handling, web scraping, task automation  
-**Cool projects**: Homework organizer, automatic file sorter, web scrapers
+### 🟡 **Level Intermediate - Trung Bình Thú Vị**
 
-## Recommended Learning Path 🗺️
+#### 1. **Control Flow - Điều Khiển Luồng** (2-3 tuần)
+```python
+# If-else: Dạy Python đưa ra quyết định
+age = int(input("Tuổi của bạn: "))
+if age >= 18:
+    print("Bạn có thể lái xe!")
+else:
+    print("Bạn cần chờ thêm vài năm!")
 
-### Immediate Next Steps (This Month)
-1. **Practice more**: Redo tutorials but change the examples
-2. **Build variations**: Take project examples and modify them
-3. **Fix bugs**: Intentionally break code and fix it
-4. **Teach someone**: Explain Python to a friend or family member
+# Loops: Dạy Python làm việc lặp đi lặp lại
+for i in range(5):
+    print(f"Python đang đếm: {i}")
+```
 
-### Short-term Goals (Next 3 Months)
-1. **Pick a specialty**: Choose games, web, AI, or automation
-2. **Find resources**: Look for books, videos, or online courses in your chosen area
-3. **Join communities**: Find kid-friendly Python programming groups online
-4. **Start a project**: Begin building something you're excited about
+**Sẽ học:**
+- 🤔 **If/elif/else statements** - Python đưa ra quyết định thông minh
+- 🔄 **For loops** - Lặp lại công việc không biết mệt
+- ⚡ **While loops** - Lặp cho đến khi điều kiện thỏa mãn
+- 🎯 **Nested conditions** - Quyết định phức tạp hơn
 
-### Long-term Vision (Next Year)
-1. **Build a portfolio**: Create 3-5 projects you're proud of
-2. **Learn related skills**: Web development for websites, math for AI, etc.
-3. **Consider classes**: Look into programming courses at school or community centers
-4. **Maybe try other languages**: Java, JavaScript, or C++ could be next!
+#### 2. **Data Structures - Cấu Trúc Dữ Liệu** (2-3 tuần)
+```python
+# Lists: Danh sách học sinh
+hoc_sinh = ["An", "Bình", "Chi", "Dũng"]
+hoc_sinh.append("Em")  # Thêm học sinh mới
 
-## Other Programming Languages to Explore 🌍
+# Dictionaries: Thông tin chi tiết
+thong_tin = {
+    "tên": "Minh",
+    "tuổi": 15,
+    "sở thích": ["đọc sách", "chơi game", "học Python"]
+}
+```
 
-Since you know Python, learning other languages will be easier!
+**Sẽ học:**
+- 📝 **Lists** - Danh sách có thể thay đổi
+- 📚 **Dictionaries** - Lưu trữ thông tin có cặp key-value
+- 🎯 **Tuples** - Danh sách không thể thay đổi
+- 🔧 **List/Dict methods** - Các thao tác với dữ liệu
 
-### ☕ **Java** - Great for Building Big Applications
-- Like Python but more structured (like LEGO with stricter rules)
-- Used for Android apps and enterprise software
-- Good if you like organized, systematic programming
+#### 3. **Functions - Hàm** (2-3 tuần)
+```python
+def chao_hoi(ten, tuoi):
+    """Hàm chào hỏi thân thiện"""
+    return f"Xin chào {ten}! Bạn {tuoi} tuổi, rất vui được gặp!"
 
-### 🦀 **Rust** - For Safe System Programming
-- Like Python but with ultimate safety gear built-in
-- Used for high-performance applications and system programming
-- Prevents crashes and memory bugs automatically
+# Sử dụng hàm
+loi_chao = chao_hoi("Lan", 16)
+print(loi_chao)
+```
 
-### ⚡ **C++** - For High-Performance Programs
-- Faster than Python but more complex
-- Used for games, operating systems, and embedded systems
-- Good if you want to understand how computers really work
+**Sẽ học:**
+- 🏭 **Định nghĩa functions** - Tạo "công thức" có thể dùng lại
+- 📥 **Parameters và arguments** - Truyền thông tin vào function
+- 📤 **Return values** - Nhận kết quả từ function
+- 🎯 **Local vs global scope** - Phạm vi hoạt động của biến
 
-## Resources for Continuing Your Journey 📚
+### 🔴 **Level Advanced - Thách Thức Cao**
 
-### Free Online Resources
-- **Khan Academy**: Programming courses with exercises
-- **Codecademy**: Interactive Python lessons  
-- **freeCodeCamp**: Comprehensive programming curriculum
-- **Python.org**: Official tutorials and documentation
+#### 1. **Object-Oriented Programming** (1 tháng)
+```python
+class ConNguoi:
+    def __init__(self, ten, tuoi):
+        self.ten = ten
+        self.tuoi = tuoi
+    
+    def gioi_thieu(self):
+        return f"Tôi là {self.ten}, {self.tuoi} tuổi"
 
-### Books for Young Programmers
-- "Python for Kids" by Jason Briggs
-- "Teach Your Kids to Code" by Bryson Payne
-- "Hello World!" by Warren Sande
-- "Python Programming for the Absolute Beginner" by Michael Dawson
+# Tạo object
+nguoi = ConNguoi("Minh", 20)
+print(nguoi.gioi_thieu())
+```
 
-### Fun Project Ideas to Try Next 🎯
+#### 2. **File Handling & Data Processing** (2-3 tuần)
+```python
+# Đọc/ghi file
+with open("danh_sach.txt", "r", encoding="utf-8") as file:
+    noi_dung = file.read()
+    print(noi_dung)
 
-#### 🟢 **Easy Projects** (Start Here!)
-- **Mad Libs Generator**: Create funny stories with user input
-- **Password Generator**: Make secure passwords automatically
-- **Quiz Game**: Test friends on any topic
-- **Simple Calculator**: With more features than basic math
+# Xử lý CSV
+import csv
+with open("diem_thi.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(f"Học sinh: {row[0]}, Điểm: {row[1]}")
+```
 
-#### 🟡 **Medium Projects** (When You're Ready!)
-- **Text Adventure Game**: Create interactive stories
-- **Weather App**: Show weather information for any city
-- **To-Do List Manager**: Organize tasks and mark them complete
-- **Simple Drawing Program**: Let users create digital art
+#### 3. **Web Development & APIs** (1 tháng)
+```python
+# Flask - Tạo website đơn giản
+from flask import Flask
+app = Flask(__name__)
 
-#### 🔴 **Challenge Projects** (Future Goals!)
-- **Basic Chatbot**: Program that can have conversations
-- **Web Scraper**: Collect information from websites automatically
-- **Data Visualization**: Turn numbers into colorful charts
-- **Simple Machine Learning**: Teach computers to recognize patterns
+@app.route("/")
+def home():
+    return "<h1>Website Python của tôi!</h1>"
 
-## Staying Motivated 💪
+# Requests - Kết nối API
+import requests
+response = requests.get("https://api.github.com/users/python")
+data = response.json()
+print(f"Python có {data['public_repos']} repositories!")
+```
 
-### Remember Why You Started
-- Programming is creative and fun
-- You can build things that help people
-- Technology skills are valuable
-- You're part of a global community of creators
+## 🎯 Chọn Chuyên Ngành
 
-### When You Feel Stuck
-- **Take breaks**: Your brain needs rest to learn
-- **Start smaller**: Break big problems into tiny pieces
-- **Ask for help**: Even experts need help sometimes
-- **Celebrate small wins**: Every working line of code is an achievement
+### 🌐 **Web Development**
+```mermaid
+graph LR
+    A[🐍 Python Basics] --> B[🌶️ Django/Flask]
+    B --> C[🗄️ Databases]
+    C --> D[🎨 HTML/CSS/JS]
+    D --> E[🚀 Full-Stack Dev]
+    
+    style A fill:#98FB98
+    style E fill:#FFD700
+```
 
-### Keep the Fun Alive
-- **Build things you care about**: Games, tools, art - whatever excites you
-- **Share your creations**: Show friends and family what you've built
-- **Learn with others**: Find programming buddies or clubs
-- **Don't rush**: Learning programming is a journey, not a race
+**Frameworks phổ biến:**
+- **Django**: Framework mạnh mẽ, đầy đủ tính năng
+- **Flask**: Nhẹ, linh hoạt, dễ học
+- **FastAPI**: Hiện đại, nhanh, tự động tạo API docs
 
-## Final Words of Encouragement 🌟
+**Dự án gợi ý:**
+- 📝 Blog cá nhân với Django
+- 🛒 Website bán hàng nhỏ
+- 📊 Dashboard hiển thị dữ liệu
+- 🔐 Hệ thống đăng nhập/đăng ký
 
-You've learned Python - one of the most popular and powerful programming languages in the world! That's incredible!
+### 🤖 **Data Science & AI**
+```mermaid
+graph LR
+    A[🐍 Python Basics] --> B[📊 Pandas/NumPy]
+    B --> C[📈 Matplotlib/Seaborn]
+    C --> D[🤖 Scikit-learn]
+    D --> E[🧠 TensorFlow/PyTorch]
+    
+    style A fill:#98FB98
+    style E fill:#FFD700
+```
 
-### You Are Now:
-- ✅ A problem solver
-- ✅ A logical thinker  
-- ✅ A creator of digital solutions
-- ✅ Part of the global programming community
-- ✅ Ready for bigger challenges
+**Libraries quan trọng:**
+- **Pandas**: Xử lý dữ liệu dạng bảng
+- **NumPy**: Tính toán khoa học
+- **Matplotlib/Seaborn**: Vẽ biểu đồ đẹp
+- **Scikit-learn**: Machine Learning cơ bản
 
-### Remember:
-- Every expert programmer started exactly where you are now
-- The hardest part (getting started) is behind you
-- Your Python knowledge will help you learn any other programming language
-- You have the foundation to build amazing things
+**Dự án gợi ý:**
+- 📈 Phân tích dữ liệu bán hàng
+- 🏠 Dự đoán giá nhà
+- 📧 Phân loại email spam
+- 🎵 Hệ thống gợi ý nhạc
 
-**Keep coding, keep creating, keep learning!** 🚀
+### 🎮 **Game Development**
+```python
+import pygame
 
-:::tip 💡 Your Programming Superpower
-You now have the ability to make computers do exactly what you want them to do. That's like having a superpower! Use it to solve problems, create art, build games, help others, or just have fun. The only limit is your imagination! ✨
+# Tạo game đơn giản với Pygame
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Game Python của tôi!")
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    screen.fill((0, 0, 0))  # Màn hình đen
+    pygame.display.flip()
+
+pygame.quit()
+```
+
+**Dự án gợi ý:**
+- 🐍 Game rắn săn mồi (Snake)
+- 🎯 Game bắn súng 2D
+- 🧩 Game puzzle
+- 🏓 Game Pong
+
+### 🔧 **Automation & Scripting**
+```python
+# Tự động gửi email
+import smtplib
+from email.mime.text import MIMEText
+
+def gui_email_tu_dong(to_email, subject, message):
+    # Code gửi email tự động
+    pass
+
+# Tự động tải file từ web
+import requests
+import os
+
+def tai_file_tu_dong(url, ten_file):
+    response = requests.get(url)
+    with open(ten_file, 'wb') as file:
+        file.write(response.content)
+    print(f"Đã tải {ten_file}")
+```
+
+**Dự án gợi ý:**
+- 📧 Gửi email sinh nhật tự động
+- 📁 Tự động sắp xếp file trong máy tính
+- 📊 Tự động tạo báo cáo từ Excel
+- 🌐 Web scraping - thu thập dữ liệu web
+
+## 💼 Cơ Hội Nghề Nghiệp
+
+### 📊 **Mức Lương Python Developer Việt Nam (2024)**
+
+| Cấp Độ | Kinh Nghiệm | Mức Lương (VNĐ/tháng) | Kỹ Năng Cần Có |
+|---------|-------------|----------------------|-----------------|
+| **Intern** | 0-6 tháng | 3-8 triệu | Python cơ bản, Git |
+| **Junior** | 6 tháng - 2 năm | 8-18 triệu | Framework, Database |
+| **Mid-level** | 2-5 năm | 18-35 triệu | Architecture, Team work |
+| **Senior** | 5+ năm | 35-60+ triệu | Leadership, System design |
+
+### 🏢 **Các Vị Trí Phổ Biến**
+
+#### 1. **Backend Developer**
+- **Công việc**: Xây dựng server, API, database
+- **Kỹ năng**: Django/Flask, SQL, Redis, Docker
+- **Công ty**: VNG, Tiki, Shopee, FPT Software
+
+#### 2. **Data Analyst/Scientist**  
+- **Công việc**: Phân tích dữ liệu, báo cáo, machine learning
+- **Kỹ năng**: Pandas, SQL, Statistics, ML algorithms
+- **Công ty**: Viettel, VNPT, Banks, Startups
+
+#### 3. **DevOps Engineer**
+- **Công việc**: Tự động hóa deployment, monitoring
+- **Kỹ năng**: Docker, Kubernetes, CI/CD, Cloud
+- **Công ty**: Tech companies, Banks, Enterprises
+
+#### 4. **AI/ML Engineer**
+- **Công việc**: Xây dựng mô hình AI, deep learning
+- **Kỹ năng**: TensorFlow, PyTorch, Mathematics
+- **Công ty**: VinAI, FPT AI, Zalo AI, Research labs
+
+## 📚 Tài Nguyên Học Tập Tiếp Theo
+
+### 🌐 **Khóa Học Online**
+
+#### Tiếng Việt
+- **Học lập trình**: [hoclaptrinh.vn](https://hoclaptrinh.vn)
+- **CodeGym**: [codegym.vn](https://codegym.vn)
+- **Techmaster**: [techmaster.vn](https://techmaster.vn)
+- **F8**: [fullstack.edu.vn](https://fullstack.edu.vn)
+
+#### Tiếng Anh (Chất lượng cao)
+- **freeCodeCamp**: Miễn phí, đầy đủ
+- **Coursera**: Các khóa từ đại học top
+- **edX**: MIT, Harvard courses
+- **Udemy**: Practical, project-based
+
+### 📖 **Sách Hay**
+
+#### Tiếng Việt
+- "Lập trình Python căn bản" - Vũ Hữu Tiệp
+- "Python cho người mới bắt đầu" - Lê Minh Hoàng
+
+#### Tiếng Anh
+- "Automate the Boring Stuff with Python" - Al Sweigart
+- "Python Crash Course" - Eric Matthes
+- "Fluent Python" - Luciano Ramalho (Advanced)
+
+### 🎮 **Thực Hành Coding**
+
+#### Platforms
+- **HackerRank**: [hackerrank.com](https://hackerrank.com)
+- **LeetCode**: [leetcode.com](https://leetcode.com)
+- **Codewars**: [codewars.com](https://codewars.com)
+- **VNOI**: [oj.vnoi.info](https://oj.vnoi.info) (Tiếng Việt)
+
+#### Project Ideas
+```python
+# 🟢 Beginner Projects
+- Máy tính cá nhân
+- Trò chơi đoán số
+- To-do list app
+- Password generator
+
+# 🟡 Intermediate Projects  
+- Weather app với API
+- Web scraper
+- Chat bot
+- Personal finance tracker
+
+# 🔴 Advanced Projects
+- E-commerce website
+- Social media dashboard
+- Machine learning model
+- Real-time chat application
+```
+
+## 🎯 Kế Hoạch 6 Tháng Tiếp Theo
+
+### 📅 **Roadmap Chi Tiết**
+
+```mermaid
+gantt
+    title Lộ Trình Python 6 Tháng Tiếp Theo
+    dateFormat  YYYY-MM-DD
+    
+    section Tháng 1-2: Intermediate
+    Control Flow (If/Loops)     :if1, 2024-02-01, 3w
+    Data Structures             :ds1, after if1, 3w
+    Functions                   :func1, after ds1, 2w
+    
+    section Tháng 3-4: Advanced Basics
+    File Handling              :file1, 2024-04-01, 2w
+    Error Handling             :err1, after file1, 2w
+    Modules & Packages         :mod1, after err1, 2w
+    OOP Basics                 :oop1, after mod1, 2w
+    
+    section Tháng 5-6: Specialization
+    Choose Path                :path1, 2024-06-01, 1w
+    Deep Dive Framework        :frame1, after path1, 4w
+    Build Real Project         :proj1, after frame1, 3w
+```
+
+### 🎯 **Mục Tiêu Cụ Thể**
+
+#### **Tháng 1-2: Intermediate Python**
+- ✅ Viết được chương trình có logic phức tạp (if/else/loops)
+- ✅ Xử lý được lists, dictionaries thành thạo
+- ✅ Tạo và sử dụng functions hiệu quả
+- 🎯 **Milestone**: Hoàn thành 5 projects nhỏ
+
+#### **Tháng 3-4: Advanced Basics**
+- ✅ Đọc/ghi file, xử lý CSV/JSON
+- ✅ Handle errors gracefully
+- ✅ Hiểu modules và packages
+- ✅ OOP cơ bản (classes, objects)
+- 🎯 **Milestone**: Build 2 substantial projects
+
+#### **Tháng 5-6: Chuyên Sâu**
+- ✅ Chọn 1 chuyên ngành (Web/Data/AI/Game)
+- ✅ Học framework chính của chuyên ngành
+- ✅ Build 1 project lớn để showcase
+- 🎯 **Milestone**: Portfolio project hoàn chỉnh
+
+## 🌟 Lời Khuyên Cuối Cùng
+
+### 💪 **Mindset Quan Trọng**
+
+:::tip 🎯 Ghi Nhớ
+- **Consistency > Intensity**: 30 phút/ngày tốt hơn 5 tiếng/tuần
+- **Practice > Theory**: Code nhiều hơn đọc
+- **Build > Learn**: Tạo projects thực tế
+- **Share > Hoard**: Chia sẻ kiến thức giúp củng cố
 :::
+
+### 🤝 **Tham Gia Cộng Đồng**
+
+```mermaid
+graph TD
+    A[🧑‍💻 Bạn] --> B[👥 Cộng Đồng Python VN]
+    A --> C[📚 Online Communities]
+    A --> D[🏢 Local Meetups]
+    A --> E[🎓 Coding Bootcamps]
+    
+    B --> F[🤝 Network]
+    C --> F
+    D --> F  
+    E --> F
+    
+    F --> G[💼 Job Opportunities]
+    F --> H[📈 Skill Growth]
+    F --> I[🚀 Career Advancement]
+    
+    style A fill:#98FB98
+    style F fill:#FFD700
+    style G fill:#87CEEB
+    style H fill:#87CEEB
+    style I fill:#87CEEB
+```
+
+### 🎉 **Ăn Mừng Thành Tựu**
+
+Hãy dành thời gian để:
+- 🎊 **Tự hào** về những gì đã học được
+- 📸 **Chia sẻ** projects trên social media
+- 🎯 **Đặt mục tiêu** cho giai đoạn tiếp theo
+- 🤝 **Giúp đỡ** người mới bắt đầu học Python
+
+## 🚀 Sẵn Sàng Cho Hành Trình Tiếp Theo!
+
+:::success 🌟 Bạn Đã Sẵn Sàng!
+Với nền tảng Python cơ bản vững chắc, bạn giờ có thể:
+- 🎯 **Chọn chuyên ngành** phù hợp với sở thích
+- 💻 **Build projects** thực tế và ý nghĩa
+- 🤝 **Tham gia cộng đồng** developer
+- 💼 **Hướng tới career** trong công nghệ
+- 🌟 **Tạo impact** với code của mình
+:::
+
+**Con rắn Python của bạn giờ đã trưởng thành!** 🐍✨
+
+Nó không còn chỉ là một con rắn pet đơn giản, mà đã trở thành một **companion thông minh** có thể giúp bạn:
+- 🏗️ **Xây dựng** websites và applications
+- 📊 **Phân tích** dữ liệu và tạo insights
+- 🤖 **Tạo ra** AI và automation tools
+- 🎮 **Phát triển** games và entertainment
+- 💼 **Mở ra** cơ hội nghề nghiệp tuyệt vời
+
+**Hành trình Python của bạn mới chỉ bắt đầu - và tương lai thật sáng lạn! 🌟🚀**
 
 ---
 
-**Want to explore other programming languages?**  
-Check out our other AI-generated tutorials: [Java (LEGO Style)](/java/intro) | [C++ (Power Tools)](/cpp/intro) | [Rust (Safety Gear)](/rust/intro)
-
-**Keep practicing Python?**  
-Go back to the [Python tutorial beginning](/python/intro) and try building the projects with your own creative twists! 🐍
+*🎓 **Tốt nghiệp**: Chúc mừng bạn đã hoàn thành Python Basics! Bây giờ hãy chọn con đường riêng và tiếp tục khám phá thế giới Python vô tận!*

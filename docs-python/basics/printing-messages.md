@@ -1,316 +1,390 @@
-# 🗣️ In thông điệp - Làm Python nói chuyện
+---
+sidebar_position: 5
+title: "📢 In Tin Nhắn - Dạy Python Nói Chuyện"
+description: "Học cách sử dụng hàm print() nâng cao với f-strings, formatting và các tính năng mới nhất của Python 3.12. Dạy Python nói chuyện thành thạo!"
+keywords: ["python", "print", "f-strings", "formatting", "output", "messages"]
+---
 
-## 🎯 Bạn sẽ học được gì?
+# 📢 In Tin Nhắn - Dạy Python Nói Chuyện
 
-Trong bài học này, bạn sẽ khám phá tất cả những cách thú vị để làm cho con rắn Python của bạn "nói chuyện"! Giống như việc dạy một người bạn cách kể chuyện hay hơn, chúng ta sẽ học cách làm cho Python trở thành một nhà kể chuyện xuất sắc.
-
-:::tip 💡 Kiến thức cần có
-Bạn nên đã hoàn thành bài [Chương trình Python đầu tiên](./first-program.md) trước khi học bài này.
+:::tip 🗣️ Ví Dụ Dễ Hiểu
+Giống như dạy con rắn pet nói chuyện, chúng ta sẽ dạy Python "nói" những câu phức tạp, đẹp mắt và thông minh hơn. Từ câu đơn giản đến những thông điệp sinh động với màu sắc và định dạng!
 :::
 
-## 🤔 Tại sao cần học về in thông điệp?
+## 🎯 Tại Sao Cần Học Print() Nâng Cao?
 
-Hãy tưởng tượng bạn có một người bạn không thể nhìn thấy (như con rắn Python), và cách duy nhất để giao tiếp với bạn ấy là qua lời nói. Bạn cần biết cách:
+Trong bài trước, bạn đã học `print("Hello World!")` cơ bản. Giờ chúng ta sẽ nâng cấp con rắn Python để nó có thể:
 
-- 📢 Nói to, nói nhỏ
-- 🎨 Trang trí lời nói cho đẹp
-- 📝 Kể nhiều câu chuyện
-- 🔢 Nói về số và chữ
+- 🎨 **Nói đẹp hơn** với formatting
+- 🔢 **Kết hợp text và số** một cách thông minh
+- 🌈 **Tạo output nhiều màu sắc** và sinh động
+- 📊 **Hiển thị dữ liệu** có cấu trúc
 
-## 🐍 Ôn tập: Lệnh print() cơ bản
+```mermaid
+graph LR
+    A[🐍 Python Cơ Bản] --> B[📢 Print Nâng Cao]
+    B --> C[🎨 Formatting]
+    B --> D[🔢 Numbers + Text]
+    B --> E[🌈 Colorful Output]
+    B --> F[📊 Structured Data]
+    
+    style A fill:#98FB98
+    style B fill:#FFD700
+    style C fill:#87CEEB
+    style D fill:#87CEEB
+    style E fill:#87CEEB
+    style F fill:#87CEEB
+```
 
-Bạn đã biết cách này rồi:
+## 🔤 Các Cách Print Khác Nhau
 
+### 1. **Print Cơ Bản** (Đã Biết)
 ```python
 print("Xin chào!")
+print("Tôi là Python!")
 ```
 
-Nhưng `print()` có thể làm được nhiều điều thú vị hơn thế!
-
-## 🎨 Các cách in thông điệp đẹp mắt
-
-### 1. In nhiều thứ cùng lúc
-
+### 2. **Print Nhiều Thứ Cùng Lúc**
 ```python
-print("Tôi tên là", "Minh", "và tôi", 12, "tuổi")
+# Cách cũ - dài dòng
+ten = "Minh"
+tuoi = 15
+print("Tên:", ten, "Tuổi:", tuoi)
+
+# Kết quả: Tên: Minh Tuổi: 15
 ```
 
-**Kết quả:**
-```
-Tôi tên là Minh và tôi 12 tuổi
+### 3. **F-Strings** - Cách Hiện Đại Nhất (Python 3.6+)
+```python
+ten = "Minh"
+tuoi = 15
+print(f"Tên: {ten}, Tuổi: {tuoi}")
+
+# Kết quả: Tên: Minh, Tuổi: 15
 ```
 
-:::info 🔍 Giải thích
-Python tự động thêm dấu cách giữa các phần khi bạn dùng dấu phẩy (`,`)
+:::info 💡 Tại Sao F-Strings Tốt Nhất?
+F-strings (formatted string literals) là cách **nhanh nhất, dễ đọc nhất** và được khuyến nghị trong Python hiện đại. Chúng được cải tiến liên tục và có nhiều tính năng mạnh mẽ!
 :::
 
-### 2. In không xuống dòng
+## 🎨 F-Strings - Nghệ Thuật Formatting
+
+### 🔢 **Kết Hợp Text và Numbers**
 
 ```python
-print("Đang tải", end="")
-print(".", end="")
-print(".", end="")
-print(".", end="")
-print(" Xong!")
+# Thông tin cá nhân
+ho_ten = "Nguyễn Văn Minh"
+tuoi = 16
+diem_toan = 8.5
+diem_van = 9.0
+
+print(f"👋 Xin chào! Tôi là {ho_ten}")
+print(f"🎂 Tôi {tuoi} tuổi")
+print(f"📊 Điểm Toán: {diem_toan}, Điểm Văn: {diem_van}")
+
+# Tính toán trong f-string
+print(f"📈 Điểm trung bình: {(diem_toan + diem_van) / 2}")
 ```
 
 **Kết quả:**
 ```
-Đang tải... Xong!
+👋 Xin chào! Tôi là Nguyễn Văn Minh
+🎂 Tôi 16 tuổi
+📊 Điểm Toán: 8.5, Điểm Văn: 9.0
+📈 Điểm trung bình: 8.75
 ```
 
-### 3. Thay đổi ký tự ngăn cách
+### 🎯 **Formatting Numbers - Định Dạng Số**
 
 ```python
-print("Táo", "Chuối", "Cam", "Xoài", sep=" - ")
+# Số thập phân
+gia_tien = 125000.789
+print(f"💰 Giá: {gia_tien:.2f} VNĐ")  # 2 chữ số thập phân
+print(f"💰 Giá: {gia_tien:,.0f} VNĐ")  # Thêm dấu phẩy, không thập phân
+
+# Phần trăm
+ti_le_dung = 0.85
+print(f"✅ Tỷ lệ đúng: {ti_le_dung:.1%}")  # Chuyển thành %
+
+# Số nguyên với độ rộng cố định
+so_thu_tu = 7
+print(f"📋 Thứ tự: {so_thu_tu:03d}")  # Thêm số 0 phía trước
 ```
 
 **Kết quả:**
 ```
-Táo - Chuối - Cam - Xoài
+💰 Giá: 125000.79 VNĐ
+💰 Giá: 125,001 VNĐ
+✅ Tỷ lệ đúng: 85.0%
+📋 Thứ tự: 007
 ```
 
-### 4. In với ký tự đặc biệt
+### 📅 **Date và Time Formatting**
 
 ```python
-print("Dòng 1\nDòng 2\nDòng 3")  # \n = xuống dòng
-print("Tab\tTab\tTab")             # \t = tab
-print("Tiếng kêu: \"Xin chào!\"") # \" = dấu ngoặc kép
+from datetime import datetime, date
+
+# Thời gian hiện tại
+now = datetime.now()
+today = date.today()
+
+# Các cách format khác nhau
+print(f"📅 Hôm nay: {today}")
+print(f"⏰ Bây giờ: {now}")
+print(f"📅 Ngày đẹp: {today:%d/%m/%Y}")
+print(f"⏰ Giờ: {now:%H:%M:%S}")
+print(f"🌅 Thời điểm: {now:%d tháng %m năm %Y, %H:%M}")
+
+# Ngày trong tuần (tiếng Việt)
+thu_trong_tuan = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"]
+thu = thu_trong_tuan[today.weekday()]
+print(f"📆 Hôm nay là {thu}")
 ```
 
 **Kết quả:**
 ```
-Dòng 1
-Dòng 2  
-Dòng 3
-Tab	Tab	Tab
-Tiếng kêu: "Xin chào!"
+📅 Hôm nay: 2024-09-26
+⏰ Bây giờ: 2024-09-26 14:30:25.123456
+📅 Ngày đẹp: 26/09/2024
+⏰ Giờ: 14:30:25
+🌅 Thời điểm: 26 tháng 09 năm 2024, 14:30
+📆 Hôm nay là Thứ Năm
 ```
 
-## 🌈 Tạo nghệ thuật bằng chữ (ASCII Art)
+## 🎭 Các Cách Print Khác
 
-### Vẽ hình đơn giản
+### 🔧 **Tùy Chỉnh print() Function**
 
 ```python
-print("  /\\_/\\  ")
-print(" ( o.o ) ")
-print("  > ^ <  ")
-print("Mèo con đáng yêu!")
+# Thay đổi ký tự kết thúc (mặc định là \n)
+print("Hello", end=" ")
+print("World!")  # In trên cùng dòng
+# Kết quả: Hello World!
+
+# Thay đổi ký tự phân cách
+print("Táo", "Cam", "Chuối", sep=" - ")
+# Kết quả: Táo - Cam - Chuối
+
+# Kết hợp cả hai
+print("Python", "rất", "thú vị", sep=" ", end="!\n")
+# Kết quả: Python rất thú vị!
+```
+
+### 🌈 **In Màu Sắc** (Advanced)
+
+```python
+# Sử dụng ANSI escape codes để tạo màu
+class Colors:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    WHITE = '\033[97m'
+    END = '\033[0m'  # Kết thúc màu
+
+# Sử dụng màu trong print
+print(f"{Colors.RED}🔴 Cảnh báo: Lỗi quan trọng!{Colors.END}")
+print(f"{Colors.GREEN}✅ Thành công: Chương trình chạy tốt!{Colors.END}")
+print(f"{Colors.BLUE}ℹ️ Thông tin: Python đang hoạt động{Colors.END}")
+print(f"{Colors.YELLOW}⚠️ Chú ý: Kiểm tra lại code{Colors.END}")
+
+# Kết hợp màu với f-strings
+ten = "Python"
+print(f"{Colors.PURPLE}🐍 Xin chào từ {ten}!{Colors.END}")
+```
+
+:::info 💡 Lưu Ý Về Màu Sắc
+Màu sắc hoạt động tốt trên **Terminal/Command Prompt** nhưng có thể không hiển thị trong một số IDE. Để sử dụng màu ổn định hơn, bạn có thể cài package `colorama`:
+```bash
+pip install colorama
+```
+:::
+
+### 📊 **In Bảng Đẹp**
+
+```python
+# Tạo bảng thông tin học sinh
+print("=" * 50)
+print(f"{'STT':<5} {'Tên':<15} {'Tuổi':<5} {'Điểm TB':<8}")
+print("=" * 50)
+
+danh_sach = [
+    (1, "Nguyễn Văn A", 16, 8.5),
+    (2, "Trần Thị B", 15, 9.2),
+    (3, "Lê Minh C", 16, 7.8)
+]
+
+for stt, ten, tuoi, diem in danh_sach:
+    print(f"{stt:<5} {ten:<15} {tuoi:<5} {diem:<8.1f}")
+
+print("=" * 50)
 ```
 
 **Kết quả:**
 ```
-  /\_/\  
- ( o.o ) 
-  > ^ <  
-Mèo con đáng yêu!
+==================================================
+STT   Tên             Tuổi  Điểm TB 
+==================================================
+1     Nguyễn Văn A    16    8.5     
+2     Trần Thị B      15    9.2     
+3     Lê Minh C       16    7.8     
+==================================================
 ```
 
-### Tạo khung trang trí
+## 🎮 Thực Hành: Print Challenges
+
+### Challenge 1: Thông Tin Cá Nhân Đẹp
+```python
+# TODO: Tạo chương trình in thông tin cá nhân đẹp mắt
+ten = input("Tên của bạn: ")
+tuoi = int(input("Tuổi: "))
+so_thich = input("Sở thích: ")
+
+# Viết code in thông tin đẹp với f-strings và formatting
+# Gợi ý: Sử dụng emoji, khung, và định dạng số
+```
+
+<details>
+<summary>💡 Xem gợi ý</summary>
 
 ```python
-print("+" + "-" * 30 + "+")
-print("|" + " " * 8 + "CHÀO MỪNG" + " " * 11 + "|")
-print("|" + " " * 6 + "ĐẾN VỚI PYTHON!" + " " * 7 + "|") 
-print("+" + "-" * 30 + "+")
+ten = input("Tên của bạn: ")
+tuoi = int(input("Tuổi: "))
+so_thich = input("Sở thích: ")
+
+print("\n" + "🌟" * 40)
+print(f"{'🎭 THÔNG TIN CÁ NHÂN':^40}")
+print("🌟" * 40)
+print(f"👤 Tên: {ten}")
+print(f"🎂 Tuổi: {tuoi} tuổi")
+print(f"❤️ Sở thích: {so_thich}")
+print(f"📅 Năm sinh: {2024 - tuoi}")
+print("🌟" * 40)
+print("✨ Chúc bạn học Python vui vẻ! ✨")
+```
+</details>
+
+### Challenge 2: Máy Tính Tiền Tip
+```python
+# TODO: Tạo máy tính tip cho nhà hàng
+tien_an = float(input("Số tiền hóa đơn (VNĐ): "))
+ti_le_tip = float(input("Tỷ lệ tip (%, vd: 10): ")) / 100
+
+# Tính toán và in kết quả đẹp
+# Gợi ý: Format số tiền với dấu phẩy, làm tròn 2 chữ số thập phân
 ```
 
-**Kết quả:**
-```
-+------------------------------+
-|        CHÀO MỪNG           |
-|      ĐẾN VỚI PYTHON!       |
-+------------------------------+
+### Challenge 3: Thời Gian Countdown
+```python
+import time
+
+# TODO: Tạo countdown timer đẹp
+giay = int(input("Đếm ngược bao nhiêu giây: "))
+
+# Tạo countdown với format đẹp và cập nhật realtime
+# Gợi ý: Sử dụng \r để ghi đè dòng hiện tại
 ```
 
-## 🎭 Tạo hiệu ứng đặc biệt
+## 🔧 Xử Lý Lỗi Print Thường Gặp
 
-### 1. Thanh tiến trình giả lập
+### ❌ **Lỗi: SyntaxError với F-strings**
 
 ```python
-print("Đang cài đặt Python...")
-print("[████████████████████] 100%")
-print("Hoàn thành! 🎉")
+# ❌ Sai - Không thể có dấu ngoặc kép cùng loại
+name = "Python"
+print(f"Tôi thích "Python"")  # Lỗi!
+
+# ✅ Đúng - Dùng dấu ngoặc khác nhau
+print(f"Tôi thích '{name}'")
+print(f'Tôi thích "{name}"')
 ```
 
-### 2. Menu lựa chọn
+### ❌ **Lỗi: TypeError với Formatting**
 
 ```python
-print("🍔 MENU NHÀ HÀNG PYTHON 🍔")
-print("=" * 25)
-print("1. 🍕 Pizza Python      - 50k")
-print("2. 🍔 Burger Biến số    - 45k") 
-print("3. 🍜 Phở Function      - 40k")
-print("4. 🥤 Nước Loop         - 15k")
-print("=" * 25)
-print("Mời bạn chọn món!")
+# ❌ Sai - Format string với số
+age = "20"  # String, không phải số
+print(f"Tuổi: {age:.2f}")  # Lỗi! Không thể format string như số
+
+# ✅ Đúng - Convert trước khi format
+age = int("20")
+print(f"Tuổi: {age:.0f}")
 ```
 
-### 3. Thông báo hệ thống
+### ❌ **Lỗi: UnicodeEncodeError**
 
 ```python
-print("⚠️  THÔNG BÁO QUAN TRỌNG ⚠️")
-print("🔄 Hệ thống đang cập nhật...")
-print("⏰ Thời gian ước tính: 5 phút")
-print("✅ Cảm ơn bạn đã kiên nhẫn!")
+# Nếu gặp lỗi với tiếng Việt trên Windows
+import sys
+print(sys.stdout.encoding)  # Kiểm tra encoding
+
+# Giải pháp: Set encoding khi cần
+print("Xin chào! 🐍", encoding='utf-8')  # Chỉ khi cần thiết
 ```
 
-## 🔢 In số và tính toán
+## 💡 Mẹo Pro Cho Print
 
-### In kết quả tính toán
-
+### 🚀 **Debug Print**
 ```python
-print("5 + 3 =", 5 + 3)
-print("10 - 4 =", 10 - 4)
-print("6 × 7 =", 6 * 7)
-print("20 ÷ 4 =", 20 / 4)
+def debug_print(variable_name, value):
+    print(f"🐛 DEBUG: {variable_name} = {value} (type: {type(value).__name__})")
+
+# Sử dụng
+x = 42
+debug_print("x", x)
+# Output: 🐛 DEBUG: x = 42 (type: int)
 ```
 
-**Kết quả:**
-```
-5 + 3 = 8
-10 - 4 = 6
-6 × 7 = 42
-20 ÷ 4 = 5.0
-```
-
-### Tạo bảng cửu chương
-
+### 📝 **Logging Style Print**
 ```python
-print("🔢 BẢNG CỬU CHƯƠNG SỐ 2 🔢")
-print("2 × 1 =", 2 * 1)
-print("2 × 2 =", 2 * 2) 
-print("2 × 3 =", 2 * 3)
-print("2 × 4 =", 2 * 4)
-print("2 × 5 =", 2 * 5)
+from datetime import datetime
+
+def log_print(level, message):
+    now = datetime.now()
+    colors = {
+        "INFO": "\033[94m",    # Blue
+        "WARNING": "\033[93m", # Yellow
+        "ERROR": "\033[91m",   # Red
+        "SUCCESS": "\033[92m"  # Green
+    }
+    
+    color = colors.get(level, "")
+    reset = "\033[0m"
+    
+    print(f"{color}[{now:%H:%M:%S}] {level}: {message}{reset}")
+
+# Sử dụng
+log_print("INFO", "Chương trình bắt đầu")
+log_print("SUCCESS", "Kết nối database thành công")
+log_print("WARNING", "Bộ nhớ sắp đầy")
+log_print("ERROR", "Không thể đọc file")
 ```
 
-## 🎪 Dự án vui: Tạo poster quảng cáo
+## 🎊 Tóm Tắt
 
-Hãy tạo một poster quảng cáo cho lớp học Python:
+:::success 🌟 Những Gì Bạn Đã Học
+- 🎨 **F-strings** - Cách hiện đại nhất để format strings
+- 🔢 **Number formatting** - Làm tròn, thêm dấu phẩy, phần trăm
+- 📅 **Date/time formatting** - Hiển thị thời gian đẹp mắt
+- 🛠️ **Print customization** - sep, end parameters
+- 🌈 **Colorful output** - Tạo output có màu sắc
+- 📊 **Structured output** - In bảng và dữ liệu có tổ chức
+:::
 
-```python
-print("🌟" + "=" * 40 + "🌟")
-print("|" + " " * 16 + "LỚP HỌC PYTHON" + " " * 10 + "|")
-print("|" + " " * 12 + "Dành cho trẻ em 8-16 tuổi" + " " * 5 + "|")
-print("🌟" + "=" * 40 + "🌟")
-print()
-print("📚 BẠN SẼ HỌC:")
-print("   🐍 Lập trình với con rắn thông minh")
-print("   🎮 Tạo game đơn giản")
-print("   🤖 Xây dựng chatbot")
-print("   🎨 Vẽ tranh bằng code")
-print()
-print("📞 LIÊN HỆ: 0123-456-789")
-print("🌐 WEBSITE: python-cho-tre-em.vn")
-print("📍 ĐỊA CHỈ: 123 Đường Python, Hà Nội")
-print()
-print("🎁 ĐĂNG KÝ NGAY HÔM NAY - GIẢM 50%! 🎁")
-```
+### 🚀 **Bước Tiếp Theo:**
 
-## 🎯 Thử thách thực hành
+Bây giờ Python đã biết "nói chuyện" thành thạo, hãy dạy nó "lắng nghe":
 
-### Thử thách 1: Thiết kế danh thiếp
-Tạo danh thiếp điện tử cho bản thân:
+1. 👂 **[Nhận thông tin](/python/basics/getting-input)** - Dạy Python lắng nghe người dùng
+2. 💭 **[Ghi chú trong code](/python/basics/comments)** - Ghi nhớ và giải thích code
+3. 📦 **Biến số** - Dạy Python nhớ thông tin (sắp ra mắt!)
 
-```python
-# Ví dụ mẫu - hãy thay thông tin của bạn
-print("╔" + "═" * 30 + "╗")
-print("║" + " " * 8 + "NGUYỄN VĂN A" + " " * 9 + "║")
-print("║" + " " * 6 + "Học sinh lớp 7A" + " " * 7 + "║")
-print("╠" + "═" * 30 + "╣")
-print("║ 📧 Email: a@gmail.com        ║")
-print("║ 📱 SĐT: 0123456789           ║") 
-print("║ 🎂 Tuổi: 13                  ║")
-print("║ 💡 Sở thích: Lập trình       ║")
-print("╚" + "═" * 30 + "╝")
-```
-
-### Thử thách 2: Tạo lịch tháng
-Vẽ một tháng trong lịch:
-
-```python
-print("📅 THÁNG 9 NĂM 2025")
-print("T2  T3  T4  T5  T6  T7  CN")
-print("-" * 28)
-print(" 1   2   3   4   5   6   7")
-print(" 8   9  10  11  12  13  14")
-print("15  16  17  18  19  20  21")
-print("22  23  24  25  26  27  28")
-print("29  30")
-```
-
-### Thử thách 3: Tạo biểu đồ cột đơn giản
-Hiển thị điểm số bằng ký tự:
-
-```python
-print("📊 BẢNG ĐIỂM CỦA BẠN")
-print("Toán:    " + "█" * 9 + " (9 điểm)")
-print("Văn:     " + "█" * 8 + " (8 điểm)")
-print("Anh:     " + "█" * 7 + " (7 điểm)")
-print("Lý:      " + "█" * 10 + " (10 điểm)")
-print("Hóa:     " + "█" * 6 + " (6 điểm)")
-```
-
-## ❗ Lỗi thường gặp và cách khắc phục
-
-### Lỗi 1: Quên đóng dấu ngoặc kép
-❌ **Sai:**
-```python
-print("Xin chào
-```
-
-✅ **Đúng:**
-```python
-print("Xin chào")
-```
-
-### Lỗi 2: Dùng sai dấu ngoặc kép
-❌ **Sai:**
-```python
-print("Tôi nói: "Xin chào"")
-```
-
-✅ **Đúng:**
-```python
-print("Tôi nói: \"Xin chào\"")
-# hoặc
-print('Tôi nói: "Xin chào"')
-```
-
-### Lỗi 3: Quên dấu phẩy khi in nhiều thứ
-❌ **Sai:**
-```python
-print("Tên:" "Minh" "Tuổi:" 12)
-```
-
-✅ **Đúng:**
-```python
-print("Tên:", "Minh", "Tuổi:", 12)
-```
-
-## 🎊 Tóm tắt bài học
-
-🎉 Tuyệt vời! Bạn đã học được rất nhiều cách để làm Python "nói chuyện"!
-
-### Bạn đã thành thạo:
-- ✅ In nhiều thứ cùng lúc với dấu phẩy
-- ✅ Điều khiển xuống dòng với `end=""`
-- ✅ Thay đổi ký tự ngăn cách với `sep=""`
-- ✅ Sử dụng ký tự đặc biệt như `\n`, `\t`
-- ✅ Tạo nghệ thuật ASCII đơn giản
-- ✅ In số và kết quả tính toán
-
-### Bước tiếp theo:
-Trong bài học tiếp theo, chúng ta sẽ học cách làm cho chương trình **lắng nghe** bạn bằng cách nhận thông tin từ bàn phím!
+:::tip 💡 Lời Khuyên
+**Thực hành là chìa khóa!** Hãy thử tạo những thông điệp đẹp mắt, thử nghiệm với màu sắc và formatting. Mỗi lần print, hãy nghĩ: "Làm sao để output này đẹp và dễ đọc hơn?"
+:::
 
 ---
 
-:::tip 🤝 Cần trợ giúp?
-- 👨‍👩‍👧‍👦 Hỏi bố mẹ hoặc anh chị về ý tưởng thiết kế
-- 📚 Thử lại các ví dụ để hiểu rõ hơn
-- 🎨 Sáng tạo thêm những mẫu ASCII art của riêng bạn
-- 🔍 Tìm kiếm "Python ASCII art" để có thêm ý tưởng
-:::
-
-**Chúc bạn có những giờ phút vui vẻ với việc tạo ra những thông điệp đẹp mắt! 🐍🎨**
+*📢 **Ghi nhớ**: Print không chỉ là hiển thị text - nó là cách Python giao tiếp với thế giới bên ngoài. Hãy làm cho cuộc trò chuyện đó thú vị và ý nghĩa!*

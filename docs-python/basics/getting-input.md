@@ -1,351 +1,520 @@
-# 👂 Nhận thông tin từ người dùng - Lắng nghe và phản hồi
+---
+sidebar_position: 6
+title: "👂 Nhận Thông Tin - Dạy Python Lắng Nghe"
+description: "Học cách sử dụng hàm input() để tương tác với người dùng, validation dữ liệu và xử lý lỗi. Dạy Python lắng nghe và phản hồi thông minh!"
+keywords: ["python", "input", "user input", "validation", "interactive", "tương tác"]
+---
 
-## 🎯 Bạn sẽ học được gì?
+# 👂 Nhận Thông Tin - Dạy Python Lắng Nghe
 
-Trong bài học này, bạn sẽ học cách làm cho con rắn Python không chỉ biết "nói" mà còn biết "lắng nghe"! Giống như khi bạn trò chuyện với bạn bè, chương trình sẽ có thể hỏi bạn câu hỏi và đợi bạn trả lời.
-
-:::tip 💡 Kiến thức cần có
-Bạn nên đã hoàn thành:
-- [Chương trình Python đầu tiên](./first-program.md)
-- [In thông điệp](./printing-messages.md)
+:::tip 🎧 Ví Dụ Dễ Hiểu
+Giống như dạy con rắn pet không chỉ biết "nói" mà còn biết "lắng nghe" và phản hồi với những gì bạn nói. Python sẽ học cách đợi, nghe, hiểu và trả lời người dùng một cách thông minh!
 :::
 
-## 🤔 Tại sao cần học về nhận thông tin?
+## 🤔 Tại Sao Python Cần Biết Lắng Nghe?
 
-Hãy tưởng tượng bạn có một người bạn chỉ biết nói một câu duy nhất "Xin chào!" mãi mãi. Sẽ rất nhàm chán phải không? 
+Cho đến giờ, Python chỉ biết "nói" (print). Giờ chúng ta sẽ dạy nó:
 
-Nhưng nếu người bạn đó có thể:
-- 🗣️ Hỏi tên bạn và gọi đúng tên
-- 🎂 Hỏi tuổi và chúc mừng sinh nhật
-- 🎮 Hỏi trò chơi yêu thích và trò chuyện về nó
-- 🍕 Hỏi món ăn và gợi ý nhà hàng
+- 👂 **Lắng nghe** người dùng gõ thông tin
+- 🤝 **Tương tác** hai chiều với con người
+- 🎯 **Phản hồi** dựa trên input nhận được
+- 🔄 **Tạo chương trình động** thay vì chỉ hiển thị text cố định
 
-Thì sẽ thú vị hơn rất nhiều!
+```mermaid
+graph LR
+    A["🧑 Người Dùng"] -->|"Gõ thông tin"| B["👂 input()"]
+    B --> C["🐍 Python Xử Lý"]
+    C -->|"Phản hồi"| D["📢 print()"]
+    D --> A
+    
+    style A fill:#FFE4B5
+    style B fill:#98FB98
+    style C fill:#87CEEB
+    style D fill:#FFD700
+```
 
-## 🐍 Lệnh input() - Tai của con rắn
+## 🎯 Hàm input() Cơ Bản
 
-### Cách sử dụng cơ bản
+### 📝 **Cú Pháp Đơn Giản**
 
 ```python
-input("Bạn tên gì? ")
+# Cách cơ bản nhất
+ten = input("Tên bạn là gì? ")
+print(f"Xin chào {ten}!")
 ```
 
-Khi chạy, chương trình sẽ:
-1. 📢 Hiển thị câu hỏi "Bạn tên gì? "
-2. ⏸️ Dừng lại và đợi bạn gõ
-3. ⌨️ Nhận những gì bạn gõ
-4. ⏎ Đợi bạn nhấn Enter
+**Kết quả:**
+```
+Tên bạn là gì? Minh
+Xin chào Minh!
+```
 
-### Lưu thông tin vào biến
+### 🔍 **input() Hoạt Động Như Thế Nào?**
 
 ```python
-ten = input("Bạn tên gì? ")
-print("Xin chào", ten, "!")
+# Bước 1: Python hiển thị câu hỏi
+# Bước 2: Python dừng lại và đợi
+# Bước 3: Người dùng gõ và nhấn Enter
+# Bước 4: Python lưu thông tin vào biến
+# Bước 5: Tiếp tục chạy chương trình
+
+ten = input("Nhập tên: ")  # Python đợi ở đây
+print(f"Tên đã nhận: {ten}")  # Chạy sau khi có input
 ```
 
-**Chạy chương trình:**
-```
-Bạn tên gì? Minh
-Xin chào Minh !
-```
-
-:::info 🔍 Giải thích
-- `ten` là một "hộp" (biến) để lưu tên người dùng nhập
-- `input()` lấy thông tin từ bàn phím và bỏ vào hộp `ten`
-- `print()` lấy thông tin từ hộp `ten` ra để hiển thị
+:::info 💡 Điều Quan Trọng
+**input() luôn trả về STRING** (chuỗi text), dù người dùng nhập số hay chữ. Nếu cần số, phải convert!
 :::
 
-## 🎪 Chương trình tương tác đầu tiên
+## 🔢 Nhận Các Loại Dữ Liệu Khác Nhau
 
-### Trò chuyện đơn giản
-
-```python
-print("🐍 Xin chào! Tôi là Python, con rắn thông minh!")
-ten = input("Bạn tên gì? ")
-print("Rất vui được gặp bạn,", ten, "!")
-
-tuoi = input("Bạn bao nhiêu tuổi? ")
-print("Wow!", tuoi, "tuổi! Bạn thật tuyệt vời!")
-
-mau_yeu_thich = input("Màu yêu thích của bạn là gì? ")
-print("Tôi cũng thích màu", mau_yeu_thich, "! Chúng ta hợp nhau quá!")
-```
-
-**Ví dụ chạy:**
-```
-🐍 Xin chào! Tôi là Python, con rắn thông minh!
-Bạn tên gì? Lan
-Rất vui được gặp bạn, Lan !
-Bạn bao nhiêu tuổi? 12
-Wow! 12 tuổi! Bạn thật tuyệt vời!
-Màu yêu thích của bạn là gì? xanh lá
-Tôi cũng thích màu xanh lá ! Chúng ta hợp nhau quả!
-```
-
-## 🔢 Làm việc với số
-
-### Vấn đề: input() luôn cho ra chữ
+### 📝 **Nhận Text (String)**
 
 ```python
-tuoi = input("Bạn bao nhiêu tuổi? ")
-tuoi_sau_10_nam = tuoi + 10  # ❌ Lỗi!
-```
-
-:::warning ⚠️ Lỗi thường gặp
-`input()` luôn trả về **chữ** (string), không phải số! Bạn cần chuyển đổi.
-:::
-
-### Giải pháp: Chuyển đổi sang số
-
-```python
-tuoi = input("Bạn bao nhiêu tuổi? ")
-tuoi = int(tuoi)  # Chuyển từ chữ sang số nguyên
-tuoi_sau_10_nam = tuoi + 10
-print("Sau 10 năm nữa bạn sẽ", tuoi_sau_10_nam, "tuổi!")
-```
-
-### Cách viết ngắn gọn
-
-```python
-tuoi = int(input("Bạn bao nhiêu tuổi? "))
-tuoi_sau_10_nam = tuoi + 10
-print("Sau 10 năm nữa bạn sẽ", tuoi_sau_10_nam, "tuổi!")
-```
-
-## 🧮 Máy tính đơn giản
-
-```python
-print("🧮 MÁY TÍNH PYTHON 🧮")
-print("Hãy nhập hai số để tôi cộng cho bạn!")
-
-so_thu_nhat = int(input("Số thứ nhất: "))
-so_thu_hai = int(input("Số thứ hai: "))
-
-ket_qua = so_thu_nhat + so_thu_hai
-
-print("Kết quả:", so_thu_nhat, "+", so_thu_hai, "=", ket_qua)
-```
-
-**Ví dụ chạy:**
-```
-🧮 MÁY TÍNH PYTHON 🧮
-Hãy nhập hai số để tôi cộng cho bạn!
-Số thứ nhất: 25
-Số thứ hai: 17
-Kết quả: 25 + 17 = 42
-```
-
-## 🎨 Tạo chương trình cá nhân hóa
-
-### Tạo lời chào theo thời gian
-
-```python
-print("🌅 CHÀO BUỔI SÁNG! 🌅")
-ten = input("Bạn tên gì? ")
-mon_an = input("Bạn muốn ăn gì cho bữa sáng? ")
-
-print("Chào buổi sáng,", ten, "!")
-print("Hy vọng bạn có một bữa", mon_an, "thật ngon miệng!")
-print("Chúc bạn một ngày tốt lành! 🌞")
-```
-
-### Tạo thẻ thông tin cá nhân
-
-```python
-print("📝 TẠO THẺ THÔNG TIN CÁ NHÂN 📝")
-print("=" * 35)
-
-ten = input("Họ và tên: ")
-tuoi = input("Tuổi: ")
-lop = input("Lớp: ")
+# Thông tin cá nhân
+ho_ten = input("Họ tên đầy đủ: ")
+que_quan = input("Quê quán: ")
 so_thich = input("Sở thích: ")
-mau_yeu_thich = input("Màu yêu thích: ")
 
-print("\n🎫 THẺ THÔNG TIN CỦA BẠN 🎫")
-print("╔" + "═" * 33 + "╗")
-print("║ Tên:", ten.ljust(26), "║")
-print("║ Tuổi:", tuoi.ljust(25), "║")
-print("║ Lớp:", lop.ljust(26), "║")
-print("║ Sở thích:", so_thich.ljust(21), "║")
-print("║ Màu yêu thích:", mau_yeu_thich.ljust(16), "║")
-print("╚" + "═" * 33 + "╝")
+print(f"\n🎭 THÔNG TIN CỦA BẠN:")
+print(f"👤 Tên: {ho_ten}")
+print(f"🏠 Quê: {que_quan}")
+print(f"❤️ Thích: {so_thich}")
 ```
 
-## 🎮 Trò chơi tương tác đơn giản
-
-### Trò chơi đoán số
+### 🔢 **Nhận Số (Numbers)**
 
 ```python
-print("🎯 TRÒ CHƠI ĐOÁN SỐ 🎯")
-print("Tôi đang nghĩ về một số từ 1 đến 10...")
-print("Bạn có thể đoán được không?")
+# ❌ Sai - input() trả về string
+tuoi = input("Tuổi của bạn: ")
+nam_sau = tuoi + 1  # Lỗi! Không thể cộng string với số
 
-so_bi_mat = 7  # Số bí mật (sau này sẽ học cách tạo số ngẫu nhiên)
-doan = int(input("Bạn đoán số mấy? "))
+# ✅ Đúng - Convert string thành int
+tuoi = int(input("Tuổi của bạn: "))
+nam_sau = tuoi + 1
+print(f"Năm sau bạn sẽ {nam_sau} tuổi")
 
-if doan == so_bi_mat:
-    print("🎉 Chính xác! Bạn thật thông minh!")
-else:
-    print("😅 Chưa đúng! Số tôi nghĩ là", so_bi_mat)
-    print("Lần sau bạn sẽ đoán đúng thôi!")
-```
-
-### Trò chuyện với robot
-
-```python
-print("🤖 XIN CHÀO! TÔI LÀ ROBOT PYTHON 🤖")
-print("Tôi có thể trả lời một vài câu hỏi đơn giản!")
-
-ten = input("Bạn tên gì? ")
-print("Xin chào", ten, "! Rất vui được gặp bạn!")
-
-cau_hoi = input("Bạn muốn hỏi gì? (tuổi/màu/thức ăn): ")
-
-if cau_hoi == "tuổi":
-    print("Tôi được tạo ra năm 2025, nên tôi còn rất trẻ!")
-elif cau_hoi == "màu":
-    print("Tôi thích màu xanh lá như logo Python! 🐍")
-elif cau_hoi == "thức ăn":
-    print("Tôi ăn... điện năng! ⚡ Và thỉnh thoảng ăn bugs! 🐛")
-else:
-    print("Xin lỗi, tôi chưa học cách trả lời câu hỏi này!")
-```
-
-## 🎯 Thử thách thực hành
-
-### Thử thách 1: Máy tính BMI trẻ em
-
-```python
-print("⚖️ TÍNH CHỈ SỐ BMI CHO TRẺ EM ⚖️")
-print("(Chỉ để tham khảo, không thay thế ý kiến bác sĩ)")
-
-ten = input("Tên của bạn: ")
+# Số thập phân
+chieu_cao = float(input("Chiều cao (m): "))
 can_nang = float(input("Cân nặng (kg): "))
-chieu_cao = float(input("Chiều cao (m, ví dụ: 1.5): "))
+bmi = can_nang / (chieu_cao ** 2)
+print(f"BMI của bạn: {bmi:.2f}")
+```
 
-bmi = can_nang / (chieu_cao * chieu_cao)
+### ✅ **Nhận True/False (Boolean)**
 
-print(f"\n📊 KẾT QUẢ CHO {ten}:")
-print(f"BMI của bạn là: {bmi:.1f}")
-
-if bmi < 18.5:
-    print("Bạn hơi gầy, hãy ăn nhiều hơn nhé! 🍎")
-elif bmi <= 24.9:
-    print("Tuyệt vời! Bạn có cân nặng lý tưởng! 👍")
+```python
+# Cách 1: So sánh string
+hoc_python = input("Bạn có thích học Python không? (có/không): ")
+if hoc_python.lower() == "có":
+    print("🎉 Tuyệt vời! Python sẽ giúp bạn rất nhiều!")
 else:
-    print("Bạn nên tập thể dục nhiều hơn! 🏃‍♂️")
+    print("😊 Không sao, có thể bạn sẽ thích sau!")
+
+# Cách 2: Chuyển thành boolean
+co_ban_gai = input("Bạn có bạn gái/trai không? (y/n): ").lower()
+da_co_nguoi_yeu = co_ban_gai in ['y', 'yes', 'có', 'có chứ']
+print(f"Tình trạng: {'Đã có người yêu' if da_co_nguoi_yeu else 'Độc thân'}")
 ```
 
-### Thử thách 2: Tạo câu chuyện Mad Libs
+## 🛡️ Validation - Kiểm Tra Dữ Liệu
+
+### 🔍 **Kiểm Tra Số Hợp Lệ**
+### 🔍 **Kiểm Tra Số Hợp Lệ**
 
 ```python
-print("📚 TẠO CÂU CHUYỆN VUI 📚")
-print("Hãy nhập các từ theo yêu cầu, tôi sẽ tạo câu chuyện thú vị!")
+# Cách 1: Sử dụng try-except (Khuyến nghị)
+def nhap_so_tuoi():
+    while True:
+        try:
+            tuoi = int(input("Nhập tuổi của bạn: "))
+            if tuoi < 0:
+                print("❌ Tuổi không thể âm! Thử lại.")
+                continue
+            elif tuoi > 150:
+                print("❌ Tuổi quá lớn! Thử lại.")
+                continue
+            return tuoi
+        except ValueError:
+            print("❌ Vui lòng nhập số nguyên! Thử lại.")
 
-ten_nhan_vat = input("Tên nhân vật chính: ")
-dong_vat = input("Một loài động vật: ")
-mau_sac = input("Một màu sắc: ")
-dia_diem = input("Một địa điểm: ")
-hoat_dong = input("Một hoạt động (ví dụ: chạy, nhảy): ")
-cam_xuc = input("Một cảm xúc (ví dụ: vui, buồn): ")
-
-print(f"\n📖 CÂU CHUYỆN CỦA BẠN:")
-print(f"Ngày xửa ngày xưa, có một cô bé tên {ten_nhan_vat}.")
-print(f"Cô bé có một chú {dong_vat} màu {mau_sac} rất đáng yêu.")
-print(f"Một ngày nọ, họ cùng nhau đi đến {dia_diem}.")
-print(f"Ở đó, họ thích {hoat_dong} cùng nhau.")
-print(f"Cuối cùng, cả hai đều cảm thấy rất {cam_xuc}!")
-print("Hết. 📚✨")
+# Sử dụng
+tuoi = nhap_so_tuoi()
+print(f"✅ Tuổi hợp lệ: {tuoi}")
 ```
 
-### Thử thách 3: Phiên dịch viên emoji
+### 🔤 **Kiểm Tra Text Hợp Lệ**
 
 ```python
-print("😀 PHIÊN DỊCH VIÊN EMOJI 😀")
-print("Nhập cảm xúc bằng tiếng Việt, tôi sẽ dịch thành emoji!")
+def nhap_ten():
+    while True:
+        ten = input("Nhập tên của bạn: ").strip()
+        
+        if not ten:  # Kiểm tra rỗng
+            print("❌ Tên không được để trống!")
+            continue
+        
+        if len(ten) < 2:
+            print("❌ Tên phải có ít nhất 2 ký tự!")
+            continue
+            
+        if not ten.replace(" ", "").isalpha():
+            print("❌ Tên chỉ được chứa chữ cái!")
+            continue
+            
+        return ten.title()  # Viết hoa chữ cái đầu
 
-cam_xuc = input("Bạn cảm thấy thế nào? (vui/buồn/giận/yêu/ngạc nhiên): ")
-
-if cam_xuc == "vui":
-    emoji = "😊"
-elif cam_xuc == "buồn":
-    emoji = "😢"
-elif cam_xuc == "giận":
-    emoji = "😠"
-elif cam_xuc == "yêu":
-    emoji = "😍"
-elif cam_xuc == "ngạc nhiên":
-    emoji = "😲"
-else:
-    emoji = "🤔"
-
-print(f"Cảm xúc của bạn: {emoji}")
-print(f"Hy vọng bạn sẽ luôn 😊 vui vẻ!")
+# Sử dụng
+ten = nhap_ten()
+print(f"✅ Tên hợp lệ: {ten}")
 ```
 
-## ❗ Lỗi thường gặp và cách khắc phục
+### 📧 **Kiểm Tra Email**
 
-### Lỗi 1: Quên chuyển đổi kiểu dữ liệu
-❌ **Sai:**
 ```python
-tuoi = input("Tuổi: ")
-tuoi_moi = tuoi + 1  # Lỗi: không thể cộng chữ với số
+import re
+
+def nhap_email():
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    
+    while True:
+        email = input("Nhập email: ").strip().lower()
+        
+        if not email:
+            print("❌ Email không được để trống!")
+            continue
+            
+        if re.match(pattern, email):
+            return email
+        else:
+            print("❌ Email không hợp lệ! (vd: ten@gmail.com)")
+
+# Sử dụng
+email = nhap_email()
+print(f"✅ Email hợp lệ: {email}")
 ```
 
-✅ **Đúng:**
+## 🎮 Tương Tác Nâng Cao
+
+### 🔄 **Menu Lựa Chọn**
+
 ```python
-tuoi = int(input("Tuổi: "))
-tuoi_moi = tuoi + 1
+def hien_thi_menu():
+    print("\n🎯 MENU CHÍNH")
+    print("=" * 30)
+    print("1. 📊 Tính BMI")
+    print("2. 🎲 Chơi game đoán số")
+    print("3. 📝 Ghi chú cá nhân")
+    print("4. ❌ Thoát")
+    print("=" * 30)
+
+def chon_menu():
+    while True:
+        hien_thi_menu()
+        lua_chon = input("Chọn chức năng (1-4): ").strip()
+        
+        if lua_chon in ['1', '2', '3', '4']:
+            return int(lua_chon)
+        else:
+            print("❌ Lựa chọn không hợp lệ! Vui lòng chọn 1-4.")
+
+# Sử dụng
+while True:
+    chon = chon_menu()
+    
+    if chon == 1:
+        print("🔄 Đang tính BMI...")
+    elif chon == 2:
+        print("🎲 Bắt đầu game...")
+    elif chon == 3:
+        print("📝 Mở ghi chú...")
+    elif chon == 4:
+        print("👋 Tạm biệt!")
+        break
 ```
 
-### Lỗi 2: Nhập số thập phân nhưng dùng int()
-❌ **Sai:**
+### 💬 **Chatbot Đơn Giản**
+
 ```python
-chieu_cao = int(input("Chiều cao (m): "))  # Nếu nhập 1.75 sẽ lỗi
+import random
+
+def chatbot():
+    print("🤖 Xin chào! Tôi là Python Bot!")
+    print("💬 Hãy nói chuyện với tôi (gõ 'bye' để thoát)")
+    
+    responses = {
+        "xin chào": ["Xin chào bạn! 😊", "Chào bạn nhé! 👋", "Hello! 🌟"],
+        "tên": ["Tôi là Python Bot! 🤖", "Tôi tên là Bot, còn bạn?", "Bot là tên tôi!"],
+        "tuổi": ["Tôi vừa được tạo ra! 🆕", "Tôi còn rất trẻ!", "Tuổi? Tôi là AI mà! 😄"],
+        "python": ["Python tuyệt vời! 🐍", "Tôi yêu Python!", "Python là ngôn ngữ tốt nhất!"],
+        "bye": ["Tạm biệt! 👋", "Bye bye! 🌟", "Hẹn gặp lại! 😊"]
+    }
+    
+    while True:
+        user_input = input("\n👤 Bạn: ").lower().strip()
+        
+        if user_input == "bye":
+            print(f"🤖 Bot: {random.choice(responses['bye'])}")
+            break
+        
+        # Tìm từ khóa trong input
+        found = False
+        for keyword, reply_list in responses.items():
+            if keyword in user_input:
+                print(f"🤖 Bot: {random.choice(reply_list)}")
+                found = True
+                break
+        
+        if not found:
+            default_replies = [
+                "Thú vị quá! Kể thêm đi! 🤔",
+                "Tôi chưa hiểu lắm... 😅",
+                "Wow, điều đó thật tuyệt! 🎉",
+                "Hm, bạn có thể nói rõ hơn không? 🤷‍♂️"
+            ]
+            print(f"🤖 Bot: {random.choice(default_replies)}")
+
+# Chạy chatbot
+chatbot()
 ```
 
-✅ **Đúng:**
+## 🎯 Dự Án Thực Hành
+
+### 📋 **Dự Án 1: Hồ Sơ Cá Nhân**
+
 ```python
-chieu_cao = float(input("Chiều cao (m): "))  # Cho phép số thập phân
+def tao_ho_so_ca_nhan():
+    print("🌟 TẠO HỒ SƠ CÁ NHÂN 🌟")
+    print("=" * 40)
+    
+    # Thu thập thông tin
+    ho_ten = input("👤 Họ tên: ").title()
+    tuoi = int(input("🎂 Tuổi: "))
+    que_quan = input("🏠 Quê quán: ").title()
+    nghe_nghiep = input("💼 Nghề nghiệp: ")
+    so_thich = input("❤️ Sở thích: ")
+    mo_ta = input("📝 Mô tả bản thân (1 câu): ")
+    
+    # Hiển thị hồ sơ đẹp
+    print("\n" + "🌟" * 50)
+    print(f"{'📋 HỒ SƠ CÁ NHÂN':^50}")
+    print("🌟" * 50)
+    print(f"👤 Tên: {ho_ten}")
+    print(f"🎂 Tuổi: {tuoi} tuổi")
+    print(f"🏠 Quê: {que_quan}")
+    print(f"💼 Nghề: {nghe_nghiep}")
+    print(f"❤️ Thích: {so_thich}")
+    print(f"📝 Giới thiệu: {mo_ta}")
+    print(f"📅 Năm sinh: {2024 - tuoi}")
+    print("🌟" * 50)
+    
+    # Lưu vào file (nâng cao)
+    with open("ho_so.txt", "w", encoding="utf-8") as file:
+        file.write(f"Hồ sơ của {ho_ten}\n")
+        file.write(f"Tuổi: {tuoi}\n")
+        file.write(f"Quê: {que_quan}\n")
+        file.write(f"Nghề: {nghe_nghiep}\n")
+        file.write(f"Sở thích: {so_thich}\n")
+        file.write(f"Mô tả: {mo_ta}\n")
+    
+    print("💾 Đã lưu hồ sơ vào file 'ho_so.txt'")
+
+# Chạy dự án
+tao_ho_so_ca_nhan()
 ```
 
-### Lỗi 3: Không xử lý khi người dùng nhập sai
-❌ **Có thể gây lỗi:**
+### 🧮 **Dự Án 2: Máy Tính Cá Nhân**
+
 ```python
-so = int(input("Nhập một số: "))  # Nếu nhập chữ sẽ lỗi
+def may_tinh_ca_nhan():
+    print("🧮 MÁY TÍNH CÁ NHÂN 🧮")
+    
+    while True:
+        print("\n📊 Các phép tính:")
+        print("1. ➕ Cộng")
+        print("2. ➖ Trừ") 
+        print("3. ✖️ Nhân")
+        print("4. ➗ Chia")
+        print("5. 🔢 Lũy thừa")
+        print("6. ❌ Thoát")
+        
+        chon = input("\nChọn phép tính (1-6): ").strip()
+        
+        if chon == '6':
+            print("👋 Tạm biệt!")
+            break
+        
+        if chon not in ['1', '2', '3', '4', '5']:
+            print("❌ Lựa chọn không hợp lệ!")
+            continue
+        
+        try:
+            a = float(input("Nhập số thứ nhất: "))
+            b = float(input("Nhập số thứ hai: "))
+            
+            if chon == '1':
+                ket_qua = a + b
+                print(f"📊 {a} + {b} = {ket_qua}")
+            elif chon == '2':
+                ket_qua = a - b
+                print(f"📊 {a} - {b} = {ket_qua}")
+            elif chon == '3':
+                ket_qua = a * b
+                print(f"📊 {a} × {b} = {ket_qua}")
+            elif chon == '4':
+                if b == 0:
+                    print("❌ Không thể chia cho 0!")
+                else:
+                    ket_qua = a / b
+                    print(f"📊 {a} ÷ {b} = {ket_qua}")
+            elif chon == '5':
+                ket_qua = a ** b
+                print(f"📊 {a}^{b} = {ket_qua}")
+                
+        except ValueError:
+            print("❌ Vui lòng nhập số hợp lệ!")
+
+# Chạy máy tính
+may_tinh_ca_nhan()
 ```
 
-✅ **An toàn hơn:**
+## 🔧 Xử Lý Lỗi Input Thường Gặp
+
+### ❌ **Lỗi: ValueError**
+
 ```python
+# ❌ Lỗi khi convert
 try:
-    so = int(input("Nhập một số: "))
-    print("Số bạn nhập:", so)
-except:
-    print("Bạn phải nhập số, không phải chữ!")
+    tuoi = int(input("Tuổi: "))  # User nhập "abc"
+except ValueError:
+    print("❌ Vui lòng nhập số!")
+
+# ✅ Cách xử lý tốt
+def nhap_so_an_toan(prompt, loai_so=int):
+    while True:
+        try:
+            return loai_so(input(prompt))
+        except ValueError:
+            print(f"❌ Vui lòng nhập {loai_so.__name__} hợp lệ!")
+
+# Sử dụng
+tuoi = nhap_so_an_toan("Tuổi: ", int)
+diem = nhap_so_an_toan("Điểm: ", float)
 ```
 
-## 🎊 Tóm tắt bài học
+### ❌ **Lỗi: KeyboardInterrupt**
 
-🎉 Tuyệt vời! Bạn đã học được cách làm cho Python lắng nghe và phản hồi!
+```python
+# Xử lý khi user nhấn Ctrl+C
+try:
+    ten = input("Tên: ")
+    tuoi = int(input("Tuổi: "))
+except KeyboardInterrupt:
+    print("\n\n👋 Chương trình bị dừng bởi người dùng!")
+    print("Tạm biệt! 😊")
+```
 
-### Bạn đã thành thạo:
-- ✅ Sử dụng `input()` để nhận thông tin từ người dùng
-- ✅ Lưu thông tin vào biến để sử dụng sau
-- ✅ Chuyển đổi từ chữ sang số với `int()` và `float()`
-- ✅ Tạo chương trình tương tác đơn giản
-- ✅ Xử lý và hiển thị thông tin người dùng nhập
-- ✅ Tạo trò chơi và ứng dụng vui nhộn
+### ❌ **Lỗi: EOFError**
 
-### Bước tiếp theo:
-Trong bài học tiếp theo, chúng ta sẽ học cách viết **ghi chú** trong code để nhớ những gì mình đã làm!
+```python
+# Xử lý khi không có input (file rỗng)
+try:
+    ten = input("Tên: ")
+except EOFError:
+    print("❌ Không có dữ liệu đầu vào!")
+    ten = "Khách"  # Giá trị mặc định
+```
+
+## 💡 Mẹo Pro Cho Input
+
+### 🎨 **Input Đẹp Mắt**
+
+```python
+def input_dep(prompt, icon="🔸"):
+    """Tạo input prompt đẹp mắt"""
+    return input(f"{icon} {prompt}: ").strip()
+
+# Sử dụng
+ten = input_dep("Tên của bạn", "👤")
+tuoi = input_dep("Tuổi", "🎂")
+email = input_dep("Email", "📧")
+```
+
+### ⏱️ **Input Với Timeout** (Nâng Cao)
+
+```python
+import signal
+import sys
+
+def timeout_handler(signum, frame):
+    raise TimeoutError("Hết thời gian!")
+
+def input_co_thoi_han(prompt, timeout=10):
+    """Input với giới hạn thời gian"""
+    signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(timeout)
+    
+    try:
+        result = input(f"{prompt} (có {timeout}s): ")
+        signal.alarm(0)  # Tắt timeout
+        return result
+    except TimeoutError:
+        print(f"\n⏰ Hết {timeout} giây! Sử dụng giá trị mặc định.")
+        return ""
+
+# Sử dụng (chỉ hoạt động trên Unix/Linux/Mac)
+# ten = input_co_thoi_han("Tên", 5)
+```
+
+### 🔒 **Input Mật Khẩu** (Ẩn Text)
+
+```python
+import getpass
+
+def nhap_mat_khau():
+    """Nhập mật khẩu không hiển thị trên màn hình"""
+    while True:
+        password = getpass.getpass("🔒 Mật khẩu: ")
+        
+        if len(password) < 6:
+            print("❌ Mật khẩu phải có ít nhất 6 ký tự!")
+            continue
+        
+        confirm = getpass.getpass("🔒 Xác nhận mật khẩu: ")
+        
+        if password == confirm:
+            print("✅ Mật khẩu hợp lệ!")
+            return password
+        else:
+            print("❌ Mật khẩu không khớp!")
+
+# Sử dụng
+# mat_khau = nhap_mat_khau()
+```
+
+## 🎊 Tóm Tắt
+
+:::success 🌟 Những Gì Bạn Đã Học
+- 👂 **input()** - Nhận thông tin từ người dùng
+- 🔄 **Type conversion** - Chuyển đổi string thành int/float
+- 🛡️ **Validation** - Kiểm tra dữ liệu hợp lệ
+- ⚠️ **Error handling** - Xử lý lỗi với try-except
+- 🎮 **Interactive programs** - Tạo chương trình tương tác
+- 💬 **User experience** - Làm input thân thiện và đẹp mắt
+:::
+
+### 🚀 **Bước Tiếp Theo:**
+
+Bây giờ Python đã biết "nói" và "nghe", hãy dạy nó "ghi nhớ":
+
+1. 💭 **[Ghi chú trong code](/python/basics/comments)** - Dạy Python ghi nhớ và giải thích
+2. 📦 **Biến số** - Dạy Python lưu trữ thông tin (sắp ra mắt!)
+3. 🧮 **Toán học cơ bản** - Dạy Python tính toán (sắp ra mắt!)
+
+:::tip 💡 Lời Khuyên
+**Input validation là rất quan trọng!** Luôn giả định người dùng sẽ nhập sai, và chuẩn bị sẵn cách xử lý. Một chương trình tốt là chương trình không bao giờ crash vì input không mong đợi!
+:::
 
 ---
 
-:::tip 🤝 Cần trợ giúp?
-- 👨‍👩‍👧‍👦 Nhờ bố mẹ test chương trình của bạn
-- 📚 Thử tạo thêm nhiều câu hỏi thú vị
-- 🎮 Nghĩ ra những trò chơi tương tác mới
-- 🔍 Tìm hiểu thêm về "user input" trong Python
-:::
-
-**Chúc bạn tạo ra được những chương trình tương tác thú vị! 🐍💬**
+*👂 **Ghi nhớ**: Input tốt tạo nên trải nghiệm người dùng tuyệt vời. Hãy làm cho việc tương tác với chương trình Python của bạn trở thành niềm vui!*

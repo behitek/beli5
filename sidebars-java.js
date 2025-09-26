@@ -17,7 +17,7 @@ const sidebars = {
         {
             type: 'doc',
             id: 'intro',
-            label: '🎯 Start Here!',
+            label: '🎯 Bắt Đầu Tại Đây!',
         },
     ],
 };

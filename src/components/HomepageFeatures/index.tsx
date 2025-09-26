@@ -11,35 +11,35 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '🤖 AI-Generated Content',
+    title: '🤖 Nội Dung Được Tạo Bởi AI',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        All tutorials are created by artificial intelligence and designed specifically 
-        for complete beginners. Learn programming concepts explained in simple, 
-        kid-friendly language with fun analogies!
+        Tất cả hướng dẫn đều được tạo bởi trí tuệ nhân tạo và được thiết kế 
+        dành riêng cho người mới bắt đầu hoàn toàn. Học các khái niệm lập trình được giải thích 
+        bằng ngôn ngữ đơn giản, thân thiện với trẻ em và những phép so sánh thú vị!
       </>
     ),
   },
   {
-    title: '🧒 ELI5 Style Learning',
+    title: '🧒 Học Theo Phong Cách ELI5',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Everything is "Explained Like You're 5" using toys, games, and everyday objects. 
-        No confusing technical jargon - just simple explanations that make sense to 
-        young learners and beginners of all ages!
+        Mọi thứ đều được "Giải Thích Như Bạn 5 Tuổi" sử dụng đồ chơi, trò chơi và đồ vật hàng ngày. 
+        Không có thuật ngữ kỹ thuật phức tạp - chỉ có những lời giải thích đơn giản mà 
+        các bạn nhỏ và người mới bắt đầu ở mọi lứa tuổi đều hiểu được!
       </>
     ),
   },
   {
-    title: '🚀 Four Amazing Languages',
+    title: '🚀 Bốn Ngôn Ngữ Tuyệt Vời',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Choose your adventure! Learn Python (smart pet snake), Java (LEGO blocks), 
-        C++ (power tools), or Rust (safety gear). Each has its own fun analogies 
-        and complete learning path!
+        Chọn cuộc phiêu lưu của bạn! Học Python (con rắn thông minh), Java (khối LEGO), 
+        C++ (dụng cụ chuyên nghiệp), hoặc Rust (thiết bị an toàn). Mỗi ngôn ngữ đều có 
+        những phép so sánh thú vị riêng và lộ trình học tập hoàn chỉnh!
       </>
     ),
   },

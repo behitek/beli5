@@ -4,8 +4,9 @@
 
 **Project Name**: AI Programming Tutorials - ELI5 Style  
 **Technology Stack**: Docusaurus, TypeScript, React  
-**Target Audience**: Children (8-16), Adult Beginners, Educators  
-**Content Strategy**: AI-Generated Educational Content with ELI5 Methodology  
+**Target Audience**: Vietnamese Children (8-16), Adult Beginners, Educators  
+**Primary Language**: Vietnamese (Tiếng Việt) for all tutorial content  
+**Content Strategy**: AI-Generated Educational Content with ELI5 Methodology in Vietnamese  
 
 ## 🚀 Mission Statement
 
@@ -25,11 +26,13 @@ Create comprehensive, AI-generated programming tutorials that explain complex pr
 - **Visual Learning**: Incorporate emojis, colors, and visual hierarchy
 
 #### Language Guidelines:
-- Avoid technical jargon without explanation
-- Use conversational, friendly tone
-- Include reassuring phrases like "Don't worry, this is easier than it looks!"
-- Provide multiple ways to understand the same concept
-- Always relate to real-world experiences
+- **Primary Language**: All content written in Vietnamese (Tiếng Việt)
+- Avoid technical jargon without explanation (explain in Vietnamese)
+- Use conversational, friendly tone in Vietnamese
+- Include reassuring phrases like "Đừng lo, điều này dễ hơn bạn nghĩ!"
+- Provide multiple ways to understand the same concept in Vietnamese
+- Always relate to Vietnamese culture and real-world experiences
+- Use familiar Vietnamese analogies and examples from daily life
 
 ### 2. **Programming Language Analogies System**
 
@@ -69,8 +72,8 @@ Each programming language uses consistent metaphors throughout all content:
 ### 1. **AI Content Guidelines**
 
 #### Transparency Requirements:
-- Every page must include AI-generated content disclaimer
-- Use consistent disclaimer format: "🤖 AI-Generated Content"
+- Global announcement bar displays AI-generated content disclaimer site-wide
+- No need for individual page disclaimers (handled globally)
 - Maintain transparency about limitations of AI-generated educational content
 - Include human oversight recommendations
 
@@ -158,6 +161,31 @@ docs-rust/       # Rust-specific content
 - **Playful Elements**: Animations, hover effects, emojis
 - **Responsive Design**: Works on all devices
 - **Dark Mode**: Eye comfort for extended learning
+- **Mermaid Diagrams**: Interactive flowcharts and diagrams for visual learning
+
+#### Mermaid Integration Strategy:
+Docusaurus supports Mermaid diagrams natively, enabling visual representations of:
+- **Programming Flow**: Conditional logic, loops, and decision trees
+- **Data Structures**: Arrays, objects, and relationships
+- **System Architecture**: How different parts of programs connect
+- **Learning Paths**: Visual progression through topics
+- **Problem-Solving**: Step-by-step algorithmic thinking
+
+Example Mermaid usage:
+```mermaid
+graph TD;
+    A[Start Learning] --> B{Choose Language};
+    B --> C[🐍 Python];
+    B --> D[☕ Java];
+    B --> E[⚡ C++];
+    B --> F[🦀 Rust];
+    C --> G[Basic Concepts];
+    D --> G;
+    E --> G;
+    F --> G;
+    G --> H[Practice Projects];
+    H --> I[Advanced Topics];
+```
 
 ---
 
@@ -191,23 +219,26 @@ docs-rust/       # Rust-specific content
 
 ### 1. **Primary Audiences**
 
-#### **Young Learners (Ages 8-12)**
+#### **Vietnamese Young Learners (Ages 8-12)**
 - **Characteristics**: Visual learners, need encouragement, short attention spans
-- **Content Needs**: Lots of analogies, frequent breaks, game-like elements
-- **Support Requirements**: Adult supervision, simplified error messages
+- **Content Needs**: Lots of Vietnamese analogies, frequent breaks, game-like elements
+- **Language**: All content in Vietnamese with familiar cultural references
+- **Support Requirements**: Adult supervision, simplified error messages in Vietnamese
 - **Success Factors**: Fun, immediate feedback, sense of accomplishment
 
-#### **Teens (Ages 13-16)**  
+#### **Vietnamese Teens (Ages 13-16)**  
 - **Characteristics**: More independent, project-oriented, peer-influenced
-- **Content Needs**: Relevant examples, social coding projects, real applications
-- **Support Requirements**: Peer communities, mentorship opportunities
-- **Success Factors**: Building impressive projects, career relevance
+- **Content Needs**: Relevant Vietnamese examples, social coding projects, real applications
+- **Language**: Advanced Vietnamese technical vocabulary with clear explanations
+- **Support Requirements**: Vietnamese peer communities, mentorship opportunities
+- **Success Factors**: Building impressive projects, career relevance in Vietnam
 
-#### **Adult Beginners (18+)**
+#### **Vietnamese Adult Beginners (18+)**
 - **Characteristics**: Goal-oriented, time-constrained, practical focus
-- **Content Needs**: Career applications, efficient learning paths, real-world examples
-- **Support Requirements**: Flexible pacing, professional context
-- **Success Factors**: Clear progress, practical skills, job relevance
+- **Content Needs**: Career applications, efficient learning paths, Vietnamese real-world examples
+- **Language**: Professional Vietnamese technical terms with practical context
+- **Support Requirements**: Flexible pacing, Vietnamese professional context
+- **Success Factors**: Clear progress, practical skills, job relevance in Vietnamese market
 
 ### 2. **Secondary Audiences**
 
@@ -229,7 +260,7 @@ docs-rust/       # Rust-specific content
 - ✅ Core infrastructure setup
 - ✅ Basic content for each language
 - ✅ ELI5 methodology implementation
-- ✅ AI content disclaimer system
+- ✅ Global AI content disclaimer system (announcement bar)
 
 ### 2. **Phase 2: Content Expansion**
 - 📝 Complete tutorial series for each language
@@ -396,7 +427,7 @@ docs-rust/       # Rust-specific content
 
 ### Contribution Guidelines
 - All content must follow ELI5 methodology
-- AI-generated content must be clearly marked
+- AI-generated content is covered by global announcement bar disclaimer
 - Code examples must be tested and functional
 - Maintain consistent analogy systems per language
 

@@ -7,17 +7,12 @@ keywords: [rust, programming, AI, tutorial, ELI5, beginner, safety, memory]
 
 # 🦀 Welcome to Rust Programming! (AI Tutorial)
 
-:::info 🤖 AI-Generated Content
-This content is created by AI and explained in simple terms! Rust is like having the ultimate safety gear for programming! 🎉
-:::
-
 ## What is This Tutorial?
 
 Hi there, future Rust craftsperson! 👋 This is a special tutorial that teaches you **Rust programming** by comparing it to having the best safety equipment and tools. Think of it like learning to build amazing things while wearing the ultimate protective gear!
 
 ### 🎯 What Makes This Special?
 
-- **🤖 AI-Generated**: All content is created by artificial intelligence
 - **🧒 ELI5 Style**: Everything explained "Like You're 5" years old
 - **🛡️ Safety Analogies**: We compare Rust to protective gear and safety systems
 - **🚀 Your Pace**: Learn to build safely, one step at a time!

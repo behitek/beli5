@@ -1,0 +1,171 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# AI Programming Tutorials - Agent Strategy & Project Documentation
+
+- Content language: Vietnamese
+- Variable/Function/... in code still English
+
+## 🎯 Project Overview
+
+**Project Name**: AI Programming Tutorials - ELI5 Style  
+**Technology Stack**: Docusaurus, TypeScript, React  
+**Target Audience**: Vietnamese children (8-16), Adult Beginners, Educators  
+**Primary Language**: Vietnamese (Tiếng Việt) for all tutorial content  
+**Content Strategy**: AI-Generated Educational Content with ELI5 Methodology  
+
+## 🚀 Mission Statement
+
+Create comprehensive, AI-generated programming tutorials that explain complex programming concepts using simple analogies and kid-friendly language, making programming accessible to complete beginners of all ages.
+
+---
+
+## 📋 Content Strategy Framework
+
+### 1. **ELI5 (Explain Like I'm 5) Methodology**
+
+#### Core Principles:
+- **Simplicity First**: Break complex concepts into digestible pieces
+- **Analogy-Driven**: Use familiar objects and activities for explanations
+- **Encouraging Tone**: Maintain positive, supportive language throughout
+- **Error-Friendly**: Normalize mistakes as part of the learning process
+- **Visual Learning**: Incorporate emojis, colors, and visual hierarchy
+
+#### Language Guidelines:
+- **Primary Language**: All content written in Vietnamese (Tiếng Việt)
+- Avoid technical jargon without explanation (explain in Vietnamese)
+- Use conversational, friendly tone in Vietnamese
+- Include reassuring phrases like "Đừng lo, điều này dễ hơn bạn nghĩ!"
+- Provide multiple ways to understand the same concept in Vietnamese
+- Always relate to Vietnamese culture and real-world experiences
+- Use familiar Vietnamese analogies and examples
+
+### 2. **Progressive Difficulty System**
+
+#### 🟢 **Super Easy Basics** (Green Level)
+- **Audience**: Complete beginners, young children
+- **Approach**: Single concept per lesson, lots of encouragement
+- **Examples**: What is programming? Variables as boxes
+- **Success Metrics**: Can explain concept to a friend
+
+#### 🟡 **Getting Warmer** (Yellow Level)  
+- **Audience**: Learners with basic understanding
+- **Approach**: Combining concepts, practical examples
+- **Examples**: If/then logic, simple loops
+- **Success Metrics**: Can write basic programs
+
+#### 🔴 **Challenge Time** (Red Level)
+- **Audience**: Confident beginners ready for complexity
+- **Approach**: Real-world applications, problem-solving
+- **Examples**: Functions, classes, file handling
+- **Success Metrics**: Can build complete projects
+
+---
+
+## 🤖 AI Content Generation Strategy
+
+### 1. **AI Content Guidelines**
+
+#### Transparency Requirements:
+- Global announcement bar displays AI-generated content disclaimer site-wide
+- No need for individual page disclaimers (handled globally)
+- Maintain transparency about limitations of AI-generated educational content
+- Include human oversight recommendations
+
+#### Quality Assurance:
+- All code examples must be tested and functional
+- Analogies must be age-appropriate and culturally sensitive
+- Content must be factually accurate
+- Regular review and updates needed
+
+### 2. **Content Creation Workflow**
+
+```
+1. Concept Identification → 
+2. Analogy Selection → 
+3. AI Content Generation → 
+4. Searching internet to refine.
+```
+
+#### Content Templates:
+- **Introduction Pages**: Mission, analogies, encouragement
+- **Concept Pages**: Definition, analogy, examples, practice
+- **Project Pages**: Step-by-step builds, explanations, extensions
+- **Help Pages**: Troubleshooting, getting assistance, resources
+
+### 3. **User Experience Design**
+
+#### Navigation Strategy:
+- **Horizontal Navigation**: Top menu for language switching
+- **Vertical Navigation**: Sidebar for topic progression
+- **Breadcrumbs**: Clear path indication
+- **Search**: Future integration with Algolia or local search
+
+#### Visual Design:
+- **Kid-Friendly Colors**: Bright, engaging palette
+- **Playful Elements**: Animations, hover effects, emojis
+- **Responsive Design**: Works on all devices
+- **Dark Mode**: Eye comfort for extended learning
+- **Mermaid Diagrams**: Interactive flowcharts and diagrams for visual learning
+
+#### Mermaid Integration Strategy:
+Docusaurus supports Mermaid diagrams natively, enabling visual representations of:
+- **Programming Flow**: Conditional logic, loops, and decision trees
+- **Data Structures**: Arrays, objects, and relationships
+- **System Architecture**: How different parts of programs connect
+- **Learning Paths**: Visual progression through topics
+- **Problem-Solving**: Step-by-step algorithmic thinking
+
+Example Mermaid usage:
+```mermaid
+graph TD;
+    A[Start Learning] --> B{Choose Language};
+    B --> C[🐍 Python];
+    B --> D[☕ Java];
+    B --> E[⚡ C++];
+    B --> F[🦀 Rust];
+    C --> G[Basic Concepts];
+    D --> G;
+    E --> G;
+    F --> G;
+    G --> H[Practice Projects];
+    H --> I[Advanced Topics];
+```
+---
+
+## 🎯 Target Audience Profiles
+
+### 1. **Primary Audiences**
+
+#### **Young Learners (Ages 8-12)**
+- **Characteristics**: Visual learners, need encouragement, short attention spans
+- **Content Needs**: Lots of analogies, frequent breaks, game-like elements
+- **Support Requirements**: Adult supervision, simplified error messages
+- **Success Factors**: Fun, immediate feedback, sense of accomplishment
+
+#### **Teens (Ages 13-16)**  
+- **Characteristics**: More independent, project-oriented, peer-influenced
+- **Content Needs**: Relevant examples, social coding projects, real applications
+- **Support Requirements**: Peer communities, mentorship opportunities
+- **Success Factors**: Building impressive projects, career relevance
+
+#### **Adult Beginners (18+)**
+- **Characteristics**: Goal-oriented, time-constrained, practical focus
+- **Content Needs**: Career applications, efficient learning paths, real-world examples
+- **Support Requirements**: Flexible pacing, professional context
+- **Success Factors**: Clear progress, practical skills, job relevance
+
+### 2. **Secondary Audiences**
+
+#### **Educators & Parents**
+- **Needs**: Teaching resources, curriculum guidance, progress tracking
+- **Content**: Lesson plans, assessment tools, troubleshooting guides
+- **Support**: Training materials, community forums
+
+#### **Homeschool Communities**
+- **Needs**: Structured curriculum, age-appropriate content, family-friendly
+- **Content**: Progressive skill building, project-based learning
+- **Support**: Parent guides, assessment rubrics

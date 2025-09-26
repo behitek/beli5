@@ -17,11 +17,11 @@ const sidebars = {
         {
             type: 'doc',
             id: 'intro',
-            label: '🎯 Start Here!',
+            label: '🎯 Bắt Đầu Tại Đây!',
         },
         {
             type: 'category',
-            label: '🟢 Super Easy Basics',
+            label: '🟢 Kiến Thức Cơ Bản Siêu Dễ',
             collapsed: false,
             items: [
                 'basics/rust-like-safety-gear',
@@ -32,7 +32,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: '🟡 Getting Warmer',
+            label: '🟡 Đang Nóng Dần Lên',
             collapsed: false,
             items: [
                 'intermediate/functions-and-modules',
@@ -43,7 +43,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: '🔴 Challenge Time!',
+            label: '🔴 Thời Gian Thách Thức!',
             collapsed: true,
             items: [
                 'advanced/ownership-and-borrowing',
@@ -54,7 +54,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: '🏆 Rust Craftsman Projects',
+            label: '🏆 Dự Án Thợ Rust Chuyên Nghiệp',
             collapsed: true,
             items: [
                 'projects/safe-calculator',
@@ -66,12 +66,12 @@ const sidebars = {
         {
             type: 'doc',
             id: 'help-and-tips',
-            label: '🆘 Ask an Adult for Help',
+            label: '🆘 Nhờ Người Lớn Giúp Đỡ',
         },
         {
             type: 'doc',
             id: 'whats-next',
-            label: '🚀 What\'s Next?',
+            label: '🚀 Tiếp Theo Là Gì?',
         },
     ],
 };

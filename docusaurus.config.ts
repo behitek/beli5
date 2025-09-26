@@ -5,8 +5,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Beli5 - Programming Made Simple',
-  tagline: 'Behitek + ELI5: AI-Generated Programming Tutorials Explained Like You\'re 5',
+  title: 'Beli5 - Lập Trình Dễ Hiểu',
+  tagline: 'Behitek + ELI5: Hướng Dẫn Lập Trình AI Được Giải Thích Như Bạn 5 Tuổi',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -32,8 +32,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'vi',
+    locales: ['vi'],
   },
 
   plugins: [
@@ -96,16 +96,16 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
-            defaultReadingTime({content, options: {wordsPerMinute: 200}}),
+            defaultReadingTime({content, locale: 'vi', frontMatter, options: {wordsPerMinute: 200}}),
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
           },
           editUrl: 'https://github.com/behitek/beli5/tree/main/',
-          blogTitle: 'AI Learning Updates',
-          blogDescription: 'Latest updates on AI-generated programming tutorials',
+          blogTitle: 'Cập Nhật Học Tập AI',
+          blogDescription: 'Những cập nhật mới nhất về hướng dẫn lập trình được tạo bởi AI',
           postsPerPage: 'ALL',
-          blogSidebarTitle: 'All posts',
+          blogSidebarTitle: 'Tất cả bài viết',
           blogSidebarCount: 'ALL',
         },
         theme: {
@@ -124,8 +124,8 @@ const config: Config = {
   themeConfig: {
     // SEO and metadata
     metadata: [
-      {name: 'keywords', content: 'programming, tutorials, AI, ELI5, beginner, python, java, cpp, rust'},
-      {name: 'description', content: 'AI-generated programming tutorials explained in simple terms for complete beginners'},
+      {name: 'keywords', content: 'lập trình, hướng dẫn, AI, ELI5, người mới bắt đầu, python, java, cpp, rust, tiếng việt'},
+      {name: 'description', content: 'Hướng dẫn lập trình được tạo bởi AI, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn'},
     ],
     
     // Replace with your project's social card
@@ -142,7 +142,7 @@ const config: Config = {
     announcementBar: {
       id: 'ai-disclaimer',
       content:
-        '🤖 All tutorials are AI-generated and designed for complete beginners! Learn at your own pace and don\'t worry about making mistakes! 🎉',
+        '🤖 Tất cả hướng dẫn đều được tạo bởi AI và thiết kế dành cho người mới bắt đầu hoàn toàn! Học theo tốc độ của bạn và đừng lo lắng về việc mắc lỗi! 🎉',
       backgroundColor: '#ffd700',
       textColor: '#091E42',
       isCloseable: true,
@@ -151,7 +151,7 @@ const config: Config = {
     navbar: {
       title: 'Beli5',
       logo: {
-        alt: 'AI Programming Tutorials Logo',
+        alt: 'Logo Hướng Dẫn Lập Trình AI',
         src: 'img/logo.svg',
       },
       items: [
@@ -160,7 +160,7 @@ const config: Config = {
         {to: '/java/intro', label: '☕ Java (AI)', position: 'left'},
         {to: '/cpp/intro', label: '⚡ C++ (AI)', position: 'left'},
         {to: '/rust/intro', label: '🦀 Rust (AI)', position: 'left'},
-        {to: '/blog', label: '📝 Updates', position: 'left'},
+        {to: '/blog', label: '📝 Cập Nhật', position: 'left'},
         {
           href: 'https://github.com/behitek/beli5',
           label: 'GitHub',
@@ -174,56 +174,56 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Programming Languages',
+          title: 'Ngôn Ngữ Lập Trình',
           items: [
             {
-              label: '🐍 Python Tutorial',
+              label: '🐍 Hướng Dẫn Python',
               to: '/python/intro',
             },
             {
-              label: '☕ Java Tutorial',
+              label: '☕ Hướng Dẫn Java',
               to: '/java/intro',
             },
             {
-              label: '⚡ C++ Tutorial',
+              label: '⚡ Hướng Dẫn C++',
               to: '/cpp/intro',
             },
             {
-              label: '🦀 Rust Tutorial',
+              label: '🦀 Hướng Dẫn Rust',
               to: '/rust/intro',
             },
           ],
         },
         {
-          title: 'Learning Resources',
+          title: 'Tài Nguyên Học Tập',
           items: [
             {
-              label: 'Getting Started',
+              label: 'Bắt Đầu',
               to: '/',
             },
             {
-              label: 'Programming Glossary',
+              label: 'Từ Điển Lập Trình',
               to: '/glossary',
             },
             {
-              label: 'Ask for Help Tips',
+              label: 'Mẹo Xin Giúp Đỡ',
               to: '/help-tips',
             },
           ],
         },
         {
-          title: 'Community & Updates',
+          title: 'Cộng Đồng & Cập Nhật',
           items: [
             {
-              label: 'Latest Updates',
+              label: 'Cập Nhật Mới Nhất',
               to: '/blog',
             },
             {
-              label: 'GitHub Repository',
+              label: 'Kho GitHub',
               href: 'https://github.com/behitek/beli5',
             },
             {
-              label: 'Report Issues',
+              label: 'Báo Lỗi',
               href: 'https://github.com/behitek/beli5/issues',
             },
           ],
@@ -231,10 +231,10 @@ const config: Config = {
       ],
       copyright: `
         <div style="margin-bottom: 10px;">
-          <strong>🤖 AI Content Disclaimer:</strong> All content is AI-generated and presented in ELI5 (Explain Like I'm 5) style for easy learning.
+          <strong>🤖 Thông Báo Nội Dung AI:</strong> Tất cả nội dung được tạo bởi AI và trình bày theo phong cách ELI5 (Giải Thích Như Bạn 5 Tuổi) để học dễ dàng.
         </div>
         <div>
-          Copyright © ${new Date().getFullYear()} Beli5 - Behitek. Built with ❤️ using Docusaurus.
+          Bản quyền © ${new Date().getFullYear()} Beli5 - Behitek. Được xây dựng với ❤️ bằng Docusaurus.
         </div>
       `,
     },

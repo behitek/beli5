@@ -6,11 +6,11 @@
 [![Live Site](https://img.shields.io/badge/Live%20Site-GitHub%20Pages-success)](https://behitek.github.io/beli5/)
 
 > **Behitek + ELI5: AI-Generated Programming Tutorials Explained Like You're 5**  
-> Learn Python, Java, C++, and Rust through fun analogies and simple explanations designed for complete beginners!
+> **Vietnamese Programming Tutorials**: Learn Python, Java, C++, and Rust through fun analogies and simple explanations in Vietnamese, designed for Vietnamese-speaking beginners!
 
 ## 🎯 What Makes This Special?
 
-This project creates **separate, comprehensive tutorial websites** for each programming language, all AI-generated and explained using kid-friendly analogies:
+This project creates **separate, comprehensive tutorial websites** for each programming language, all AI-generated in Vietnamese and explained using Vietnamese kid-friendly analogies:
 
 - 🐍 **Python**: Like teaching a smart pet snake
 - ☕ **Java**: Like building with LEGO blocks  
@@ -91,7 +91,7 @@ beli5/
 - All tutorial content is created by artificial intelligence
 - Designed specifically for complete beginners
 - Uses simple language and relatable analogies
-- Regular disclaimers remind users about AI-generated nature
+- Global announcement bar displays AI-generated content disclaimer
 
 ### 🧒 ELI5 (Explain Like I'm 5) Style
 - Complex programming concepts broken down into simple terms
@@ -121,7 +121,7 @@ Each language has its own **complete tutorial space**:
 - **Help Guide**: How to ask for help when stuck
 - **Difficulty Indicators**: 🟢 Easy, 🟡 Medium, 🔴 Hard
 - **Progress Tracking**: Clear learning paths for each language
-- **AI Disclaimers**: Transparent about AI-generated content
+- **AI Transparency**: Global announcement bar ensures transparency about AI-generated content
 
 ## 🛠️ Available Scripts
 
@@ -169,16 +169,16 @@ Each programming language follows the same learning progression:
 ## 🎯 Target Audience
 
 ### Primary Audience
-- **Children (ages 8-16)**: Complete programming beginners
-- **Parents/Teachers**: Looking for kid-friendly programming resources
-- **Adult Beginners**: Who prefer simple, non-intimidating explanations
-- **Rust Curious**: People interested in learning memory-safe programming
+- **Vietnamese Children (ages 8-16)**: Complete programming beginners learning in Vietnamese
+- **Vietnamese Parents/Teachers**: Looking for Vietnamese kid-friendly programming resources
+- **Vietnamese Adult Beginners**: Who prefer simple, non-intimidating explanations in Vietnamese
+- **Vietnamese Rust Learners**: Vietnamese speakers interested in learning memory-safe programming
 
 ### Secondary Audience
-- **Homeschool Educators**: Seeking structured programming curricula
-- **After-school Programs**: Need engaging STEM activities
-- **Libraries**: Offering programming workshops for kids
-- **System Programming Students**: Want a gentle introduction to Rust
+- **Vietnamese Homeschool Educators**: Seeking structured Vietnamese programming curricula
+- **Vietnamese After-school Programs**: Need engaging STEM activities in Vietnamese
+- **Vietnamese Libraries**: Offering programming workshops for Vietnamese kids
+- **Vietnamese System Programming Students**: Want a gentle introduction to Rust in Vietnamese
 
 ## 🚀 Deployment Options
 
@@ -200,11 +200,12 @@ Each programming language follows the same learning progression:
 We welcome contributions that maintain the ELI5 style and beginner-friendly approach!
 
 ### Content Guidelines
-- **Use simple language**: Avoid technical jargon
-- **Include analogies**: Compare programming concepts to familiar things
-- **Add encouragement**: Remind learners that mistakes are normal
-- **AI disclaimers**: Always mention content is AI-generated
-- **Test with kids**: If possible, have young people review content
+- **Use simple Vietnamese**: Avoid technical jargon, explain in Vietnamese
+- **Include Vietnamese analogies**: Compare programming concepts to familiar Vietnamese things
+- **Add Vietnamese encouragement**: Remind learners in Vietnamese that mistakes are normal
+- **AI transparency**: Content is covered by global AI disclaimer in announcement bar
+- **Test with Vietnamese kids**: If possible, have Vietnamese young people review content
+- **Cultural relevance**: Use examples familiar to Vietnamese learners
 
 ### Rust-Specific Guidelines
 - **Safety First**: Emphasize Rust's memory safety features
@@ -237,9 +238,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Report any content that might be confusing for beginners
 
 ### For Educational Use
-- This project is free for educational use
-- Schools and libraries can use and modify content
-- Consider contributing improvements back to the community
+- This project is free for educational use in Vietnamese schools
+- Vietnamese schools and libraries can use and modify content
+- Consider contributing Vietnamese improvements back to the community
+- Suitable for Vietnamese educational curriculum
 
 ---
 

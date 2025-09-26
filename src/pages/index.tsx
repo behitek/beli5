@@ -21,24 +21,24 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/python/intro">
-            🐍 Start with Python! 
+            🐍 Bắt Đầu với Python! 
           </Link>
           <Link
             className="button button--primary button--lg margin-left--md"
             to="/java/intro">
-            ☕ Try Java Instead!
+            ☕ Thử Java Thay Thế!
           </Link>
         </div>
         <div className={styles.buttons} style={{marginTop: '1rem'}}>
           <Link
             className="button button--outline button--primary"
             to="/cpp/intro">
-            ⚡ C++ for Advanced Learners
+            ⚡ C++ Cho Người Học Nâng Cao
           </Link>
           <Link
             className="button button--outline button--primary margin-left--md"
             to="/rust/intro">
-            🦀 Rust for Safety First!
+            🦀 Rust - An Toàn Trên Hết!
           </Link>
         </div>
       </div>
@@ -50,8 +50,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Welcome to AI Programming Tutorials!"
-      description="AI-generated programming tutorials explained in simple terms for complete beginners. Learn Python, Java, C++, and Rust with ELI5 style explanations.">
+      title="Hướng Dẫn Lập Trình từ AI!"
+      description="Hướng dẫn lập trình được tạo bởi AI, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn. Học Python, Java, C++, và Rust với lời giải thích theo phong cách ELI5.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

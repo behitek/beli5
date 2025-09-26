@@ -17,7 +17,40 @@ const sidebars = {
         {
             type: 'doc',
             id: 'intro',
-            label: '🎯 Start Here!',
+            label: '🎯 Bắt Đầu Tại Đây!',
+        },
+        {
+            type: 'category',
+            label: '🟢 Cơ Bản Siêu Dễ',
+            collapsed: false,
+            items: [
+                'basics/what-is-python',
+                'basics/first-program',
+                'basics/printing-messages',
+                'basics/getting-input',
+                'basics/comments',
+                'basics/variables-boxes',
+                'basics/basic-math',
+                'basics/comparing-things',
+            ],
+        },
+        {
+            type: 'category',
+            label: '🎮 Dự Án Thực Hành',
+            collapsed: false,
+            items: [
+                'projects/mad-libs',
+            ],
+        },
+        {
+            type: 'doc',
+            id: 'help-and-tips',
+            label: '🆘 Trợ Giúp & Mẹo Hay',
+        },
+        {
+            type: 'doc',
+            id: 'whats-next',
+            label: '🚀 Bước Tiếp Theo',
         },
     ],
 };

@@ -284,7 +284,7 @@ const config: Config = {
     mermaid: {
       theme: {
         light: 'neutral', // Better contrast in light mode
-        dark: 'dark',     // Optimized for dark mode
+        dark: 'forest',     // Optimized for dark mode
       },
       options: {
         // Global Mermaid options for better accessibility

@@ -1,0 +1,10 @@
+{
+  "label": "🟢 Cơ Bản Siêu Dễ",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Học Python từ những điều cơ bản nhất! Phần này dành cho người hoàn toàn mới bắt đầu - giải thích mọi thứ như cho trẻ 5 tuổi với những ví dụ thú vị và dễ hiểu."
+  },
+  "collapsible": true,
+  "collapsed": false
+}

@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+- Coding using English name for variable, function, classess name ...
+- Comment using Vietnamese language.
+- All source code follow PEP8, clean-code, well-naming convension.
+- The example in the code, can mentioned our brand, behitek.

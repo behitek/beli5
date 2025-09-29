@@ -1,0 +1,10 @@
+{
+  "label": "🎮 Dự Án Thực Hành",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Áp dụng kiến thức Python vào các dự án thực tế! Từ máy tính đơn giản đến ứng dụng phức tạp, học bằng cách làm!"
+  },
+  "collapsible": true,
+  "collapsed": false
+}

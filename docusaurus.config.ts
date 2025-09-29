@@ -280,6 +280,40 @@ const config: Config = {
       showGutter: true,
     },
 
+    // Mermaid theme configuration for both light and dark modes
+    mermaid: {
+      theme: {
+        light: 'neutral', // Better contrast in light mode
+        dark: 'dark',     // Optimized for dark mode
+      },
+      options: {
+        // Global Mermaid options for better accessibility
+        fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontSize: 16,
+        // Ensure good contrast ratios
+        theme: 'base',
+        themeVariables: {
+          // Light mode colors (high contrast)
+          primaryColor: '#4f46e5',
+          primaryTextColor: '#1f2937',
+          primaryBorderColor: '#374151',
+          lineColor: '#6b7280',
+          secondaryColor: '#f3f4f6',
+          tertiaryColor: '#e5e7eb',
+          background: '#ffffff',
+          mainBkg: '#ffffff',
+          secondBkg: '#f9fafb',
+          // Ensure text is readable
+          textColor: '#111827',
+          // Node styling
+          nodeBkg: '#f3f4f6',
+          nodeBorder: '#d1d5db',
+          // Arrow styling
+          arrowheadColor: '#374151',
+        },
+      },
+    },
+
   } satisfies Preset.ThemeConfig,
 };
 

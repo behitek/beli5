@@ -164,27 +164,29 @@ docs-rust/       # Rust-specific content
 - **Mermaid Diagrams**: Interactive flowcharts and diagrams for visual learning
 
 #### Mermaid Integration Strategy:
-Docusaurus supports Mermaid diagrams natively, enabling visual representations of:
+Docusaurus supports Mermaid diagrams natively with full dark/light theme compatibility, enabling visual representations of:
 - **Programming Flow**: Conditional logic, loops, and decision trees
 - **Data Structures**: Arrays, objects, and relationships
 - **System Architecture**: How different parts of programs connect
 - **Learning Paths**: Visual progression through topics
 - **Problem-Solving**: Step-by-step algorithmic thinking
 
+**Theme Compatibility**: All Mermaid diagrams automatically adapt to both light and dark themes with high contrast ratios for accessibility. See [THEME-GUIDELINES.md](./THEME-GUIDELINES.md) for detailed specifications.
+
 Example Mermaid usage:
 ```mermaid
 graph TD;
-    A[Start Learning] --> B{Choose Language};
+    A[Bắt Đầu Học] --> B{Chọn Ngôn Ngữ};
     B --> C[🐍 Python];
     B --> D[☕ Java];
     B --> E[⚡ C++];
     B --> F[🦀 Rust];
-    C --> G[Basic Concepts];
+    C --> G[Kiến Thức Cơ Bản];
     D --> G;
     E --> G;
     F --> G;
-    G --> H[Practice Projects];
-    H --> I[Advanced Topics];
+    G --> H[Dự Án Thực Tế];
+    H --> I[Chủ Đề Nâng Cao];
 ```
 
 ---

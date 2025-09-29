@@ -31,7 +31,7 @@
   --ifm-heading-margin-bottom: 1rem;
 }
 
-/* Dark mode with warmer colors */
+/* Dark mode with warmer colors and better contrast */
 [data-theme='dark'] {
   --ifm-color-primary: #818cf8;
   --ifm-color-primary-dark: #6366f1;
@@ -41,6 +41,12 @@
   --ifm-color-primary-lighter: #c7d2fe;
   --ifm-color-primary-lightest: #e0e7ff;
   --docusaurus-highlighted-code-line-bg: rgba(129, 140, 248, 0.2);
+  
+  /* Enhanced contrast for better readability */
+  --ifm-color-content: #e5e7eb;
+  --ifm-color-content-secondary: #d1d5db;
+  --ifm-background-color: #111827;
+  --ifm-background-surface-color: #1f2937;
 }
 
 /* Make the hero section more engaging */
@@ -165,4 +171,129 @@
 
 .button--primary:hover {
   animation: bounce 0.6s ease-in-out;
+}
+
+/* Mermaid diagram theme enhancements for accessibility */
+.mermaid {
+  /* Ensure diagrams are centered and have good spacing */
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+  
+  /* Better font rendering */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Light theme Mermaid adjustments */
+[data-theme='light'] .mermaid {
+  /* Ensure good contrast in light mode */
+  filter: none;
+  background-color: transparent;
+}
+
+[data-theme='light'] .mermaid svg {
+  /* Ensure SVG elements are visible in light mode */
+  background-color: transparent;
+}
+
+/* Dark theme Mermaid adjustments */
+[data-theme='dark'] .mermaid {
+  /* Better visibility in dark mode */
+  filter: brightness(0.9) contrast(1.1);
+  background-color: transparent;
+}
+
+[data-theme='dark'] .mermaid svg {
+  /* Ensure SVG elements work well in dark mode */
+  background-color: transparent;
+}
+
+/* Mermaid text elements - ensure readability */
+.mermaid text {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+/* Mermaid flowchart nodes - better visibility */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon {
+  stroke-width: 2px;
+}
+
+[data-theme='light'] .mermaid .node rect,
+[data-theme='light'] .mermaid .node circle,
+[data-theme='light'] .mermaid .node polygon {
+  stroke: #374151 !important;
+  fill: #f9fafb !important;
+}
+
+[data-theme='light'] .mermaid .node text {
+  fill: #111827 !important;
+}
+
+[data-theme='dark'] .mermaid .node rect,
+[data-theme='dark'] .mermaid .node circle,
+[data-theme='dark'] .mermaid .node polygon {
+  stroke: #d1d5db !important;
+  fill: #374151 !important;
+}
+
+[data-theme='dark'] .mermaid .node text {
+  fill: #f9fafb !important;
+}
+
+/* Mermaid arrows and edges */
+[data-theme='light'] .mermaid .edgePath path {
+  stroke: #6b7280 !important;
+  stroke-width: 2px;
+}
+
+[data-theme='dark'] .mermaid .edgePath path {
+  stroke: #9ca3af !important;
+  stroke-width: 2px;
+}
+
+/* Mermaid edge labels */
+[data-theme='light'] .mermaid .edgeLabel {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+[data-theme='dark'] .mermaid .edgeLabel {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+/* Responsive Mermaid diagrams */
+@media (max-width: 768px) {
+  .mermaid {
+    font-size: 14px;
+    margin: 1.5rem auto;
+  }
+  
+  .mermaid text {
+    font-size: 12px !important;
+  }
+}
+
+/* High contrast mode support for accessibility */
+@media (prefers-contrast: high) {
+  .mermaid .node rect,
+  .mermaid .node circle,
+  .mermaid .node polygon {
+    stroke-width: 3px !important;
+  }
+  
+  .mermaid text {
+    font-weight: 600 !important;
+  }
+  
+  .mermaid .edgePath path {
+    stroke-width: 3px !important;
+  }
 }

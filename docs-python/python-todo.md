@@ -1,13 +1,15 @@
 # 📋 Danh Sách Công Việc - Hoàn Thiện Python Tutorial
 
-> **Mục tiêu**: Xây dựng khóa học Python hoàn chỉnh theo phương pháp ELI5, từ cơ bản đến nâng cao, phù hợp với học sinh Việt Nam và người mới bắt đầu.
+> **Mục ti- [x] `advanced/working-with-apis.md` - Gọi API
+- [x] `advanced/regular-expressions.md` - Biểu thức chính quy
+- [x] `advanced/decorators-basics.md` - Decorator cơ bản*: Xây dựng khóa học Python hoàn chỉnh theo phương pháp ELI5, từ cơ bản đến nâng cao, phù hợp với học sinh Việt Nam và người mới bắt đầu.
 
 ## 🎯 Tổng Quan Dự Án
 
 **Trạng thái hiện tại**: 
-- ✅ **Hoàn thành**: Phần cơ bản (100%), Phần trung cấp (70%), 3 dự án
-- 🟡 **Đang thiếu**: Phần trung cấp còn lại, nâng cao, thực hành và dự án
-- 🔴 **Cần làm**: Hoàn thiện phần trung cấp, nâng cao và các dự án còn lại
+- ✅ **Hoàn thành**: Phần cơ bản (100%), Phần trung cấp (100%), Phần nâng cao (100%), 4 dự án, 4 bài thực hành
+- 🟡 **Đang thiếu**: Thêm dự án, bài tập thực hành, tài liệu tham khảo
+- 🔴 **Cần làm**: Hoàn thiện các dự án còn lại, bài tập thực hành, reference và glossary
 
 ---
 
@@ -57,19 +59,19 @@
 ## 🚀 PHẦN 3: THÁCH THỨC CAO (🔴 Red Level)
 
 ### 📁 Thư mục: `advanced/`
-- [ ] `advanced/_category_.json` - Cấu hình category
-- [ ] `advanced/file-handling.md` - Làm việc với file
-- [ ] `advanced/modules-and-packages.md` - Module và package
-- [ ] `advanced/classes-and-objects.md` - Lớp và đối tượng (OOP cơ bản)
-- [ ] `advanced/inheritance.md` - Kế thừa
-- [ ] `advanced/working-with-json.md` - Làm việc với JSON
-- [ ] `advanced/working-with-apis.md` - Gọi API
-- [ ] `advanced/regular-expressions.md` - Biểu thức chính quy
-- [ ] `advanced/decorators-basics.md` - Decorator cơ bản
-- [ ] `advanced/generators.md` - Generator
-- [ ] `advanced/context-managers.md` - Context manager
-- [ ] `advanced/lambda-functions.md` - Lambda function
-- [ ] `advanced/map-filter-reduce.md` - Map, filter, reduce
+- [x] `advanced/_category_.json` - Cấu hình category ✅
+- [x] `advanced/file-handling.md` - Làm việc với file ✅
+- [x] `advanced/modules-and-packages.md` - Module và package ✅
+- [x] `advanced/classes-and-objects.md` - Lớp và đối tượng (OOP cơ bản) ✅
+- [x] `advanced/inheritance.md` - Kế thừa ✅
+- [x] `advanced/working-with-json.md` - Làm việc với JSON ✅
+- [x] `advanced/working-with-apis.md` - Gọi API ✅
+- [x] `advanced/regular-expressions.md` - Biểu thức chính quy ✅
+- [x] `advanced/decorators-basics.md` - Decorator cơ bản ✅
+- [x] `advanced/generators.md` - Generator functions và yield ✅
+- [x] `advanced/context-managers.md` - Quản lý tài nguyên với context managers ✅
+- [x] `advanced/lambda-functions.md` - Lambda và anonymous functions ✅
+- [x] `advanced/map-filter-reduce.md` - Functional programming với map, filter, reduce ✅
 
 ---
 
@@ -80,10 +82,11 @@
 - [x] `projects/calculator.md` - Máy tính đơn giản
 - [x] `projects/guessing-game.md` - Game đoán số
 - [x] `projects/password-generator.md` - Tạo mật khẩu ngẫu nhiên
-- [ ] `projects/todo-list.md` - Ứng dụng todo list
-- [ ] `projects/weather-app.md` - Ứng dụng thời tiết
-- [ ] `projects/quiz-game.md` - Game quiz
-- [ ] `projects/file-organizer.md` - Sắp xếp file tự động
+- [x] `projects/todo-list.md` - Ứng dụng todo list
+  - [x] todo-list.md - Ứng dụng quản lý công việc hoàn chỉnh ✅
+  - [x] weather-app.md - Ứng dụng thời tiết với API ✅
+  - [x] quiz-game.md - Game đố vui với nhiều tính năng ✅
+- [x] `projects/file-organizer.md` - Sắp xếp file tự động ✅
 - [ ] `projects/web-scraper.md` - Thu thập dữ liệu web
 - [ ] `projects/chatbot-basic.md` - Chatbot đơn giản
 - [ ] `projects/expense-tracker.md` - Quản lý chi tiêu
@@ -93,13 +96,13 @@
 ## 💪 PHẦN 5: BÀI TẬP THỰC HÀNH
 
 ### 📁 Thư mục: `practice/`
-- [ ] `practice/_category_.json` - Cấu hình category
-- [ ] `practice/basic-exercises.md` - Bài tập cơ bản
-- [ ] `practice/variable-exercises.md` - Bài tập về biến
-- [ ] `practice/string-exercises.md` - Bài tập về chuỗi
+- [x] `practice/_category_.json` - Cấu hình category ✅
+- [x] `practice/basic-exercises.md` - Bài tập cơ bản ✅
+- [x] `practice/variable-exercises.md` - Bài tập về biến ✅
+- [x] `practice/string-exercises.md` - Bài tập về chuỗi ✅
+- [x] `practice/loop-exercises.md` - Bài tập về vòng lặp ✅
 - [ ] `practice/list-exercises.md` - Bài tập về danh sách
 - [ ] `practice/function-exercises.md` - Bài tập về hàm
-- [ ] `practice/loop-exercises.md` - Bài tập về vòng lặp
 - [ ] `practice/conditional-exercises.md` - Bài tập về điều kiện
 - [ ] `practice/file-exercises.md` - Bài tập về file
 - [ ] `practice/oop-exercises.md` - Bài tập về OOP
@@ -176,9 +179,9 @@
 
 ### 📈 Thống kê hiện tại
 - **Tổng số bài cần viết**: ~85 bài
-- **Đã hoàn thành**: 25 bài (29.4%)
-- **Còn lại**: 60 bài (70.6%)
-- **Thời gian ước tính**: 4-5 tuần (với tốc độ 3-4 bài/ngày)
+- **Đã hoàn thành**: 48 bài (56.5%)
+- **Còn lại**: 37 bài (43.5%)
+- **Thời gian ước tính**: 2-3 tuần (với tốc độ 5-6 bài/ngày)
 
 ### 🎯 Mục tiêu từng giai đoạn
 - **Tuần 1**: Hoàn thành 15 bài (Basics + một phần Intermediate)
@@ -250,6 +253,6 @@ gantt
 
 *📝 **Lưu ý**: File này sẽ được cập nhật thường xuyên theo tiến độ thực tế. Hãy đánh dấu [x] khi hoàn thành một task và thêm ghi chú nếu cần.*
 
-**Cập nhật lần cuối**: 29/09/2025  
+**Cập nhật lần cuối**: 29/09/2024  
 **Người tạo**: AI Assistant với sự hỗ trợ từ Web Search  
-**Trạng thái**: 🚀 Đang triển khai tích cực - 29.4% hoàn thành
+**Trạng thái**: 🚀 Đang triển khai tích cực - 38.8% hoàn thành

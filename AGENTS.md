@@ -1,16 +1,16 @@
-# AI Programming Tutorials - Agent Strategy & Project Documentation
+# ELI5 Programming Blog - Strategy & Project Documentation
 
 ## 🎯 Project Overview
 
-**Project Name**: AI Programming Tutorials - ELI5 Style  
+**Project Name**: ELI5 Programming Blog - Knowledge Sharing Style  
 **Technology Stack**: Docusaurus, TypeScript, React  
 **Target Audience**: Vietnamese Children (8-16), Adult Beginners, Educators  
 **Primary Language**: Vietnamese (Tiếng Việt) for all tutorial content  
-**Content Strategy**: AI-Generated Educational Content with ELI5 Methodology in Vietnamese  
+**Content Strategy**: ELI5 Educational Blog Sharing with Simple Explanations in Vietnamese  
 
 ## 🚀 Mission Statement
 
-Create comprehensive, AI-generated programming tutorials that explain complex programming concepts using simple analogies and kid-friendly language, making programming accessible to complete beginners of all ages.
+Create comprehensive programming blog that shares knowledge using ELI5 (Explain Like I'm 5) methodology, explaining complex programming concepts using simple analogies and kid-friendly language, making programming accessible to complete beginners of all ages.
 
 ---
 
@@ -67,32 +67,32 @@ Each programming language uses consistent metaphors throughout all content:
 
 ---
 
-## 🤖 AI Content Generation Strategy
+## 📝 ELI5 Blog Sharing Strategy
 
-### 1. **AI Content Guidelines**
+### 1. **Content Sharing Guidelines**
 
 #### Transparency Requirements:
-- Global announcement bar displays AI-generated content disclaimer site-wide
-- No need for individual page disclaimers (handled globally)
-- Maintain transparency about limitations of AI-generated educational content
-- Include human oversight recommendations
+- Global announcement bar displays ELI5 blog sharing approach site-wide
+- Content is shared with educational purpose for Vietnamese learners
+- Maintain transparency about ELI5 methodology and learning objectives
+- Include community contribution opportunities
 
 #### Quality Assurance:
 - All code examples must be tested and functional
-- Analogies must be age-appropriate and culturally sensitive
-- Content must be factually accurate
-- Regular review and updates needed
+- Analogies must be age-appropriate and culturally sensitive for Vietnamese audience
+- Content must be factually accurate and educationally sound
+- Regular review and updates based on community feedback
 
-### 2. **Content Creation Workflow**
+### 2. **Content Sharing Workflow**
 
 ```
-1. Concept Identification → 2. Analogy Selection → 3. AI Content Generation → 
-4. Human Review → 5. Testing & Validation → 6. Publication → 7. Feedback Integration
+1. Concept Identification → 2. Vietnamese Analogy Selection → 3. ELI5 Content Creation → 
+4. Community Review → 5. Testing & Validation → 6. Blog Publication → 7. Feedback Integration
 ```
 
 #### Content Templates:
-- **Introduction Pages**: Mission, analogies, encouragement
-- **Concept Pages**: Definition, analogy, examples, practice
+- **Introduction Pages**: Mission, Vietnamese analogies, encouragement
+- **Concept Pages**: Definition, Vietnamese analogies, examples, practice
 - **Project Pages**: Step-by-step builds, explanations, extensions
 - **Help Pages**: Troubleshooting, getting assistance, resources
 
@@ -207,10 +207,10 @@ graph TD;
 
 ### 2. **Content Quality Indicators**
 
-#### AI Content Assessment:
+#### ELI5 Content Assessment:
 - **Accuracy**: Technical correctness of information
-- **Clarity**: Understandability by target audience
-- **Engagement**: Maintains learner interest
+- **Clarity**: Understandability by Vietnamese target audience
+- **Engagement**: Maintains learner interest with Vietnamese cultural context
 - **Completeness**: Covers necessary concepts adequately
 
 ---
@@ -260,7 +260,7 @@ graph TD;
 - ✅ Core infrastructure setup
 - ✅ Basic content for each language
 - ✅ ELI5 methodology implementation
-- ✅ Global AI content disclaimer system (announcement bar)
+- ✅ Global ELI5 blog sharing system (announcement bar)
 
 ### 2. **Phase 2: Content Expansion**
 - 📝 Complete tutorial series for each language
@@ -275,7 +275,7 @@ graph TD;
 - 📝 Live help and mentorship
 
 ### 4. **Phase 4: Advanced Features**
-- 📝 AI-powered personalized learning paths
+- 📝 Personalized learning paths based on community feedback
 - 📝 Adaptive difficulty based on performance
 - 📝 Multi-language support (human languages)
 - 📝 Integration with coding platforms
@@ -332,10 +332,10 @@ graph TD;
 
 ### 1. **Content Review Process**
 
-#### AI Content Validation:
+#### ELI5 Content Validation:
 1. **Technical Accuracy**: Code examples tested and verified
-2. **Age Appropriateness**: Language and examples suitable for target age
-3. **Cultural Sensitivity**: Inclusive and respectful content
+2. **Age Appropriateness**: Language and examples suitable for Vietnamese target age
+3. **Cultural Sensitivity**: Inclusive and respectful Vietnamese content
 4. **Educational Effectiveness**: Concepts clearly explained and buildable
 
 #### Human Oversight:
@@ -356,13 +356,13 @@ graph TD;
 
 ## 🌟 Innovation Opportunities
 
-### 1. **AI-Enhanced Features**
+### 1. **Community-Enhanced Features**
 
-#### Future AI Integration:
-- **Personalized Learning Paths**: AI adapts content to individual learning style
-- **Intelligent Tutoring**: AI provides contextual help and explanations
-- **Automated Assessment**: AI evaluates learner understanding
-- **Content Generation**: AI creates practice problems and projects
+#### Future Community Integration:
+- **Personalized Learning Paths**: Community feedback adapts content to learning styles
+- **Peer Tutoring**: Community provides contextual help and explanations
+- **Community Assessment**: Peer evaluation of learner understanding
+- **Collaborative Content**: Community creates practice problems and projects
 
 ### 2. **Emerging Technologies**
 
@@ -427,13 +427,13 @@ graph TD;
 
 ### Contribution Guidelines
 - All content must follow ELI5 methodology
-- AI-generated content is covered by global announcement bar disclaimer
+- ELI5 blog sharing content is covered by global announcement bar
 - Code examples must be tested and functional
-- Maintain consistent analogy systems per language
+- Maintain consistent Vietnamese analogy systems per language
 
 ---
 
-*This document serves as the strategic foundation for AI Programming Tutorials project. It should be updated regularly as the project evolves and new insights are gained from user feedback and educational research.*
+*This document serves as the strategic foundation for ELI5 Programming Blog project. It should be updated regularly as the project evolves and new insights are gained from user feedback and educational research.*
 
 **Last Updated**: September 2025  
 **Version**: 1.0  

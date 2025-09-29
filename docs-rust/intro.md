@@ -1,141 +1,57 @@
 ---
 sidebar_position: 1
-title: Welcome to Rust (AI Tutorial)
-description: AI-generated Rust programming tutorial explained like you're 5 years old
-keywords: [rust, programming, AI, tutorial, ELI5, beginner, safety, memory]
+title: 🦀 Rust - Sắp Ra Mắt!
+description: Khóa học Rust đang được phát triển - Sắp có thêm nội dung tuyệt vời!
+keywords: [rust, programming, sắp ra mắt, coming soon, ELI5, beginner]
 ---
 
-# 🦀 Welcome to Rust Programming! (AI Tutorial)
+# 🦀 Rust Programming - Sắp Ra Mắt!
 
-## What is This Tutorial?
+## 🚧 Đang Xây Dựng Nội Dung...
 
-Hi there, future Rust craftsperson! 👋 This is a special tutorial that teaches you **Rust programming** by comparing it to having the best safety equipment and tools. Think of it like learning to build amazing things while wearing the ultimate protective gear!
+Chào bạn! 👋 Hiện tại chúng mình đang tập trung phát triển nội dung **Python** trước. Nội dung **Rust** sẽ sớm được cập nhật!
 
-### 🎯 What Makes This Special?
+### 🎯 Rust Sẽ Có Gì?
 
-- **🧒 ELI5 Style**: Everything explained "Like You're 5" years old
-- **🛡️ Safety Analogies**: We compare Rust to protective gear and safety systems
-- **🚀 Your Pace**: Learn to build safely, one step at a time!
+Khi ra mắt, khóa học Rust sẽ bao gồm:
 
-## Why Rust is Like Ultimate Safety Gear! 🛡️
+- **🛡️ Rust như Thiết Bị An Toàn**: So sánh Rust với đồ bảo hộ chuyên nghiệp
+- **🟢 Kiến Thức Cơ Bản Siêu Dễ**: Học cách sử dụng "thiết bị an toàn" cơ bản
+- **🟡 Đang Nóng Dần Lên**: Sử dụng công cụ an toàn hiệu quả
+- **🔴 Thời Gian Thách Thức**: Làm chủ kỹ thuật an toàn nâng cao
+- **🏆 Dự Án Thợ Rust Chuyên Nghiệp**: Xây dựng những sản phẩm an toàn, tuyệt vời!
 
-Rust programming is exactly like having the most advanced safety equipment when building or working:
+### 🦀 Tại Sao Rust Đặc Biệt?
 
-### 🟢 Prevents Accidents Before They Happen
-- Like wearing a hard hat that stops you from bumping your head
-- Rust stops your programs from crashing before they even run
-- No more "oops, I broke something" moments!
+Rust giống như có bộ đồ bảo hộ siêu hiện đại:
+- **An Toàn Tuyệt Đối**: Ngăn chặn lỗi trước khi chúng xảy ra
+- **Siêu Nhanh**: Chạy nhanh như C++ nhưng an toàn hơn nhiều
+- **Được Tin Dùng**: Firefox, Discord, Dropbox đều sử dụng Rust!
 
-### 🟡 Super Fast and Efficient
-- Like having lightweight but incredibly strong safety gear
-- Your programs run as fast as C++ but are much safer
-- No performance penalty for being safe!
+## 🐍 Hiện Tại: Hãy Bắt Đầu Với Python!
 
-### 🔴 Used for Mission-Critical Stuff
-- **Firefox browser** uses Rust for security!
-- **Discord** uses Rust to handle millions of users!
-- **Dropbox** uses Rust for file storage!
-- Even **NASA** and **Microsoft** use Rust! 🚀
+Trong khi chờ đợi nội dung Rust, bạn có thể:
 
-## What You'll Learn Here
+1. **Bắt đầu học Python** - Ngôn ngữ tuyệt vời cho người mới bắt đầu
+2. **Làm quen với lập trình** - Nền tảng vững chắc cho tất cả ngôn ngữ
+3. **Thực hành tư duy logic** - Kỹ năng cần thiết cho mọi lập trình viên
 
-```rust
-// Don't worry about understanding this yet!
-// By the end, you'll know exactly what this safety-first code does:
+### 📚 Nội Dung Python Đã Sẵn Sàng!
 
-fn main() {
-    let name = "Future Rust Craftsperson";
-    println!("Hello, {}! Welcome to safe programming! 🦀", name);
-}
+Khóa học Python đã có đầy đủ nội dung:
+- Cài đặt Python
+- Chương trình đầu tiên
+- Biến và dữ liệu
+- Và nhiều thứ thú vị khác!
 
-// This will say: Hello, Future Rust Craftsperson! Welcome to safe programming! 🦀
-```
+## 🔔 Thông Báo Cập Nhật
 
-### 🗺️ Your Safety Training Journey
+Nội dung Rust sẽ được cập nhật trong thời gian tới. Hãy theo dõi để không bỏ lỡ!
 
-1. **🟢 Super Easy Basics** - Learning about your safety gear
-2. **🟡 Getting Warmer** - Using your tools safely and effectively
-3. **🔴 Challenge Time** - Mastering advanced safety techniques
-4. **🏆 Rust Craftsman Projects** - Building amazing, safe creations!
-
-## Rust vs. Other Programming Languages
-
-Think of programming languages like different types of safety equipment:
-
-| Language | What It's Like |
-|----------|----------------|
-| **Rust** 🦀 | Full-body safety suit with built-in sensors that prevent all accidents |
-| **Python** 🐍 | Comfortable work clothes - easy to wear but not much protection |
-| **Java** ☕ | Safety vest with some protection and clear rules |
-| **C++** ⚡ | Professional power tools with optional safety gear (you choose) |
-
-## What Can YOU Build with Rust?
-
-### 🟢 Beginner Safety Projects (Super Easy!)
-- A safe "Hello World" program
-- A simple calculator that never crashes
-- A number guessing game with perfect error handling
-
-### 🟡 Intermediate Safety Projects (Getting Warmer!)
-- A file organizer that never loses your data
-- A web scraper that handles all errors gracefully
-- A simple game that never has memory bugs
-
-### 🔴 Advanced Safety Projects (Challenge Time!)
-- Web servers that handle millions of requests safely
-- Operating system components
-- Cryptocurrency and blockchain applications
-- High-performance game engines
-
-## Why Rust is Perfect for Learning Safety 🌟
-
-### 🛡️ Rust is Super Safe
-- Prevents 70% of all common programming bugs automatically
-- Like having a personal safety inspector checking your work
-- Teaches you good habits from the very beginning
-
-### ⚡ Rust is Lightning Fast
-- Programs run as fast as C and C++
-- No garbage collector slowing things down
-- Like having safety gear that makes you faster, not slower
-
-### 🌍 Rust is Growing Fast
-- One of the most loved programming languages
-- Used by major tech companies worldwide
-- Great for future career opportunities
-
-## The Rust Mascot: Ferris the Crab 🦀
-
-Meet Ferris! Ferris is Rust's friendly crab mascot. Just like how crabs have hard shells to protect themselves, Rust has built-in protection to keep your programs safe!
-
-### Why a Crab?
-- **Hard Shell**: Like Rust's memory safety
-- **Strong Claws**: Like Rust's powerful features
-- **Lives Safely**: Like how Rust programs run without crashes
-- **Adaptable**: Like how Rust works for many different types of programs
-
-## Before We Start Building...
-
-### 🆘 It's Okay to Ask for Help!
-- Rust can seem different from other languages at first
-- The compiler (Rust's safety checker) is very helpful with error messages
-- There's a special "Ask an Adult for Help" section in each tutorial
-- Learning Rust is like learning to use professional safety equipment - take your time!
-
-### 🛡️ Safety First Mindset
-- Rust teaches you to think about safety from the beginning
-- Every error message is trying to help you build better programs
-- Don't fight the safety features - they're there to help you!
-- Have fun and enjoy building things that never break!
-
-## Ready to Start Your Safety Training? 🚀
-
-Click on **"🟢 Super Easy Basics"** in the menu on the left to begin your Rust safety training!
-
-:::tip 💡 Pro Tip for Young Programmers
-Rust is like learning to use the most advanced safety equipment in the world. It might seem like a lot at first, but once you learn it, you'll be able to build amazing things that are incredibly safe and fast! Think of every compiler error as a friendly safety reminder! 🛡️
+:::info 💡 Gợi Ý
+Hãy bắt đầu với Python trước! Những kiến thức bạn học được sẽ rất hữu ích khi chuyển sang Rust sau này. Python giúp bạn hiểu được tư duy lập trình, còn Rust sẽ dạy bạn cách lập trình siêu an toàn! 🐍➡️🦀
 :::
 
 ---
 
-**Next Step**: More Rust content coming soon! Start exploring the safety gear! →
+**Tiếp Theo**: Hãy khám phá [Python](/docs-python/intro) ngay bây giờ! →

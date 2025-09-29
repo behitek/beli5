@@ -17,51 +17,7 @@ const sidebars = {
         {
             type: 'doc',
             id: 'intro',
-            label: '🎯 Bắt Đầu Tại Đây!',
-        },
-        {
-            type: 'category',
-            label: '🟢 Kiến Thức Cơ Bản Siêu Dễ',
-            collapsed: false,
-            items: [
-                'basics/rust-like-safety-gear',
-                'basics/variables-and-ownership',
-                'basics/your-first-rust-program',
-                'basics/memory-safety-explained',
-            ],
-        },
-        {
-            type: 'category',
-            label: '🟡 Đang Nóng Dần Lên',
-            collapsed: false,
-            items: [
-                'intermediate/functions-and-modules',
-                'intermediate/structs-and-enums',
-                'intermediate/error-handling-results',
-                'intermediate/collections-vectors',
-            ],
-        },
-        {
-            type: 'category',
-            label: '🔴 Thời Gian Thách Thức!',
-            collapsed: true,
-            items: [
-                'advanced/ownership-and-borrowing',
-                'advanced/lifetimes-explained',
-                'advanced/traits-and-generics',
-                'advanced/concurrency-threads',
-            ],
-        },
-        {
-            type: 'category',
-            label: '🏆 Dự Án Thợ Rust Chuyên Nghiệp',
-            collapsed: true,
-            items: [
-                'projects/safe-calculator',
-                'projects/file-organizer',
-                'projects/web-scraper',
-                'projects/concurrent-downloader',
-            ],
+            label: '🦀 Rust - Sắp Ra Mắt!',
         },
         {
             type: 'doc',

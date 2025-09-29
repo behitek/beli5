@@ -6,7 +6,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Beli5 - Lập Trình Dễ Hiểu',
-  tagline: 'Behitek + ELI5: Hướng Dẫn Lập Trình AI Được Giải Thích Như Bạn 5 Tuổi',
+  tagline: 'Behitek + ELI5: Blog Chia Sẻ Lập Trình Được Giải Thích Như Bạn 5 Tuổi',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -109,8 +109,8 @@ const config: Config = {
             xslt: true,
           },
           editUrl: 'https://github.com/behitek/beli5/tree/main/',
-          blogTitle: 'Cập Nhật Học Tập AI',
-          blogDescription: 'Những cập nhật mới nhất về hướng dẫn lập trình được tạo bởi AI',
+          blogTitle: 'Cập Nhật Blog ELI5',
+          blogDescription: 'Những cập nhật mới nhất về blog chia sẻ lập trình ELI5',
           postsPerPage: 'ALL',
           blogSidebarTitle: 'Tất cả bài viết',
           blogSidebarCount: 'ALL',
@@ -131,8 +131,8 @@ const config: Config = {
   themeConfig: {
     // SEO and metadata
     metadata: [
-      {name: 'keywords', content: 'lập trình, hướng dẫn, AI, ELI5, người mới bắt đầu, python, java, cpp, rust, tiếng việt'},
-      {name: 'description', content: 'Hướng dẫn lập trình được tạo bởi AI, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn'},
+      {name: 'keywords', content: 'lập trình, hướng dẫn, blog, ELI5, người mới bắt đầu, python, java, cpp, rust, tiếng việt'},
+      {name: 'description', content: 'Blog chia sẻ lập trình ELI5, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn'},
     ],
     
     // Replace with your project's social card
@@ -145,11 +145,11 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
-    // Announcement bar for AI disclaimer
+    // Announcement bar for ELI5 blog sharing
     announcementBar: {
-      id: 'ai-disclaimer',
+      id: 'eli5-blog-sharing',
       content:
-        '🤖 Tất cả hướng dẫn đều được tạo bởi AI và thiết kế dành cho người mới bắt đầu hoàn toàn! Học theo tốc độ của bạn và đừng lo lắng về việc mắc lỗi! 🎉',
+        '📚 Blog chia sẻ kiến thức lập trình theo phong cách ELI5 (Giải Thích Như Bạn 5 Tuổi) dành cho người Việt! Học dễ hiểu, vui vẻ và không lo lắng! 🎉',
       backgroundColor: '#ffd700',
       textColor: '#091E42',
       isCloseable: true,
@@ -158,15 +158,15 @@ const config: Config = {
     navbar: {
       title: 'Beli5',
       logo: {
-        alt: 'Logo Hướng Dẫn Lập Trình AI',
+        alt: 'Logo Blog Lập Trình ELI5',
         src: 'img/logo.svg',
       },
       items: [
         // Separate menu items for each tutorial (not dropdown)
-        {to: '/python/intro', label: '🐍 Python (AI)', position: 'left'},
-        {to: '/java/intro', label: '☕ Java (AI)', position: 'left'},
-        {to: '/cpp/intro', label: '⚡ C++ (AI)', position: 'left'},
-        {to: '/rust/intro', label: '🦀 Rust (AI)', position: 'left'},
+        {to: '/python/intro', label: '🐍 Python', position: 'left'},
+        {to: '/java/intro', label: '☕ Java', position: 'left'},
+        {to: '/cpp/intro', label: '⚡ C++', position: 'left'},
+        {to: '/rust/intro', label: '🦀 Rust', position: 'left'},
         {to: '/blog', label: '📝 Cập Nhật', position: 'left'},
         {
           href: 'https://github.com/behitek/beli5',
@@ -238,7 +238,7 @@ const config: Config = {
       ],
       copyright: `
         <div style="margin-bottom: 10px;">
-          <strong>🤖 Thông Báo Nội Dung AI:</strong> Tất cả nội dung được tạo bởi AI và trình bày theo phong cách ELI5 (Giải Thích Như Bạn 5 Tuổi) để học dễ dàng.
+          <strong>📚 Blog ELI5:</strong> Nội dung được chia sẻ theo phong cách ELI5 (Giải Thích Như Bạn 5 Tuổi) để học dễ hiểu và vui vẻ.
         </div>
         <div>
           Bản quyền © ${new Date().getFullYear()} Beli5 - Behitek. Được xây dựng với ❤️ bằng Docusaurus.

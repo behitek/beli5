@@ -1,0 +1,176 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# 🎨 Theme Compatibility Guidelines
+
+## 📖 Overview
+
+This document outlines the guidelines for ensuring all content, especially Mermaid diagrams and visual elements, are easily readable and accessible in both dark and light themes across the ELI5 Programming Blog.
+
+---
+
+## 🌓 Theme Requirements
+
+### ✅ Must Support Both Themes
+All content must be clearly readable and visually appealing in:
+- **Light Theme** (default): High contrast, comfortable for daytime reading
+- **Dark Theme**: Easy on the eyes, suitable for low-light environments
+- **Auto Theme**: Respects user's system preference
+
+### 🎯 Accessibility Standards
+- **WCAG 2.1 AA compliance** for color contrast ratios
+- **High contrast mode** support for users with visual impairments
+- **Responsive design** that works on all device sizes
+- **Font readability** with appropriate sizing and spacing
+
+---
+
+## 🔧 Technical Implementation
+
+### 🖼️ Mermaid Diagram Configuration
+
+Our Mermaid diagrams automatically adapt to the current theme:
+
+```typescript
+// docusaurus.config.ts
+mermaid: {
+  theme: {
+    light: 'neutral', // Better contrast in light mode
+    dark: 'dark',     // Optimized for dark mode
+  },
+  options: {
+    fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+    fontSize: 16,
+    theme: 'base',
+    themeVariables: {
+      // High contrast colors for accessibility
+      primaryColor: '#4f46e5',
+      primaryTextColor: '#1f2937',
+      textColor: '#111827',
+      // ... more theme variables
+    },
+  },
+}
+```
+
+### 🎨 CSS Theme Variables
+
+#### Light Theme Colors:
+```css
+:root {
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-content: #1f2937;
+  --ifm-background-color: #ffffff;
+  /* High contrast ratios for readability */
+}
+```
+
+#### Dark Theme Colors:
+```css
+[data-theme='dark'] {
+  --ifm-color-primary: #818cf8;
+  --ifm-color-content: #e5e7eb;
+  --ifm-background-color: #111827;
+  /* Warm, comfortable colors for night reading */
+}
+```
+
+---
+
+## 📝 Content Creation Guidelines
+
+### 🖋️ Text Content
+- **Use semantic HTML** for proper contrast inheritance
+- **Avoid hardcoded colors** in text - use CSS variables
+- **Test readability** in both themes before publishing
+- **Use proper heading hierarchy** for screen readers
+
+### 📊 Mermaid Diagrams
+When creating Mermaid diagrams, follow these best practices:
+
+#### ✅ Good Example:
+```mermaid
+graph TD;
+    A[Bắt Đầu Học] --> B{Chọn Ngôn Ngữ};
+    B --> C[🐍 Python];
+    B --> D[☕ Java];
+    C --> E[Kiến Thức Cơ Bản];
+    D --> E;
+    E --> F[Dự Án Thực Tế];
+```
+
+#### 🎯 Why This Works:
+- **Simple, clear labels** in Vietnamese
+- **Logical flow** that's easy to follow
+- **Emoji icons** for visual appeal and clarity
+- **Automatic theme adaptation** through our CSS
+
+#### ❌ Avoid:
+- Overly complex diagrams with too many nodes
+- Text that's too small to read on mobile
+- Colors that don't adapt to theme changes
+- Diagrams wider than mobile screen width
+
+### 🎨 Visual Elements
+
+#### Icons and Emojis:
+- **Use emojis consistently** across similar content types
+- **Ensure meaning is clear** without relying only on color
+- **Test visibility** in both light and dark themes
+
+#### Code Blocks:
+- **Syntax highlighting** automatically adapts to theme
+- **Line numbers** for better reference
+- **Copy button** functionality maintained in both themes
+
+---
+
+## 🧪 Testing Checklist
+
+Before publishing content, verify:
+
+### 🌅 Light Theme Testing:
+- [ ] All text is clearly readable (high contrast)
+- [ ] Mermaid diagrams render with appropriate colors
+- [ ] Code blocks have proper syntax highlighting
+- [ ] Interactive elements are visible and functional
+- [ ] Mobile responsive design works correctly
+
+### 🌙 Dark Theme Testing:
+- [ ] Text doesn't strain the eyes (appropriate brightness)
+- [ ] Mermaid diagrams adapt to dark background
+- [ ] Code syntax highlighting uses dark theme colors
+- [ ] All interactive elements remain functional
+- [ ] No "white flash" when switching themes
+
+### ♿ Accessibility Testing:
+- [ ] High contrast mode works properly
+- [ ] Screen reader compatibility maintained
+- [ ] Keyboard navigation functions correctly
+- [ ] Focus indicators are visible in both themes
+
+---
+
+## 📱 Responsive Design
+
+### 📏 Breakpoints:
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
+
+### 📐 Mermaid Responsive Rules:
+```css
+@media (max-width: 768px) {
+  .mermaid {
+    font-size: 14px;
+    margin: 1.5rem auto;
+  }
+  
+  .mermaid text {
+    font-size: 12px !important;
+  }
+}
+```

@@ -42,10 +42,10 @@ print(5 + 3)  # Lại tính lại nữa... mệt quá!
 
 ```python
 # ✅ Dùng biến - Python thông minh nhớ kết quả!
-ket_qua = 5 + 3  # Python nhớ: "ket_qua = 8"
-print(ket_qua)   # Lấy ra dùng
-print(ket_qua)   # Lấy ra dùng lại
-print(ket_qua)   # Dễ dàng!
+result = 5 + 3  # Python nhớ: "result = 8"
+print(result)   # Lấy ra dùng
+print(result)   # Lấy ra dùng lại
+print(result)   # Dễ dàng!
 ```
 
 ## 🏷️ Cách Tạo Biến
@@ -54,18 +54,18 @@ Tạo biến trong Python **siêu đơn giản**:
 
 ```python
 # Cú pháp: tên_biến = giá_trị
-ten_toi = "Minh"
-tuoi_toi = 15
-cao_toi = 1.65
+my_name = "Minh"    # tên tôi
+my_age = 15         # tuổi tôi
+my_height = 1.65    # cao tôi
 ```
 
 ### 📝 Quy Tắc Đặt Tên Biến
 
 ```python
 # ✅ TÊN TỐT - Dễ hiểu, rõ ràng
-ho_ten = "Nguyễn Văn An"
-diem_toan = 9.5
-so_ban_be = 20
+full_name = "Nguyễn Văn An"  # họ tên
+math_score = 9.5             # điểm toán
+friend_count = 20            # số bạn bè
 
 # ✅ CŨNG ĐƯỢC - Ngắn gọn nhưng rõ nghĩa  
 name = "An"
@@ -95,13 +95,13 @@ Dùng để đựng **số không có phần thập phân**:
 
 ```python
 # Số nguyên - như đếm kẹo, đếm bạn bè
-so_keo = 25
-so_ban_be = 12
-tuoi = 15
-diem_thi = 10
+candy_count = 25     # số kẹo
+friend_count = 12    # số bạn bè
+age = 15             # tuổi
+exam_score = 10      # điểm thi
 
 # Python tự biết đây là số nguyên!
-print(type(so_keo))  # <class 'int'>
+print(type(candy_count))  # <class 'int'>
 ```
 
 ### 🎯 2. Số Thập Phân (Float)
@@ -110,12 +110,12 @@ Dùng để đựng **số có phần thập phân**:
 
 ```python
 # Số thập phân - như cân nặng, chiều cao, điểm số
-can_nang = 45.5
-chieu_cao = 1.65
-diem_trung_binh = 8.75
-gia_banh_mi = 15.5
+weight = 45.5           # cân nặng
+height = 1.65           # chiều cao
+average_score = 8.75    # điểm trung bình
+bread_price = 15.5      # giá bánh mì
 
-print(type(can_nang))  # <class 'float'>
+print(type(weight))  # <class 'float'>
 ```
 
 ### 📝 3. Chuỗi Ký Tự (String - str)
@@ -124,12 +124,12 @@ Dùng để đựng **chữ, từ, câu**:
 
 ```python
 # Chuỗi - như tên, địa chỉ, tin nhắn
-ho_ten = "Trần Thị Lan"
-dia_chi = "Hà Nội, Việt Nam"
-tin_nhan = "Chào bạn! Hôm nay thế nào?"
-mon_an_yeu_thich = "Phở bò"
+full_name = "Trần Thị Lan"              # họ tên
+address = "Hà Nội, Việt Nam"            # địa chỉ
+message = "Chào bạn! Hôm nay thế nào?"  # tin nhắn
+favorite_food = "Phở bò"                # món ăn yêu thích
 
-print(type(ho_ten))  # <class 'str'>
+print(type(full_name))  # <class 'str'>
 ```
 
 :::tip 💡 Mẹo Nhớ String
@@ -142,12 +142,12 @@ Dùng để đựng **câu trả lời đúng hoặc sai**:
 
 ```python
 # Boolean - chỉ có 2 giá trị: True hoặc False
-da_lam_bai_tap = True
-da_an_sang = False
-co_mua = True
-het_tien = False
+homework_done = True     # đã làm bài tập
+had_breakfast = False    # đã ăn sáng
+is_raining = True        # có mưa
+out_of_money = False     # hết tiền
 
-print(type(da_lam_bai_tap))  # <class 'bool'>
+print(type(homework_done))  # <class 'bool'>
 ```
 
 ## 🔍 Kiểm Tra Kiểu Dữ Liệu
@@ -156,16 +156,16 @@ Sử dụng hàm `type()` để xem biến thuộc loại nào:
 
 ```python
 # Tạo các biến khác nhau
-ten = "Python"
-tuoi = 30
-cao = 1.75
-thong_minh = True
+name = "Python"      # tên
+age = 30             # tuổi
+height = 1.75        # cao
+is_smart = True      # thông minh
 
 # Kiểm tra kiểu dữ liệu
-print("Kiểu của 'ten':", type(ten))           # <class 'str'>
-print("Kiểu của 'tuoi':", type(tuoi))         # <class 'int'>
-print("Kiểu của 'cao':", type(cao))           # <class 'float'>
-print("Kiểu của 'thong_minh':", type(thong_minh))  # <class 'bool'>
+print("Kiểu của 'name':", type(name))         # <class 'str'>
+print("Kiểu của 'age':", type(age))           # <class 'int'>
+print("Kiểu của 'height':", type(height))     # <class 'float'>
+print("Kiểu của 'is_smart':", type(is_smart)) # <class 'bool'>
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Thông Tin Học Sinh
@@ -174,33 +174,33 @@ Hãy tạo một "hồ sơ học sinh" bằng các biến:
 
 ```python
 # 📋 Thông tin cá nhân
-ho_ten = "Nguyễn Minh An"
-tuoi = 14
-lop = "9A"
-truong = "THCS Lê Quý Đôn"
+full_name = "Nguyễn Minh An"        # họ tên
+age = 14                            # tuổi
+class_name = "9A"                   # lớp
+school = "THCS Lê Quý Đôn"         # trường
 
 # 📊 Thông tin học tập
-diem_toan = 9.5
-diem_ly = 8.0
-diem_hoa = 8.5
-da_nop_bai_tap = True
+math_score = 9.5        # điểm toán
+physics_score = 8.0     # điểm lý
+chemistry_score = 8.5   # điểm hóa
+homework_submitted = True  # đã nộp bài tập
 
 # 🏠 Thông tin gia đình
-dia_chi = "123 Phố Huế, Hà Nội"
-so_anh_chi_em = 2
-co_may_tinh = True
+address = "123 Phố Huế, Hà Nội"  # địa chỉ
+sibling_count = 2                 # số anh chị em
+has_computer = True               # có máy tính
 
 # 💰 Thông tin tài chính
-tien_tiet_kiem = 500000
-tien_tieu_vat = 20.5
+savings = 500000      # tiền tiết kiệm
+daily_allowance = 20.5  # tiền tiêu vặt
 
 # In thông tin
 print("=== HỒ SƠ HỌC SINH ===")
-print(f"Tên: {ho_ten}")
-print(f"Tuổi: {tuoi}")
-print(f"Lớp: {lop}")
-print(f"Điểm trung bình: {(diem_toan + diem_ly + diem_hoa) / 3:.1f}")
-print(f"Đã nộp bài tập: {da_nop_bai_tap}")
+print(f"Tên: {full_name}")
+print(f"Tuổi: {age}")
+print(f"Lớp: {class_name}")
+print(f"Điểm trung bình: {(math_score + physics_score + chemistry_score) / 3:.1f}")
+print(f"Đã nộp bài tập: {homework_submitted}")
 ```
 
 ## 🔄 Thay Đổi Giá Trị Biến
@@ -209,16 +209,16 @@ Biến có thể **thay đổi giá trị** bất cứ lúc nào:
 
 ```python
 # Ban đầu
-diem_thi = 7.5
-print("Điểm ban đầu:", diem_thi)
+exam_score = 7.5  # điểm thi
+print("Điểm ban đầu:", exam_score)
 
 # Thầy cô chấm lại, điểm tăng!
-diem_thi = 8.5
-print("Điểm sau khi chấm lại:", diem_thi)
+exam_score = 8.5
+print("Điểm sau khi chấm lại:", exam_score)
 
 # Có thể thay đổi cả kiểu dữ liệu (nhưng không nên!)
-diem_thi = "Chưa có điểm"  # Từ số thành chữ
-print("Trạng thái mới:", diem_thi)
+exam_score = "Chưa có điểm"  # Từ số thành chữ
+print("Trạng thái mới:", exam_score)
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -228,17 +228,17 @@ Tạo các biến để lưu thông tin về bản thân bạn:
 
 ```python
 # TODO: Điền thông tin của bạn vào đây
-ten_toi = "..."          # Tên của bạn
-tuoi_toi = ...           # Tuổi của bạn  
-chieu_cao_toi = ...      # Chiều cao (mét)
-mon_hoc_yeu_thich = "..." # Môn học yêu thích
-co_thich_lap_trinh = ... # True hoặc False
+my_name = "..."             # Tên của bạn
+my_age = ...                # Tuổi của bạn  
+my_height = ...             # Chiều cao (mét)
+favorite_subject = "..."    # Môn học yêu thích
+like_programming = ...      # True hoặc False
 
 # In ra màn hình
-print(f"Xin chào! Tôi là {ten_toi}")
-print(f"Tôi {tuoi_toi} tuổi, cao {chieu_cao_toi}m")
-print(f"Tôi thích môn {mon_hoc_yeu_thich}")
-if co_thich_lap_trinh:
+print(f"Xin chào! Tôi là {my_name}")
+print(f"Tôi {my_age} tuổi, cao {my_height}m")
+print(f"Tôi thích môn {favorite_subject}")
+if like_programming:
     print("Và tôi yêu thích lập trình!")
 ```
 
@@ -247,22 +247,22 @@ Tạo biến để quản lý một cửa hàng bán kẹo:
 
 ```python
 # Thông tin sản phẩm
-ten_san_pham = "Kẹo dẻo gấu"
-gia_moi_cai = 2.5        # 2.500 VNĐ
-so_luong_ton_kho = 100
-san_pham_ban_chay = True
+product_name = "Kẹo dẻo gấu"    # tên sản phẩm
+price_per_item = 2.5            # giá mỗi cái - 2.500 VNĐ
+stock_quantity = 100            # số lượng tồn kho
+is_bestseller = True            # sản phẩm bán chạy
 
 # Thông tin bán hàng
-so_luong_ban = 15
-doanh_thu = so_luong_ban * gia_moi_cai
-so_luong_con_lai = so_luong_ton_kho - so_luong_ban
+sold_quantity = 15                                    # số lượng bán
+revenue = sold_quantity * price_per_item              # doanh thu
+remaining_stock = stock_quantity - sold_quantity      # số lượng còn lại
 
 # In báo cáo
 print("=== BÁO CÁO BÁN HÀNG ===")
-print(f"Sản phẩm: {ten_san_pham}")
-print(f"Đã bán: {so_luong_ban} cái")
-print(f"Doanh thu: {doanh_thu:.1f} nghìn VNĐ")
-print(f"Còn lại: {so_luong_con_lai} cái")
+print(f"Sản phẩm: {product_name}")
+print(f"Đã bán: {sold_quantity} cái")
+print(f"Doanh thu: {revenue:.1f} nghìn VNĐ")
+print(f"Còn lại: {remaining_stock} cái")
 ```
 
 ### 🥉 Bài Tập 3: Kiểm Tra Kiểu Dữ Liệu
@@ -270,15 +270,15 @@ Tạo 5 biến khác nhau và in ra kiểu của chúng:
 
 ```python
 # Tạo 5 biến với 5 kiểu dữ liệu khác nhau
-bien_1 = ...  # Số nguyên
-bien_2 = ...  # Số thập phân  
-bien_3 = ...  # Chuỗi
-bien_4 = ...  # Boolean
-bien_5 = ...  # Bất kỳ kiểu nào
+var_1 = ...  # biến 1 - Số nguyên
+var_2 = ...  # biến 2 - Số thập phân  
+var_3 = ...  # biến 3 - Chuỗi
+var_4 = ...  # biến 4 - Boolean
+var_5 = ...  # biến 5 - Bất kỳ kiểu nào
 
 # In kiểu dữ liệu
-for i, bien in enumerate([bien_1, bien_2, bien_3, bien_4, bien_5], 1):
-    print(f"Biến {i}: {bien} - Kiểu: {type(bien)}")
+for i, variable in enumerate([var_1, var_2, var_3, var_4, var_5], 1):
+    print(f"Biến {i}: {variable} - Kiểu: {type(variable)}")
 ```
 
 ## 🎊 Tóm Tắt

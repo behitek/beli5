@@ -77,10 +77,10 @@ Giống như bạn nói với con rắn: "Hãy nói câu này: Xin chào! Tôi l
 
 ### Cách 2: Tạo File Python (Khuyến Nghị)
 
-1. **Tạo file mới** tên `xin_chao.py`
+1. **Tạo file mới** tên `hello_world.py`
 2. **Viết code:**
    ```python
-   # File: xin_chao.py
+   # File: hello_world.py
    # Chương trình Python đầu tiên của tôi!
    
    print("🎉 Chào mừng đến với Python!")
@@ -92,10 +92,10 @@ Giống như bạn nói với con rắn: "Hãy nói câu này: Xin chào! Tôi l
 3. **Chạy chương trình:**
    ```bash
    # Windows
-   python xin_chao.py
+   python hello_world.py
    
    # Mac/Linux
-   python3 xin_chao.py
+   python3 hello_world.py
    ```
 
 4. **Kết quả:**
@@ -111,7 +111,7 @@ Giống như bạn nói với con rắn: "Hãy nói câu này: Xin chào! Tôi l
 ### Thêm Emoji và Màu Sắc
 
 ```python
-# File: xin_chao_dep.py
+# File: hello_beautiful.py
 print("=" * 40)
 print("🐍 CHÀO MỪNG ĐẾN VỚI PYTHON! 🐍")
 print("=" * 40)
@@ -134,7 +134,7 @@ print("=" * 40)
 ### Tạo Thông Tin Cá Nhân
 
 ```python
-# File: gioi_thieu.py
+# File: personal_info.py
 print("🌟 THÔNG TIN CỦA TÔI 🌟")
 print("-" * 25)
 print()
@@ -189,7 +189,7 @@ print("Tên:", "Minh", "Tuổi:", 15, "Lớp:", "10A")
 ## 🎯 Bài Tập Thực Hành
 
 ### Bài Tập 1: Tự Giới Thiệu
-Tạo file `tu_gioi_thieu.py` và viết chương trình giới thiệu bản thân:
+Tạo file `self_introduction.py` và viết chương trình giới thiệu bản thân:
 
 ```python
 # Hãy thay đổi thông tin thành thông tin của bạn!
@@ -205,7 +205,7 @@ print("🤝 Rất vui được làm quen với mọi người!")
 ```
 
 ### Bài Tập 2: Thông Điệp Động Viên
-Tạo file `dong_vien.py`:
+Tạo file `motivation.py`:
 
 ```python
 print("💪 THÔNG ĐIỆP ĐỘNG VIÊN 💪")

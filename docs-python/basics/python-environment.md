@@ -60,8 +60,8 @@ Xin chào Python! 🐍
 >>> 5 + 3
 8
 
->>> ten_toi = "Minh"
->>> print(f"Tên tôi là {ten_toi}")
+>>> my_name = "Minh"
+>>> print(f"Tên tôi là {my_name}")
 Tên tôi là Minh
 
 >>> exit()  # Thoát khỏi Python shell
@@ -107,8 +107,8 @@ mindmap
 ```python
 # File: xin_chao.py
 print("🎉 Chào mừng đến với Python!")
-ten = input("Tên bạn là gì? ")
-print(f"Xin chào {ten}! Rất vui được gặp bạn! 😊")
+name = input("Tên bạn là gì? ")
+print(f"Xin chào {name}! Rất vui được gặp bạn! 😊")
 ```
 3. **File → Save** (lưu file)
 4. **Run → Run Module** (F5) để chạy
@@ -123,7 +123,7 @@ print(f"Xin chào {ten}! Rất vui được gặp bạn! 😊")
 #### Cách Sử Dụng:
 ```bash
 # Chạy file Python
-python ten_file.py
+python filename.py
 
 # Ví dụ cụ thể
 python xin_chao.py
@@ -223,8 +223,8 @@ flowchart TD
 │   ├── 📄 bai_2_bien_so.py
 │   └── 📄 bai_3_tinh_toan.py
 ├── 📁 du_an/
-│   ├── 📄 game_doan_so.py
-│   └── 📄 may_tinh_ca_nhan.py
+│   ├── 📄 guessing_game.py
+│   └── 📄 personal_calculator.py
 └── 📁 thu_nghiem/
     └── 📄 test_ideas.py
 ```
@@ -271,15 +271,15 @@ Tạo file `thong_tin_ca_nhan.py`:
 print("=== THÔNG TIN CÁ NHÂN ===")
 print()
 
-ten = input("Tên của bạn: ")
-tuoi = input("Tuổi của bạn: ")
-so_thich = input("Sở thích: ")
+name = input("Tên của bạn: ")
+age = input("Tuổi của bạn: ")
+hobby = input("Sở thích: ")
 
 print()
 print("=== GIỚI THIỆU ===")
-print(f"Xin chào! Tôi là {ten}")
-print(f"Tôi {tuoi} tuổi")
-print(f"Tôi thích {so_thich}")
+print(f"Xin chào! Tôi là {name}")
+print(f"Tôi {age} tuổi")
+print(f"Tôi thích {hobby}")
 print()
 print("Rất vui được làm quen! 😊")
 ```

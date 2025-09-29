@@ -88,9 +88,9 @@ Thường dùng để mô tả function, class hoặc module
 ### 3. **Inline Comments** - Ghi Chú Cùng Dòng
 
 ```python
-tuoi = 18  # Tuổi của người dùng
-diem = 8.5  # Điểm trung bình môn Toán
-co_ban_gai = False  # Trạng thái độc thân 😄
+age = 18  # Tuổi của người dùng
+grade = 8.5  # Điểm trung bình môn Toán
+has_girlfriend = False  # Trạng thái độc thân 😄
 ```
 
 ## 🎯 Khi Nào Nên Viết Comments?
@@ -99,7 +99,7 @@ co_ban_gai = False  # Trạng thái độc thân 😄
 
 ```python
 # 1. Giải thích LOGIC phức tạp
-def kiem_tra_so_nguyen_to(n):
+def check_prime_number(n):
     """Kiểm tra số nguyên tố bằng thuật toán tối ưu"""
     if n < 2:
         return False
@@ -112,23 +112,23 @@ def kiem_tra_so_nguyen_to(n):
     return True
 
 # 2. Giải thích CÔNG THỨC toán học
-def tinh_bmi(can_nang, chieu_cao):
+def calculate_bmi(weight, height):
     """Tính chỉ số BMI"""
     # BMI = cân nặng (kg) / (chiều cao (m))^2
-    bmi = can_nang / (chieu_cao ** 2)
+    bmi = weight / (height ** 2)
     return bmi
 
 # 3. Giải thích TẠI SAO làm như vậy
-def format_so_dien_thoai(so):
+def format_phone_number(phone):
     """Format số điện thoại Việt Nam"""
     # Loại bỏ khoảng trắng và dấu gạch ngang
-    so = so.replace(" ", "").replace("-", "")
+    phone = phone.replace(" ", "").replace("-", "")
     
     # Chuyển 84 thành 0 cho số VN (84 là mã quốc gia)
-    if so.startswith("84"):
-        so = "0" + so[2:]
+    if phone.startswith("84"):
+        phone = "0" + phone[2:]
     
-    return so
+    return phone
 
 # 4. Cảnh báo về ĐIỀU KIỆN đặc biệt
 def chia_an_toan(a, b):
@@ -143,7 +143,7 @@ def chia_an_toan(a, b):
 
 ```python
 # ❌ Comment rõ ràng không cần thiết
-tuoi = 18  # Gán 18 cho biến tuoi
+age = 18  # Gán 18 cho biến age
 print("Hello")  # In ra Hello
 
 # ❌ Comment lặp lại code
@@ -151,11 +151,11 @@ print("Hello")  # In ra Hello
 print("Xin chào")
 
 # ❌ Comment sai hoặc lỗi thời
-tuoi = 20  # Tuổi là 18 (SAI!)
+age = 20  # Tuổi là 18 (SAI!)
 
 # ✅ Thay vào đó, viết code rõ ràng
-tuoi_hien_tai = 18
-in_loi_chao()
+current_age = 18
+print_greeting()
 ```
 
 ## 📚 Docstrings - Tài Liệu Chuyên Nghiệp
@@ -187,7 +187,7 @@ def ten_function(tham_so):
 ### 📖 **Ví Dụ Thực Tế**
 
 ```python
-def tinh_diem_trung_binh(danh_sach_diem):
+def calculate_average_score(score_list):
     """
     Tính điểm trung bình từ danh sách điểm số.
     
@@ -195,7 +195,7 @@ def tinh_diem_trung_binh(danh_sach_diem):
     điểm trung bình. Nếu danh sách rỗng, trả về 0.
     
     Args:
-        danh_sach_diem (list): Danh sách các điểm số (float hoặc int)
+        score_list (list): Danh sách các điểm số (float hoặc int)
         
     Returns:
         float: Điểm trung bình, làm tròn 2 chữ số thập phân
@@ -205,86 +205,86 @@ def tinh_diem_trung_binh(danh_sach_diem):
         ValueError: Nếu có điểm số không hợp lệ (âm hoặc > 10)
         
     Examples:
-        >>> tinh_diem_trung_binh([8, 9, 7, 10])
+        >>> calculate_average_score([8, 9, 7, 10])
         8.5
-        >>> tinh_diem_trung_binh([])
+        >>> calculate_average_score([])
         0.0
     """
-    if not isinstance(danh_sach_diem, list):
+    if not isinstance(score_list, list):
         raise TypeError("Danh sách điểm phải là list")
     
-    if not danh_sach_diem:
+    if not score_list:
         return 0.0
     
     # Kiểm tra điểm hợp lệ
-    for diem in danh_sach_diem:
-        if not isinstance(diem, (int, float)) or diem < 0 or diem > 10:
-            raise ValueError(f"Điểm không hợp lệ: {diem}")
+    for score in score_list:
+        if not isinstance(score, (int, float)) or score < 0 or score > 10:
+            raise ValueError(f"Điểm không hợp lệ: {score}")
     
-    return round(sum(danh_sach_diem) / len(danh_sach_diem), 2)
+    return round(sum(score_list) / len(score_list), 2)
 
 # Sử dụng docstring
-print(help(tinh_diem_trung_binh))
+print(help(calculate_average_score))
 ```
 
 ### 🏢 **Google Style Docstrings** (Khuyến nghị)
 
 ```python
-def tao_thong_tin_hoc_sinh(ten, tuoi, lop, diem_tb=0.0):
+def create_student_info(name, age, grade_class, average_score=0.0):
     """Tạo dictionary chứa thông tin học sinh.
     
     Args:
-        ten (str): Họ tên học sinh
-        tuoi (int): Tuổi của học sinh (6-18)
-        lop (str): Lớp học (vd: "10A1")
-        diem_tb (float, optional): Điểm trung bình. Defaults to 0.0.
+        name (str): Họ tên học sinh
+        age (int): Tuổi của học sinh (6-18)
+        grade_class (str): Lớp học (vd: "10A1")
+        average_score (float, optional): Điểm trung bình. Defaults to 0.0.
         
     Returns:
         dict: Dictionary chứa thông tin học sinh với keys:
-            - ten: Tên học sinh
-            - tuoi: Tuổi
-            - lop: Lớp
-            - diem_tb: Điểm trung bình
-            - xep_loai: Xếp loại học lực
+            - name: Tên học sinh
+            - age: Tuổi
+            - grade_class: Lớp
+            - average_score: Điểm trung bình
+            - classification: Xếp loại học lực
             
     Raises:
         ValueError: Nếu tuổi không trong khoảng 6-18
         ValueError: Nếu điểm trung bình không trong khoảng 0-10
         
     Example:
-        >>> hs = tao_thong_tin_hoc_sinh("Nguyễn Văn A", 16, "10A1", 8.5)
-        >>> print(hs['xep_loai'])
+        >>> student = create_student_info("Nguyễn Văn A", 16, "10A1", 8.5)
+        >>> print(student['classification'])
         'Giỏi'
     """
     # Validation
-    if not 6 <= tuoi <= 18:
+    if not 6 <= age <= 18:
         raise ValueError("Tuổi phải từ 6 đến 18")
-    if not 0 <= diem_tb <= 10:
+    if not 0 <= average_score <= 10:
         raise ValueError("Điểm TB phải từ 0 đến 10")
     
     # Xếp loại học lực
-    if diem_tb >= 8.5:
-        xep_loai = "Giỏi"
-    elif diem_tb >= 7.0:
-        xep_loai = "Khá"
-    elif diem_tb >= 5.5:
-        xep_loai = "Trung bình"
+    if average_score >= 8.5:
+        classification = "Giỏi"
+    elif average_score >= 7.0:
+        classification = "Khá"
+    elif average_score >= 5.5:
+        classification = "Trung bình"
     else:
-        xep_loai = "Yếu"
+        classification = "Yếu"
     
     return {
-        "ten": ten,
-        "tuoi": tuoi,
-        "lop": lop,
-        "diem_tb": diem_tb,
-        "xep_loai": xep_loai
+        "name": name,
+        "age": age,
+        "grade_class": grade_class,
+        "average_score": average_score,
+        "classification": classification
     }
 ```
 
 ### 🏭 **Class Docstrings**
 
 ```python
-class HocSinh:
+class Student:
     """
     Lớp đại diện cho một học sinh.
     
@@ -292,63 +292,63 @@ class HocSinh:
     thông tin cá nhân và điểm số các môn học.
     
     Attributes:
-        ten (str): Tên của học sinh
-        tuoi (int): Tuổi của học sinh
-        lop (str): Lớp học hiện tại
-        diem_so (dict): Dictionary chứa điểm các môn học
+        name (str): Tên của học sinh
+        age (int): Tuổi của học sinh
+        grade_class (str): Lớp học hiện tại
+        scores (dict): Dictionary chứa điểm các môn học
         
     Example:
-        >>> hs = HocSinh("Trần Thị B", 15, "9A2")
-        >>> hs.them_diem("Toán", 9.0)
-        >>> print(hs.tinh_diem_tb())
+        >>> student = Student("Trần Thị B", 15, "9A2")
+        >>> student.add_score("Toán", 9.0)
+        >>> print(student.calculate_average())
         9.0
     """
     
-    def __init__(self, ten, tuoi, lop):
+    def __init__(self, name, age, grade_class):
         """
         Khởi tạo một học sinh mới.
         
         Args:
-            ten (str): Tên học sinh
-            tuoi (int): Tuổi học sinh (6-18)
-            lop (str): Lớp học (vd: "9A2")
+            name (str): Tên học sinh
+            age (int): Tuổi học sinh (6-18)
+            grade_class (str): Lớp học (vd: "9A2")
             
         Raises:
             ValueError: Nếu tuổi không hợp lệ
         """
-        if not 6 <= tuoi <= 18:
+        if not 6 <= age <= 18:
             raise ValueError("Tuổi phải từ 6 đến 18")
             
-        self.ten = ten
-        self.tuoi = tuoi
-        self.lop = lop
-        self.diem_so = {}
+        self.name = name
+        self.age = age
+        self.grade_class = grade_class
+        self.scores = {}
     
-    def them_diem(self, mon_hoc, diem):
+    def add_score(self, subject, score):
         """
         Thêm điểm cho một môn học.
         
         Args:
-            mon_hoc (str): Tên môn học
-            diem (float): Điểm số (0-10)
+            subject (str): Tên môn học
+            score (float): Điểm số (0-10)
             
         Raises:
             ValueError: Nếu điểm không hợp lệ
         """
-        if not 0 <= diem <= 10:
+        if not 0 <= score <= 10:
             raise ValueError("Điểm phải từ 0 đến 10")
-        self.diem_so[mon_hoc] = diem
+        self.scores[subject] = score
     
-    def tinh_diem_tb(self):
+    def calculate_average(self):
         """
         Tính điểm trung bình tất cả môn học.
         
         Returns:
             float: Điểm trung bình, 0.0 nếu chưa có điểm nào
         """
-        if not self.diem_so:
+        if not self.scores:
             return 0.0
-        return sum(self.diem_so.values()) / len(self.diem_so)
+        return sum(self.scores.values()) / len(self.scores)
 ```
 
 ## 🎨 Comment Styles - Phong Cách Viết
@@ -356,7 +356,7 @@ class HocSinh:
 ### 🌟 **TODO Comments**
 
 ```python
-def xu_ly_du_lieu(data):
+def process_data(data):
     """Xử lý dữ liệu từ API"""
     
     # TODO: Thêm validation cho dữ liệu đầu vào
@@ -377,47 +377,47 @@ def xu_ly_du_lieu(data):
 ### 🎯 **Section Comments**
 
 ```python
-def game_doan_so():
+def guessing_game():
     """Game đoán số từ 1 đến 100"""
     
     # ========================================
     # KHỞI TẠO GAME
     # ========================================
     import random
-    so_bi_mat = random.randint(1, 100)
-    so_lan_doan = 0
-    max_lan_doan = 7
+    secret_number = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 7
     
     print("🎮 GAME ĐOÁN SỐ")
-    print(f"Tôi đã nghĩ ra một số từ 1-100. Bạn có {max_lan_doan} lần đoán!")
+    print(f"Tôi đã nghĩ ra một số từ 1-100. Bạn có {max_attempts} lần đoán!")
     
     # ========================================
     # VÒNG LẶP GAME CHÍNH
     # ========================================
-    while so_lan_doan < max_lan_doan:
+    while attempts < max_attempts:
         try:
             # Nhận input từ người chơi
-            guess = int(input(f"Lần {so_lan_doan + 1}: Đoán số: "))
-            so_lan_doan += 1
+            guess = int(input(f"Lần {attempts + 1}: Đoán số: "))
+            attempts += 1
             
             # Kiểm tra kết quả
-            if guess == so_bi_mat:
-                print(f"🎉 Chính xác! Bạn đoán đúng trong {so_lan_doan} lần!")
+            if guess == secret_number:
+                print(f"🎉 Chính xác! Bạn đoán đúng trong {attempts} lần!")
                 break
-            elif guess < so_bi_mat:
+            elif guess < secret_number:
                 print("📈 Số của tôi lớn hơn!")
             else:
                 print("📉 Số của tôi nhỏ hơn!")
                 
         except ValueError:
             print("❌ Vui lòng nhập số nguyên!")
-            so_lan_doan -= 1  # Không tính lần này
+            attempts -= 1  # Không tính lần này
     
     # ========================================
     # KẾT THÚC GAME
     # ========================================
     else:
-        print(f"😔 Hết lượt! Số đúng là: {so_bi_mat}")
+        print(f"😔 Hết lượt! Số đúng là: {secret_number}")
     
     print("🎮 Game kết thúc!")
 ```
@@ -428,13 +428,13 @@ def game_doan_so():
 
 ```python
 # Với VS Code extension "Python Docstring Generator"
-def tinh_tien_tip(tien_hoa_don, ti_le_tip):
+def calculate_tip(bill_amount, tip_percentage):
     """
     [Tự động generate template]
     
     Args:
-        tien_hoa_don ([type]): [description]
-        ti_le_tip ([type]): [description]
+        bill_amount ([type]): [description]
+        tip_percentage ([type]): [description]
 
     Returns:
         [type]: [description]
@@ -486,7 +486,7 @@ def mystery_function(lst):
 <summary>💡 Xem đáp án</summary>
 
 ```python
-def lay_phan_tu_tang_dan(danh_sach):
+def get_increasing_elements(number_list):
     """
     Lấy các phần tử tăng dần trong danh sách.
     
@@ -494,23 +494,23 @@ def lay_phan_tu_tang_dan(danh_sach):
     lớn hơn phần tử đứng trước nó.
     
     Args:
-        danh_sach (list): Danh sách số cần xử lý
+        number_list (list): Danh sách số cần xử lý
         
     Returns:
         list: Danh sách các phần tử tăng dần
         
     Example:
-        >>> lay_phan_tu_tang_dan([1, 3, 2, 5, 4, 6])
+        >>> get_increasing_elements([1, 3, 2, 5, 4, 6])
         [1, 3, 5, 6]
     """
-    ket_qua = []
+    result = []
     
-    for i in range(len(danh_sach)):
+    for i in range(len(number_list)):
         # Lấy phần tử đầu tiên hoặc phần tử lớn hơn phần tử trước
-        if i == 0 or danh_sach[i] > danh_sach[i-1]:
-            ket_qua.append(danh_sach[i])
+        if i == 0 or number_list[i] > number_list[i-1]:
+            result.append(number_list[i])
     
-    return ket_qua
+    return result
 ```
 </details>
 

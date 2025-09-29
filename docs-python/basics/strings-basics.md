@@ -40,41 +40,41 @@ graph LR
 
 ```python
 # Cách phổ biến nhất
-ten = "Nguyễn Văn An"
-loi_chao = "Xin chào các bạn!"
-dia_chi = "123 Đường Lê Lợi, Hà Nội"
+name = "Nguyễn Văn An"
+greeting = "Xin chào các bạn!"
+address = "123 Đường Lê Lợi, Hà Nội"
 
-print(ten)      # Nguyễn Văn An
-print(loi_chao) # Xin chào các bạn!
+print(name)      # Nguyễn Văn An
+print(greeting) # Xin chào các bạn!
 ```
 
 ### 📌 2. Dấu Ngoặc Đơn ('')
 
 ```python
 # Cũng được, tùy sở thích
-mon_hoc = 'Toán học'
-mau_sac = 'Xanh lá cây'
-cam_xuc = 'Vui vẻ'
+subject = 'Toán học'
+color = 'Xanh lá cây'
+emotion = 'Vui vẻ'
 
-print(mon_hoc)  # Toán học
-print(mau_sac)  # Xanh lá cây
+print(subject)  # Toán học
+print(color)  # Xanh lá cây
 ```
 
 ### 📌 3. Khi Nào Dùng Ngoặc Nào?
 
 ```python
 # ✅ Dùng ngoặc kép khi có ngoặc đơn bên trong
-cau_noi = "Tôi nói: 'Hôm nay trời đẹp quá!'"
+sentence = "Tôi nói: 'Hôm nay trời đẹp quá!'"
 
 # ✅ Dùng ngoặc đơn khi có ngoặc kép bên trong  
-ten_sach = 'Cuốn sách "Harry Potter" rất hay'
+book_title = 'Cuốn sách "Harry Potter" rất hay'
 
 # ✅ Hoặc dùng dấu \ để "thoát" ký tự đặc biệt
-cau_kho = "Anh ấy nói: \"Tôi thích học Python!\""
+complex_sentence = "Anh ấy nói: \"Tôi thích học Python!\""
 
-print(cau_noi)
-print(ten_sach) 
-print(cau_kho)
+print(sentence)
+print(book_title) 
+print(complex_sentence)
 ```
 
 ## 🔗 Nối Chuỗi (String Concatenation)
@@ -83,34 +83,34 @@ print(cau_kho)
 
 ```python
 # Nối chuỗi đơn giản
-ho = "Trần"
-ten = "Minh"
-ho_ten = ho + " " + ten  # Nhớ thêm khoảng trắng!
-print(ho_ten)  # Trần Minh
+last_name = "Trần"
+first_name = "Minh"
+full_name = last_name + " " + first_name  # Nhớ thêm khoảng trắng!
+print(full_name)  # Trần Minh
 
 # Nối nhiều chuỗi
-chao = "Xin chào, "
-ten_ban = "Lan"
-cam_thay = "! Hôm nay bạn thế nào?"
-cau_hoi = chao + ten_ban + cam_thay
-print(cau_hoi)  # Xin chào, Lan! Hôm nay bạn thế nào?
+greeting = "Xin chào, "
+friend_name = "Lan"
+question = "! Hôm nay bạn thế nào?"
+sentence = greeting + friend_name + question
+print(sentence)  # Xin chào, Lan! Hôm nay bạn thế nào?
 ```
 
 ### 🔢 2. Nối Chuỗi Với Số
 
 ```python
 # ❌ KHÔNG thể nối trực tiếp chuỗi với số
-tuoi = 15
-# cau_noi = "Tôi " + tuoi + " tuổi"  # LỖI!
+age = 15
+# sentence = "Tôi " + age + " tuổi"  # LỖI!
 
 # ✅ Phải chuyển số thành chuỗi trước
-tuoi = 15
-cau_noi = "Tôi " + str(tuoi) + " tuổi"
-print(cau_noi)  # Tôi 15 tuổi
+age = 15
+sentence = "Tôi " + str(age) + " tuổi"
+print(sentence)  # Tôi 15 tuổi
 
 # ✅ Hoặc dùng f-string (dễ hơn!)
-cau_noi_f = f"Tôi {tuoi} tuổi"
-print(cau_noi_f)  # Tôi 15 tuổi
+f_sentence = f"Tôi {age} tuổi"
+print(f_sentence)  # Tôi 15 tuổi
 ```
 
 ## 🎨 F-String - Cách Định Dạng Chuỗi Thông Minh
@@ -119,36 +119,36 @@ print(cau_noi_f)  # Tôi 15 tuổi
 
 ```python
 # Thông tin cá nhân
-ten = "Mai"
-tuoi = 16
-diem_toan = 8.75
-thanh_pho = "Hồ Chí Minh"
+name = "Mai"
+age = 16
+math_score = 8.75
+city = "Hồ Chí Minh"
 
 # ✅ Dùng f-string - Dễ đọc và dễ hiểu
-gioi_thieu = f"Tôi là {ten}, {tuoi} tuổi, sống ở {thanh_pho}"
-thong_bao_diem = f"Điểm toán của {ten} là {diem_toan}"
+introduction = f"Tôi là {name}, {age} tuổi, sống ở {city}"
+score_announcement = f"Điểm toán của {name} là {math_score}"
 
-print(gioi_thieu)     # Tôi là Mai, 16 tuổi, sống ở Hồ Chí Minh
-print(thong_bao_diem) # Điểm toán của Mai là 8.75
+print(introduction)     # Tôi là Mai, 16 tuổi, sống ở Hồ Chí Minh
+print(score_announcement) # Điểm toán của Mai là 8.75
 ```
 
 ### 🎯 Định Dạng Số Trong F-String
 
 ```python
 # Số thập phân
-gia_tien = 123456.789
-print(f"Giá: {gia_tien:.2f} VNĐ")        # Giá: 123456.79 VNĐ
-print(f"Giá: {gia_tien:,.0f} VNĐ")       # Giá: 123,457 VNĐ
+price = 123456.789
+print(f"Giá: {price:.2f} VNĐ")        # Giá: 123456.79 VNĐ
+print(f"Giá: {price:,.0f} VNĐ")       # Giá: 123,457 VNĐ
 
 # Phần trăm
-ti_le = 0.85
-print(f"Tỷ lệ đỗ: {ti_le:.1%}")          # Tỷ lệ đỗ: 85.0%
+pass_rate = 0.85
+print(f"Tỷ lệ đỗ: {pass_rate:.1%}")          # Tỷ lệ đỗ: 85.0%
 
 # Căn lề
-ten = "Python"
-print(f"Môn học: '{ten:>10}'")           # Môn học: '    Python'
-print(f"Môn học: '{ten:<10}'")           # Môn học: 'Python    '
-print(f"Môn học: '{ten:^10}'")           # Môn học: '  Python  '
+subject = "Python"
+print(f"Môn học: '{subject:>10}'")           # Môn học: '    Python'
+print(f"Môn học: '{subject:<10}'")           # Môn học: 'Python    '
+print(f"Môn học: '{subject:^10}'")           # Môn học: '  Python  '
 ```
 
 ## ✂️ Cắt Chuỗi (String Slicing)
@@ -156,65 +156,65 @@ print(f"Môn học: '{ten:^10}'")           # Môn học: '  Python  '
 Mỗi ký tự trong chuỗi có một **vị trí (index)**:
 
 ```python
-cau_chao = "Xin chào Python!"
+greeting = "Xin chào Python!"
 #           0123456789...   (index từ 0)
 
 # Lấy ký tự đầu tiên
-print(cau_chao[0])    # X
+print(greeting[0])    # X
 
 # Lấy ký tự cuối cùng
-print(cau_chao[-1])   # !
+print(greeting[-1])   # !
 
 # Lấy từ vị trí 4 đến 8
-print(cau_chao[4:9])  # chào
+print(greeting[4:9])  # chào
 
 # Lấy 5 ký tự đầu
-print(cau_chao[:5])   # Xin c
+print(greeting[:5])   # Xin c
 
 # Lấy từ vị trí 10 đến cuối
-print(cau_chao[10:])  # Python!
+print(greeting[10:])  # Python!
 ```
 
 ## 📏 Độ Dài Chuỗi
 
 ```python
 # Đếm số ký tự trong chuỗi
-ho_ten = "Nguyễn Thị Hoa"
-so_ky_tu = len(ho_ten)
-print(f"Tên '{ho_ten}' có {so_ky_tu} ký tự")  # 14 ký tự
+full_name = "Nguyễn Thị Hoa"
+character_count = len(full_name)
+print(f"Tên '{full_name}' có {character_count} ký tự")  # 14 ký tự
 
 # Kiểm tra chuỗi rỗng
-chuoi_rong = ""
-if len(chuoi_rong) == 0:
+empty_string = ""
+if len(empty_string) == 0:
     print("Chuỗi này rỗng!")
 
 # Chuỗi dài nhất
-ten_1 = "An"
-ten_2 = "Bình" 
-ten_3 = "Châu"
+name_1 = "An"
+name_2 = "Bình" 
+name_3 = "Châu"
 
-if len(ten_1) > len(ten_2) and len(ten_1) > len(ten_3):
-    print(f"{ten_1} có tên dài nhất")
+if len(name_1) > len(name_2) and len(name_1) > len(name_3):
+    print(f"{name_1} có tên dài nhất")
 ```
 
 ## 🔍 Kiểm Tra Nội Dung Chuỗi
 
 ```python
-cau_van = "Tôi yêu học Python!"
+sentence = "Tôi yêu học Python!"
 
 # Kiểm tra có chứa từ nào đó không
-if "Python" in cau_van:
+if "Python" in sentence:
     print("Câu này nói về Python!")
 
-if "Java" not in cau_van:
+if "Java" not in sentence:
     print("Câu này không nói về Java")
 
 # Kiểm tra bắt đầu bằng gì
-if cau_van.startswith("Tôi"):
+if sentence.startswith("Tôi"):
     print("Câu bắt đầu bằng 'Tôi'")
 
 # Kiểm tra kết thúc bằng gì  
-if cau_van.endswith("!"):
+if sentence.endswith("!"):
     print("Câu kết thúc bằng dấu chấm than")
 ```
 
@@ -222,35 +222,35 @@ if cau_van.endswith("!"):
 
 ```python
 # 📋 Thông tin học sinh
-ho = "Nguyễn"
-ten_dem = "Văn" 
-ten = "Minh"
-lop = "9A"
-truong = "THCS Lê Quý Đôn"
-diem_tb = 8.65
-xep_loai = "Giỏi"
+last_name = "Nguyễn"
+middle_name = "Văn" 
+first_name = "Minh"
+class_name = "9A"
+school = "THCS Lê Quý Đôn"
+average_score = 8.65
+grade_level = "Giỏi"
 
 # 🎨 Tạo thẻ học sinh đẹp
-ho_ten_day_du = f"{ho} {ten_dem} {ten}"
-thong_tin_lop = f"{lop} - {truong}"
+full_name = f"{last_name} {middle_name} {first_name}"
+class_info = f"{class_name} - {school}"
 
 print("=" * 40)
 print("        THẺ HỌC SINH        ")
 print("=" * 40)
-print(f"Họ và tên: {ho_ten_day_du}")
-print(f"Lớp:       {thong_tin_lop}")
-print(f"Điểm TB:   {diem_tb:.2f} ({xep_loai})")
+print(f"Họ và tên: {full_name}")
+print(f"Lớp:       {class_info}")
+print(f"Điểm TB:   {average_score:.2f} ({grade_level})")
 print("=" * 40)
 
 # 🏆 Tạo thông báo động viên
-if diem_tb >= 8.5:
-    loi_chuc = f"Chúc mừng {ten}! Bạn đã đạt thành tích xuất sắc!"
-elif diem_tb >= 7.0:
-    loi_chuc = f"Tốt lắm {ten}! Hãy cố gắng thêm để đạt điểm cao hơn!"
+if average_score >= 8.5:
+    encouragement = f"Chúc mừng {first_name}! Bạn đã đạt thành tích xuất sắc!"
+elif average_score >= 7.0:
+    encouragement = f"Tốt lắm {first_name}! Hãy cố gắng thêm để đạt điểm cao hơn!"
 else:
-    loi_chuc = f"Đừng nản lòng {ten}! Cố gắng lên nhé!"
+    encouragement = f"Đừng nản lòng {first_name}! Cố gắng lên nhé!"
 
-print(f"\n💬 {loi_chuc}")
+print(f"\n💬 {encouragement}")
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -259,59 +259,59 @@ print(f"\n💬 {loi_chuc}")
 
 ```python
 # TODO: Điền thông tin của bạn
-ho_ten = "..."
-tuoi = ...
-lop = "..."
-so_thich = "..."
-mon_hoc_yeu_thich = "..."
+full_name = "..."
+age = ...
+class_grade = "..."
+hobby = "..."
+favorite_subject = "..."
 
 # Tạo đoạn giới thiệu bằng f-string
-gioi_thieu = f"""
-Xin chào! Tôi là {ho_ten}, năm nay {tuoi} tuổi.
-Tôi đang học lớp {lop}.
-Sở thích của tôi là {so_thich}.
-Môn học tôi yêu thích nhất là {mon_hoc_yeu_thich}.
+introduction = f"""
+Xin chào! Tôi là {full_name}, năm nay {age} tuổi.
+Tôi đang học lớp {class_grade}.
+Sở thích của tôi là {hobby}.
+Môn học tôi yêu thích nhất là {favorite_subject}.
 Rất vui được làm quen với các bạn!
 """
 
-print(gioi_thieu)
+print(introduction)
 ```
 
 ### 🥈 Bài Tập 2: Tạo Email Tự Động
 
 ```python
 # Thông tin
-ho = "Tran"
-ten = "Mai"
-nam_sinh = 2008
-ten_truong = "thcs-le-quy-don"
+last_name = "Tran"
+first_name = "Mai"
+birth_year = 2008
+school_name = "thcs-le-quy-don"
 
 # TODO: Tạo email theo format: ten.ho.namsinh@tentruong.edu.vn
-email = f"{ten.lower()}.{ho.lower()}.{nam_sinh}@{ten_truong}.edu.vn"
+email = f"{first_name.lower()}.{last_name.lower()}.{birth_year}@{school_name}.edu.vn"
 print(f"Email: {email}")
 
 # Tạo mật khẩu tạm thời: 3 ký tự đầu của tên + năm sinh + 3 ký tự đầu của họ
-mat_khau = f"{ten[:3].lower()}{nam_sinh}{ho[:3].lower()}"
-print(f"Mật khẩu tạm: {mat_khau}")
+password = f"{first_name[:3].lower()}{birth_year}{last_name[:3].lower()}"
+print(f"Mật khẩu tạm: {password}")
 ```
 
 ### 🥉 Bài Tập 3: Phân Tích Tên
 
 ```python
-ho_ten_day_du = "Nguyễn Thị Hương Lan"
+full_name = "Nguyễn Thị Hương Lan"
 
 # TODO: Tách thành các phần
 # Gợi ý: dùng split() để tách chuỗi theo khoảng trắng
-cac_phan = ho_ten_day_du.split()
-ho = cac_phan[0]
-ten = cac_phan[-1]  # Phần tử cuối cùng
-ten_dem = " ".join(cac_phan[1:-1])  # Các phần ở giữa
+name_parts = full_name.split()
+last_name = name_parts[0]
+first_name = name_parts[-1]  # Phần tử cuối cùng
+middle_name = " ".join(name_parts[1:-1])  # Các phần ở giữa
 
-print(f"Họ: {ho}")
-print(f"Tên đệm: {ten_dem}")  
-print(f"Tên: {ten}")
-print(f"Tên viết tắt: {ho[0]}.{ten[0]}.")
-print(f"Độ dài tên: {len(ho_ten_day_du)} ký tự")
+print(f"Họ: {last_name}")
+print(f"Tên đệm: {middle_name}")  
+print(f"Tên: {first_name}")
+print(f"Tên viết tắt: {last_name[0]}.{first_name[0]}.")
+print(f"Độ dài tên: {len(full_name)} ký tự")
 ```
 
 ## 🎊 Tóm Tắt

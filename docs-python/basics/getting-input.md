@@ -39,8 +39,8 @@ graph LR
 
 ```python
 # Cách cơ bản nhất
-ten = input("Tên bạn là gì? ")
-print(f"Xin chào {ten}!")
+name = input("Tên bạn là gì? ")
+print(f"Xin chào {name}!")
 ```
 
 **Kết quả:**
@@ -58,8 +58,8 @@ Xin chào Minh!
 # Bước 4: Python lưu thông tin vào biến
 # Bước 5: Tiếp tục chạy chương trình
 
-ten = input("Nhập tên: ")  # Python đợi ở đây
-print(f"Tên đã nhận: {ten}")  # Chạy sau khi có input
+name = input("Nhập tên: ")  # Python đợi ở đây
+print(f"Tên đã nhận: {name}")  # Chạy sau khi có input
 ```
 
 :::info 💡 Điều Quan Trọng
@@ -72,32 +72,32 @@ print(f"Tên đã nhận: {ten}")  # Chạy sau khi có input
 
 ```python
 # Thông tin cá nhân
-ho_ten = input("Họ tên đầy đủ: ")
-que_quan = input("Quê quán: ")
-so_thich = input("Sở thích: ")
+full_name = input("Họ tên đầy đủ: ")
+hometown = input("Quê quán: ")
+hobby = input("Sở thích: ")
 
 print(f"\n🎭 THÔNG TIN CỦA BẠN:")
-print(f"👤 Tên: {ho_ten}")
-print(f"🏠 Quê: {que_quan}")
-print(f"❤️ Thích: {so_thich}")
+print(f"👤 Tên: {full_name}")
+print(f"🏠 Quê: {hometown}")
+print(f"❤️ Thích: {hobby}")
 ```
 
 ### 🔢 **Nhận Số (Numbers)**
 
 ```python
 # ❌ Sai - input() trả về string
-tuoi = input("Tuổi của bạn: ")
-nam_sau = tuoi + 1  # Lỗi! Không thể cộng string với số
+age = input("Tuổi của bạn: ")
+next_year = age + 1  # Lỗi! Không thể cộng string với số
 
 # ✅ Đúng - Convert string thành int
-tuoi = int(input("Tuổi của bạn: "))
-nam_sau = tuoi + 1
-print(f"Năm sau bạn sẽ {nam_sau} tuổi")
+age = int(input("Tuổi của bạn: "))
+next_year = age + 1
+print(f"Năm sau bạn sẽ {next_year} tuổi")
 
 # Số thập phân
-chieu_cao = float(input("Chiều cao (m): "))
-can_nang = float(input("Cân nặng (kg): "))
-bmi = can_nang / (chieu_cao ** 2)
+height = float(input("Chiều cao (m): "))
+weight = float(input("Cân nặng (kg): "))
+bmi = weight / (height ** 2)
 print(f"BMI của bạn: {bmi:.2f}")
 ```
 
@@ -105,16 +105,16 @@ print(f"BMI của bạn: {bmi:.2f}")
 
 ```python
 # Cách 1: So sánh string
-hoc_python = input("Bạn có thích học Python không? (có/không): ")
-if hoc_python.lower() == "có":
+likes_python = input("Bạn có thích học Python không? (có/không): ")
+if likes_python.lower() == "có":
     print("🎉 Tuyệt vời! Python sẽ giúp bạn rất nhiều!")
 else:
     print("😊 Không sao, có thể bạn sẽ thích sau!")
 
 # Cách 2: Chuyển thành boolean
-co_ban_gai = input("Bạn có bạn gái/trai không? (y/n): ").lower()
-da_co_nguoi_yeu = co_ban_gai in ['y', 'yes', 'có', 'có chứ']
-print(f"Tình trạng: {'Đã có người yêu' if da_co_nguoi_yeu else 'Độc thân'}")
+has_girlfriend = input("Bạn có bạn gái/trai không? (y/n): ").lower()
+is_in_relationship = has_girlfriend in ['y', 'yes', 'có', 'có chứ']
+print(f"Tình trạng: {'Đã có người yêu' if is_in_relationship else 'Độc thân'}")
 ```
 
 ## 🛡️ Validation - Kiểm Tra Dữ Liệu
@@ -124,49 +124,49 @@ print(f"Tình trạng: {'Đã có người yêu' if da_co_nguoi_yeu else 'Độc
 
 ```python
 # Cách 1: Sử dụng try-except (Khuyến nghị)
-def nhap_so_tuoi():
+def input_age():
     while True:
         try:
-            tuoi = int(input("Nhập tuổi của bạn: "))
-            if tuoi < 0:
+            age = int(input("Nhập tuổi của bạn: "))
+            if age < 0:
                 print("❌ Tuổi không thể âm! Thử lại.")
                 continue
-            elif tuoi > 150:
+            elif age > 150:
                 print("❌ Tuổi quá lớn! Thử lại.")
                 continue
-            return tuoi
+            return age
         except ValueError:
             print("❌ Vui lòng nhập số nguyên! Thử lại.")
 
 # Sử dụng
-tuoi = nhap_so_tuoi()
-print(f"✅ Tuổi hợp lệ: {tuoi}")
+age = input_age()
+print(f"✅ Tuổi hợp lệ: {age}")
 ```
 
 ### 🔤 **Kiểm Tra Text Hợp Lệ**
 
 ```python
-def nhap_ten():
+def input_name():
     while True:
-        ten = input("Nhập tên của bạn: ").strip()
+        name = input("Nhập tên của bạn: ").strip()
         
-        if not ten:  # Kiểm tra rỗng
+        if not name:  # Kiểm tra rỗng
             print("❌ Tên không được để trống!")
             continue
         
-        if len(ten) < 2:
+        if len(name) < 2:
             print("❌ Tên phải có ít nhất 2 ký tự!")
             continue
             
-        if not ten.replace(" ", "").isalpha():
+        if not name.replace(" ", "").isalpha():
             print("❌ Tên chỉ được chứa chữ cái!")
             continue
             
-        return ten.title()  # Viết hoa chữ cái đầu
+        return name.title()  # Viết hoa chữ cái đầu
 
 # Sử dụng
-ten = nhap_ten()
-print(f"✅ Tên hợp lệ: {ten}")
+name = input_name()
+print(f"✅ Tên hợp lệ: {name}")
 ```
 
 ### 📧 **Kiểm Tra Email**
@@ -174,7 +174,7 @@ print(f"✅ Tên hợp lệ: {ten}")
 ```python
 import re
 
-def nhap_email():
+def input_email():
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     
     while True:
@@ -190,7 +190,7 @@ def nhap_email():
             print("❌ Email không hợp lệ! (vd: ten@gmail.com)")
 
 # Sử dụng
-email = nhap_email()
+email = input_email()
 print(f"✅ Email hợp lệ: {email}")
 ```
 
@@ -199,7 +199,7 @@ print(f"✅ Email hợp lệ: {email}")
 ### 🔄 **Menu Lựa Chọn**
 
 ```python
-def hien_thi_menu():
+def display_menu():
     print("\n🎯 MENU CHÍNH")
     print("=" * 30)
     print("1. 📊 Tính BMI")
@@ -208,27 +208,27 @@ def hien_thi_menu():
     print("4. ❌ Thoát")
     print("=" * 30)
 
-def chon_menu():
+def select_menu():
     while True:
-        hien_thi_menu()
-        lua_chon = input("Chọn chức năng (1-4): ").strip()
+        display_menu()
+        choice = input("Chọn chức năng (1-4): ").strip()
         
-        if lua_chon in ['1', '2', '3', '4']:
-            return int(lua_chon)
+        if choice in ['1', '2', '3', '4']:
+            return int(choice)
         else:
             print("❌ Lựa chọn không hợp lệ! Vui lòng chọn 1-4.")
 
 # Sử dụng
 while True:
-    chon = chon_menu()
+    selection = select_menu()
     
-    if chon == 1:
+    if selection == 1:
         print("🔄 Đang tính BMI...")
-    elif chon == 2:
+    elif selection == 2:
         print("🎲 Bắt đầu game...")
-    elif chon == 3:
+    elif selection == 3:
         print("📝 Mở ghi chú...")
-    elif chon == 4:
+    elif selection == 4:
         print("👋 Tạm biệt!")
         break
 ```
@@ -283,50 +283,50 @@ chatbot()
 ### 📋 **Dự Án 1: Hồ Sơ Cá Nhân**
 
 ```python
-def tao_ho_so_ca_nhan():
+def create_personal_profile():
     print("🌟 TẠO HỒ SƠ CÁ NHÂN 🌟")
     print("=" * 40)
     
     # Thu thập thông tin
-    ho_ten = input("👤 Họ tên: ").title()
-    tuoi = int(input("🎂 Tuổi: "))
-    que_quan = input("🏠 Quê quán: ").title()
-    nghe_nghiep = input("💼 Nghề nghiệp: ")
-    so_thich = input("❤️ Sở thích: ")
-    mo_ta = input("📝 Mô tả bản thân (1 câu): ")
+    full_name = input("👤 Họ tên: ").title()
+    age = int(input("🎂 Tuổi: "))
+    hometown = input("🏠 Quê quán: ").title()
+    occupation = input("💼 Nghề nghiệp: ")
+    hobby = input("❤️ Sở thích: ")
+    description = input("📝 Mô tả bản thân (1 câu): ")
     
     # Hiển thị hồ sơ đẹp
     print("\n" + "🌟" * 50)
     print(f"{'📋 HỒ SƠ CÁ NHÂN':^50}")
     print("🌟" * 50)
-    print(f"👤 Tên: {ho_ten}")
-    print(f"🎂 Tuổi: {tuoi} tuổi")
-    print(f"🏠 Quê: {que_quan}")
-    print(f"💼 Nghề: {nghe_nghiep}")
-    print(f"❤️ Thích: {so_thich}")
-    print(f"📝 Giới thiệu: {mo_ta}")
-    print(f"📅 Năm sinh: {2024 - tuoi}")
+    print(f"👤 Tên: {full_name}")
+    print(f"🎂 Tuổi: {age} tuổi")
+    print(f"🏠 Quê: {hometown}")
+    print(f"💼 Nghề: {occupation}")
+    print(f"❤️ Thích: {hobby}")
+    print(f"📝 Giới thiệu: {description}")
+    print(f"📅 Năm sinh: {2024 - age}")
     print("🌟" * 50)
     
     # Lưu vào file (nâng cao)
-    with open("ho_so.txt", "w", encoding="utf-8") as file:
-        file.write(f"Hồ sơ của {ho_ten}\n")
-        file.write(f"Tuổi: {tuoi}\n")
-        file.write(f"Quê: {que_quan}\n")
-        file.write(f"Nghề: {nghe_nghiep}\n")
-        file.write(f"Sở thích: {so_thich}\n")
-        file.write(f"Mô tả: {mo_ta}\n")
+    with open("profile.txt", "w", encoding="utf-8") as file:
+        file.write(f"Hồ sơ của {full_name}\n")
+        file.write(f"Tuổi: {age}\n")
+        file.write(f"Quê: {hometown}\n")
+        file.write(f"Nghề: {occupation}\n")
+        file.write(f"Sở thích: {hobby}\n")
+        file.write(f"Mô tả: {description}\n")
     
-    print("💾 Đã lưu hồ sơ vào file 'ho_so.txt'")
+    print("💾 Đã lưu hồ sơ vào file 'profile.txt'")
 
 # Chạy dự án
-tao_ho_so_ca_nhan()
+create_personal_profile()
 ```
 
 ### 🧮 **Dự Án 2: Máy Tính Cá Nhân**
 
 ```python
-def may_tinh_ca_nhan():
+def personal_calculator():
     print("🧮 MÁY TÍNH CÁ NHÂN 🧮")
     
     while True:
@@ -338,13 +338,13 @@ def may_tinh_ca_nhan():
         print("5. 🔢 Lũy thừa")
         print("6. ❌ Thoát")
         
-        chon = input("\nChọn phép tính (1-6): ").strip()
+        choice = input("\nChọn phép tính (1-6): ").strip()
         
-        if chon == '6':
+        if choice == '6':
             print("👋 Tạm biệt!")
             break
         
-        if chon not in ['1', '2', '3', '4', '5']:
+        if choice not in ['1', '2', '3', '4', '5']:
             print("❌ Lựa chọn không hợp lệ!")
             continue
         
@@ -352,30 +352,30 @@ def may_tinh_ca_nhan():
             a = float(input("Nhập số thứ nhất: "))
             b = float(input("Nhập số thứ hai: "))
             
-            if chon == '1':
-                ket_qua = a + b
-                print(f"📊 {a} + {b} = {ket_qua}")
-            elif chon == '2':
-                ket_qua = a - b
-                print(f"📊 {a} - {b} = {ket_qua}")
-            elif chon == '3':
-                ket_qua = a * b
-                print(f"📊 {a} × {b} = {ket_qua}")
-            elif chon == '4':
+            if choice == '1':
+                result = a + b
+                print(f"📊 {a} + {b} = {result}")
+            elif choice == '2':
+                result = a - b
+                print(f"📊 {a} - {b} = {result}")
+            elif choice == '3':
+                result = a * b
+                print(f"📊 {a} × {b} = {result}")
+            elif choice == '4':
                 if b == 0:
                     print("❌ Không thể chia cho 0!")
                 else:
-                    ket_qua = a / b
-                    print(f"📊 {a} ÷ {b} = {ket_qua}")
-            elif chon == '5':
-                ket_qua = a ** b
-                print(f"📊 {a}^{b} = {ket_qua}")
+                    result = a / b
+                    print(f"📊 {a} ÷ {b} = {result}")
+            elif choice == '5':
+                result = a ** b
+                print(f"📊 {a}^{b} = {result}")
                 
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
 
 # Chạy máy tính
-may_tinh_ca_nhan()
+personal_calculator()
 ```
 
 ## 🔧 Xử Lý Lỗi Input Thường Gặp
@@ -449,7 +449,7 @@ import sys
 def timeout_handler(signum, frame):
     raise TimeoutError("Hết thời gian!")
 
-def input_co_thoi_han(prompt, timeout=10):
+def input_with_timeout(prompt, timeout=10):
     """Input với giới hạn thời gian"""
     signal.signal(signal.SIGALRM, timeout_handler)
     signal.alarm(timeout)
@@ -463,7 +463,7 @@ def input_co_thoi_han(prompt, timeout=10):
         return ""
 
 # Sử dụng (chỉ hoạt động trên Unix/Linux/Mac)
-# ten = input_co_thoi_han("Tên", 5)
+# name = input_with_timeout("Tên", 5)
 ```
 
 ### 🔒 **Input Mật Khẩu** (Ẩn Text)
@@ -471,7 +471,7 @@ def input_co_thoi_han(prompt, timeout=10):
 ```python
 import getpass
 
-def nhap_mat_khau():
+def input_password():
     """Nhập mật khẩu không hiển thị trên màn hình"""
     while True:
         password = getpass.getpass("🔒 Mật khẩu: ")
@@ -489,7 +489,7 @@ def nhap_mat_khau():
             print("❌ Mật khẩu không khớp!")
 
 # Sử dụng
-# mat_khau = nhap_mat_khau()
+# password = input_password()
 ```
 
 ## 🎊 Tóm Tắt

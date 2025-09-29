@@ -64,20 +64,20 @@ Khi bạn sử dụng **biến chưa được tạo**:
 
 ```python
 # ❌ Sử dụng biến chưa tồn tại
-print(ten_toi)
-# NameError: name 'ten_toi' is not defined
+print(my_name)
+# NameError: name 'my_name' is not defined
 
 # ❌ Viết sai tên biến
-ten_ban = "An"
-print(ten_ban_be)  # Viết sai tên!
-# NameError: name 'ten_ban_be' is not defined
+friend_name = "An"
+print(friend_nickname)  # Viết sai tên!
+# NameError: name 'friend_nickname' is not defined
 
 # ✅ Cách sửa
-ten_toi = "Minh"
-print(ten_toi)  # Hoạt động bình thường
+my_name = "Minh"
+print(my_name)  # Hoạt động bình thường
 
-ten_ban = "An"
-print(ten_ban)  # Viết đúng tên biến
+friend_name = "An"
+print(friend_name)  # Viết đúng tên biến
 ```
 
 ### 🔢 3. Lỗi Kiểu Dữ Liệu (TypeError)
@@ -86,20 +86,20 @@ Khi bạn **dùng sai kiểu dữ liệu**:
 
 ```python
 # ❌ Không thể cộng số với chuỗi
-tuoi = 15
-cau_noi = "Tôi " + tuoi + " tuổi"
+age = 15
+sentence = "Tôi " + age + " tuổi"
 # TypeError: can only concatenate str (not "int") to str
 
 # ❌ Không thể chia chuỗi cho số
-ten = "Python"
-ket_qua = ten / 2
+name = "Python"
+result = name / 2
 # TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 # ✅ Cách sửa
-tuoi = 15
-cau_noi = "Tôi " + str(tuoi) + " tuổi"  # Chuyển số thành chuỗi
+age = 15
+sentence = "Tôi " + str(age) + " tuổi"  # Chuyển số thành chuỗi
 # Hoặc dùng f-string
-cau_noi = f"Tôi {tuoi} tuổi"
+sentence = f"Tôi {age} tuổi"
 ```
 
 ### 📋 4. Lỗi Chỉ Số (IndexError)
@@ -108,16 +108,16 @@ Khi bạn **truy cập vị trí không tồn tại** trong chuỗi:
 
 ```python
 # ❌ Chuỗi chỉ có 6 ký tự (0-5) nhưng truy cập vị trí 10
-ten = "Python"
-ky_tu = ten[10]
+name = "Python"
+character = name[10]
 # IndexError: string index out of range
 
 # ✅ Cách sửa - kiểm tra độ dài trước
-ten = "Python"
-if len(ten) > 10:
-    ky_tu = ten[10]
+name = "Python"
+if len(name) > 10:
+    character = name[10]
 else:
-    print(f"Chuỗi chỉ có {len(ten)} ký tự")
+    print(f"Chuỗi chỉ có {len(name)} ký tự")
 ```
 
 ## 🔍 Đọc Hiểu Thông Báo Lỗi
@@ -126,22 +126,22 @@ Python báo lỗi rất chi tiết, hãy học cách đọc:
 
 ```python
 # Code có lỗi
-ten = "Minh"
-tuoi = 15
-gioi_thieu = ten + tuoi
+name = "Minh"
+age = 15
+introduction = name + age
 ```
 
 **Thông báo lỗi:**
 ```
 Traceback (most recent call last):
   File "test.py", line 3, in <module>
-    gioi_thieu = ten + tuoi
+    introduction = name + age
 TypeError: can only concatenate str (not "int") to str
 ```
 
 **Cách đọc:**
 1. **File "test.py", line 3** → Lỗi ở file `test.py`, dòng 3
-2. **gioi_thieu = ten + tuoi** → Dòng code gây lỗi
+2. **introduction = name + age** → Dòng code gây lỗi
 3. **TypeError** → Loại lỗi (lỗi kiểu dữ liệu)
 4. **can only concatenate str (not "int") to str** → Giải thích: chỉ có thể nối chuỗi với chuỗi, không thể nối với số
 
@@ -153,15 +153,15 @@ TypeError: can only concatenate str (not "int") to str
 # Khi không biết lỗi ở đâu, hãy "thăm dò"
 print("Checkpoint 1: Bắt đầu chương trình")
 
-ten = "An"
-print(f"Checkpoint 2: ten = {ten}")
+name = "An"
+print(f"Checkpoint 2: name = {name}")
 
-tuoi = 16
-print(f"Checkpoint 3: tuoi = {tuoi}")
+age = 16
+print(f"Checkpoint 3: age = {age}")
 
 # Dòng này có thể có lỗi
-ket_qua = ten + tuoi  # Lỗi ở đây!
-print(f"Checkpoint 4: ket_qua = {ket_qua}")
+result = name + age  # Lỗi ở đây!
+print(f"Checkpoint 4: result = {result}")
 
 print("Checkpoint 5: Kết thúc chương trình")
 ```
@@ -170,15 +170,15 @@ print("Checkpoint 5: Kết thúc chương trình")
 
 ```python
 # Khi không chắc kiểu dữ liệu
-bien_bi_nghi = input("Nhập một số: ")  # input() luôn trả về string!
+suspicious_variable = input("Nhập một số: ")  # input() luôn trả về string!
 
-print(f"Giá trị: {bien_bi_nghi}")
-print(f"Kiểu: {type(bien_bi_nghi)}")
+print(f"Giá trị: {suspicious_variable}")
+print(f"Kiểu: {type(suspicious_variable)}")
 
 # Chuyển đổi an toàn
 try:
-    so = int(bien_bi_nghi)
-    print(f"Đã chuyển thành số: {so}")
+    number = int(suspicious_variable)
+    print(f"Đã chuyển thành số: {number}")
 except ValueError:
     print("Không thể chuyển thành số!")
 ```
@@ -187,25 +187,25 @@ except ValueError:
 
 ```python
 # Thay vì viết một dòng phức tạp
-# ket_qua = (int(input("Số thứ nhất: ")) + int(input("Số thứ hai: "))) / 2
+# result = (int(input("Số thứ nhất: ")) + int(input("Số thứ hai: "))) / 2
 
 # Hãy chia nhỏ ra
 print("Nhập số thứ nhất:")
-so_1_str = input()
-print(f"Bạn nhập: '{so_1_str}'")
+num_1_str = input()
+print(f"Bạn nhập: '{num_1_str}'")
 
-so_1 = int(so_1_str)
-print(f"Chuyển thành số: {so_1}")
+num_1 = int(num_1_str)
+print(f"Chuyển thành số: {num_1}")
 
 print("Nhập số thứ hai:")
-so_2_str = input()
-so_2 = int(so_2_str)
+num_2_str = input()
+num_2 = int(num_2_str)
 
-tong = so_1 + so_2
-print(f"Tổng: {tong}")
+total = num_1 + num_2
+print(f"Tổng: {total}")
 
-trung_binh = tong / 2
-print(f"Trung bình: {trung_binh}")
+average = total / 2
+print(f"Trung bình: {average}")
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Sửa Lỗi Từng Bước
@@ -216,18 +216,18 @@ print(f"Trung bình: {trung_binh}")
 # Code này có rất nhiều lỗi!
 print("Chào mừng đến với máy tính cá nhân!"
 
-ten = input("Tên của bạn: ")
-tuoi = input("Tuổi của bạn: ")
+name = input("Tên của bạn: ")
+age = input("Tuổi của bạn: ")
 
-if tuoi >= 18
-    print(ten + " đã trưởng thành!")
-    co_the_lai_xe = True
+if age >= 18
+    print(name + " đã trưởng thành!")
+    can_drive = True
 else:
-    print(ten + " vẫn còn trẻ")
-    co_the_lai_xe = false
+    print(name + " vẫn còn trẻ")
+    can_drive = false
 
-nam_sinh = 2024 - tuoi
-print("Năm sinh: " + nam_sinh)
+birth_year = 2024 - age
+print("Năm sinh: " + birth_year)
 ```
 
 ### ✅ Code Sau Khi Sửa
@@ -236,19 +236,19 @@ print("Năm sinh: " + nam_sinh)
 # Code đã được sửa lỗi
 print("Chào mừng đến với máy tính cá nhân!")  # Thêm dấu ngoặc đóng
 
-ten = input("Tên của bạn: ")
-tuoi_str = input("Tuổi của bạn: ")
-tuoi = int(tuoi_str)  # Chuyển chuỗi thành số
+name = input("Tên của bạn: ")
+age_str = input("Tuổi của bạn: ")
+age = int(age_str)  # Chuyển chuỗi thành số
 
-if tuoi >= 18:  # Thêm dấu hai chấm
-    print(ten + " đã trưởng thành!")
-    co_the_lai_xe = True
+if age >= 18:  # Thêm dấu hai chấm
+    print(name + " đã trưởng thành!")
+    can_drive = True
 else:
-    print(ten + " vẫn còn trẻ")
-    co_the_lai_xe = False  # Viết hoa chữ F
+    print(name + " vẫn còn trẻ")
+    can_drive = False  # Viết hoa chữ F
 
-nam_sinh = 2024 - tuoi
-print("Năm sinh: " + str(nam_sinh))  # Chuyển số thành chuỗi
+birth_year = 2024 - age
+print("Năm sinh: " + str(birth_year))  # Chuyển số thành chuỗi
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -259,13 +259,13 @@ print("Năm sinh: " + str(nam_sinh))  # Chuyển số thành chuỗi
 # TODO: Tìm và sửa tất cả lỗi syntax trong code này
 print("Bắt đầu bài tập"
 
-ten = "Minh
-tuoi = 15
+name = "Minh
+age = 15
 
-if ten == "Minh"
+if name == "Minh"
 print("Xin chào Minh!")
 
-if tuoi > 10
+if age > 10
     print("Bạn đã lớn rồi!")
     
 print("Kết thúc bài tập"
@@ -277,21 +277,21 @@ print("Kết thúc bài tập"
 
 ```python
 # TODO: Sửa lỗi để code chạy được
-ho = "Nguyễn"
-ten = "An" 
-tuoi = 16
-diem = 8.5
+last_name = "Nguyễn"
+first_name = "An" 
+age = 16
+score = 8.5
 
 # Các dòng này có lỗi, hãy sửa
-ho_ten = ho + ten  # Thiếu khoảng trắng
-thong_tin = "Tôi là " + ho_ten + ", " + tuoi + " tuổi"
-ket_qua = "Điểm của tôi: " + diem
-tuoi_sau_10_nam = tuoi + "10"
+full_name = last_name + first_name  # Thiếu khoảng trắng
+info = "Tôi là " + full_name + ", " + age + " tuổi"
+result = "Điểm của tôi: " + score
+age_after_10_years = age + "10"
 
-print(ho_ten)
-print(thong_tin)
-print(ket_qua)
-print("Tuổi sau 10 năm:", tuoi_sau_10_nam)
+print(full_name)
+print(info)
+print(result)
+print("Tuổi sau 10 năm:", age_after_10_years)
 ```
 
 ### 🥉 Bài Tập 3: Debug Máy Tính Đơn Giản
@@ -301,23 +301,23 @@ print("Tuổi sau 10 năm:", tuoi_sau_10_nam)
 print("=== MÁY TÍNH ĐƠN GIẢN ===")
 
 # Nhập số liệu
-so_1 = input("Nhập số thứ nhất: ")
-so_2 = input("Nhập số thứ hai: ")
+num_1 = input("Nhập số thứ nhất: ")
+num_2 = input("Nhập số thứ hai: ")
 
 # Tính toán (có lỗi!)
-tong = so_1 + so_2
-hieu = so_1 - so_2  
-tich = so_1 * so_2
-thuong = so_1 / so_2
+sum_result = num_1 + num_2
+difference = num_1 - num_2  
+product = num_1 * num_2
+quotient = num_1 / num_2
 
 # In kết quả
-print("Tổng: " + tong)
-print("Hiệu: " + hieu)
-print("Tích: " + tich)
-print("Thương: " + thuong)
+print("Tổng: " + sum_result)
+print("Hiệu: " + difference)
+print("Tích: " + product)
+print("Thương: " + quotient)
 
 # Kiểm tra số chẵn lẻ
-if tong % 2 = 0:
+if sum_result % 2 = 0:
     print("Tổng là số chẵn")
 else
     print("Tổng là số lẻ")

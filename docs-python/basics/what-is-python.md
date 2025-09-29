@@ -57,7 +57,7 @@ So sánh với ngôn ngữ khác:
 
 ```python
 # Python - Dễ hiểu! 🐍
-if tuoi >= 18:
+if age >= 18:
     print("Bạn đã trưởng thành!")
 else:
     print("Bạn vẫn còn nhỏ!")
@@ -67,8 +67,8 @@ else:
 // Java - Phức tạp hơn ☕
 public class Main {
     public static void main(String[] args) {
-        int tuoi = 20;
-        if (tuoi >= 18) {
+        int age = 20;
+        if (age >= 18) {
             System.out.println("Bạn đã trưởng thành!");
         } else {
             System.out.println("Bạn vẫn còn nhỏ!");
@@ -139,7 +139,7 @@ app.run()
 # Chatbot đơn giản
 import random
 
-cau_tra_loi = [
+responses = [
     "Thật thú vị! Kể thêm đi! 🤔",
     "Tôi hiểu rồi! 💡", 
     "Wow, điều đó tuyệt quá! 🎉"
@@ -147,7 +147,7 @@ cau_tra_loi = [
 
 while True:
     user_input = input("Bạn: ")
-    bot_reply = random.choice(cau_tra_loi)
+    bot_reply = random.choice(responses)
     print(f"Bot: {bot_reply}")
 ```
 
@@ -156,11 +156,11 @@ while True:
 # Phân tích điểm thi của lớp
 import matplotlib.pyplot as plt
 
-diem_toan = [8, 9, 7, 10, 6, 8, 9, 7, 8, 9]
-diem_van = [7, 8, 9, 8, 7, 9, 8, 8, 7, 9]
+math_scores = [8, 9, 7, 10, 6, 8, 9, 7, 8, 9]
+literature_scores = [7, 8, 9, 8, 7, 9, 8, 8, 7, 9]
 
-plt.plot(diem_toan, label='Toán')
-plt.plot(diem_van, label='Văn')
+plt.plot(math_scores, label='Toán')
+plt.plot(literature_scores, label='Văn')
 plt.legend()
 plt.title('Điểm Thi Của Lớp 🎓')
 plt.show()
@@ -171,15 +171,15 @@ plt.show()
 # Game đoán số
 import random
 
-so_bi_mat = random.randint(1, 100)
+secret_number = random.randint(1, 100)
 print("🎮 Tôi đã nghĩ ra một số từ 1 đến 100!")
 
 while True:
     guess = int(input("Đoán số: "))
-    if guess == so_bi_mat:
+    if guess == secret_number:
         print("🎉 Chính xác! Bạn thắng rồi!")
         break
-    elif guess < so_bi_mat:
+    elif guess < secret_number:
         print("📈 Số của tôi lớn hơn!")
     else:
         print("📉 Số của tôi nhỏ hơn!")
@@ -191,15 +191,15 @@ while True:
 import smtplib
 from datetime import date
 
-def gui_email_chuc_mung(email, ten):
-    message = f"🎂 Chúc mừng sinh nhật {ten}! 🎉"
+def send_birthday_email(email, name):
+    message = f"🎂 Chúc mừng sinh nhật {name}! 🎉"
     # Code gửi email...
     print(f"Đã gửi email đến {email}")
 
 # Danh sách sinh nhật
-sinh_nhat_hom_nay = ["minh@email.com", "lan@email.com"]
-for email in sinh_nhat_hom_nay:
-    gui_email_chuc_mung(email, "Bạn")
+birthday_today = ["minh@email.com", "lan@email.com"]
+for email in birthday_today:
+    send_birthday_email(email, "Bạn")
 ```
 
 ## 🏆 Python vs Các Ngôn Ngữ Khác
@@ -289,15 +289,15 @@ graph LR
 print("🧮 Máy Tính Python")
 print("Nhập hai số để tính toán:")
 
-a = float(input("Số thứ nhất: "))
-b = float(input("Số thứ hai: "))
+first_number = float(input("Số thứ nhất: "))
+second_number = float(input("Số thứ hai: "))
 
 print(f"\n📊 Kết quả:")
-print(f"{a} + {b} = {a + b}")
-print(f"{a} - {b} = {a - b}")
-print(f"{a} × {b} = {a * b}")
-if b != 0:
-    print(f"{a} ÷ {b} = {a / b}")
+print(f"{first_number} + {second_number} = {first_number + second_number}")
+print(f"{first_number} - {second_number} = {first_number - second_number}")
+print(f"{first_number} × {second_number} = {first_number * second_number}")
+if second_number != 0:
+    print(f"{first_number} ÷ {second_number} = {first_number / second_number}")
 ```
 
 ### Bài Tập 2: Thông Tin Python

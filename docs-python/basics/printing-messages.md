@@ -47,18 +47,18 @@ print("Tôi là Python!")
 ### 2. **Print Nhiều Thứ Cùng Lúc**
 ```python
 # Cách cũ - dài dòng
-ten = "Minh"
-tuoi = 15
-print("Tên:", ten, "Tuổi:", tuoi)
+name = "Minh"
+age = 15
+print("Tên:", name, "Tuổi:", age)
 
 # Kết quả: Tên: Minh Tuổi: 15
 ```
 
 ### 3. **F-Strings** - Cách Hiện Đại Nhất (Python 3.6+)
 ```python
-ten = "Minh"
-tuoi = 15
-print(f"Tên: {ten}, Tuổi: {tuoi}")
+name = "Minh"
+age = 15
+print(f"Tên: {name}, Tuổi: {age}")
 
 # Kết quả: Tên: Minh, Tuổi: 15
 ```
@@ -73,17 +73,17 @@ F-strings (formatted string literals) là cách **nhanh nhất, dễ đọc nh�
 
 ```python
 # Thông tin cá nhân
-ho_ten = "Nguyễn Văn Minh"
-tuoi = 16
-diem_toan = 8.5
-diem_van = 9.0
+full_name = "Nguyễn Văn Minh"
+age = 16
+math_score = 8.5
+literature_score = 9.0
 
-print(f"👋 Xin chào! Tôi là {ho_ten}")
-print(f"🎂 Tôi {tuoi} tuổi")
-print(f"📊 Điểm Toán: {diem_toan}, Điểm Văn: {diem_van}")
+print(f"👋 Xin chào! Tôi là {full_name}")
+print(f"🎂 Tôi {age} tuổi")
+print(f"📊 Điểm Toán: {math_score}, Điểm Văn: {literature_score}")
 
 # Tính toán trong f-string
-print(f"📈 Điểm trung bình: {(diem_toan + diem_van) / 2}")
+print(f"📈 Điểm trung bình: {(math_score + literature_score) / 2}")
 ```
 
 **Kết quả:**
@@ -98,17 +98,17 @@ print(f"📈 Điểm trung bình: {(diem_toan + diem_van) / 2}")
 
 ```python
 # Số thập phân
-gia_tien = 125000.789
-print(f"💰 Giá: {gia_tien:.2f} VNĐ")  # 2 chữ số thập phân
-print(f"💰 Giá: {gia_tien:,.0f} VNĐ")  # Thêm dấu phẩy, không thập phân
+price = 125000.789
+print(f"💰 Giá: {price:.2f} VNĐ")  # 2 chữ số thập phân
+print(f"💰 Giá: {price:,.0f} VNĐ")  # Thêm dấu phẩy, không thập phân
 
 # Phần trăm
-ti_le_dung = 0.85
-print(f"✅ Tỷ lệ đúng: {ti_le_dung:.1%}")  # Chuyển thành %
+accuracy_rate = 0.85
+print(f"✅ Tỷ lệ đúng: {accuracy_rate:.1%}")  # Chuyển thành %
 
 # Số nguyên với độ rộng cố định
-so_thu_tu = 7
-print(f"📋 Thứ tự: {so_thu_tu:03d}")  # Thêm số 0 phía trước
+order_number = 7
+print(f"📋 Thứ tự: {order_number:03d}")  # Thêm số 0 phía trước
 ```
 
 **Kết quả:**
@@ -136,9 +136,9 @@ print(f"⏰ Giờ: {now:%H:%M:%S}")
 print(f"🌅 Thời điểm: {now:%d tháng %m năm %Y, %H:%M}")
 
 # Ngày trong tuần (tiếng Việt)
-thu_trong_tuan = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"]
-thu = thu_trong_tuan[today.weekday()]
-print(f"📆 Hôm nay là {thu}")
+days_of_week = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"]
+day = days_of_week[today.weekday()]
+print(f"📆 Hôm nay là {day}")
 ```
 
 **Kết quả:**
@@ -191,8 +191,8 @@ print(f"{Colors.BLUE}ℹ️ Thông tin: Python đang hoạt động{Colors.END}"
 print(f"{Colors.YELLOW}⚠️ Chú ý: Kiểm tra lại code{Colors.END}")
 
 # Kết hợp màu với f-strings
-ten = "Python"
-print(f"{Colors.PURPLE}🐍 Xin chào từ {ten}!{Colors.END}")
+name = "Python"
+print(f"{Colors.PURPLE}🐍 Xin chào từ {name}!{Colors.END}")
 ```
 
 :::info 💡 Lưu Ý Về Màu Sắc
@@ -210,14 +210,14 @@ print("=" * 50)
 print(f"{'STT':<5} {'Tên':<15} {'Tuổi':<5} {'Điểm TB':<8}")
 print("=" * 50)
 
-danh_sach = [
+student_list = [
     (1, "Nguyễn Văn A", 16, 8.5),
     (2, "Trần Thị B", 15, 9.2),
     (3, "Lê Minh C", 16, 7.8)
 ]
 
-for stt, ten, tuoi, diem in danh_sach:
-    print(f"{stt:<5} {ten:<15} {tuoi:<5} {diem:<8.1f}")
+for order, name, age, score in student_list:
+    print(f"{order:<5} {name:<15} {age:<5} {score:<8.1f}")
 
 print("=" * 50)
 ```
@@ -238,9 +238,9 @@ STT   Tên             Tuổi  Điểm TB
 ### Challenge 1: Thông Tin Cá Nhân Đẹp
 ```python
 # TODO: Tạo chương trình in thông tin cá nhân đẹp mắt
-ten = input("Tên của bạn: ")
-tuoi = int(input("Tuổi: "))
-so_thich = input("Sở thích: ")
+name = input("Tên của bạn: ")
+age = int(input("Tuổi: "))
+hobby = input("Sở thích: ")
 
 # Viết code in thông tin đẹp với f-strings và formatting
 # Gợi ý: Sử dụng emoji, khung, và định dạng số
@@ -250,17 +250,17 @@ so_thich = input("Sở thích: ")
 <summary>💡 Xem gợi ý</summary>
 
 ```python
-ten = input("Tên của bạn: ")
-tuoi = int(input("Tuổi: "))
-so_thich = input("Sở thích: ")
+name = input("Tên của bạn: ")
+age = int(input("Tuổi: "))
+hobby = input("Sở thích: ")
 
 print("\n" + "🌟" * 40)
 print(f"{'🎭 THÔNG TIN CÁ NHÂN':^40}")
 print("🌟" * 40)
-print(f"👤 Tên: {ten}")
-print(f"🎂 Tuổi: {tuoi} tuổi")
-print(f"❤️ Sở thích: {so_thich}")
-print(f"📅 Năm sinh: {2024 - tuoi}")
+print(f"👤 Tên: {name}")
+print(f"🎂 Tuổi: {age} tuổi")
+print(f"❤️ Sở thích: {hobby}")
+print(f"📅 Năm sinh: {2024 - age}")
 print("🌟" * 40)
 print("✨ Chúc bạn học Python vui vẻ! ✨")
 ```
@@ -269,8 +269,8 @@ print("✨ Chúc bạn học Python vui vẻ! ✨")
 ### Challenge 2: Máy Tính Tiền Tip
 ```python
 # TODO: Tạo máy tính tip cho nhà hàng
-tien_an = float(input("Số tiền hóa đơn (VNĐ): "))
-ti_le_tip = float(input("Tỷ lệ tip (%, vd: 10): ")) / 100
+bill_amount = float(input("Số tiền hóa đơn (VNĐ): "))
+tip_rate = float(input("Tỷ lệ tip (%, vd: 10): ")) / 100
 
 # Tính toán và in kết quả đẹp
 # Gợi ý: Format số tiền với dấu phẩy, làm tròn 2 chữ số thập phân
@@ -281,7 +281,7 @@ ti_le_tip = float(input("Tỷ lệ tip (%, vd: 10): ")) / 100
 import time
 
 # TODO: Tạo countdown timer đẹp
-giay = int(input("Đếm ngược bao nhiêu giây: "))
+seconds = int(input("Đếm ngược bao nhiêu giây: "))
 
 # Tạo countdown với format đẹp và cập nhật realtime
 # Gợi ý: Sử dụng \r để ghi đè dòng hiện tại

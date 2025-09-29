@@ -213,8 +213,8 @@ print("🎉 Python đã sẵn sàng!")
 print("Chào mừng bạn đến với thế giới lập trình!")
 
 # Tính toán đơn giản
-ket_qua = 5 + 3
-print(f"5 + 3 = {ket_qua}")
+result = 5 + 3
+print(f"5 + 3 = {result}")
 ```
 
 Chạy file:

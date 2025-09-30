@@ -11,35 +11,35 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '🤖 Nội Dung Được Tạo Bởi AI',
+    title: '🎯 Lộ Trình Học Tập Rõ Ràng',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Tất cả hướng dẫn đều được tạo bởi trí tuệ nhân tạo và được thiết kế 
-        dành riêng cho người mới bắt đầu hoàn toàn. Học các khái niệm lập trình được giải thích 
-        bằng ngôn ngữ đơn giản, thân thiện với trẻ em và những phép so sánh thú vị!
+        Mỗi ngôn ngữ lập trình đều có lộ trình học từ cơ bản đến nâng cao được thiết kế 
+        tỉ mỉ. Bắt đầu với <strong>🟢 Cơ Bản Siêu Dễ</strong>, tiến lên <strong>🟡 Trung Bình Thú Vị</strong>, 
+        và chinh phục <strong>🔴 Thách Thức Cao</strong> với các dự án thực tế!
       </>
     ),
   },
   {
-    title: '🧒 Học Theo Phong Cách ELI5',
+    title: '🧒 Phương Pháp ELI5 Độc Đáo',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Mọi thứ đều được "Giải Thích Như Bạn 5 Tuổi" sử dụng đồ chơi, trò chơi và đồ vật hàng ngày. 
-        Không có thuật ngữ kỹ thuật phức tạp - chỉ có những lời giải thích đơn giản mà 
-        các bạn nhỏ và người mới bắt đầu ở mọi lứa tuổi đều hiểu được!
+        Mọi khái niệm phức tạp đều được "Giải Thích Như Bạn 5 Tuổi" bằng những ví dụ 
+        quen thuộc với trẻ em Việt Nam. Python như con rắn thông minh, Java như khối LEGO, 
+        C++ như dụng cụ chuyên nghiệp, Rust như thiết bị an toàn siêu hiện đại!
       </>
     ),
   },
   {
-    title: '🚀 Bốn Ngôn Ngữ Tuyệt Vời',
+    title: '🏆 Dự Án Thực Tế Thú Vị',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Chọn cuộc phiêu lưu của bạn! Học Python (con rắn thông minh), Java (khối LEGO), 
-        C++ (dụng cụ chuyên nghiệp), hoặc Rust (thiết bị an toàn). Mỗi ngôn ngữ đều có 
-        những phép so sánh thú vị riêng và lộ trình học tập hoàn chỉnh!
+        Không chỉ học lý thuyết! Xây dựng game đơn giản, tạo website cá nhân, 
+        làm chatbot thông minh, và nhiều dự án thực tế khác. Mỗi dự án đều có 
+        hướng dẫn từng bước chi tiết và giải thích dễ hiểu cho người mới bắt đầu!
       </>
     ),
   },

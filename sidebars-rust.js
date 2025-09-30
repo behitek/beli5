@@ -18,17 +18,7 @@ const sidebars = {
             type: 'doc',
             id: 'intro',
             label: '🦀 Rust - Sắp Ra Mắt!',
-        },
-        {
-            type: 'doc',
-            id: 'help-and-tips',
-            label: '🆘 Nhờ Người Lớn Giúp Đỡ',
-        },
-        {
-            type: 'doc',
-            id: 'whats-next',
-            label: '🚀 Tiếp Theo Là Gì?',
-        },
+        }
     ],
 };
 

@@ -25,8 +25,7 @@ const config: Config = {
   organizationName: 'behitek', // Usually your GitHub org/user name.
   projectName: 'beli5', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -93,6 +92,9 @@ const config: Config = {
   // In order for Mermaid to work, you also need to enable the Remark plugin with this option
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   presets: [

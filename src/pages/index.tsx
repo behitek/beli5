@@ -50,8 +50,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Hướng Dẫn Lập Trình từ AI!"
-      description="Hướng dẫn lập trình được tạo bởi AI, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn. Học Python, Java, C++, và Rust với lời giải thích theo phong cách ELI5.">
+      title="Beli5 - Học lập trình theo phong cách ELI5!"
+      description="Hướng dẫn lập trình dễ hiểu, giải thích bằng thuật ngữ đơn giản cho người mới bắt đầu hoàn toàn. Học Python, Java, C++, và Rust với lời giải thích theo phong cách ELI5.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

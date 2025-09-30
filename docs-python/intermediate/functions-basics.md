@@ -38,34 +38,34 @@ graph LR
 ```python
 # ❌ Cách cũ - lặp lại code
 # Tính diện tích hình chữ nhật 3 lần
-chieu_dai_1, chieu_rong_1 = 5, 3
-dien_tich_1 = chieu_dai_1 * chieu_rong_1
-print(f"Hình 1: {dien_tich_1}")
+length_1, width_1 = 5, 3
+area_1 = length_1 * width_1
+print(f"Hình 1: {area_1}")
 
-chieu_dai_2, chieu_rong_2 = 7, 4
-dien_tich_2 = chieu_dai_2 * chieu_rong_2
-print(f"Hình 2: {dien_tich_2}")
+length_2, width_2 = 7, 4
+area_2 = length_2 * width_2
+print(f"Hình 2: {area_2}")
 
-chieu_dai_3, chieu_rong_3 = 6, 2
-dien_tich_3 = chieu_dai_3 * chieu_rong_3
-print(f"Hình 3: {dien_tich_3}")
+length_3, width_3 = 6, 2
+area_3 = length_3 * width_3
+print(f"Hình 3: {area_3}")
 ```
 
 ```python
 # ✅ Cách mới - sử dụng function
-def tinh_dien_tich_hcn(chieu_dai, chieu_rong):
+def calculate_rectangle_area(length, width):
     """Tính diện tích hình chữ nhật"""
-    dien_tich = chieu_dai * chieu_rong
-    return dien_tich
+    area = length * width
+    return area
 
 # Gọi function nhiều lần
-dien_tich_1 = tinh_dien_tich_hcn(5, 3)
-dien_tich_2 = tinh_dien_tich_hcn(7, 4)
-dien_tich_3 = tinh_dien_tich_hcn(6, 2)
+area_1 = calculate_rectangle_area(5, 3)
+area_2 = calculate_rectangle_area(7, 4)
+area_3 = calculate_rectangle_area(6, 2)
 
-print(f"Hình 1: {dien_tich_1}")
-print(f"Hình 2: {dien_tich_2}")
-print(f"Hình 3: {dien_tich_3}")
+print(f"Hình 1: {area_1}")
+print(f"Hình 2: {area_2}")
+print(f"Hình 3: {area_3}")
 ```
 
 ## 🎯 Tạo Function Cơ Bản
@@ -73,52 +73,52 @@ print(f"Hình 3: {dien_tich_3}")
 ### 📌 Cú Pháp
 
 ```python
-def ten_function():
+def function_name():
     """Docstring - mô tả function"""
     # Code thực hiện công việc
-    return ket_qua  # Trả về kết quả (tùy chọn)
+    return result  # Trả về kết quả (tùy chọn)
 ```
 
 ### 🌟 Ví Dụ Đơn Giản
 
 ```python
 # Function không có tham số, không trả về
-def chao_mung():
+def welcome_message():
     """In lời chào mừng"""
     print("🎉 Chào mừng bạn đến với Python!")
     print("🐍 Hãy cùng học lập trình thú vị!")
 
 # Gọi function
-chao_mung()
-chao_mung()  # Có thể gọi nhiều lần
+welcome_message()
+welcome_message()  # Có thể gọi nhiều lần
 ```
 
 ```python
 # Function có tham số
-def chao_ten(ten):
+def greet_person(name):
     """Chào một người cụ thể"""
-    print(f"👋 Xin chào {ten}!")
-    print(f"🎯 Chúc {ten} học Python vui vẻ!")
+    print(f"👋 Xin chào {name}!")
+    print(f"🎯 Chúc {name} học Python vui vẻ!")
 
 # Gọi function với tham số khác nhau
-chao_ten("An")
-chao_ten("Bình")
-chao_ten("Châu")
+greet_person("An")
+greet_person("Bình")
+greet_person("Châu")
 ```
 
 ```python
 # Function có trả về giá trị
-def tinh_binh_phuong(so):
+def calculate_square(number):
     """Tính bình phương của một số"""
-    ket_qua = so ** 2
-    return ket_qua
+    result = number ** 2
+    return result
 
 # Sử dụng kết quả trả về
-so_5_bp = tinh_binh_phuong(5)
-so_7_bp = tinh_binh_phuong(7)
+square_5 = calculate_square(5)
+square_7 = calculate_square(7)
 
-print(f"5² = {so_5_bp}")  # 25
-print(f"7² = {so_7_bp}")  # 49
+print(f"5² = {square_5}")  # 25
+print(f"7² = {square_7}")  # 49
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Bộ Công Cụ Toán Học
@@ -127,32 +127,32 @@ print(f"7² = {so_7_bp}")  # 49
 # 🧮 Bộ công cụ toán học với functions
 import math
 
-def tinh_chu_vi_hcn(chieu_dai, chieu_rong):
+def calculate_rectangle_perimeter(length, width):
     """Tính chu vi hình chữ nhật"""
-    chu_vi = 2 * (chieu_dai + chieu_rong)
-    return chu_vi
+    perimeter = 2 * (length + width)
+    return perimeter
 
-def tinh_dien_tich_hcn(chieu_dai, chieu_rong):
+def calculate_rectangle_area(length, width):
     """Tính diện tích hình chữ nhật"""
-    dien_tich = chieu_dai * chieu_rong
-    return dien_tich
+    area = length * width
+    return area
 
-def tinh_dien_tich_hinh_tron(ban_kinh):
+def calculate_circle_area(radius):
     """Tính diện tích hình tròn"""
-    dien_tich = math.pi * ban_kinh ** 2
-    return dien_tich
+    area = math.pi * radius ** 2
+    return area
 
-def tinh_chu_vi_hinh_tron(ban_kinh):
+def calculate_circle_perimeter(radius):
     """Tính chu vi hình tròn"""
-    chu_vi = 2 * math.pi * ban_kinh
-    return chu_vi
+    perimeter = 2 * math.pi * radius
+    return perimeter
 
-def tinh_bmi(can_nang, chieu_cao):
+def calculate_bmi(weight, height):
     """Tính chỉ số BMI"""
-    bmi = can_nang / (chieu_cao ** 2)
+    bmi = weight / (height ** 2)
     return bmi
 
-def danh_gia_bmi(bmi):
+def evaluate_bmi(bmi):
     """Đánh giá BMI"""
     if bmi < 18.5:
         return "Thiếu cân"
@@ -163,39 +163,39 @@ def danh_gia_bmi(bmi):
     else:
         return "Béo phì"
 
-def tinh_lai_suat(tien_goc, lai_suat, so_nam):
+def calculate_compound_interest(principal, interest_rate, years):
     """Tính lãi suất kép"""
-    tien_cuoi = tien_goc * (1 + lai_suat) ** so_nam
-    return tien_cuoi
+    final_amount = principal * (1 + interest_rate) ** years
+    return final_amount
 
 # Sử dụng các functions
 print("🧮 BỘ CÔNG CỤ TOÁN HỌC")
 print("=" * 40)
 
 # Tính hình chữ nhật
-cd, cr = 5, 3
-print(f"Hình chữ nhật {cd}x{cr}:")
-print(f"  Chu vi: {tinh_chu_vi_hcn(cd, cr):.1f}")
-print(f"  Diện tích: {tinh_dien_tich_hcn(cd, cr)}")
+length, width = 5, 3
+print(f"Hình chữ nhật {length}x{width}:")
+print(f"  Chu vi: {calculate_rectangle_perimeter(length, width):.1f}")
+print(f"  Diện tích: {calculate_rectangle_area(length, width)}")
 
 # Tính hình tròn
-bk = 4
-print(f"\nHình tròn bán kính {bk}:")
-print(f"  Chu vi: {tinh_chu_vi_hinh_tron(bk):.2f}")
-print(f"  Diện tích: {tinh_dien_tich_hinh_tron(bk):.2f}")
+radius = 4
+print(f"\nHình tròn bán kính {radius}:")
+print(f"  Chu vi: {calculate_circle_perimeter(radius):.2f}")
+print(f"  Diện tích: {calculate_circle_area(radius):.2f}")
 
 # Tính BMI
-can_nang, chieu_cao = 60, 1.7
-bmi = tinh_bmi(can_nang, chieu_cao)
-danh_gia = danh_gia_bmi(bmi)
-print(f"\nBMI: {bmi:.1f} - {danh_gia}")
+weight, height = 60, 1.7
+bmi = calculate_bmi(weight, height)
+evaluation = evaluate_bmi(bmi)
+print(f"\nBMI: {bmi:.1f} - {evaluation}")
 
 # Tính lãi suất
-tien_goc = 1000000
-lai_suat = 0.05
-so_nam = 3
-tien_cuoi = tinh_lai_suat(tien_goc, lai_suat, so_nam)
-print(f"\nLãi suất: {tien_goc:,} VNĐ → {tien_cuoi:,.0f} VNĐ sau {so_nam} năm")
+principal = 1000000
+interest_rate = 0.05
+years = 3
+final_amount = calculate_compound_interest(principal, interest_rate, years)
+print(f"\nLãi suất: {principal:,} VNĐ → {final_amount:,.0f} VNĐ sau {years} năm")
 ```
 
 ## 🔄 Function Với Nhiều Tham Số
@@ -203,162 +203,162 @@ print(f"\nLãi suất: {tien_goc:,} VNĐ → {tien_cuoi:,.0f} VNĐ sau {so_nam} 
 ### 📊 Tham Số Vị Trí
 
 ```python
-def tinh_diem_trung_binh(diem_toan, diem_van, diem_anh):
+def calculate_average_score(math_score, literature_score, english_score):
     """Tính điểm trung bình 3 môn"""
-    diem_tb = (diem_toan + diem_van + diem_anh) / 3
-    return diem_tb
+    average = (math_score + literature_score + english_score) / 3
+    return average
 
 # Gọi với tham số theo thứ tự
-diem_tb_an = tinh_diem_trung_binh(8.5, 7.0, 9.0)
-print(f"Điểm TB của An: {diem_tb_an:.1f}")
+avg_score_an = calculate_average_score(8.5, 7.0, 9.0)
+print(f"Điểm TB của An: {avg_score_an:.1f}")
 
-diem_tb_binh = tinh_diem_trung_binh(9.0, 8.5, 7.5)
-print(f"Điểm TB của Bình: {diem_tb_binh:.1f}")
+avg_score_binh = calculate_average_score(9.0, 8.5, 7.5)
+print(f"Điểm TB của Bình: {avg_score_binh:.1f}")
 ```
 
 ### 🏷️ Tham Số Tên (Keyword Arguments)
 
 ```python
-def tao_thong_tin_hoc_sinh(ten, tuoi, lop, diem_tb=0.0):
+def create_student_info(name, age, class_name, average_score=0.0):
     """Tạo thông tin học sinh"""
-    thong_tin = {
-        "ten": ten,
-        "tuoi": tuoi,
-        "lop": lop,
-        "diem_tb": diem_tb
+    info = {
+        "name": name,
+        "age": age,
+        "class_name": class_name,
+        "average_score": average_score
     }
-    return thong_tin
+    return info
 
 # Gọi với tên tham số
-hs_an = tao_thong_tin_hoc_sinh(ten="An", tuoi=16, lop="9A", diem_tb=8.5)
-hs_binh = tao_thong_tin_hoc_sinh(tuoi=15, ten="Bình", diem_tb=7.8, lop="9B")
+student_an = create_student_info(name="An", age=16, class_name="9A", average_score=8.5)
+student_binh = create_student_info(age=15, name="Bình", average_score=7.8, class_name="9B")
 
-print("Thông tin An:", hs_an)
-print("Thông tin Bình:", hs_binh)
+print("Thông tin An:", student_an)
+print("Thông tin Bình:", student_binh)
 ```
 
 ### 🎯 Tham Số Mặc Định
 
 ```python
-def chao_loi(ten, loi_chao="Xin chào"):
+def greet_with_message(name, greeting="Xin chào"):
     """Chào với lời chào tùy chỉnh"""
-    print(f"{loi_chao} {ten}!")
+    print(f"{greeting} {name}!")
 
 # Sử dụng lời chào mặc định
-chao_loi("An")  # Xin chào An!
+greet_with_message("An")  # Xin chào An!
 
 # Sử dụng lời chào tùy chỉnh
-chao_loi("Bình", "Chào mừng")  # Chào mừng Bình!
-chao_loi("Châu", "Hẹn gặp lại")  # Hẹn gặp lại Châu!
+greet_with_message("Bình", "Chào mừng")  # Chào mừng Bình!
+greet_with_message("Châu", "Hẹn gặp lại")  # Hẹn gặp lại Châu!
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý Điểm Số
 
 ```python
 # 📊 Hệ thống quản lý điểm số với functions
-def nhap_diem_mon(ten_mon):
+def input_subject_score(subject_name):
     """Nhập điểm cho một môn học"""
     while True:
         try:
-            diem = float(input(f"Nhập điểm {ten_mon}: "))
-            if 0 <= diem <= 10:
-                return diem
+            score = float(input(f"Nhập điểm {subject_name}: "))
+            if 0 <= score <= 10:
+                return score
             else:
                 print("❌ Điểm phải từ 0-10!")
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
 
-def tinh_diem_trung_binh(diem_cac_mon):
+def calculate_average_score(subject_scores):
     """Tính điểm trung bình"""
-    if not diem_cac_mon:
+    if not subject_scores:
         return 0
-    return sum(diem_cac_mon.values()) / len(diem_cac_mon)
+    return sum(subject_scores.values()) / len(subject_scores)
 
-def xep_loai_hoc_luc(diem_tb):
+def classify_academic_performance(average_score):
     """Xếp loại học lực"""
-    if diem_tb >= 9.0:
+    if average_score >= 9.0:
         return "Xuất sắc"
-    elif diem_tb >= 8.0:
+    elif average_score >= 8.0:
         return "Giỏi"
-    elif diem_tb >= 6.5:
+    elif average_score >= 6.5:
         return "Khá"
-    elif diem_tb >= 5.0:
+    elif average_score >= 5.0:
         return "Trung bình"
     else:
         return "Yếu"
 
-def hien_thi_bao_cao(ten_hs, diem_cac_mon, diem_tb, xep_loai):
+def display_score_report(student_name, subject_scores, average_score, classification):
     """Hiển thị báo cáo điểm số"""
-    print(f"\n📋 BÁO CÁO ĐIỂM SỐ - {ten_hs}")
+    print(f"\n📋 BÁO CÁO ĐIỂM SỐ - {student_name}")
     print("=" * 40)
     
-    for mon, diem in diem_cac_mon.items():
-        print(f"{mon:<15}: {diem:>5.1f}")
+    for subject, score in subject_scores.items():
+        print(f"{subject:<15}: {score:>5.1f}")
     
     print("-" * 40)
-    print(f"Điểm trung bình: {diem_tb:.1f}")
-    print(f"Xếp loại: {xep_loai}")
+    print(f"Điểm trung bình: {average_score:.1f}")
+    print(f"Xếp loại: {classification}")
 
-def phan_tich_diem(diem_cac_mon):
+def analyze_scores(subject_scores):
     """Phân tích chi tiết điểm số"""
-    if not diem_cac_mon:
+    if not subject_scores:
         return
     
-    diem_cao_nhat = max(diem_cac_mon.values())
-    diem_thap_nhat = min(diem_cac_mon.values())
-    mon_cao_nhat = [mon for mon, diem in diem_cac_mon.items() if diem == diem_cao_nhat]
-    mon_thap_nhat = [mon for mon, diem in diem_cac_mon.items() if diem == diem_thap_nhat]
+    highest_score = max(subject_scores.values())
+    lowest_score = min(subject_scores.values())
+    highest_subjects = [subject for subject, score in subject_scores.items() if score == highest_score]
+    lowest_subjects = [subject for subject, score in subject_scores.items() if score == lowest_score]
     
     print(f"\n📊 PHÂN TÍCH CHI TIẾT:")
-    print(f"   Điểm cao nhất: {diem_cao_nhat} ({', '.join(mon_cao_nhat)})")
-    print(f"   Điểm thấp nhất: {diem_thap_nhat} ({', '.join(mon_thap_nhat)})")
+    print(f"   Điểm cao nhất: {highest_score} ({', '.join(highest_subjects)})")
+    print(f"   Điểm thấp nhất: {lowest_score} ({', '.join(lowest_subjects)})")
     
     # Đếm mức điểm
-    diem_gioi = sum(1 for diem in diem_cac_mon.values() if diem >= 8.0)
-    diem_kha = sum(1 for diem in diem_cac_mon.values() if 6.5 <= diem < 8.0)
-    diem_tb = sum(1 for diem in diem_cac_mon.values() if 5.0 <= diem < 6.5)
-    diem_yeu = sum(1 for diem in diem_cac_mon.values() if diem < 5.0)
+    excellent_count = sum(1 for score in subject_scores.values() if score >= 8.0)
+    good_count = sum(1 for score in subject_scores.values() if 6.5 <= score < 8.0)
+    average_count = sum(1 for score in subject_scores.values() if 5.0 <= score < 6.5)
+    weak_count = sum(1 for score in subject_scores.values() if score < 5.0)
     
-    print(f"   Môn giỏi (≥8.0): {diem_gioi}")
-    print(f"   Môn khá (6.5-7.9): {diem_kha}")
-    print(f"   Môn TB (5.0-6.4): {diem_tb}")
-    print(f"   Môn yếu (<5.0): {diem_yeu}")
+    print(f"   Môn giỏi (≥8.0): {excellent_count}")
+    print(f"   Môn khá (6.5-7.9): {good_count}")
+    print(f"   Môn TB (5.0-6.4): {average_count}")
+    print(f"   Môn yếu (<5.0): {weak_count}")
 
-def quan_ly_diem_hoc_sinh():
+def manage_student_scores():
     """Chương trình chính quản lý điểm"""
     print("📚 HỆ THỐNG QUẢN LÝ ĐIỂM SỐ")
     print("=" * 40)
     
     # Nhập thông tin học sinh
-    ten_hs = input("Nhập tên học sinh: ")
+    student_name = input("Nhập tên học sinh: ")
     
     # Danh sách môn học
-    cac_mon = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Sử", "Địa", "Sinh"]
-    diem_cac_mon = {}
+    subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Sử", "Địa", "Sinh"]
+    subject_scores = {}
     
-    print(f"\nNhập điểm cho {ten_hs}:")
-    for mon in cac_mon:
-        diem = nhap_diem_mon(mon)
-        diem_cac_mon[mon] = diem
+    print(f"\nNhập điểm cho {student_name}:")
+    for subject in subjects:
+        score = input_subject_score(subject)
+        subject_scores[subject] = score
     
     # Tính toán
-    diem_tb = tinh_diem_trung_binh(diem_cac_mon)
-    xep_loai = xep_loai_hoc_luc(diem_tb)
+    average_score = calculate_average_score(subject_scores)
+    classification = classify_academic_performance(average_score)
     
     # Hiển thị kết quả
-    hien_thi_bao_cao(ten_hs, diem_cac_mon, diem_tb, xep_loai)
-    phan_tich_diem(diem_cac_mon)
+    display_score_report(student_name, subject_scores, average_score, classification)
+    analyze_scores(subject_scores)
     
     # Lời khuyên
-    if diem_tb >= 8.0:
-        print(f"\n🌟 {ten_hs} học rất tốt! Tiếp tục phát huy!")
-    elif diem_tb >= 6.5:
-        print(f"\n👍 {ten_hs} học khá tốt! Cố gắng thêm một chút!")
+    if average_score >= 8.0:
+        print(f"\n🌟 {student_name} học rất tốt! Tiếp tục phát huy!")
+    elif average_score >= 6.5:
+        print(f"\n👍 {student_name} học khá tốt! Cố gắng thêm một chút!")
     else:
-        print(f"\n💪 {ten_hs} cần cố gắng hơn! Hãy tìm sự hỗ trợ!")
+        print(f"\n💪 {student_name} cần cố gắng hơn! Hãy tìm sự hỗ trợ!")
 
 # Chạy chương trình
-quan_ly_diem_hoc_sinh()
+manage_student_scores()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -367,29 +367,29 @@ quan_ly_diem_hoc_sinh()
 
 ```python
 # TODO: Tạo máy tính với functions
-def cong(a, b):
+def add(a, b):
     """Phép cộng"""
     return a + b
 
-def tru(a, b):
+def subtract(a, b):
     """Phép trừ"""
     return a - b
 
-def nhan(a, b):
+def multiply(a, b):
     """Phép nhân"""
     return a * b
 
-def chia(a, b):
+def divide(a, b):
     """Phép chia"""
     if b == 0:
         return "Không thể chia cho 0!"
     return a / b
 
-def luy_thua(a, b):
+def power(a, b):
     """Lũy thừa"""
     return a ** b
 
-def may_tinh():
+def calculator():
     """Máy tính chính"""
     print("🧮 MÁY TÍNH ĐƠN GIẢN")
     print("=" * 30)
@@ -399,38 +399,38 @@ def may_tinh():
     
     while True:
         try:
-            bieu_thuc = input("Nhập phép tính (vd: 5 + 3): ")
+            expression = input("Nhập phép tính (vd: 5 + 3): ")
             
-            if bieu_thuc.lower() == 'quit':
+            if expression.lower() == 'quit':
                 print("👋 Tạm biệt!")
                 break
             
             # Tách biểu thức
-            parts = bieu_thuc.split()
+            parts = expression.split()
             if len(parts) != 3:
                 print("❌ Định dạng: số phép_tính số")
                 continue
             
             a = float(parts[0])
-            phep_tinh = parts[1]
+            operator = parts[1]
             b = float(parts[2])
             
             # Thực hiện phép tính
-            if phep_tinh == '+':
-                ket_qua = cong(a, b)
-            elif phep_tinh == '-':
-                ket_qua = tru(a, b)
-            elif phep_tinh == '*':
-                ket_qua = nhan(a, b)
-            elif phep_tinh == '/':
-                ket_qua = chia(a, b)
-            elif phep_tinh == '**':
-                ket_qua = luy_thua(a, b)
+            if operator == '+':
+                result = add(a, b)
+            elif operator == '-':
+                result = subtract(a, b)
+            elif operator == '*':
+                result = multiply(a, b)
+            elif operator == '/':
+                result = divide(a, b)
+            elif operator == '**':
+                result = power(a, b)
             else:
                 print("❌ Phép tính không hỗ trợ!")
                 continue
             
-            print(f"📊 Kết quả: {bieu_thuc} = {ket_qua}")
+            print(f"📊 Kết quả: {expression} = {result}")
             
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
@@ -438,7 +438,7 @@ def may_tinh():
             print("❌ Có lỗi xảy ra!")
 
 # Chạy máy tính
-may_tinh()
+calculator()
 ```
 
 ### 🥈 Bài Tập 2: Game Đoán Số Với Functions
@@ -447,40 +447,40 @@ may_tinh()
 import random
 
 # TODO: Tạo game đoán số với functions
-def tao_so_ngau_nhien(min_val, max_val):
+def generate_random_number(min_val, max_val):
     """Tạo số ngẫu nhiên trong khoảng"""
     return random.randint(min_val, max_val)
 
-def kiem_tra_doan(so_doan, so_dung):
+def check_guess(guess, correct_number):
     """Kiểm tra số đoán"""
-    if so_doan == so_dung:
+    if guess == correct_number:
         return "CHÍNH XÁC"
-    elif so_doan < so_dung:
+    elif guess < correct_number:
         return "THẤP HƠN"
     else:
         return "CAO HƠN"
 
-def danh_gia_ket_qua(so_lan_thu, so_lan_toi_da):
+def evaluate_performance(attempts, max_attempts):
     """Đánh giá kết quả chơi"""
-    ti_le = so_lan_thu / so_lan_toi_da
+    ratio = attempts / max_attempts
     
-    if ti_le <= 0.3:
+    if ratio <= 0.3:
         return "🌟 XUẤT SẮC! Bạn là cao thủ đoán số!"
-    elif ti_le <= 0.5:
+    elif ratio <= 0.5:
         return "👍 RẤT TỐT! Kỹ năng ổn định!"
-    elif ti_le <= 0.7:
+    elif ratio <= 0.7:
         return "😊 KHÔNG SAO! Lần sau sẽ tốt hơn!"
     else:
         return "💪 CỐ GẮNG! Hãy thử chiến lược khác!"
 
-def hien_thi_goi_y(so_lan_thu, so_lan_toi_da):
+def show_hint(attempts, max_attempts):
     """Hiển thị gợi ý"""
-    if so_lan_thu == so_lan_toi_da // 2:
+    if attempts == max_attempts // 2:
         print("💡 Gợi ý: Hãy thử số ở giữa khoảng!")
-    elif so_lan_thu >= so_lan_toi_da * 0.8:
+    elif attempts >= max_attempts * 0.8:
         print("⚠️  Cẩn thận! Bạn sắp hết lượt!")
 
-def game_doan_so():
+def guessing_game():
     """Game đoán số chính"""
     print("🎮 GAME ĐOÁN SỐ")
     print("=" * 30)
@@ -488,46 +488,46 @@ def game_doan_so():
     # Thiết lập game
     min_val = 1
     max_val = 100
-    so_lan_toi_da = 7
+    max_attempts = 7
     
-    so_can_doan = tao_so_ngau_nhien(min_val, max_val)
+    target_number = generate_random_number(min_val, max_val)
     
     print(f"🎯 Tôi đã nghĩ ra một số từ {min_val}-{max_val}")
-    print(f"🎪 Bạn có {so_lan_toi_da} lần đoán!")
+    print(f"🎪 Bạn có {max_attempts} lần đoán!")
     print("💡 Tôi sẽ gợi ý 'cao hơn' hoặc 'thấp hơn'")
     print("-" * 30)
     
-    so_lan_thu = 0
+    attempts = 0
     
-    while so_lan_thu < so_lan_toi_da:
-        so_lan_thu += 1
+    while attempts < max_attempts:
+        attempts += 1
         
         try:
-            so_doan = int(input(f"🔢 Lần {so_lan_thu}/{so_lan_toi_da} - Nhập số: "))
+            guess = int(input(f"🔢 Lần {attempts}/{max_attempts} - Nhập số: "))
         except ValueError:
             print("❌ Vui lòng nhập số!")
-            so_lan_thu -= 1
+            attempts -= 1
             continue
         
         # Kiểm tra số đoán
-        ket_qua = kiem_tra_doan(so_doan, so_can_doan)
+        result = check_guess(guess, target_number)
         
-        if ket_qua == "CHÍNH XÁC":
-            print(f"🎉 {ket_qua}! Số tôi nghĩ là {so_can_doan}")
-            print(f"🏆 Bạn đã đoán đúng trong {so_lan_thu} lần!")
-            danh_gia = danh_gia_ket_qua(so_lan_thu, so_lan_toi_da)
-            print(danh_gia)
+        if result == "CHÍNH XÁC":
+            print(f"🎉 {result}! Số tôi nghĩ là {target_number}")
+            print(f"🏆 Bạn đã đoán đúng trong {attempts} lần!")
+            evaluation = evaluate_performance(attempts, max_attempts)
+            print(evaluation)
             break
         else:
-            print(f"📈 Số tôi nghĩ {ket_qua.lower()}!")
-            hien_thi_goi_y(so_lan_thu, so_lan_toi_da)
+            print(f"📈 Số tôi nghĩ {result.lower()}!")
+            show_hint(attempts, max_attempts)
     
     else:
-        print(f"\n💔 HẾT LƯỢT! Số tôi nghĩ là {so_can_doan}")
+        print(f"\n💔 HẾT LƯỢT! Số tôi nghĩ là {target_number}")
         print("🎯 Lần sau hãy thử chiến lược khác nhé!")
 
 # Chạy game
-game_doan_so()
+guessing_game()
 ```
 
 ## 🎊 Tóm Tắt

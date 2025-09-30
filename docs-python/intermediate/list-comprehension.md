@@ -22,8 +22,8 @@ evens = [n for n in range(10) if n % 2 == 0] # [0, 2, 4, 6, 8]
 ## 🧹 Làm sạch dữ liệu
 
 ```python
-raw = ["  xin ", " chao", "ban  "]
-clean = [s.strip() for s in raw]  # ['xin', 'chao', 'ban']
+raw_data = ["  xin ", " chao", "ban  "]
+clean_data = [s.strip() for s in raw_data]  # ['xin', 'chao', 'ban']
 ```
 
 ## 🧭 Lồng nhau (cẩn thận readability)
@@ -36,9 +36,9 @@ flatten = [x for row in matrix for x in row]  # [1,2,3,4,5,6]
 ## 🧰 Set & Dict comprehension
 
 ```python
-nums = [1, 2, 2, 3]
-unique = {n * 2 for n in nums}           # {2, 4, 6}
-mapping = {n: n * n for n in range(4)}   # {0:0, 1:1, 2:4, 3:9}
+numbers = [1, 2, 2, 3]
+unique_doubles = {n * 2 for n in numbers}           # {2, 4, 6}
+square_mapping = {n: n * n for n in range(4)}   # {0:0, 1:1, 2:4, 3:9}
 ```
 
 ## 🚨 Lưu ý quan trọng
@@ -94,15 +94,15 @@ graph LR
 
 ```python
 # ❌ Cách cũ - vòng lặp dài
-so_chan = []
+even_numbers = []
 for i in range(1, 11):
     if i % 2 == 0:
-        so_chan.append(i)
-print("Số chẵn:", so_chan)  # [2, 4, 6, 8, 10]
+        even_numbers.append(i)
+print("Số chẵn:", even_numbers)  # [2, 4, 6, 8, 10]
 
 # ✅ Cách mới - list comprehension
-so_chan = [i for i in range(1, 11) if i % 2 == 0]
-print("Số chẵn:", so_chan)  # [2, 4, 6, 8, 10]
+even_numbers = [i for i in range(1, 11) if i % 2 == 0]
+print("Số chẵn:", even_numbers)  # [2, 4, 6, 8, 10]
 ```
 
 ## 🎯 Cú Pháp Cơ Bản
@@ -124,21 +124,21 @@ for item in iterable:
 
 ```python
 # Tạo danh sách số bình phương
-binh_phuong = [x**2 for x in range(1, 6)]
-print("Bình phương:", binh_phuong)  # [1, 4, 9, 16, 25]
+squares = [x**2 for x in range(1, 6)]
+print("Bình phương:", squares)  # [1, 4, 9, 16, 25]
 
 # Tạo danh sách số chẵn
-so_chan = [x for x in range(1, 11) if x % 2 == 0]
-print("Số chẵn:", so_chan)  # [2, 4, 6, 8, 10]
+even_numbers = [x for x in range(1, 11) if x % 2 == 0]
+print("Số chẵn:", even_numbers)  # [2, 4, 6, 8, 10]
 
 # Tạo danh sách chuỗi
-ten = ["An", "Bình", "Châu", "Dung"]
-ten_hoa = [name.upper() for name in ten]
-print("Tên chữ hoa:", ten_hoa)  # ['AN', 'BÌNH', 'CHÂU', 'DUNG']
+names = ["An", "Bình", "Châu", "Dung"]
+uppercase_names = [name.upper() for name in names]
+print("Tên chữ hoa:", uppercase_names)  # ['AN', 'BÌNH', 'CHÂU', 'DUNG']
 
 # Tạo danh sách độ dài
-do_dai = [len(name) for name in ten]
-print("Độ dài tên:", do_dai)  # [2, 4, 4, 4]
+name_lengths = [len(name) for name in names]
+print("Độ dài tên:", name_lengths)  # [2, 4, 4, 4]
 ```
 
 ## 🎨 Các Loại List Comprehension
@@ -147,166 +147,166 @@ print("Độ dài tên:", do_dai)  # [2, 4, 4, 4]
 
 ```python
 # Điều kiện đơn giản
-so_le = [x for x in range(1, 11) if x % 2 == 1]
-print("Số lẻ:", so_le)  # [1, 3, 5, 7, 9]
+odd_numbers = [x for x in range(1, 11) if x % 2 == 1]
+print("Số lẻ:", odd_numbers)  # [1, 3, 5, 7, 9]
 
 # Điều kiện phức tạp
-so_chia_het_3 = [x for x in range(1, 21) if x % 3 == 0]
-print("Số chia hết cho 3:", so_chia_het_3)  # [3, 6, 9, 12, 15, 18]
+divisible_by_three = [x for x in range(1, 21) if x % 3 == 0]
+print("Số chia hết cho 3:", divisible_by_three)  # [3, 6, 9, 12, 15, 18]
 
 # Điều kiện với nhiều điều kiện
-so_dac_biet = [x for x in range(1, 21) if x % 2 == 0 and x % 3 == 0]
-print("Số chia hết cho cả 2 và 3:", so_dac_biet)  # [6, 12, 18]
+special_numbers = [x for x in range(1, 21) if x % 2 == 0 and x % 3 == 0]
+print("Số chia hết cho cả 2 và 3:", special_numbers)  # [6, 12, 18]
 ```
 
 ### 🎯 Comprehension Với Biến Đổi
 
 ```python
 # Biến đổi số
-so_goc = [1, 2, 3, 4, 5]
-so_nhan_2 = [x * 2 for x in so_goc]
-print("Nhân 2:", so_nhan_2)  # [2, 4, 6, 8, 10]
+original_numbers = [1, 2, 3, 4, 5]
+doubled_numbers = [x * 2 for x in original_numbers]
+print("Nhân 2:", doubled_numbers)  # [2, 4, 6, 8, 10]
 
 # Biến đổi chuỗi
-tu = ["python", "java", "c++", "javascript"]
-tu_hoa = [word.upper() for word in tu]
-print("Chữ hoa:", tu_hoa)  # ['PYTHON', 'JAVA', 'C++', 'JAVASCRIPT']
+words = ["python", "java", "c++", "javascript"]
+uppercase_words = [word.upper() for word in words]
+print("Chữ hoa:", uppercase_words)  # ['PYTHON', 'JAVA', 'C++', 'JAVASCRIPT']
 
 # Biến đổi với điều kiện
-tu_dai = [word.upper() for word in tu if len(word) > 3]
-print("Từ dài hơn 3 ký tự:", tu_dai)  # ['PYTHON', 'JAVA', 'JAVASCRIPT']
+long_words = [word.upper() for word in words if len(word) > 3]
+print("Từ dài hơn 3 ký tự:", long_words)  # ['PYTHON', 'JAVA', 'JAVASCRIPT']
 ```
 
 ### 🔄 Comprehension Với Nested Loops
 
 ```python
 # Nested loops - vòng lặp lồng nhau
-tich_so = [i * j for i in range(1, 4) for j in range(1, 4)]
-print("Tích số:", tich_so)  # [1, 2, 3, 2, 4, 6, 3, 6, 9]
+products = [i * j for i in range(1, 4) for j in range(1, 4)]
+print("Tích số:", products)  # [1, 2, 3, 2, 4, 6, 3, 6, 9]
 
 # Tạo bảng cửu chương
-cuu_chuong = [f"{i} x {j} = {i*j}" for i in range(1, 4) for j in range(1, 4)]
+multiplication_table = [f"{i} x {j} = {i*j}" for i in range(1, 4) for j in range(1, 4)]
 print("Bảng cửu chương:")
-for phep_tinh in cuu_chuong:
-    print(phep_tinh)
+for equation in multiplication_table:
+    print(equation)
 
 # Tạo tọa độ
-toa_do = [(x, y) for x in range(3) for y in range(3)]
-print("Tọa độ:", toa_do)  # [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+coordinates = [(x, y) for x in range(3) for y in range(3)]
+print("Tọa độ:", coordinates)  # [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Xử Lý Dữ Liệu
 
 ```python
 # 📊 Hệ thống xử lý dữ liệu với list comprehension
-class XuLyDuLieu:
+class DataProcessor:
     def __init__(self):
-        self.du_lieu_goc = []
-        self.du_lieu_da_xu_ly = []
+        self.raw_data = []
+        self.processed_data = []
     
-    def nhap_du_lieu(self, du_lieu):
+    def input_data(self, data):
         """Nhập dữ liệu cần xử lý"""
-        self.du_lieu_goc = du_lieu
-        print(f"✅ Đã nhập {len(du_lieu)} mục dữ liệu")
+        self.raw_data = data
+        print(f"✅ Đã nhập {len(data)} mục dữ liệu")
     
-    def loc_so_duong(self):
+    def filter_positive_numbers(self):
         """Lọc số dương"""
-        so_duong = [x for x in self.du_lieu_goc if isinstance(x, (int, float)) and x > 0]
-        print(f"📊 Số dương: {so_duong}")
-        return so_duong
+        positive_numbers = [x for x in self.raw_data if isinstance(x, (int, float)) and x > 0]
+        print(f"📊 Số dương: {positive_numbers}")
+        return positive_numbers
     
-    def loc_so_chan(self):
+    def filter_even_numbers(self):
         """Lọc số chẵn"""
-        so_chan = [x for x in self.du_lieu_goc if isinstance(x, int) and x % 2 == 0]
-        print(f"📊 Số chẵn: {so_chan}")
-        return so_chan
+        even_numbers = [x for x in self.raw_data if isinstance(x, int) and x % 2 == 0]
+        print(f"📊 Số chẵn: {even_numbers}")
+        return even_numbers
     
-    def tinh_binh_phuong(self):
+    def calculate_squares(self):
         """Tính bình phương"""
-        binh_phuong = [x**2 for x in self.du_lieu_goc if isinstance(x, (int, float))]
-        print(f"📊 Bình phương: {binh_phuong}")
-        return binh_phuong
+        squares = [x**2 for x in self.raw_data if isinstance(x, (int, float))]
+        print(f"📊 Bình phương: {squares}")
+        return squares
     
-    def loc_chuoi_dai(self, do_dai_toi_thieu=3):
+    def filter_long_strings(self, min_length=3):
         """Lọc chuỗi dài"""
-        chuoi_dai = [s for s in self.du_lieu_goc if isinstance(s, str) and len(s) >= do_dai_toi_thieu]
-        print(f"📊 Chuỗi dài (≥{do_dai_toi_thieu}): {chuoi_dai}")
-        return chuoi_dai
+        long_strings = [s for s in self.raw_data if isinstance(s, str) and len(s) >= min_length]
+        print(f"📊 Chuỗi dài (≥{min_length}): {long_strings}")
+        return long_strings
     
-    def chuyen_thanh_chu_hoa(self):
+    def convert_to_uppercase(self):
         """Chuyển thành chữ hoa"""
-        chu_hoa = [s.upper() for s in self.du_lieu_goc if isinstance(s, str)]
-        print(f"📊 Chữ hoa: {chu_hoa}")
-        return chu_hoa
+        uppercase_strings = [s.upper() for s in self.raw_data if isinstance(s, str)]
+        print(f"📊 Chữ hoa: {uppercase_strings}")
+        return uppercase_strings
     
-    def tao_cap_so(self):
+    def create_number_pairs(self):
         """Tạo cặp số từ danh sách"""
-        so = [x for x in self.du_lieu_goc if isinstance(x, (int, float))]
-        cap_so = [(so[i], so[i+1]) for i in range(0, len(so)-1, 2)]
-        print(f"📊 Cặp số: {cap_so}")
-        return cap_so
+        numbers = [x for x in self.raw_data if isinstance(x, (int, float))]
+        number_pairs = [(numbers[i], numbers[i+1]) for i in range(0, len(numbers)-1, 2)]
+        print(f"📊 Cặp số: {number_pairs}")
+        return number_pairs
     
-    def tinh_thong_ke(self):
+    def calculate_statistics(self):
         """Tính thống kê cơ bản"""
-        so = [x for x in self.du_lieu_goc if isinstance(x, (int, float))]
+        numbers = [x for x in self.raw_data if isinstance(x, (int, float))]
         
-        if not so:
+        if not numbers:
             print("📊 Không có số để thống kê")
             return
         
         # Thống kê cơ bản
-        tong = sum(so)
-        trung_binh = tong / len(so)
-        so_lon_nhat = max(so)
-        so_nho_nhat = min(so)
+        total = sum(numbers)
+        average = total / len(numbers)
+        max_number = max(numbers)
+        min_number = min(numbers)
         
         # Số dương và âm
-        so_duong = [x for x in so if x > 0]
-        so_am = [x for x in so if x < 0]
+        positive_numbers = [x for x in numbers if x > 0]
+        negative_numbers = [x for x in numbers if x < 0]
         
         print(f"\n📊 THỐNG KÊ DỮ LIỆU")
         print("=" * 30)
-        print(f"Tổng: {tong}")
-        print(f"Trung bình: {trung_binh:.2f}")
-        print(f"Số lớn nhất: {so_lon_nhat}")
-        print(f"Số nhỏ nhất: {so_nho_nhat}")
-        print(f"Số dương: {len(so_duong)}")
-        print(f"Số âm: {len(so_am)}")
+        print(f"Tổng: {total}")
+        print(f"Trung bình: {average:.2f}")
+        print(f"Số lớn nhất: {max_number}")
+        print(f"Số nhỏ nhất: {min_number}")
+        print(f"Số dương: {len(positive_numbers)}")
+        print(f"Số âm: {len(negative_numbers)}")
     
-    def tao_bao_cao(self):
+    def generate_report(self):
         """Tạo báo cáo tổng hợp"""
         print(f"\n📋 BÁO CÁO XỬ LÝ DỮ LIỆU")
         print("=" * 40)
-        print(f"Dữ liệu gốc: {self.du_lieu_goc}")
+        print(f"Dữ liệu gốc: {self.raw_data}")
         
         # Các loại dữ liệu
-        so = [x for x in self.du_lieu_goc if isinstance(x, (int, float))]
-        chuoi = [x for x in self.du_lieu_goc if isinstance(x, str)]
-        khac = [x for x in self.du_lieu_goc if not isinstance(x, (int, float, str))]
+        numbers = [x for x in self.raw_data if isinstance(x, (int, float))]
+        strings = [x for x in self.raw_data if isinstance(x, str)]
+        others = [x for x in self.raw_data if not isinstance(x, (int, float, str))]
         
-        print(f"Số: {so}")
-        print(f"Chuỗi: {chuoi}")
-        if khac:
-            print(f"Khác: {khac}")
+        print(f"Số: {numbers}")
+        print(f"Chuỗi: {strings}")
+        if others:
+            print(f"Khác: {others}")
         
         # Thống kê
-        self.tinh_thong_ke()
+        self.calculate_statistics()
 
 # Sử dụng hệ thống
-xu_ly = XuLyDuLieu()
+processor = DataProcessor()
 
 # Dữ liệu mẫu
-du_lieu_mau = [1, -2, 3, "Python", 4.5, "Java", -1.5, "C++", 0, "JavaScript", 7, 8.9]
+sample_data = [1, -2, 3, "Python", 4.5, "Java", -1.5, "C++", 0, "JavaScript", 7, 8.9]
 
 # Xử lý dữ liệu
-xu_ly.nhap_du_lieu(du_lieu_mau)
-xu_ly.loc_so_duong()
-xu_ly.loc_so_chan()
-xu_ly.tinh_binh_phuong()
-xu_ly.loc_chuoi_dai()
-xu_ly.chuyen_thanh_chu_hoa()
-xu_ly.tao_cap_so()
-xu_ly.tao_bao_cao()
+processor.input_data(sample_data)
+processor.filter_positive_numbers()
+processor.filter_even_numbers()
+processor.calculate_squares()
+processor.filter_long_strings()
+processor.convert_to_uppercase()
+processor.create_number_pairs()
+processor.generate_report()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -315,112 +315,112 @@ xu_ly.tao_bao_cao()
 
 ```python
 # TODO: Tạo hệ thống quản lý học sinh với list comprehension
-class QuanLyHocSinh:
+class StudentManager:
     def __init__(self):
-        self.danh_sach_hoc_sinh = []
+        self.student_list = []
     
-    def them_hoc_sinh(self, ten, tuoi, lop, diem):
+    def add_student(self, name, age, class_name, score):
         """Thêm học sinh mới"""
-        hoc_sinh = {
-            "ten": ten,
-            "tuoi": tuoi,
-            "lop": lop,
-            "diem": diem
+        student = {
+            "name": name,
+            "age": age,
+            "class": class_name,
+            "score": score
         }
-        self.danh_sach_hoc_sinh.append(hoc_sinh)
-        print(f"✅ Đã thêm học sinh: {ten}")
+        self.student_list.append(student)
+        print(f"✅ Đã thêm học sinh: {name}")
     
-    def loc_hoc_sinh_theo_lop(self, lop):
+    def filter_by_class(self, class_name):
         """Lọc học sinh theo lớp"""
-        hoc_sinh_lop = [hs for hs in self.danh_sach_hoc_sinh if hs["lop"] == lop]
-        print(f"📚 Học sinh lớp {lop}: {len(hoc_sinh_lop)} em")
-        return hoc_sinh_lop
+        class_students = [s for s in self.student_list if s["class"] == class_name]
+        print(f"📚 Học sinh lớp {class_name}: {len(class_students)} em")
+        return class_students
     
-    def loc_hoc_sinh_gioi(self, diem_toi_thieu=8.0):
+    def filter_excellent_students(self, min_score=8.0):
         """Lọc học sinh giỏi"""
-        hoc_sinh_gioi = [hs for hs in self.danh_sach_hoc_sinh if hs["diem"] >= diem_toi_thieu]
-        print(f"🌟 Học sinh giỏi (≥{diem_toi_thieu}): {len(hoc_sinh_gioi)} em")
-        return hoc_sinh_gioi
+        excellent_students = [s for s in self.student_list if s["score"] >= min_score]
+        print(f"🌟 Học sinh giỏi (≥{min_score}): {len(excellent_students)} em")
+        return excellent_students
     
-    def lay_ten_hoc_sinh(self):
+    def get_student_names(self):
         """Lấy danh sách tên học sinh"""
-        ten_hoc_sinh = [hs["ten"] for hs in self.danh_sach_hoc_sinh]
-        print(f"👥 Danh sách tên: {ten_hoc_sinh}")
-        return ten_hoc_sinh
+        student_names = [s["name"] for s in self.student_list]
+        print(f"👥 Danh sách tên: {student_names}")
+        return student_names
     
-    def lay_diem_hoc_sinh(self):
+    def get_student_scores(self):
         """Lấy danh sách điểm học sinh"""
-        diem_hoc_sinh = [hs["diem"] for hs in self.danh_sach_hoc_sinh]
-        print(f"📊 Danh sách điểm: {diem_hoc_sinh}")
-        return diem_hoc_sinh
+        student_scores = [s["score"] for s in self.student_list]
+        print(f"📊 Danh sách điểm: {student_scores}")
+        return student_scores
     
-    def tinh_diem_trung_binh_lop(self, lop):
+    def calculate_class_average(self, class_name):
         """Tính điểm trung bình của lớp"""
-        diem_lop = [hs["diem"] for hs in self.danh_sach_hoc_sinh if hs["lop"] == lop]
-        if diem_lop:
-            diem_tb = sum(diem_lop) / len(diem_lop)
-            print(f"📊 Điểm TB lớp {lop}: {diem_tb:.2f}")
-            return diem_tb
+        class_scores = [s["score"] for s in self.student_list if s["class"] == class_name]
+        if class_scores:
+            average_score = sum(class_scores) / len(class_scores)
+            print(f"📊 Điểm TB lớp {class_name}: {average_score:.2f}")
+            return average_score
         else:
-            print(f"❌ Không có học sinh nào trong lớp {lop}")
+            print(f"❌ Không có học sinh nào trong lớp {class_name}")
             return 0
     
-    def tim_hoc_sinh_co_diem_cao_nhat(self):
+    def find_highest_score_student(self):
         """Tìm học sinh có điểm cao nhất"""
-        if not self.danh_sach_hoc_sinh:
+        if not self.student_list:
             print("❌ Chưa có học sinh nào")
             return None
         
-        diem_cao_nhat = max(hs["diem"] for hs in self.danh_sach_hoc_sinh)
-        hoc_sinh_cao_nhat = [hs for hs in self.danh_sach_hoc_sinh if hs["diem"] == diem_cao_nhat]
+        highest_score = max(s["score"] for s in self.student_list)
+        top_students = [s for s in self.student_list if s["score"] == highest_score]
         
-        print(f"🏆 Học sinh có điểm cao nhất ({diem_cao_nhat}):")
-        for hs in hoc_sinh_cao_nhat:
-            print(f"   - {hs['ten']} (Lớp {hs['lop']})")
+        print(f"🏆 Học sinh có điểm cao nhất ({highest_score}):")
+        for student in top_students:
+            print(f"   - {student['name']} (Lớp {student['class']})")
         
-        return hoc_sinh_cao_nhat
+        return top_students
     
-    def tao_bao_cao_lop(self):
+    def generate_class_report(self):
         """Tạo báo cáo theo lớp"""
-        if not self.danh_sach_hoc_sinh:
+        if not self.student_list:
             print("❌ Chưa có học sinh nào")
             return
         
         # Lấy danh sách lớp
-        lop_list = list(set(hs["lop"] for hs in self.danh_sach_hoc_sinh))
+        class_list = list(set(s["class"] for s in self.student_list))
         
         print(f"\n📋 BÁO CÁO THEO LỚP")
         print("=" * 50)
         
-        for lop in sorted(lop_list):
-            hoc_sinh_lop = [hs for hs in self.danh_sach_hoc_sinh if hs["lop"] == lop]
-            diem_lop = [hs["diem"] for hs in hoc_sinh_lop]
+        for class_name in sorted(class_list):
+            class_students = [s for s in self.student_list if s["class"] == class_name]
+            class_scores = [s["score"] for s in class_students]
             
-            print(f"\n📚 LỚP {lop} ({len(hoc_sinh_lop)} học sinh)")
+            print(f"\n📚 LỚP {class_name} ({len(class_students)} học sinh)")
             print("-" * 30)
             
             # Thống kê điểm
-            if diem_lop:
-                diem_tb = sum(diem_lop) / len(diem_lop)
-                diem_cao_nhat = max(diem_lop)
-                diem_thap_nhat = min(diem_lop)
+            if class_scores:
+                average_score = sum(class_scores) / len(class_scores)
+                highest_score = max(class_scores)
+                lowest_score = min(class_scores)
                 
-                print(f"Điểm TB: {diem_tb:.2f}")
-                print(f"Điểm cao nhất: {diem_cao_nhat}")
-                print(f"Điểm thấp nhất: {diem_thap_nhat}")
+                print(f"Điểm TB: {average_score:.2f}")
+                print(f"Điểm cao nhất: {highest_score}")
+                print(f"Điểm thấp nhất: {lowest_score}")
                 
                 # Học sinh giỏi
-                hoc_sinh_gioi = [hs for hs in hoc_sinh_lop if hs["diem"] >= 8.0]
-                print(f"Học sinh giỏi: {len(hoc_sinh_gioi)} em")
+                excellent_students = [s for s in class_students if s["score"] >= 8.0]
+                print(f"Học sinh giỏi: {len(excellent_students)} em")
                 
                 # Danh sách học sinh
-                for hs in hoc_sinh_lop:
-                    xep_loai = "Giỏi" if hs["diem"] >= 8.0 else "Khá" if hs["diem"] >= 6.5 else "TB"
-                    print(f"   {hs['ten']}: {hs['diem']} ({xep_loai})")
+                for student in class_students:
+                    grade = "Giỏi" if student["score"] >= 8.0 else "Khá" if student["score"] >= 6.5 else "TB"
+                    print(f"   {student['name']}: {student['score']} ({grade})")
     
-    def tao_bao_cao_tong_hop(self):
+    def generate_summary_report(self):
         """Tạo báo cáo tổng hợp"""
-        if not self.danh_sach_hoc_sinh:
+        if not self.student_list:
             print("❌ Chưa có học sinh nào")
             return
         
@@ -428,34 +428,34 @@ class QuanLyHocSinh:
         print("=" * 40)
         
         # Thống kê tổng
-        tong_hoc_sinh = len(self.danh_sach_hoc_sinh)
-        diem_tat_ca = [hs["diem"] for hs in self.danh_sach_hoc_sinh]
-        diem_tb_tong = sum(diem_tat_ca) / len(diem_tat_ca)
+        total_students = len(self.student_list)
+        all_scores = [s["score"] for s in self.student_list]
+        overall_average = sum(all_scores) / len(all_scores)
         
-        print(f"Tổng học sinh: {tong_hoc_sinh}")
-        print(f"Điểm TB tổng: {diem_tb_tong:.2f}")
+        print(f"Tổng học sinh: {total_students}")
+        print(f"Điểm TB tổng: {overall_average:.2f}")
         
         # Thống kê theo xếp loại
-        hoc_sinh_gioi = [hs for hs in self.danh_sach_hoc_sinh if hs["diem"] >= 8.0]
-        hoc_sinh_kha = [hs for hs in self.danh_sach_hoc_sinh if 6.5 <= hs["diem"] < 8.0]
-        hoc_sinh_tb = [hs for hs in self.danh_sach_hoc_sinh if hs["diem"] < 6.5]
+        excellent_students = [s for s in self.student_list if s["score"] >= 8.0]
+        good_students = [s for s in self.student_list if 6.5 <= s["score"] < 8.0]
+        average_students = [s for s in self.student_list if s["score"] < 6.5]
         
         print(f"\n📈 THỐNG KÊ XẾP LOẠI:")
-        print(f"Giỏi (≥8.0): {len(hoc_sinh_gioi)} em ({len(hoc_sinh_gioi)/tong_hoc_sinh*100:.1f}%)")
-        print(f"Khá (6.5-7.9): {len(hoc_sinh_kha)} em ({len(hoc_sinh_kha)/tong_hoc_sinh*100:.1f}%)")
-        print(f"TB (<6.5): {len(hoc_sinh_tb)} em ({len(hoc_sinh_tb)/tong_hoc_sinh*100:.1f}%)")
+        print(f"Giỏi (≥8.0): {len(excellent_students)} em ({len(excellent_students)/total_students*100:.1f}%)")
+        print(f"Khá (6.5-7.9): {len(good_students)} em ({len(good_students)/total_students*100:.1f}%)")
+        print(f"TB (<6.5): {len(average_students)} em ({len(average_students)/total_students*100:.1f}%)")
         
         # Top 5 học sinh
-        top_5 = sorted(self.danh_sach_hoc_sinh, key=lambda x: x["diem"], reverse=True)[:5]
+        top_5 = sorted(self.student_list, key=lambda x: x["score"], reverse=True)[:5]
         print(f"\n🏆 TOP 5 HỌC SINH:")
-        for i, hs in enumerate(top_5, 1):
-            print(f"   {i}. {hs['ten']} (Lớp {hs['lop']}): {hs['diem']}")
+        for i, student in enumerate(top_5, 1):
+            print(f"   {i}. {student['name']} (Lớp {student['class']}): {student['score']}")
 
 # Sử dụng hệ thống
-quan_ly = QuanLyHocSinh()
+manager = StudentManager()
 
 # Thêm học sinh
-hoc_sinh_mau = [
+sample_students = [
     ("Nguyễn Văn An", 16, "9A", 8.5),
     ("Trần Thị Bình", 15, "9A", 7.8),
     ("Lê Văn Châu", 16, "9B", 9.0),
@@ -466,12 +466,12 @@ hoc_sinh_mau = [
     ("Bùi Thị Hoa", 15, "9B", 8.2)
 ]
 
-for ten, tuoi, lop, diem in hoc_sinh_mau:
-    quan_ly.them_hoc_sinh(ten, tuoi, lop, diem)
+for name, age, class_name, score in sample_students:
+    manager.add_student(name, age, class_name, score)
 
 # Tạo báo cáo
-quan_ly.tao_bao_cao_lop()
-quan_ly.tao_bao_cao_tong_hop()
+manager.generate_class_report()
+manager.generate_summary_report()
 ```
 
 ### 🥈 Bài Tập 2: Game Tạo Mật Khẩu
@@ -481,111 +481,111 @@ quan_ly.tao_bao_cao_tong_hop()
 import random
 import string
 
-class GameTaoMatKhau:
+class PasswordGenerator:
     def __init__(self):
-        self.ky_tu_thuong = string.ascii_lowercase
-        self.ky_tu_hoa = string.ascii_uppercase
-        self.ky_tu_so = string.digits
-        self.ky_tu_dac_biet = "!@#$%^&*()_+-=[]{}|;:,.<>?"
+        self.lowercase_chars = string.ascii_lowercase
+        self.uppercase_chars = string.ascii_uppercase
+        self.digit_chars = string.digits
+        self.special_chars = "!@#$%^&*()_+-=[]{}|;:,.<>?"
     
-    def tao_mat_khau_co_ban(self, do_dai=8):
+    def generate_basic_password(self, length=8):
         """Tạo mật khẩu cơ bản"""
         # Tạo mật khẩu với chữ thường và số
-        ky_tu_hop_le = self.ky_tu_thuong + self.ky_tu_so
-        mat_khau = [random.choice(ky_tu_hop_le) for _ in range(do_dai)]
-        return ''.join(mat_khau)
+        valid_chars = self.lowercase_chars + self.digit_chars
+        password = [random.choice(valid_chars) for _ in range(length)]
+        return ''.join(password)
     
-    def tao_mat_khau_manh(self, do_dai=12):
+    def generate_strong_password(self, length=12):
         """Tạo mật khẩu mạnh"""
         # Đảm bảo có ít nhất 1 ký tự từ mỗi loại
-        mat_khau = [
-            random.choice(self.ky_tu_thuong),
-            random.choice(self.ky_tu_hoa),
-            random.choice(self.ky_tu_so),
-            random.choice(self.ky_tu_dac_biet)
+        password = [
+            random.choice(self.lowercase_chars),
+            random.choice(self.uppercase_chars),
+            random.choice(self.digit_chars),
+            random.choice(self.special_chars)
         ]
         
         # Thêm ký tự ngẫu nhiên
-        ky_tu_tat_ca = self.ky_tu_thuong + self.ky_tu_hoa + self.ky_tu_so + self.ky_tu_dac_biet
-        mat_khau.extend([random.choice(ky_tu_tat_ca) for _ in range(do_dai - 4)])
+        all_chars = self.lowercase_chars + self.uppercase_chars + self.digit_chars + self.special_chars
+        password.extend([random.choice(all_chars) for _ in range(length - 4)])
         
         # Xáo trộn
-        random.shuffle(mat_khau)
-        return ''.join(mat_khau)
+        random.shuffle(password)
+        return ''.join(password)
     
-    def tao_mat_khau_tu_tu(self, tu_goc):
+    def generate_password_from_word(self, base_word):
         """Tạo mật khẩu từ từ gốc"""
         # Biến đổi từ gốc
-        mat_khau = []
+        password = []
         
-        for ky_tu in tu_goc:
-            if ky_tu.isalpha():
+        for char in base_word:
+            if char.isalpha():
                 # Thay thế chữ cái
-                if ky_tu.islower():
-                    mat_khau.append(ky_tu.upper())
+                if char.islower():
+                    password.append(char.upper())
                 else:
-                    mat_khau.append(ky_tu.lower())
+                    password.append(char.lower())
             else:
-                mat_khau.append(ky_tu)
+                password.append(char)
         
         # Thêm số và ký tự đặc biệt
-        mat_khau.extend([random.choice(self.ky_tu_so) for _ in range(2)])
-        mat_khau.extend([random.choice(self.ky_tu_dac_biet) for _ in range(2)])
+        password.extend([random.choice(self.digit_chars) for _ in range(2)])
+        password.extend([random.choice(self.special_chars) for _ in range(2)])
         
         # Xáo trộn
-        random.shuffle(mat_khau)
-        return ''.join(mat_khau)
+        random.shuffle(password)
+        return ''.join(password)
     
-    def danh_gia_mat_khau(self, mat_khau):
+    def evaluate_password(self, password):
         """Đánh giá độ mạnh của mật khẩu"""
-        diem = 0
+        score = 0
         
         # Độ dài
-        if len(mat_khau) >= 8:
-            diem += 2
-        elif len(mat_khau) >= 6:
-            diem += 1
+        if len(password) >= 8:
+            score += 2
+        elif len(password) >= 6:
+            score += 1
         
         # Chữ thường
-        if any(c.islower() for c in mat_khau):
-            diem += 1
+        if any(c.islower() for c in password):
+            score += 1
         
         # Chữ hoa
-        if any(c.isupper() for c in mat_khau):
-            diem += 1
+        if any(c.isupper() for c in password):
+            score += 1
         
         # Số
-        if any(c.isdigit() for c in mat_khau):
-            diem += 1
+        if any(c.isdigit() for c in password):
+            score += 1
         
         # Ký tự đặc biệt
-        if any(c in self.ky_tu_dac_biet for c in mat_khau):
-            diem += 1
+        if any(c in self.special_chars for c in password):
+            score += 1
         
         # Đánh giá
-        if diem >= 6:
-            return "Rất mạnh", diem
-        elif diem >= 4:
-            return "Mạnh", diem
-        elif diem >= 2:
-            return "Trung bình", diem
+        if score >= 6:
+            return "Rất mạnh", score
+        elif score >= 4:
+            return "Mạnh", score
+        elif score >= 2:
+            return "Trung bình", score
         else:
-            return "Yếu", diem
+            return "Yếu", score
     
-    def tao_nhieu_mat_khau(self, so_luong=5, do_dai=10):
+    def generate_multiple_passwords(self, count=5, length=10):
         """Tạo nhiều mật khẩu"""
-        mat_khau_list = [self.tao_mat_khau_manh(do_dai) for _ in range(so_luong)]
+        password_list = [self.generate_strong_password(length) for _ in range(count)]
         
-        print(f"\n🔐 {so_luong} MẬT KHẨU MẠNH")
+        print(f"\n🔐 {count} MẬT KHẨU MẠNH")
         print("=" * 50)
         
-        for i, mat_khau in enumerate(mat_khau_list, 1):
-            danh_gia, diem = self.danh_gia_mat_khau(mat_khau)
-            print(f"{i:2d}. {mat_khau} - {danh_gia} ({diem}/6)")
+        for i, password in enumerate(password_list, 1):
+            evaluation, score = self.evaluate_password(password)
+            print(f"{i:2d}. {password} - {evaluation} ({score}/6)")
         
-        return mat_khau_list
+        return password_list
     
-    def game_tao_mat_khau(self):
+    def password_game(self):
         """Game tạo mật khẩu chính"""
         print("🔐 GAME TẠO MẬT KHẨU")
         print("=" * 40)
@@ -599,46 +599,46 @@ class GameTaoMatKhau:
         
         while True:
             try:
-                lua_chon = input("👉 Chọn chức năng (1-6): ").strip()
+                choice = input("👉 Chọn chức năng (1-6): ").strip()
                 
-                if lua_chon == "1":
-                    do_dai = int(input("Nhập độ dài mật khẩu (mặc định 8): ") or "8")
-                    mat_khau = self.tao_mat_khau_co_ban(do_dai)
-                    danh_gia, diem = self.danh_gia_mat_khau(mat_khau)
-                    print(f"🔐 Mật khẩu cơ bản: {mat_khau}")
-                    print(f"📊 Đánh giá: {danh_gia} ({diem}/6)")
+                if choice == "1":
+                    length = int(input("Nhập độ dài mật khẩu (mặc định 8): ") or "8")
+                    password = self.generate_basic_password(length)
+                    evaluation, score = self.evaluate_password(password)
+                    print(f"🔐 Mật khẩu cơ bản: {password}")
+                    print(f"📊 Đánh giá: {evaluation} ({score}/6)")
                 
-                elif lua_chon == "2":
-                    do_dai = int(input("Nhập độ dài mật khẩu (mặc định 12): ") or "12")
-                    mat_khau = self.tao_mat_khau_manh(do_dai)
-                    danh_gia, diem = self.danh_gia_mat_khau(mat_khau)
-                    print(f"🔐 Mật khẩu mạnh: {mat_khau}")
-                    print(f"📊 Đánh giá: {danh_gia} ({diem}/6)")
+                elif choice == "2":
+                    length = int(input("Nhập độ dài mật khẩu (mặc định 12): ") or "12")
+                    password = self.generate_strong_password(length)
+                    evaluation, score = self.evaluate_password(password)
+                    print(f"🔐 Mật khẩu mạnh: {password}")
+                    print(f"📊 Đánh giá: {evaluation} ({score}/6)")
                 
-                elif lua_chon == "3":
-                    tu_goc = input("Nhập từ gốc: ").strip()
-                    if tu_goc:
-                        mat_khau = self.tao_mat_khau_tu_tu(tu_goc)
-                        danh_gia, diem = self.danh_gia_mat_khau(mat_khau)
-                        print(f"🔐 Mật khẩu từ '{tu_goc}': {mat_khau}")
-                        print(f"📊 Đánh giá: {danh_gia} ({diem}/6)")
+                elif choice == "3":
+                    base_word = input("Nhập từ gốc: ").strip()
+                    if base_word:
+                        password = self.generate_password_from_word(base_word)
+                        evaluation, score = self.evaluate_password(password)
+                        print(f"🔐 Mật khẩu từ '{base_word}': {password}")
+                        print(f"📊 Đánh giá: {evaluation} ({score}/6)")
                     else:
                         print("❌ Vui lòng nhập từ gốc!")
                 
-                elif lua_chon == "4":
-                    so_luong = int(input("Nhập số lượng mật khẩu (mặc định 5): ") or "5")
-                    do_dai = int(input("Nhập độ dài mật khẩu (mặc định 10): ") or "10")
-                    self.tao_nhieu_mat_khau(so_luong, do_dai)
+                elif choice == "4":
+                    count = int(input("Nhập số lượng mật khẩu (mặc định 5): ") or "5")
+                    length = int(input("Nhập độ dài mật khẩu (mặc định 10): ") or "10")
+                    self.generate_multiple_passwords(count, length)
                 
-                elif lua_chon == "5":
-                    mat_khau = input("Nhập mật khẩu cần đánh giá: ").strip()
-                    if mat_khau:
-                        danh_gia, diem = self.danh_gia_mat_khau(mat_khau)
-                        print(f"📊 Đánh giá mật khẩu '{mat_khau}': {danh_gia} ({diem}/6)")
+                elif choice == "5":
+                    password = input("Nhập mật khẩu cần đánh giá: ").strip()
+                    if password:
+                        evaluation, score = self.evaluate_password(password)
+                        print(f"📊 Đánh giá mật khẩu '{password}': {evaluation} ({score}/6)")
                     else:
                         print("❌ Vui lòng nhập mật khẩu!")
                 
-                elif lua_chon == "6":
+                elif choice == "6":
                     print("👋 Tạm biệt!")
                     break
                 
@@ -654,8 +654,8 @@ class GameTaoMatKhau:
                 break
 
 # Chạy game
-game = GameTaoMatKhau()
-game.game_tao_mat_khau()
+game = PasswordGenerator()
+game.password_game()
 ```
 
 ## 🎊 Tóm Tắt

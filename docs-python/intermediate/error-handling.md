@@ -15,11 +15,11 @@ Lỗi là bình thường. Mục tiêu của chúng ta: phát hiện sớm, thô
 
 ```python
 try:
-    value = int(input("Nhập số: "))
+    user_value = int(input("Nhập số: "))
 except ValueError:
     print("❌ Vui lòng nhập số hợp lệ!")
 else:
-    print("✅ Giá trị hợp lệ:", value)
+    print("✅ Giá trị hợp lệ:", user_value)
 finally:
     print("🔚 Hoàn tất.")
 ```
@@ -27,9 +27,9 @@ finally:
 ## 🎯 Bắt ngoại lệ cụ thể
 
 ```python
-def read_file(path):
+def read_file(file_path):
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             return f.read()
     except FileNotFoundError:
         print("❌ Không tìm thấy file")
@@ -42,7 +42,7 @@ def read_file(path):
 ## 🛑 Chủ động báo lỗi: `raise`
 
 ```python
-def divide(a, b):
+def divide_numbers(a, b):
     if b == 0:
         raise ZeroDivisionError("Mẫu số phải khác 0")
     return a / b
@@ -57,8 +57,8 @@ class AppError(Exception):
 class ConfigError(AppError):
     """Lỗi cấu hình."""
 
-def load_config(data):
-    if "key" not in data:
+def load_config(config_data):
+    if "key" not in config_data:
         raise ConfigError("Thiếu trường 'key'")
 ```
 
@@ -68,15 +68,15 @@ def load_config(data):
 from contextlib import contextmanager
 
 @contextmanager
-def managed_resource(name):
-    print(f"Mở {name}")
+def managed_resource(resource_name):
+    print(f"Mở {resource_name}")
     try:
-        yield name
+        yield resource_name
     finally:
-        print(f"Đóng {name}")
+        print(f"Đóng {resource_name}")
 
-with managed_resource("kết nối") as r:
-    print("Đang dùng:", r)
+with managed_resource("kết nối") as resource:
+    print("Đang dùng:", resource)
 ```
 
 ## ✅ Nguyên tắc vàng
@@ -152,12 +152,12 @@ except ExceptionType:
 
 ```python
 # ❌ Code không xử lý lỗi
-so = int(input("Nhập số: "))  # Nếu nhập "abc" sẽ crash!
+number = int(input("Nhập số: "))  # Nếu nhập "abc" sẽ crash!
 
 # ✅ Code có xử lý lỗi
 try:
-    so = int(input("Nhập số: "))
-    print(f"Số bạn nhập: {so}")
+    number = int(input("Nhập số: "))
+    print(f"Số bạn nhập: {number}")
 except ValueError:
     print("❌ Vui lòng nhập số hợp lệ!")
 
@@ -169,34 +169,34 @@ print("Chương trình tiếp tục chạy...")
 ```python
 # ValueError - Giá trị không hợp lệ
 try:
-    so = int("abc")
+    number = int("abc")
 except ValueError as e:
     print(f"Lỗi ValueError: {e}")
 
 # ZeroDivisionError - Chia cho 0
 try:
-    ket_qua = 10 / 0
+    result = 10 / 0
 except ZeroDivisionError as e:
     print(f"Lỗi ZeroDivisionError: {e}")
 
 # IndexError - Truy cập index không tồn tại
 try:
-    danh_sach = [1, 2, 3]
-    phan_tu = danh_sach[10]
+    my_list = [1, 2, 3]
+    element = my_list[10]
 except IndexError as e:
     print(f"Lỗi IndexError: {e}")
 
 # KeyError - Truy cập key không tồn tại
 try:
-    tu_dien = {"a": 1, "b": 2}
-    gia_tri = tu_dien["c"]
+    my_dict = {"a": 1, "b": 2}
+    value = my_dict["c"]
 except KeyError as e:
     print(f"Lỗi KeyError: {e}")
 
 # FileNotFoundError - File không tồn tại
 try:
-    with open("file_khong_ton_tai.txt", "r") as f:
-        noi_dung = f.read()
+    with open("nonexistent_file.txt", "r") as f:
+        content = f.read()
 except FileNotFoundError as e:
     print(f"Lỗi FileNotFoundError: {e}")
 ```
@@ -206,10 +206,10 @@ except FileNotFoundError as e:
 ### 🔄 Multiple Except Blocks
 
 ```python
-def chia_so(a, b):
+def divide_numbers(a, b):
     try:
-        ket_qua = a / b
-        return ket_qua
+        result = a / b
+        return result
     except ZeroDivisionError:
         print("❌ Không thể chia cho 0!")
         return None
@@ -221,26 +221,26 @@ def chia_so(a, b):
         return None
 
 # Test
-print(chia_so(10, 2))    # 5.0
-print(chia_so(10, 0))    # None (ZeroDivisionError)
-print(chia_so("10", 2))  # None (TypeError)
+print(divide_numbers(10, 2))    # 5.0
+print(divide_numbers(10, 0))    # None (ZeroDivisionError)
+print(divide_numbers("10", 2))  # None (TypeError)
 ```
 
 ### 🎯 Single Except Block
 
 ```python
-def xu_ly_so(so_str):
+def process_number(number_str):
     try:
-        so = int(so_str)
-        return so * 2
+        number = int(number_str)
+        return number * 2
     except (ValueError, TypeError) as e:
         print(f"❌ Lỗi chuyển đổi: {e}")
         return None
 
 # Test
-print(xu_ly_so("123"))   # 246
-print(xu_ly_so("abc"))   # None
-print(xu_ly_so(None))    # None
+print(process_number("123"))   # 246
+print(process_number("abc"))   # None
+print(process_number(None))    # None
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý File
@@ -250,32 +250,32 @@ print(xu_ly_so(None))    # None
 import os
 import json
 
-class QuanLyFile:
+class FileManager:
     def __init__(self):
-        self.thu_muc_lam_viec = "data"
-        self.tao_thu_muc()
+        self.working_directory = "data"
+        self.create_directory()
     
-    def tao_thu_muc(self):
+    def create_directory(self):
         """Tạo thư mục làm việc"""
         try:
-            if not os.path.exists(self.thu_muc_lam_viec):
-                os.makedirs(self.thu_muc_lam_viec)
-                print(f"✅ Đã tạo thư mục: {self.thu_muc_lam_viec}")
+            if not os.path.exists(self.working_directory):
+                os.makedirs(self.working_directory)
+                print(f"✅ Đã tạo thư mục: {self.working_directory}")
         except PermissionError:
             print("❌ Không có quyền tạo thư mục!")
         except Exception as e:
             print(f"❌ Lỗi tạo thư mục: {e}")
     
-    def ghi_file(self, ten_file, noi_dung):
+    def write_file(self, file_name, content):
         """Ghi nội dung vào file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_lam_viec, ten_file)
-            with open(duong_dan, 'w', encoding='utf-8') as f:
-                f.write(noi_dung)
-            print(f"✅ Đã ghi file: {ten_file}")
+            file_path = os.path.join(self.working_directory, file_name)
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"✅ Đã ghi file: {file_name}")
             return True
         except PermissionError:
-            print(f"❌ Không có quyền ghi file: {ten_file}")
+            print(f"❌ Không có quyền ghi file: {file_name}")
             return False
         except OSError as e:
             print(f"❌ Lỗi hệ thống khi ghi file: {e}")
@@ -284,34 +284,34 @@ class QuanLyFile:
             print(f"❌ Lỗi không xác định: {e}")
             return False
     
-    def doc_file(self, ten_file):
+    def read_file(self, file_name):
         """Đọc nội dung từ file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_lam_viec, ten_file)
-            with open(duong_dan, 'r', encoding='utf-8') as f:
-                noi_dung = f.read()
-            print(f"✅ Đã đọc file: {ten_file}")
-            return noi_dung
+            file_path = os.path.join(self.working_directory, file_name)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            print(f"✅ Đã đọc file: {file_name}")
+            return content
         except FileNotFoundError:
-            print(f"❌ File không tồn tại: {ten_file}")
+            print(f"❌ File không tồn tại: {file_name}")
             return None
         except PermissionError:
-            print(f"❌ Không có quyền đọc file: {ten_file}")
+            print(f"❌ Không có quyền đọc file: {file_name}")
             return None
         except UnicodeDecodeError:
-            print(f"❌ Lỗi mã hóa file: {ten_file}")
+            print(f"❌ Lỗi mã hóa file: {file_name}")
             return None
         except Exception as e:
             print(f"❌ Lỗi không xác định: {e}")
             return None
     
-    def ghi_json(self, ten_file, du_lieu):
+    def write_json(self, file_name, data):
         """Ghi dữ liệu JSON vào file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_lam_viec, ten_file)
-            with open(duong_dan, 'w', encoding='utf-8') as f:
-                json.dump(du_lieu, f, ensure_ascii=False, indent=2)
-            print(f"✅ Đã ghi JSON: {ten_file}")
+            file_path = os.path.join(self.working_directory, file_name)
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            print(f"✅ Đã ghi JSON: {file_name}")
             return True
         except TypeError as e:
             print(f"❌ Dữ liệu không thể serialize: {e}")
@@ -320,16 +320,16 @@ class QuanLyFile:
             print(f"❌ Lỗi ghi JSON: {e}")
             return False
     
-    def doc_json(self, ten_file):
+    def read_json(self, file_name):
         """Đọc dữ liệu JSON từ file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_lam_viec, ten_file)
-            with open(duong_dan, 'r', encoding='utf-8') as f:
-                du_lieu = json.load(f)
-            print(f"✅ Đã đọc JSON: {ten_file}")
-            return du_lieu
+            file_path = os.path.join(self.working_directory, file_name)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            print(f"✅ Đã đọc JSON: {file_name}")
+            return data
         except FileNotFoundError:
-            print(f"❌ File JSON không tồn tại: {ten_file}")
+            print(f"❌ File JSON không tồn tại: {file_name}")
             return None
         except json.JSONDecodeError as e:
             print(f"❌ Lỗi định dạng JSON: {e}")
@@ -338,56 +338,56 @@ class QuanLyFile:
             print(f"❌ Lỗi đọc JSON: {e}")
             return None
     
-    def xoa_file(self, ten_file):
+    def delete_file(self, file_name):
         """Xóa file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_lam_viec, ten_file)
-            if os.path.exists(duong_dan):
-                os.remove(duong_dan)
-                print(f"✅ Đã xóa file: {ten_file}")
+            file_path = os.path.join(self.working_directory, file_name)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+                print(f"✅ Đã xóa file: {file_name}")
                 return True
             else:
-                print(f"⚠️  File không tồn tại: {ten_file}")
+                print(f"⚠️  File không tồn tại: {file_name}")
                 return False
         except PermissionError:
-            print(f"❌ Không có quyền xóa file: {ten_file}")
+            print(f"❌ Không có quyền xóa file: {file_name}")
             return False
         except Exception as e:
             print(f"❌ Lỗi xóa file: {e}")
             return False
     
-    def hien_thi_danh_sach_file(self):
+    def list_files(self):
         """Hiển thị danh sách file"""
         try:
-            if os.path.exists(self.thu_muc_lam_viec):
-                files = os.listdir(self.thu_muc_lam_viec)
+            if os.path.exists(self.working_directory):
+                files = os.listdir(self.working_directory)
                 if files:
-                    print(f"\n📁 Danh sách file trong {self.thu_muc_lam_viec}:")
+                    print(f"\n📁 Danh sách file trong {self.working_directory}:")
                     for file in files:
                         print(f"   - {file}")
                 else:
-                    print(f"📁 Thư mục {self.thu_muc_lam_viec} trống")
+                    print(f"📁 Thư mục {self.working_directory} trống")
             else:
-                print(f"❌ Thư mục {self.thu_muc_lam_viec} không tồn tại")
+                print(f"❌ Thư mục {self.working_directory} không tồn tại")
         except Exception as e:
             print(f"❌ Lỗi liệt kê file: {e}")
 
 # Sử dụng hệ thống
-quan_ly = QuanLyFile()
+file_manager = FileManager()
 
 # Test các chức năng
-quan_ly.ghi_file("test.txt", "Hello World!")
-quan_ly.doc_file("test.txt")
-quan_ly.doc_file("file_khong_ton_tai.txt")
+file_manager.write_file("test.txt", "Hello World!")
+file_manager.read_file("test.txt")
+file_manager.read_file("nonexistent_file.txt")
 
 # Test JSON
-du_lieu = {"ten": "An", "tuoi": 16, "lop": "9A"}
-quan_ly.ghi_json("hoc_sinh.json", du_lieu)
-ket_qua = quan_ly.doc_json("hoc_sinh.json")
-print(f"Dữ liệu JSON: {ket_qua}")
+student_data = {"ten": "An", "tuoi": 16, "lop": "9A"}
+file_manager.write_json("student.json", student_data)
+json_result = file_manager.read_json("student.json")
+print(f"Dữ liệu JSON: {json_result}")
 
 # Hiển thị danh sách
-quan_ly.hien_thi_danh_sach_file()
+file_manager.list_files()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -396,47 +396,47 @@ quan_ly.hien_thi_danh_sach_file()
 
 ```python
 # TODO: Tạo máy tính an toàn với error handling
-class MayTinhAnToan:
+class SafeCalculator:
     def __init__(self):
-        self.lich_su = []
+        self.history = []
     
-    def cong(self, a, b):
+    def add(self, a, b):
         """Phép cộng an toàn"""
         try:
             a = float(a)
             b = float(b)
-            ket_qua = a + b
-            self.lich_su.append(f"{a} + {b} = {ket_qua}")
-            return ket_qua
+            result = a + b
+            self.history.append(f"{a} + {b} = {result}")
+            return result
         except (ValueError, TypeError) as e:
             print(f"❌ Lỗi: {e}")
             return None
     
-    def tru(self, a, b):
+    def subtract(self, a, b):
         """Phép trừ an toàn"""
         try:
             a = float(a)
             b = float(b)
-            ket_qua = a - b
-            self.lich_su.append(f"{a} - {b} = {ket_qua}")
-            return ket_qua
+            result = a - b
+            self.history.append(f"{a} - {b} = {result}")
+            return result
         except (ValueError, TypeError) as e:
             print(f"❌ Lỗi: {e}")
             return None
     
-    def nhan(self, a, b):
+    def multiply(self, a, b):
         """Phép nhân an toàn"""
         try:
             a = float(a)
             b = float(b)
-            ket_qua = a * b
-            self.lich_su.append(f"{a} × {b} = {ket_qua}")
-            return ket_qua
+            result = a * b
+            self.history.append(f"{a} × {b} = {result}")
+            return result
         except (ValueError, TypeError) as e:
             print(f"❌ Lỗi: {e}")
             return None
     
-    def chia(self, a, b):
+    def divide(self, a, b):
         """Phép chia an toàn"""
         try:
             a = float(a)
@@ -446,9 +446,9 @@ class MayTinhAnToan:
                 print("❌ Không thể chia cho 0!")
                 return None
             
-            ket_qua = a / b
-            self.lich_su.append(f"{a} ÷ {b} = {ket_qua}")
-            return ket_qua
+            result = a / b
+            self.history.append(f"{a} ÷ {b} = {result}")
+            return result
         except (ValueError, TypeError) as e:
             print(f"❌ Lỗi: {e}")
             return None
@@ -456,7 +456,7 @@ class MayTinhAnToan:
             print("❌ Không thể chia cho 0!")
             return None
     
-    def can_bac_hai(self, a):
+    def square_root(self, a):
         """Căn bậc hai an toàn"""
         try:
             a = float(a)
@@ -465,28 +465,28 @@ class MayTinhAnToan:
                 print("❌ Không thể tính căn bậc hai của số âm!")
                 return None
             
-            ket_qua = a ** 0.5
-            self.lich_su.append(f"√{a} = {ket_qua}")
-            return ket_qua
+            result = a ** 0.5
+            self.history.append(f"√{a} = {result}")
+            return result
         except (ValueError, TypeError) as e:
             print(f"❌ Lỗi: {e}")
             return None
     
-    def tinh_bieu_thuc(self, bieu_thuc):
+    def evaluate_expression(self, expression):
         """Tính biểu thức an toàn"""
         try:
             # Loại bỏ khoảng trắng
-            bieu_thuc = bieu_thuc.replace(" ", "")
+            expression = expression.replace(" ", "")
             
             # Kiểm tra ký tự hợp lệ
-            if not all(c.isdigit() or c in "+-*/.()" for c in bieu_thuc):
+            if not all(c.isdigit() or c in "+-*/.()" for c in expression):
                 print("❌ Biểu thức chứa ký tự không hợp lệ!")
                 return None
             
             # Tính toán (chỉ cho phép các phép tính cơ bản)
-            ket_qua = eval(bieu_thuc)
-            self.lich_su.append(f"{bieu_thuc} = {ket_qua}")
-            return ket_qua
+            result = eval(expression)
+            self.history.append(f"{expression} = {result}")
+            return result
         except ZeroDivisionError:
             print("❌ Lỗi: Chia cho 0!")
             return None
@@ -497,17 +497,17 @@ class MayTinhAnToan:
             print(f"❌ Lỗi: {e}")
             return None
     
-    def hien_thi_lich_su(self):
+    def show_history(self):
         """Hiển thị lịch sử tính toán"""
-        if self.lich_su:
+        if self.history:
             print("\n📋 LỊCH SỬ TÍNH TOÁN")
             print("=" * 30)
-            for i, tinh_toan in enumerate(self.lich_su, 1):
-                print(f"{i:2d}. {tinh_toan}")
+            for i, calculation in enumerate(self.history, 1):
+                print(f"{i:2d}. {calculation}")
         else:
             print("📋 Chưa có lịch sử tính toán")
     
-    def chay_may_tinh(self):
+    def run_calculator(self):
         """Chạy máy tính tương tác"""
         print("🧮 MÁY TÍNH AN TOÀN")
         print("=" * 30)
@@ -518,36 +518,36 @@ class MayTinhAnToan:
         
         while True:
             try:
-                nhap = input("\nNhập phép tính: ").strip()
+                user_input = input("\nNhập phép tính: ").strip()
                 
-                if nhap.lower() == 'quit':
+                if user_input.lower() == 'quit':
                     print("👋 Tạm biệt!")
                     break
-                elif nhap.lower() == 'history':
-                    self.hien_thi_lich_su()
+                elif user_input.lower() == 'history':
+                    self.show_history()
                     continue
                 
                 # Xử lý phép tính
-                if nhap.startswith('√'):
-                    so = nhap[1:]
-                    ket_qua = self.can_bac_hai(so)
-                elif '+' in nhap and len(nhap.split('+')) == 2:
-                    a, b = nhap.split('+')
-                    ket_qua = self.cong(a, b)
-                elif '-' in nhap and len(nhap.split('-')) == 2:
-                    a, b = nhap.split('-')
-                    ket_qua = self.tru(a, b)
-                elif '*' in nhap and len(nhap.split('*')) == 2:
-                    a, b = nhap.split('*')
-                    ket_qua = self.nhan(a, b)
-                elif '/' in nhap and len(nhap.split('/')) == 2:
-                    a, b = nhap.split('/')
-                    ket_qua = self.chia(a, b)
+                if user_input.startswith('√'):
+                    number_str = user_input[1:]
+                    result = self.square_root(number_str)
+                elif '+' in user_input and len(user_input.split('+')) == 2:
+                    a, b = user_input.split('+')
+                    result = self.add(a, b)
+                elif '-' in user_input and len(user_input.split('-')) == 2:
+                    a, b = user_input.split('-')
+                    result = self.subtract(a, b)
+                elif '*' in user_input and len(user_input.split('*')) == 2:
+                    a, b = user_input.split('*')
+                    result = self.multiply(a, b)
+                elif '/' in user_input and len(user_input.split('/')) == 2:
+                    a, b = user_input.split('/')
+                    result = self.divide(a, b)
                 else:
-                    ket_qua = self.tinh_bieu_thuc(nhap)
+                    result = self.evaluate_expression(user_input)
                 
-                if ket_qua is not None:
-                    print(f"📊 Kết quả: {ket_qua}")
+                if result is not None:
+                    print(f"📊 Kết quả: {result}")
                 
             except KeyboardInterrupt:
                 print("\n👋 Tạm biệt!")
@@ -556,8 +556,8 @@ class MayTinhAnToan:
                 print(f"❌ Lỗi không mong muốn: {e}")
 
 # Chạy máy tính
-may_tinh = MayTinhAnToan()
-may_tinh.chay_may_tinh()
+calculator = SafeCalculator()
+calculator.run_calculator()
 ```
 
 ## 🎊 Tóm Tắt

@@ -23,22 +23,22 @@ print(text.rstrip())  # "  xin chao"
 ## 🔡 Viết hoa/thường: `lower`, `upper`, `title`, `capitalize`, `casefold`
 
 ```python
-s = "TiẾng ViỆt"
-print(s.lower())      # tiếng việt
-print(s.upper())      # TIẾNG VIỆT
-print(s.title())      # Tiếng Việt
-print(s.capitalize()) # Tiếng việt
-print("ß".casefold()) # ss (so sánh không phân biệt chữ hoa/thường mạnh mẽ)
+text_sample = "TiẾng ViỆt"
+print(text_sample.lower())      # tiếng việt
+print(text_sample.upper())      # TIẾNG VIỆT
+print(text_sample.title())      # Tiếng Việt
+print(text_sample.capitalize()) # Tiếng việt
+print("ß".casefold())           # ss (so sánh không phân biệt chữ hoa/thường mạnh mẽ)
 ```
 
 ## 🔍 Tìm kiếm: `find`, `rfind`, `index`, `startswith`, `endswith`
 
 ```python
-msg = "hello world"
-print(msg.find("o"))        # 4 (không lỗi nếu không thấy: trả -1)
-print(msg.rfind("o"))       # 7
-print(msg.startswith("he")) # True
-print(msg.endswith("ld"))   # True
+message = "hello world"
+print(message.find("o"))        # 4 (không lỗi nếu không thấy: trả -1)
+print(message.rfind("o"))       # 7
+print(message.startswith("he")) # True
+print(message.endswith("ld"))   # True
 ```
 
 ## 🔁 Thay thế & chia nhỏ: `replace`, `split`, `rsplit`, `partition`
@@ -53,8 +53,8 @@ print("banana".replace("na", "*"))  # ba**
 ## 🧵 Nối chuỗi: `join`
 
 ```python
-words = ["Python", "dễ", "ghê"]
-print(" ".join(words))  # "Python dễ ghê"
+word_list = ["Python", "dễ", "ghê"]
+print(" ".join(word_list))  # "Python dễ ghê"
 ```
 
 ## ✅ Kiểm tra nội dung: nhóm `is*`
@@ -77,17 +77,17 @@ print("hi".center(6, "*")) # **hi**
 ## 🧰 Bảng dịch: `maketrans` + `translate`
 
 ```python
-table = str.maketrans({"a": "@", "s": "$"})
-print("password".translate(table))  # p@$$word
+translation_table = str.maketrans({"a": "@", "s": "$"})
+print("password".translate(translation_table))  # p@$$word
 ```
 
 ## 🧩 Định dạng chuỗi: f-strings và `format`
 
 ```python
-name = "Lan"
+user_name = "Lan"
 score = 9.456
-print(f"Bạn {name} đạt {score:.1f} điểm")        # f-string
-print("Bạn {0} đạt {1:.1f} điểm".format(name, score))
+print(f"Bạn {user_name} đạt {score:.1f} điểm")        # f-string
+print("Bạn {0} đạt {1:.1f} điểm".format(user_name, score))
 ```
 
 ## 🧪 Thực hành nhỏ
@@ -145,17 +145,18 @@ graph LR
 
 ```python
 # ❌ Cách cũ - tự viết code phức tạp
-def chuyen_thanh_chu_hoa(chuoi):
-    ket_qua = ""
-    for ky_tu in chuoi:
-        if 'a' <= ky_tu <= 'z':
-            ket_qua += chr(ord(ky_tu) - 32)
+def convert_to_uppercase(input_string):
+    """Chuyển đổi chuỗi thành chữ hoa"""
+    result = ""
+    for character in input_string:
+        if 'a' <= character <= 'z':
+            result += chr(ord(character) - 32)
         else:
-            ket_qua += ky_tu
-    return ket_qua
+            result += character
+    return result
 
 # ✅ Cách mới - sử dụng string method
-chuoi_hoa = chuoi.upper()  # Đơn giản hơn nhiều!
+uppercase_string = input_string.upper()  # Đơn giản hơn nhiều!
 ```
 
 ## 🎯 Các Phương Thức Cơ Bản
@@ -164,52 +165,52 @@ chuoi_hoa = chuoi.upper()  # Đơn giản hơn nhiều!
 
 ```python
 # Chuỗi mẫu
-ten = "Nguyễn Văn An"
+full_name = "Nguyễn Văn An"
 
 # Chuyển thành chữ hoa
-ten_hoa = ten.upper()
-print("Chữ hoa:", ten_hoa)  # NGUYỄN VĂN AN
+uppercase_name = full_name.upper()
+print("Chữ hoa:", uppercase_name)  # NGUYỄN VĂN AN
 
 # Chuyển thành chữ thường
-ten_thuong = ten.lower()
-print("Chữ thường:", ten_thuong)  # nguyễn văn an
+lowercase_name = full_name.lower()
+print("Chữ thường:", lowercase_name)  # nguyễn văn an
 
 # Chữ hoa đầu từ
-ten_title = ten.title()
-print("Title case:", ten_title)  # Nguyễn Văn An
+title_name = full_name.title()
+print("Title case:", title_name)  # Nguyễn Văn An
 
 # Chữ hoa đầu câu
-ten_capitalize = ten.capitalize()
-print("Capitalize:", ten_capitalize)  # Nguyễn văn an
+capitalize_name = full_name.capitalize()
+print("Capitalize:", capitalize_name)  # Nguyễn văn an
 
 # Đảo ngược chữ hoa/thường
-ten_swap = ten.swapcase()
-print("Swap case:", ten_swap)  # nGUYỄN vĂN aN
+swapcase_name = full_name.swapcase()
+print("Swap case:", swapcase_name)  # nGUYỄN vĂN aN
 ```
 
 ### ✂️ Cắt và Nối Chuỗi
 
 ```python
 # Chuỗi mẫu
-cau = "Python là ngôn ngữ lập trình tuyệt vời"
+sentence = "Python là ngôn ngữ lập trình tuyệt vời"
 
 # Tách chuỗi thành list
-tu = cau.split()
-print("Tách theo khoảng trắng:", tu)
+word_list = sentence.split()
+print("Tách theo khoảng trắng:", word_list)
 # ['Python', 'là', 'ngôn', 'ngữ', 'lập', 'trình', 'tuyệt', 'vời']
 
 # Tách theo ký tự cụ thể
-email = "user@example.com"
-phan_email = email.split("@")
-print("Tách email:", phan_email)  # ['user', 'example.com']
+email_address = "user@example.com"
+email_parts = email_address.split("@")
+print("Tách email:", email_parts)  # ['user', 'example.com']
 
 # Nối list thành chuỗi
-tu_lai = " ".join(tu)
-print("Nối lại:", tu_lai)  # Python là ngôn ngữ lập trình tuyệt vời
+rejoined_words = " ".join(word_list)
+print("Nối lại:", rejoined_words)  # Python là ngôn ngữ lập trình tuyệt vời
 
 # Nối với ký tự khác
-tu_gach_ngang = "-".join(tu)
-print("Nối với gạch ngang:", tu_gach_ngang)
+hyphenated_words = "-".join(word_list)
+print("Nối với gạch ngang:", hyphenated_words)
 # Python-là-ngôn-ngữ-lập-trình-tuyệt-vời
 ```
 
@@ -217,28 +218,28 @@ print("Nối với gạch ngang:", tu_gach_ngang)
 
 ```python
 # Chuỗi mẫu
-van_ban = "Python là ngôn ngữ lập trình Python tuyệt vời"
+text_content = "Python là ngôn ngữ lập trình Python tuyệt vời"
 
 # Tìm vị trí
-vi_tri = van_ban.find("Python")
-print("Vị trí đầu tiên của 'Python':", vi_tri)  # 0
+first_position = text_content.find("Python")
+print("Vị trí đầu tiên của 'Python':", first_position)  # 0
 
-vi_tri_cuoi = van_ban.rfind("Python")
-print("Vị trí cuối cùng của 'Python':", vi_tri_cuoi)  # 25
+last_position = text_content.rfind("Python")
+print("Vị trí cuối cùng của 'Python':", last_position)  # 25
 
 # Đếm số lần xuất hiện
-so_lan = van_ban.count("Python")
-print("Số lần xuất hiện 'Python':", so_lan)  # 2
+occurrence_count = text_content.count("Python")
+print("Số lần xuất hiện 'Python':", occurrence_count)  # 2
 
 # Kiểm tra bắt đầu/kết thúc
-bat_dau = van_ban.startswith("Python")
-ket_thuc = van_ban.endswith("tuyệt vời")
-print("Bắt đầu với 'Python':", bat_dau)  # True
-print("Kết thúc với 'tuyệt vời':", ket_thuc)  # True
+starts_with_python = text_content.startswith("Python")
+ends_with_great = text_content.endswith("tuyệt vời")
+print("Bắt đầu với 'Python':", starts_with_python)  # True
+print("Kết thúc với 'tuyệt vời':", ends_with_great)  # True
 
 # Thay thế
-van_ban_moi = van_ban.replace("Python", "Java")
-print("Sau khi thay thế:", van_ban_moi)
+new_text = text_content.replace("Python", "Java")
+print("Sau khi thay thế:", new_text)
 # Java là ngôn ngữ lập trình Java tuyệt vời
 ```
 
@@ -248,49 +249,49 @@ print("Sau khi thay thế:", van_ban_moi)
 
 ```python
 # F-strings (Python 3.6+)
-ten = "An"
-tuoi = 16
-diem = 8.5
+student_name = "An"
+student_age = 16
+student_score = 8.5
 
 # F-string cơ bản
-thong_tin = f"Tên: {ten}, Tuổi: {tuoi}, Điểm: {diem}"
-print("F-string:", thong_tin)
+student_info = f"Tên: {student_name}, Tuổi: {student_age}, Điểm: {student_score}"
+print("F-string:", student_info)
 
 # F-string với định dạng
-thong_tin_dinh_dang = f"Tên: {ten:>10}, Tuổi: {tuoi:>3}, Điểm: {diem:>5.1f}"
-print("F-string định dạng:", thong_tin_dinh_dang)
+formatted_info = f"Tên: {student_name:>10}, Tuổi: {student_age:>3}, Điểm: {student_score:>5.1f}"
+print("F-string định dạng:", formatted_info)
 
 # Format method
-thong_tin_format = "Tên: {}, Tuổi: {}, Điểm: {}".format(ten, tuoi, diem)
-print("Format method:", thong_tin_format)
+format_info = "Tên: {}, Tuổi: {}, Điểm: {}".format(student_name, student_age, student_score)
+print("Format method:", format_info)
 
 # Format với chỉ số
-thong_tin_chi_so = "Tên: {0}, Tuổi: {1}, Điểm: {2:.1f}".format(ten, tuoi, diem)
-print("Format với chỉ số:", thong_tin_chi_so)
+indexed_format = "Tên: {0}, Tuổi: {1}, Điểm: {2:.1f}".format(student_name, student_age, student_score)
+print("Format với chỉ số:", indexed_format)
 ```
 
 ### 🎯 Căn Chỉnh và Padding
 
 ```python
 # Chuỗi mẫu
-ten = "Python"
+language_name = "Python"
 
 # Căn giữa
-ten_giua = ten.center(20, "-")
-print("Căn giữa:", ten_giua)  # -------Python-------
+centered_name = language_name.center(20, "-")
+print("Căn giữa:", centered_name)  # -------Python-------
 
 # Căn trái
-ten_trai = ten.ljust(20, ".")
-print("Căn trái:", ten_trai)  # Python..............
+left_justified = language_name.ljust(20, ".")
+print("Căn trái:", left_justified)  # Python..............
 
 # Căn phải
-ten_phai = ten.rjust(20, ".")
-print("Căn phải:", ten_phai)  # ..............Python
+right_justified = language_name.rjust(20, ".")
+print("Căn phải:", right_justified)  # ..............Python
 
 # Padding với số
-so = "42"
-so_padding = so.zfill(5)
-print("Zero padding:", so_padding)  # 00042
+number_string = "42"
+zero_padded = number_string.zfill(5)
+print("Zero padding:", zero_padded)  # 00042
 ```
 
 ## 🧹 Làm Sạch Chuỗi
@@ -299,45 +300,45 @@ print("Zero padding:", so_padding)  # 00042
 
 ```python
 # Chuỗi có khoảng trắng thừa
-chuoi_ban = "   Python Programming   "
+raw_string = "   Python Programming   "
 
 # Loại bỏ khoảng trắng đầu và cuối
-chuoi_sach = chuoi_ban.strip()
-print("Strip:", f"'{chuoi_sach}'")  # 'Python Programming'
+cleaned_string = raw_string.strip()
+print("Strip:", f"'{cleaned_string}'")  # 'Python Programming'
 
 # Loại bỏ khoảng trắng bên trái
-chuoi_trai = chuoi_ban.lstrip()
-print("Lstrip:", f"'{chuoi_trai}'")  # 'Python Programming   '
+left_stripped = raw_string.lstrip()
+print("Lstrip:", f"'{left_stripped}'")  # 'Python Programming   '
 
 # Loại bỏ khoảng trắng bên phải
-chuoi_phai = chuoi_ban.rstrip()
-print("Rstrip:", f"'{chuoi_phai}'")  # '   Python Programming'
+right_stripped = raw_string.rstrip()
+print("Rstrip:", f"'{right_stripped}'")  # '   Python Programming'
 
 # Loại bỏ ký tự cụ thể
-chuoi_ky_tu = "***Python***"
-chuoi_sach_ky_tu = chuoi_ky_tu.strip("*")
-print("Strip ký tự:", chuoi_sach_ky_tu)  # Python
+asterisk_string = "***Python***"
+character_stripped = asterisk_string.strip("*")
+print("Strip ký tự:", character_stripped)  # Python
 ```
 
 ### 🔤 Kiểm Tra Loại Ký Tự
 
 ```python
 # Chuỗi mẫu
-chuoi_so = "12345"
-chuoi_chu = "Python"
-chuoi_hoa = "PYTHON"
-chuoi_thuong = "python"
-chuoi_hoa_thuong = "Python"
+number_string = "12345"
+letter_string = "Python"
+uppercase_string = "PYTHON"
+lowercase_string = "python"
+titlecase_string = "Python"
 
 # Kiểm tra số
-print("Chỉ chứa số:", chuoi_so.isdigit())  # True
-print("Chỉ chứa chữ:", chuoi_chu.isalpha())  # True
+print("Chỉ chứa số:", number_string.isdigit())  # True
+print("Chỉ chứa chữ:", letter_string.isalpha())  # True
 print("Chỉ chứa chữ và số:", "Python123".isalnum())  # True
 
 # Kiểm tra chữ hoa/thường
-print("Tất cả chữ hoa:", chuoi_hoa.isupper())  # True
-print("Tất cả chữ thường:", chuoi_thuong.islower())  # True
-print("Chữ hoa đầu từ:", chuoi_hoa_thuong.istitle())  # True
+print("Tất cả chữ hoa:", uppercase_string.isupper())  # True
+print("Tất cả chữ thường:", lowercase_string.islower())  # True
+print("Chữ hoa đầu từ:", titlecase_string.istitle())  # True
 
 # Kiểm tra khoảng trắng
 print("Chỉ khoảng trắng:", "   ".isspace())  # True
@@ -348,48 +349,48 @@ print("Có thể in được:", "Hello World!".isprintable())  # True
 
 ```python
 # 📝 Hệ thống xử lý văn bản với string methods
-class XuLyVanBan:
+class TextProcessor:
     def __init__(self):
-        self.van_ban_goc = ""
-        self.van_ban_da_xu_ly = ""
+        self.original_text = ""
+        self.processed_text = ""
     
-    def nhap_van_ban(self, van_ban):
+    def input_text(self, text):
         """Nhập văn bản cần xử lý"""
-        self.van_ban_goc = van_ban
-        self.van_ban_da_xu_ly = van_ban
-        print(f"✅ Đã nhập văn bản: {len(van_ban)} ký tự")
+        self.original_text = text
+        self.processed_text = text
+        print(f"✅ Đã nhập văn bản: {len(text)} ký tự")
     
-    def lam_sach_van_ban(self):
+    def clean_text(self):
         """Làm sạch văn bản"""
         # Loại bỏ khoảng trắng thừa
-        self.van_ban_da_xu_ly = self.van_ban_da_xu_ly.strip()
+        self.processed_text = self.processed_text.strip()
         
         # Thay thế nhiều khoảng trắng bằng một
         import re
-        self.van_ban_da_xu_ly = re.sub(r'\s+', ' ', self.van_ban_da_xu_ly)
+        self.processed_text = re.sub(r'\s+', ' ', self.processed_text)
         
         print("🧹 Đã làm sạch văn bản")
-        return self.van_ban_da_xu_ly
+        return self.processed_text
     
-    def chuan_hoa_ten(self):
+    def normalize_names(self):
         """Chuẩn hóa tên riêng"""
         # Tách thành từng từ
-        tu = self.van_ban_da_xu_ly.split()
+        words = self.processed_text.split()
         
         # Chuẩn hóa từng từ
-        tu_chuan_hoa = []
-        for tu_rieng in tu:
+        normalized_words = []
+        for word in words:
             # Chuyển thành chữ thường rồi title case
-            tu_chuan_hoa.append(tu_rieng.lower().title())
+            normalized_words.append(word.lower().title())
         
-        self.van_ban_da_xu_ly = " ".join(tu_chuan_hoa)
+        self.processed_text = " ".join(normalized_words)
         print("📝 Đã chuẩn hóa tên riêng")
-        return self.van_ban_da_xu_ly
+        return self.processed_text
     
-    def tao_slug(self):
+    def create_slug(self):
         """Tạo slug từ văn bản"""
         # Chuyển thành chữ thường
-        slug = self.van_ban_da_xu_ly.lower()
+        slug = self.processed_text.lower()
         
         # Thay thế khoảng trắng bằng gạch ngang
         slug = slug.replace(" ", "-")
@@ -407,92 +408,92 @@ class XuLyVanBan:
         print("🔗 Đã tạo slug")
         return slug
     
-    def dem_tu(self):
+    def count_words(self):
         """Đếm từ trong văn bản"""
-        tu = self.van_ban_da_xu_ly.split()
-        so_tu = len(tu)
+        words = self.processed_text.split()
+        word_count = len(words)
         
-        print(f"📊 Số từ: {so_tu}")
-        return so_tu
+        print(f"📊 Số từ: {word_count}")
+        return word_count
     
-    def dem_ky_tu(self):
+    def count_characters(self):
         """Đếm ký tự trong văn bản"""
-        so_ky_tu = len(self.van_ban_da_xu_ly)
-        so_ky_tu_khong_trang = len(self.van_ban_da_xu_ly.replace(" ", ""))
+        total_chars = len(self.processed_text)
+        chars_no_spaces = len(self.processed_text.replace(" ", ""))
         
-        print(f"📊 Tổng ký tự: {so_ky_tu}")
-        print(f"📊 Ký tự (không tính khoảng trắng): {so_ky_tu_khong_trang}")
+        print(f"📊 Tổng ký tự: {total_chars}")
+        print(f"📊 Ký tự (không tính khoảng trắng): {chars_no_spaces}")
         
-        return so_ky_tu, so_ky_tu_khong_trang
+        return total_chars, chars_no_spaces
     
-    def tim_tu_pho_bien(self, top=5):
+    def find_common_words(self, top_count=5):
         """Tìm từ phổ biến nhất"""
         # Tách từ và làm sạch
-        tu = self.van_ban_da_xu_ly.lower().split()
-        tu_sach = [tu_rieng.strip(".,!?;:") for tu_rieng in tu]
+        words = self.processed_text.lower().split()
+        clean_words = [word.strip(".,!?;:") for word in words]
         
         # Đếm tần suất
-        tan_suat = {}
-        for tu_rieng in tu_sach:
-            if len(tu_rieng) > 2:  # Bỏ qua từ quá ngắn
-                tan_suat[tu_rieng] = tan_suat.get(tu_rieng, 0) + 1
+        word_frequency = {}
+        for word in clean_words:
+            if len(word) > 2:  # Bỏ qua từ quá ngắn
+                word_frequency[word] = word_frequency.get(word, 0) + 1
         
         # Sắp xếp theo tần suất
-        tu_pho_bien = sorted(tan_suat.items(), key=lambda x: x[1], reverse=True)
+        common_words = sorted(word_frequency.items(), key=lambda x: x[1], reverse=True)
         
-        print(f"📈 {top} từ phổ biến nhất:")
-        for i, (tu_rieng, so_lan) in enumerate(tu_pho_bien[:top], 1):
-            print(f"   {i}. '{tu_rieng}': {so_lan} lần")
+        print(f"📈 {top_count} từ phổ biến nhất:")
+        for i, (word, count) in enumerate(common_words[:top_count], 1):
+            print(f"   {i}. '{word}': {count} lần")
         
-        return tu_pho_bien[:top]
+        return common_words[:top_count]
     
-    def tao_tom_tat(self, do_dai=100):
+    def create_summary(self, max_length=100):
         """Tạo tóm tắt văn bản"""
-        if len(self.van_ban_da_xu_ly) <= do_dai:
-            tom_tat = self.van_ban_da_xu_ly
+        if len(self.processed_text) <= max_length:
+            summary = self.processed_text
         else:
             # Cắt tại từ gần nhất
-            tom_tat = self.van_ban_da_xu_ly[:do_dai]
-            vi_tri_cat = tom_tat.rfind(" ")
-            if vi_tri_cat > 0:
-                tom_tat = tom_tat[:vi_tri_cat]
-            tom_tat += "..."
+            summary = self.processed_text[:max_length]
+            last_space = summary.rfind(" ")
+            if last_space > 0:
+                summary = summary[:last_space]
+            summary += "..."
         
-        print(f"📄 Tóm tắt ({len(tom_tat)} ký tự): {tom_tat}")
-        return tom_tat
+        print(f"📄 Tóm tắt ({len(summary)} ký tự): {summary}")
+        return summary
     
-    def hien_thi_ket_qua(self):
+    def display_results(self):
         """Hiển thị kết quả xử lý"""
         print("\n📋 KẾT QUẢ XỬ LÝ VĂN BẢN")
         print("=" * 50)
-        print(f"📝 Văn bản gốc: {self.van_ban_goc}")
-        print(f"✨ Văn bản đã xử lý: {self.van_ban_da_xu_ly}")
+        print(f"📝 Văn bản gốc: {self.original_text}")
+        print(f"✨ Văn bản đã xử lý: {self.processed_text}")
         
         # Thống kê
-        self.dem_tu()
-        self.dem_ky_tu()
+        self.count_words()
+        self.count_characters()
         
         # Slug
-        slug = self.tao_slug()
+        slug = self.create_slug()
         print(f"🔗 Slug: {slug}")
         
         # Tóm tắt
-        self.tao_tom_tat()
+        self.create_summary()
         
         # Từ phổ biến
-        self.tim_tu_pho_bien()
+        self.find_common_words()
 
 # Sử dụng hệ thống
-xu_ly = XuLyVanBan()
+processor = TextProcessor()
 
 # Văn bản mẫu
-van_ban_mau = "   Python là ngôn ngữ lập trình tuyệt vời. Python rất dễ học và mạnh mẽ.   "
+sample_text = "   Python là ngôn ngữ lập trình tuyệt vời. Python rất dễ học và mạnh mẽ.   "
 
 # Xử lý văn bản
-xu_ly.nhap_van_ban(van_ban_mau)
-xu_ly.lam_sach_van_ban()
-xu_ly.chuan_hoa_ten()
-xu_ly.hien_thi_ket_qua()
+processor.input_text(sample_text)
+processor.clean_text()
+processor.normalize_names()
+processor.display_results()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -501,23 +502,23 @@ xu_ly.hien_thi_ket_qua()
 
 ```python
 # TODO: Tạo hệ thống quản lý email với string methods
-class QuanLyEmail:
+class EmailManager:
     def __init__(self):
-        self.danh_sach_email = []
+        self.email_list = []
     
-    def them_email(self, email):
+    def add_email(self, email):
         """Thêm email mới"""
-        if self.kiem_tra_email_hop_le(email):
-            email_chuan_hoa = self.chuan_hoa_email(email)
-            if email_chuan_hoa not in self.danh_sach_email:
-                self.danh_sach_email.append(email_chuan_hoa)
-                print(f"✅ Đã thêm email: {email_chuan_hoa}")
+        if self.validate_email(email):
+            normalized_email = self.normalize_email(email)
+            if normalized_email not in self.email_list:
+                self.email_list.append(normalized_email)
+                print(f"✅ Đã thêm email: {normalized_email}")
             else:
-                print(f"⚠️  Email đã tồn tại: {email_chuan_hoa}")
+                print(f"⚠️  Email đã tồn tại: {normalized_email}")
         else:
             print(f"❌ Email không hợp lệ: {email}")
     
-    def kiem_tra_email_hop_le(self, email):
+    def validate_email(self, email):
         """Kiểm tra email có hợp lệ không"""
         email = email.strip().lower()
         
@@ -526,27 +527,27 @@ class QuanLyEmail:
             return False
         
         # Tách phần local và domain
-        phan = email.split("@")
-        if len(phan) != 2:
+        parts = email.split("@")
+        if len(parts) != 2:
             return False
         
-        local, domain = phan
+        local_part, domain_part = parts
         
         # Kiểm tra phần local
-        if not local or len(local) > 64:
+        if not local_part or len(local_part) > 64:
             return False
         
         # Kiểm tra phần domain
-        if not domain or "." not in domain:
+        if not domain_part or "." not in domain_part:
             return False
         
         # Kiểm tra ký tự hợp lệ
-        if not local.replace(".", "").replace("_", "").replace("-", "").isalnum():
+        if not local_part.replace(".", "").replace("_", "").replace("-", "").isalnum():
             return False
         
         return True
     
-    def chuan_hoa_email(self, email):
+    def normalize_email(self, email):
         """Chuẩn hóa email"""
         # Loại bỏ khoảng trắng và chuyển thành chữ thường
         email = email.strip().lower()
@@ -556,51 +557,51 @@ class QuanLyEmail:
         
         return email
     
-    def lay_ten_mien(self, email):
+    def extract_domain(self, email):
         """Lấy tên miền từ email"""
         if "@" in email:
             return email.split("@")[1]
         return None
     
-    def loc_email_theo_mien(self, ten_mien):
+    def filter_by_domain(self, domain_name):
         """Lọc email theo tên miền"""
-        email_cung_mien = []
-        for email in self.danh_sach_email:
-            if self.lay_ten_mien(email) == ten_mien.lower():
-                email_cung_mien.append(email)
+        domain_emails = []
+        for email in self.email_list:
+            if self.extract_domain(email) == domain_name.lower():
+                domain_emails.append(email)
         
-        return email_cung_mien
+        return domain_emails
     
-    def tao_bao_cao(self):
+    def generate_report(self):
         """Tạo báo cáo thống kê"""
-        if not self.danh_sach_email:
+        if not self.email_list:
             print("📊 Chưa có email nào")
             return
         
         print("\n📊 BÁO CÁO EMAIL")
         print("=" * 40)
-        print(f"📧 Tổng số email: {len(self.danh_sach_email)}")
+        print(f"📧 Tổng số email: {len(self.email_list)}")
         
         # Thống kê theo tên miền
-        thong_ke_mien = {}
-        for email in self.danh_sach_email:
-            mien = self.lay_ten_mien(email)
-            if mien:
-                thong_ke_mien[mien] = thong_ke_mien.get(mien, 0) + 1
+        domain_stats = {}
+        for email in self.email_list:
+            domain = self.extract_domain(email)
+            if domain:
+                domain_stats[domain] = domain_stats.get(domain, 0) + 1
         
         print(f"\n🌐 Thống kê theo tên miền:")
-        for mien, so_luong in sorted(thong_ke_mien.items()):
-            print(f"   {mien}: {so_luong} email")
+        for domain, count in sorted(domain_stats.items()):
+            print(f"   {domain}: {count} email")
         
         # Email phổ biến nhất
-        mien_pho_bien = max(thong_ke_mien.items(), key=lambda x: x[1])
-        print(f"\n🏆 Tên miền phổ biến nhất: {mien_pho_bien[0]} ({mien_pho_bien[1]} email)")
+        popular_domain = max(domain_stats.items(), key=lambda x: x[1])
+        print(f"\n🏆 Tên miền phổ biến nhất: {popular_domain[0]} ({popular_domain[1]} email)")
 
 # Sử dụng hệ thống
-quan_ly = QuanLyEmail()
+manager = EmailManager()
 
 # Thêm email
-email_list = [
+email_samples = [
     "  user@example.com  ",
     "ADMIN@GMAIL.COM",
     "test.user@yahoo.com",
@@ -609,14 +610,14 @@ email_list = [
     "user123@gmail.com"
 ]
 
-for email in email_list:
-    quan_ly.them_email(email)
+for email in email_samples:
+    manager.add_email(email)
 
 # Tạo báo cáo
-quan_ly.tao_bao_cao()
+manager.generate_report()
 
 # Lọc email theo miền
-gmail_emails = quan_ly.loc_email_theo_mien("gmail.com")
+gmail_emails = manager.filter_by_domain("gmail.com")
 print(f"\n📧 Email Gmail: {gmail_emails}")
 ```
 
@@ -626,160 +627,160 @@ print(f"\n📧 Email Gmail: {gmail_emails}")
 # TODO: Tạo game đoán từ với string methods
 import random
 
-class GameDoanTu:
+class WordGuessGame:
     def __init__(self):
-        self.tu_vung = [
+        self.word_bank = [
             "python", "programming", "computer", "algorithm", "function",
             "variable", "loop", "condition", "string", "number",
             "list", "dictionary", "class", "object", "method"
         ]
-        self.tu_can_doan = ""
-        self.tu_da_doan = []
-        self.ky_tu_da_doan = set()
-        self.so_lan_thu = 0
-        self.so_lan_thu_toi_da = 0
+        self.target_word = ""
+        self.guessed_words = []
+        self.guessed_letters = set()
+        self.attempt_count = 0
+        self.max_attempts = 0
     
-    def bat_dau_game(self):
+    def start_game(self):
         """Bắt đầu game mới"""
-        self.tu_can_doan = random.choice(self.tu_vung)
-        self.tu_da_doan = []
-        self.ky_tu_da_doan = set()
-        self.so_lan_thu = 0
-        self.so_lan_thu_toi_da = len(self.tu_can_doan) + 3
+        self.target_word = random.choice(self.word_bank)
+        self.guessed_words = []
+        self.guessed_letters = set()
+        self.attempt_count = 0
+        self.max_attempts = len(self.target_word) + 3
         
         print(f"🎮 GAME ĐOÁN TỪ VỰNG LẬP TRÌNH")
         print("=" * 50)
-        print(f"Từ có {len(self.tu_can_doan)} chữ cái")
-        print(f"Bạn có {self.so_lan_thu_toi_da} lần đoán")
+        print(f"Từ có {len(self.target_word)} chữ cái")
+        print(f"Bạn có {self.max_attempts} lần đoán")
         print("Gõ 'quit' để thoát, 'hint' để gợi ý")
         print("-" * 50)
     
-    def hien_thi_tu_an(self):
+    def display_hidden_word(self):
         """Hiển thị từ ẩn với ký tự đã đoán"""
-        hien_thi = ""
-        for ky_tu in self.tu_can_doan:
-            if ky_tu in self.ky_tu_da_doan:
-                hien_thi += ky_tu
+        display = ""
+        for letter in self.target_word:
+            if letter in self.guessed_letters:
+                display += letter
             else:
-                hien_thi += "_"
-        return hien_thi
+                display += "_"
+        return display
     
-    def xu_ly_doan_tu(self, doan):
+    def process_word_guess(self, guess):
         """Xử lý đoán từ"""
-        doan = doan.strip().lower()
+        guess = guess.strip().lower()
         
-        if doan == self.tu_can_doan:
+        if guess == self.target_word:
             return "correct"
-        elif doan in self.tu_da_doan:
+        elif guess in self.guessed_words:
             return "already_guessed"
-        elif len(doan) != len(self.tu_can_doan):
+        elif len(guess) != len(self.target_word):
             return "wrong_length"
-        elif not doan.isalpha():
+        elif not guess.isalpha():
             return "invalid"
         else:
-            self.tu_da_doan.append(doan)
+            self.guessed_words.append(guess)
             return "wrong"
     
-    def xu_ly_doan_ky_tu(self, ky_tu):
+    def process_letter_guess(self, letter):
         """Xử lý đoán ký tự"""
-        ky_tu = ky_tu.strip().lower()
+        letter = letter.strip().lower()
         
-        if len(ky_tu) != 1:
+        if len(letter) != 1:
             return "invalid_length"
-        elif not ky_tu.isalpha():
+        elif not letter.isalpha():
             return "invalid_char"
-        elif ky_tu in self.ky_tu_da_doan:
+        elif letter in self.guessed_letters:
             return "already_guessed"
         else:
-            self.ky_tu_da_doan.add(ky_tu)
-            if ky_tu in self.tu_can_doan:
+            self.guessed_letters.add(letter)
+            if letter in self.target_word:
                 return "correct"
             else:
                 return "wrong"
     
-    def tao_goi_y(self):
+    def generate_hint(self):
         """Tạo gợi ý thông minh"""
-        ky_tu_chua_doan = set(self.tu_can_doan) - self.ky_tu_da_doan
+        unguessed_letters = set(self.target_word) - self.guessed_letters
         
-        if not ky_tu_chua_doan:
+        if not unguessed_letters:
             return "Bạn đã đoán hết ký tự rồi!"
         
         # Chọn ký tự phổ biến nhất chưa đoán
-        ky_tu_pho_bien = max(ky_tu_chua_doan, key=lambda x: self.tu_can_doan.count(x))
+        most_common_letter = max(unguessed_letters, key=lambda x: self.target_word.count(x))
         
         # Tạo gợi ý dựa trên vị trí
-        vi_tri = self.tu_can_doan.find(ky_tu_pho_bien)
-        if vi_tri == 0:
-            vi_tri_mo_ta = "đầu"
-        elif vi_tri == len(self.tu_can_doan) - 1:
-            vi_tri_mo_ta = "cuối"
+        position = self.target_word.find(most_common_letter)
+        if position == 0:
+            position_desc = "đầu"
+        elif position == len(self.target_word) - 1:
+            position_desc = "cuối"
         else:
-            vi_tri_mo_ta = f"vị trí {vi_tri + 1}"
+            position_desc = f"vị trí {position + 1}"
         
-        return f"💡 Gợi ý: Từ có chứa ký tự '{ky_tu_pho_bien}' ở {vi_tri_mo_ta}"
+        return f"💡 Gợi ý: Từ có chứa ký tự '{most_common_letter}' ở {position_desc}"
     
-    def tinh_diem(self):
+    def calculate_score(self):
         """Tính điểm dựa trên hiệu suất"""
-        so_ky_tu_dung = len(self.ky_tu_da_doan.intersection(set(self.tu_can_doan)))
-        so_ky_tu_sai = len(self.ky_tu_da_doan - set(self.tu_can_doan))
+        correct_letters = len(self.guessed_letters.intersection(set(self.target_word)))
+        wrong_letters = len(self.guessed_letters - set(self.target_word))
         
-        diem_co_ban = len(self.tu_can_doan) * 10
-        diem_bo_sung = so_ky_tu_dung * 5
-        diem_tru = so_ky_tu_sai * 2
-        diem_tru_lan_thu = self.so_lan_thu * 1
+        base_score = len(self.target_word) * 10
+        bonus_score = correct_letters * 5
+        penalty_wrong = wrong_letters * 2
+        penalty_attempts = self.attempt_count * 1
         
-        diem_tong = diem_co_ban + diem_bo_sung - diem_tru - diem_tru_lan_thu
-        return max(0, diem_tong)
+        total_score = base_score + bonus_score - penalty_wrong - penalty_attempts
+        return max(0, total_score)
     
-    def choi_game(self):
+    def play_game(self):
         """Chơi game chính"""
-        self.bat_dau_game()
+        self.start_game()
         
-        while self.so_lan_thu < self.so_lan_thu_toi_da:
-            self.so_lan_thu += 1
-            remaining = self.so_lan_thu_toi_da - self.so_lan_thu + 1
+        while self.attempt_count < self.max_attempts:
+            self.attempt_count += 1
+            remaining = self.max_attempts - self.attempt_count + 1
             
             # Hiển thị trạng thái
-            tu_an = self.hien_thi_tu_an()
-            print(f"\n🔤 Lần thử {self.so_lan_thu}/{self.so_lan_thu_toi_da} (Còn {remaining} lần)")
-            print(f"Từ: {tu_an}")
+            hidden_word = self.display_hidden_word()
+            print(f"\n🔤 Lần thử {self.attempt_count}/{self.max_attempts} (Còn {remaining} lần)")
+            print(f"Từ: {hidden_word}")
             
             # Hiển thị ký tự đã đoán
-            if self.ky_tu_da_doan:
-                ky_tu_str = ", ".join(sorted(self.ky_tu_da_doan))
-                print(f"Ký tự đã đoán: {ky_tu_str}")
+            if self.guessed_letters:
+                letters_str = ", ".join(sorted(self.guessed_letters))
+                print(f"Ký tự đã đoán: {letters_str}")
             
             # Hiển thị từ đã đoán
-            if self.tu_da_doan:
-                tu_str = ", ".join(self.tu_da_doan)
-                print(f"Từ đã đoán: {tu_str}")
+            if self.guessed_words:
+                words_str = ", ".join(self.guessed_words)
+                print(f"Từ đã đoán: {words_str}")
             
             # Nhập đoán
             try:
-                doan = input("Nhập ký tự hoặc từ: ").strip()
+                user_guess = input("Nhập ký tự hoặc từ: ").strip()
                 
-                if doan.lower() == 'quit':
+                if user_guess.lower() == 'quit':
                     print("👋 Tạm biệt!")
                     return
                 
-                if doan.lower() == 'hint':
-                    print(self.tao_goi_y())
-                    self.so_lan_thu -= 1
+                if user_guess.lower() == 'hint':
+                    print(self.generate_hint())
+                    self.attempt_count -= 1
                     continue
                 
                 # Xử lý đoán
-                if len(doan) == 1:
+                if len(user_guess) == 1:
                     # Đoán ký tự
-                    result = self.xu_ly_doan_ky_tu(doan)
+                    result = self.process_letter_guess(user_guess)
                     
                     if result == "correct":
                         print("✅ Đúng! Ký tự có trong từ")
                         
                         # Kiểm tra đã đoán hết chưa
-                        if set(self.tu_can_doan).issubset(self.ky_tu_da_doan):
-                            diem = self.tinh_diem()
-                            print(f"\n🎉 HOÀN THÀNH! Từ đúng là: {self.tu_can_doan}")
-                            print(f"🏆 Điểm: {diem}")
+                        if set(self.target_word).issubset(self.guessed_letters):
+                            score = self.calculate_score()
+                            print(f"\n🎉 HOÀN THÀNH! Từ đúng là: {self.target_word}")
+                            print(f"🏆 Điểm: {score}")
                             return
                     
                     elif result == "wrong":
@@ -787,24 +788,24 @@ class GameDoanTu:
                     
                     elif result == "already_guessed":
                         print("⚠️  Bạn đã đoán ký tự này rồi!")
-                        self.so_lan_thu -= 1
+                        self.attempt_count -= 1
                     
                     elif result == "invalid_length":
                         print("❌ Vui lòng nhập 1 ký tự!")
-                        self.so_lan_thu -= 1
+                        self.attempt_count -= 1
                     
                     elif result == "invalid_char":
                         print("❌ Vui lòng nhập ký tự hợp lệ!")
-                        self.so_lan_thu -= 1
+                        self.attempt_count -= 1
                 
                 else:
                     # Đoán từ
-                    result = self.xu_ly_doan_tu(doan)
+                    result = self.process_word_guess(user_guess)
                     
                     if result == "correct":
-                        diem = self.tinh_diem()
-                        print(f"\n🎉 CHÍNH XÁC! Từ đúng là: {self.tu_can_doan}")
-                        print(f"🏆 Điểm: {diem}")
+                        score = self.calculate_score()
+                        print(f"\n🎉 CHÍNH XÁC! Từ đúng là: {self.target_word}")
+                        print(f"🏆 Điểm: {score}")
                         return
                     
                     elif result == "wrong":
@@ -812,28 +813,28 @@ class GameDoanTu:
                     
                     elif result == "already_guessed":
                         print("⚠️  Bạn đã đoán từ này rồi!")
-                        self.so_lan_thu -= 1
+                        self.attempt_count -= 1
                     
                     elif result == "wrong_length":
-                        print(f"❌ Từ phải có {len(self.tu_can_doan)} chữ cái!")
-                        self.so_lan_thu -= 1
+                        print(f"❌ Từ phải có {len(self.target_word)} chữ cái!")
+                        self.attempt_count -= 1
                     
                     elif result == "invalid":
                         print("❌ Vui lòng nhập từ hợp lệ!")
-                        self.so_lan_thu -= 1
+                        self.attempt_count -= 1
             
             except KeyboardInterrupt:
                 print("\n👋 Tạm biệt!")
                 return
         
         # Hết lượt
-        diem = self.tinh_diem()
-        print(f"\n💔 HẾT LƯỢT! Từ đúng là: {self.tu_can_doan}")
-        print(f"🏆 Điểm: {diem}")
+        score = self.calculate_score()
+        print(f"\n💔 HẾT LƯỢT! Từ đúng là: {self.target_word}")
+        print(f"🏆 Điểm: {score}")
 
 # Chạy game
-game = GameDoanTu()
-game.choi_game()
+game = WordGuessGame()
+game.play_game()
 ```
 
 ## 🎊 Tóm Tắt
@@ -859,3 +860,4 @@ Hãy thử tạo một "hệ thống phân tích văn bản" sử dụng tất c
 ---
 
 *🔗 **Bài tiếp theo**: [List Comprehension - Cú Pháp Pythonic Siêu Mạnh](/python/intermediate/list-comprehension)*
+

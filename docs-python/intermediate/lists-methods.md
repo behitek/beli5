@@ -39,47 +39,47 @@ graph LR
 
 ```python
 # Sắp xếp số
-diem_so = [8.5, 6.0, 9.5, 7.0, 8.0]
-print("Trước khi sắp xếp:", diem_so)
+math_scores = [8.5, 6.0, 9.5, 7.0, 8.0]
+print("Trước khi sắp xếp:", math_scores)
 
-diem_so.sort()  # Sắp xếp tại chỗ (in-place)
-print("Sau khi sắp xếp:", diem_so)  # [6.0, 7.0, 8.0, 8.5, 9.5]
+math_scores.sort()  # Sắp xếp tại chỗ (in-place)
+print("Sau khi sắp xếp:", math_scores)  # [6.0, 7.0, 8.0, 8.5, 9.5]
 
 # Sắp xếp tên
-ten_hoc_sinh = ["Châu", "An", "Bình", "Dung", "Em"]
-print("Trước:", ten_hoc_sinh)
+student_names = ["Châu", "An", "Bình", "Dung", "Em"]
+print("Trước:", student_names)
 
-ten_hoc_sinh.sort()
-print("Sau:", ten_hoc_sinh)  # ['An', 'Bình', 'Châu', 'Dung', 'Em']
+student_names.sort()
+print("Sau:", student_names)  # ['An', 'Bình', 'Châu', 'Dung', 'Em']
 ```
 
 ### 📉 Sort Reverse - Sắp Xếp Giảm Dần
 
 ```python
 # Sắp xếp từ cao xuống thấp
-diem_so = [8.5, 6.0, 9.5, 7.0, 8.0]
-diem_so.sort(reverse=True)
-print("Điểm từ cao xuống thấp:", diem_so)  # [9.5, 8.5, 8.0, 7.0, 6.0]
+math_scores = [8.5, 6.0, 9.5, 7.0, 8.0]
+math_scores.sort(reverse=True)
+print("Điểm từ cao xuống thấp:", math_scores)  # [9.5, 8.5, 8.0, 7.0, 6.0]
 
 # Sắp xếp tên theo thứ tự ngược alphabet
-ten_hoc_sinh = ["An", "Bình", "Châu", "Dung", "Em"]
-ten_hoc_sinh.sort(reverse=True)
-print("Tên ngược alphabet:", ten_hoc_sinh)  # ['Em', 'Dung', 'Châu', 'Bình', 'An']
+student_names = ["An", "Bình", "Châu", "Dung", "Em"]
+student_names.sort(reverse=True)
+print("Tên ngược alphabet:", student_names)  # ['Em', 'Dung', 'Châu', 'Bình', 'An']
 ```
 
 ### 🎯 Sorted - Tạo Danh Sách Mới (Không Thay Đổi Gốc)
 
 ```python
 # Danh sách gốc không thay đổi
-diem_goc = [8.5, 6.0, 9.5, 7.0, 8.0]
-diem_sap_xep = sorted(diem_goc)
+original_scores = [8.5, 6.0, 9.5, 7.0, 8.0]
+sorted_scores = sorted(original_scores)
 
-print("Danh sách gốc:", diem_goc)        # [8.5, 6.0, 9.5, 7.0, 8.0]
-print("Danh sách mới:", diem_sap_xep)    # [6.0, 7.0, 8.0, 8.5, 9.5]
+print("Danh sách gốc:", original_scores)      # [8.5, 6.0, 9.5, 7.0, 8.0]
+print("Danh sách mới:", sorted_scores)        # [6.0, 7.0, 8.0, 8.5, 9.5]
 
 # Sắp xếp giảm dần
-diem_giam = sorted(diem_goc, reverse=True)
-print("Sắp xếp giảm:", diem_giam)        # [9.5, 8.5, 8.0, 7.0, 6.0]
+descending_scores = sorted(original_scores, reverse=True)
+print("Sắp xếp giảm:", descending_scores)     # [9.5, 8.5, 8.0, 7.0, 6.0]
 ```
 
 ## 🔄 Đảo Ngược Danh Sách
@@ -88,27 +88,27 @@ print("Sắp xếp giảm:", diem_giam)        # [9.5, 8.5, 8.0, 7.0, 6.0]
 
 ```python
 # Đảo ngược thứ tự
-so_thu_tu = [1, 2, 3, 4, 5]
-print("Trước:", so_thu_tu)
+ordered_numbers = [1, 2, 3, 4, 5]
+print("Trước:", ordered_numbers)
 
-so_thu_tu.reverse()
-print("Sau:", so_thu_tu)  # [5, 4, 3, 2, 1]
+ordered_numbers.reverse()
+print("Sau:", ordered_numbers)  # [5, 4, 3, 2, 1]
 
 # Đảo ngược tên
-ten_lop = ["An", "Bình", "Châu", "Dung"]
-ten_lop.reverse()
-print("Tên đảo ngược:", ten_lop)  # ['Dung', 'Châu', 'Bình', 'An']
+class_names = ["An", "Bình", "Châu", "Dung"]
+class_names.reverse()
+print("Tên đảo ngược:", class_names)  # ['Dung', 'Châu', 'Bình', 'An']
 ```
 
 ### 🔄 Reversed - Tạo Iterator Đảo Ngược
 
 ```python
 # Tạo iterator đảo ngược (không thay đổi gốc)
-so_nguyen = [1, 2, 3, 4, 5]
-so_dao_nguoc = list(reversed(so_nguyen))
+original_numbers = [1, 2, 3, 4, 5]
+reversed_numbers = list(reversed(original_numbers))
 
-print("Gốc:", so_nguyen)           # [1, 2, 3, 4, 5]
-print("Đảo ngược:", so_dao_nguoc)  # [5, 4, 3, 2, 1]
+print("Gốc:", original_numbers)         # [1, 2, 3, 4, 5]
+print("Đảo ngược:", reversed_numbers)   # [5, 4, 3, 2, 1]
 ```
 
 ## 📋 Sao Chép Danh Sách
@@ -117,36 +117,36 @@ print("Đảo ngược:", so_dao_nguoc)  # [5, 4, 3, 2, 1]
 
 ```python
 # Tạo bản sao
-danh_sach_goc = ["An", "Bình", "Châu"]
-danh_sach_sao = danh_sach_goc.copy()
+original_list = ["An", "Bình", "Châu"]
+copied_list = original_list.copy()
 
-print("Gốc:", danh_sach_goc)
-print("Sao:", danh_sach_sao)
+print("Gốc:", original_list)
+print("Sao:", copied_list)
 
 # Thay đổi bản sao không ảnh hưởng gốc
-danh_sach_sao.append("Dung")
-print("Gốc sau khi thay đổi sao:", danh_sach_goc)  # ['An', 'Bình', 'Châu']
-print("Sao sau khi thay đổi:", danh_sach_sao)      # ['An', 'Bình', 'Châu', 'Dung']
+copied_list.append("Dung")
+print("Gốc sau khi thay đổi sao:", original_list)  # ['An', 'Bình', 'Châu']
+print("Sao sau khi thay đổi:", copied_list)        # ['An', 'Bình', 'Châu', 'Dung']
 ```
 
 ### 🔗 Các Cách Sao Chép Khác
 
 ```python
-danh_sach_goc = [1, 2, 3, 4, 5]
+original_list = [1, 2, 3, 4, 5]
 
 # Cách 1: copy()
-sao_1 = danh_sach_goc.copy()
+copy_1 = original_list.copy()
 
 # Cách 2: list()
-sao_2 = list(danh_sach_goc)
+copy_2 = list(original_list)
 
 # Cách 3: slicing
-sao_3 = danh_sach_goc[:]
+copy_3 = original_list[:]
 
 # Cách 4: list comprehension
-sao_4 = [x for x in danh_sach_goc]
+copy_4 = [x for x in original_list]
 
-print("Tất cả bản sao giống nhau:", sao_1 == sao_2 == sao_3 == sao_4)  # True
+print("Tất cả bản sao giống nhau:", copy_1 == copy_2 == copy_3 == copy_4)  # True
 ```
 
 ## 🔍 Tìm Kiếm Nâng Cao
@@ -154,19 +154,19 @@ print("Tất cả bản sao giống nhau:", sao_1 == sao_2 == sao_3 == sao_4)  #
 ### 📍 Index - Tìm Vị Trí
 
 ```python
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Lý"]
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Lý"]
 
 # Tìm vị trí đầu tiên
-vi_tri_ly = mon_hoc.index("Lý")
-print(f"Lý ở vị trí: {vi_tri_ly}")  # 1
+physics_position = subjects.index("Lý")
+print(f"Lý ở vị trí: {physics_position}")  # 1
 
 # Tìm với phạm vi
-vi_tri_ly_2 = mon_hoc.index("Lý", 2)  # Tìm từ vị trí 2
-print(f"Lý thứ 2 ở vị trí: {vi_tri_ly_2}")  # 5
+physics_position_2 = subjects.index("Lý", 2)  # Tìm từ vị trí 2
+print(f"Lý thứ 2 ở vị trí: {physics_position_2}")  # 5
 
 # Xử lý lỗi khi không tìm thấy
 try:
-    vi_tri_sinh = mon_hoc.index("Sinh")
+    biology_position = subjects.index("Sinh")
 except ValueError:
     print("Không tìm thấy môn Sinh")
 ```
@@ -174,21 +174,21 @@ except ValueError:
 ### 🔢 Count - Đếm Số Lần Xuất Hiện
 
 ```python
-diem_thi = [8.5, 7.0, 8.5, 6.0, 8.5, 7.0, 9.0]
+exam_scores = [8.5, 7.0, 8.5, 6.0, 8.5, 7.0, 9.0]
 
 # Đếm số lần xuất hiện
-so_lan_8_5 = diem_thi.count(8.5)
-so_lan_7_0 = diem_thi.count(7.0)
-so_lan_10 = diem_thi.count(10.0)
+count_8_5 = exam_scores.count(8.5)
+count_7_0 = exam_scores.count(7.0)
+count_10 = exam_scores.count(10.0)
 
-print(f"Điểm 8.5 xuất hiện {so_lan_8_5} lần")  # 3
-print(f"Điểm 7.0 xuất hiện {so_lan_7_0} lần")  # 2
-print(f"Điểm 10.0 xuất hiện {so_lan_10} lần")  # 0
+print(f"Điểm 8.5 xuất hiện {count_8_5} lần")  # 3
+print(f"Điểm 7.0 xuất hiện {count_7_0} lần")  # 2
+print(f"Điểm 10.0 xuất hiện {count_10} lần")  # 0
 
 # Đếm trong danh sách tên
-ten_lop = ["An", "Bình", "An", "Châu", "An", "Dung"]
-so_an = ten_lop.count("An")
-print(f"Có {so_an} bạn tên An")  # 3
+class_names = ["An", "Bình", "An", "Châu", "An", "Dung"]
+count_an = class_names.count("An")
+print(f"Có {count_an} bạn tên An")  # 3
 ```
 
 ## ➕ Mở Rộng Danh Sách
@@ -197,154 +197,154 @@ print(f"Có {so_an} bạn tên An")  # 3
 
 ```python
 # Danh sách ban đầu
-mon_hoc_ky_1 = ["Toán", "Lý", "Hóa"]
-mon_hoc_ky_2 = ["Văn", "Anh", "Sử"]
+semester_1_subjects = ["Toán", "Lý", "Hóa"]
+semester_2_subjects = ["Văn", "Anh", "Sử"]
 
-print("Học kỳ 1:", mon_hoc_ky_1)
+print("Học kỳ 1:", semester_1_subjects)
 
 # Nối danh sách học kỳ 2
-mon_hoc_ky_1.extend(mon_hoc_ky_2)
-print("Cả năm:", mon_hoc_ky_1)  # ['Toán', 'Lý', 'Hóa', 'Văn', 'Anh', 'Sử']
+semester_1_subjects.extend(semester_2_subjects)
+print("Cả năm:", semester_1_subjects)  # ['Toán', 'Lý', 'Hóa', 'Văn', 'Anh', 'Sử']
 
 # Nối với danh sách khác
-mon_hoc_them = ["Địa", "Sinh"]
-mon_hoc_ky_1.extend(mon_hoc_them)
-print("Đầy đủ:", mon_hoc_ky_1)
+additional_subjects = ["Địa", "Sinh"]
+semester_1_subjects.extend(additional_subjects)
+print("Đầy đủ:", semester_1_subjects)
 ```
 
 ### 🆚 So Sánh Extend vs Append
 
 ```python
 # Extend - thêm từng phần tử
-danh_sach_1 = [1, 2, 3]
-danh_sach_1.extend([4, 5])
-print("Extend:", danh_sach_1)  # [1, 2, 3, 4, 5]
+list_1 = [1, 2, 3]
+list_1.extend([4, 5])
+print("Extend:", list_1)  # [1, 2, 3, 4, 5]
 
 # Append - thêm toàn bộ như 1 phần tử
-danh_sach_2 = [1, 2, 3]
-danh_sach_2.append([4, 5])
-print("Append:", danh_sach_2)  # [1, 2, 3, [4, 5]]
+list_2 = [1, 2, 3]
+list_2.append([4, 5])
+print("Append:", list_2)  # [1, 2, 3, [4, 5]]
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý Thư Viện
 
 ```python
 # 📚 Hệ thống quản lý thư viện với các phương thức list
-class ThuVien:
+class Library:
     def __init__(self):
-        self.sach_co_san = []
-        self.sach_da_muon = []
-        self.nguoi_muon = []
+        self.available_books = []
+        self.borrowed_books = []
+        self.borrowers = []
     
-    def them_sach_moi(self, ten_sach):
+    def add_new_book(self, book_title):
         """Thêm sách mới vào thư viện"""
-        if ten_sach not in self.sach_co_san:
-            self.sach_co_san.append(ten_sach)
-            print(f"✅ Đã thêm sách: {ten_sach}")
+        if book_title not in self.available_books:
+            self.available_books.append(book_title)
+            print(f"✅ Đã thêm sách: {book_title}")
         else:
-            print(f"⚠️  Sách '{ten_sach}' đã có trong thư viện")
+            print(f"⚠️  Sách '{book_title}' đã có trong thư viện")
     
-    def muon_sach(self, ten_sach, ten_nguoi):
+    def borrow_book(self, book_title, borrower_name):
         """Cho mượn sách"""
-        if ten_sach in self.sach_co_san:
+        if book_title in self.available_books:
             # Chuyển sách từ có sẵn sang đã mượn
-            self.sach_co_san.remove(ten_sach)
-            self.sach_da_muon.append(ten_sach)
-            self.nguoi_muon.append(ten_nguoi)
-            print(f"📖 {ten_nguoi} đã mượn sách: {ten_sach}")
+            self.available_books.remove(book_title)
+            self.borrowed_books.append(book_title)
+            self.borrowers.append(borrower_name)
+            print(f"📖 {borrower_name} đã mượn sách: {book_title}")
         else:
-            print(f"❌ Sách '{ten_sach}' không có sẵn")
+            print(f"❌ Sách '{book_title}' không có sẵn")
     
-    def tra_sach(self, ten_sach):
+    def return_book(self, book_title):
         """Trả sách"""
-        if ten_sach in self.sach_da_muon:
-            vi_tri = self.sach_da_muon.index(ten_sach)
-            nguoi_tra = self.nguoi_muon.pop(vi_tri)
-            self.sach_da_muon.remove(ten_sach)
-            self.sach_co_san.append(ten_sach)
-            print(f"📚 {nguoi_tra} đã trả sách: {ten_sach}")
+        if book_title in self.borrowed_books:
+            book_index = self.borrowed_books.index(book_title)
+            returned_borrower = self.borrowers.pop(book_index)
+            self.borrowed_books.remove(book_title)
+            self.available_books.append(book_title)
+            print(f"📚 {returned_borrower} đã trả sách: {book_title}")
         else:
-            print(f"❌ Sách '{ten_sach}' không có trong danh sách mượn")
+            print(f"❌ Sách '{book_title}' không có trong danh sách mượn")
     
-    def hien_thi_sach_theo_loai(self):
+    def display_books_by_category(self):
         """Hiển thị sách theo loại"""
         print("\n📋 BÁO CÁO THƯ VIỆN")
         print("=" * 50)
         
         # Sắp xếp sách theo alphabet
-        sach_co_san_sap_xep = sorted(self.sach_co_san)
-        sach_da_muon_sap_xep = sorted(self.sach_da_muon)
+        sorted_available_books = sorted(self.available_books)
+        sorted_borrowed_books = sorted(self.borrowed_books)
         
-        print(f"📚 Sách có sẵn ({len(sach_co_san_sap_xep)} cuốn):")
-        for i, sach in enumerate(sach_co_san_sap_xep, 1):
-            print(f"   {i}. {sach}")
+        print(f"📚 Sách có sẵn ({len(sorted_available_books)} cuốn):")
+        for i, book in enumerate(sorted_available_books, 1):
+            print(f"   {i}. {book}")
         
-        print(f"\n📖 Sách đã mượn ({len(sach_da_muon_sap_xep)} cuốn):")
-        for i, sach in enumerate(sach_da_muon_sap_xep, 1):
-            print(f"   {i}. {sach}")
+        print(f"\n📖 Sách đã mượn ({len(sorted_borrowed_books)} cuốn):")
+        for i, book in enumerate(sorted_borrowed_books, 1):
+            print(f"   {i}. {book}")
     
-    def tim_sach(self, tu_khoa):
+    def search_books(self, keyword):
         """Tìm sách theo từ khóa"""
-        ket_qua = []
-        tu_khoa_lower = tu_khoa.lower()
+        search_results = []
+        keyword_lower = keyword.lower()
         
         # Tìm trong sách có sẵn
-        for sach in self.sach_co_san:
-            if tu_khoa_lower in sach.lower():
-                ket_qua.append(f"📚 {sach} (có sẵn)")
+        for book in self.available_books:
+            if keyword_lower in book.lower():
+                search_results.append(f"📚 {book} (có sẵn)")
         
         # Tìm trong sách đã mượn
-        for sach in self.sach_da_muon:
-            if tu_khoa_lower in sach.lower():
-                ket_qua.append(f"📖 {sach} (đã mượn)")
+        for book in self.borrowed_books:
+            if keyword_lower in book.lower():
+                search_results.append(f"📖 {book} (đã mượn)")
         
-        if ket_qua:
-            print(f"🔍 Kết quả tìm kiếm '{tu_khoa}':")
-            for ket_qua_item in ket_qua:
-                print(f"   {ket_qua_item}")
+        if search_results:
+            print(f"🔍 Kết quả tìm kiếm '{keyword}':")
+            for result_item in search_results:
+                print(f"   {result_item}")
         else:
-            print(f"😅 Không tìm thấy sách nào chứa '{tu_khoa}'")
+            print(f"😅 Không tìm thấy sách nào chứa '{keyword}'")
     
-    def thong_ke(self):
+    def show_statistics(self):
         """Thống kê thư viện"""
         print("\n📊 THỐNG KÊ THƯ VIỆN")
         print("=" * 30)
-        print(f"📚 Tổng số sách: {len(self.sach_co_san) + len(self.sach_da_muon)}")
-        print(f"📖 Sách có sẵn: {len(self.sach_co_san)}")
-        print(f"📋 Sách đã mượn: {len(self.sach_da_muon)}")
+        print(f"📚 Tổng số sách: {len(self.available_books) + len(self.borrowed_books)}")
+        print(f"📖 Sách có sẵn: {len(self.available_books)}")
+        print(f"📋 Sách đã mượn: {len(self.borrowed_books)}")
         
-        if self.nguoi_muon:
+        if self.borrowers:
             # Đếm số lần mượn của mỗi người
-            nguoi_muon_unique = list(set(self.nguoi_muon))
-            print(f"👥 Số người đang mượn: {len(nguoi_muon_unique)}")
+            unique_borrowers = list(set(self.borrowers))
+            print(f"👥 Số người đang mượn: {len(unique_borrowers)}")
             
             # Tìm người mượn nhiều nhất
-            so_lan_muon = [self.nguoi_muon.count(nguoi) for nguoi in nguoi_muon_unique]
-            max_muon = max(so_lan_muon)
-            nguoi_muon_nhieu_nhat = nguoi_muon_unique[so_lan_muon.index(max_muon)]
-            print(f"🏆 Người mượn nhiều nhất: {nguoi_muon_nhieu_nhat} ({max_muon} cuốn)")
+            borrow_counts = [self.borrowers.count(borrower) for borrower in unique_borrowers]
+            max_borrows = max(borrow_counts)
+            top_borrower = unique_borrowers[borrow_counts.index(max_borrows)]
+            print(f"🏆 Người mượn nhiều nhất: {top_borrower} ({max_borrows} cuốn)")
 
 # Sử dụng hệ thống thư viện
-thu_vien = ThuVien()
+library = Library()
 
 # Thêm sách
-sach_moi = ["Python Programming", "Data Science", "Machine Learning", "Web Development", "Python Programming"]
-for sach in sach_moi:
-    thu_vien.them_sach_moi(sach)
+new_books = ["Python Programming", "Data Science", "Machine Learning", "Web Development", "Python Programming"]
+for book in new_books:
+    library.add_new_book(book)
 
 # Mượn sách
-thu_vien.muon_sach("Python Programming", "An")
-thu_vien.muon_sach("Data Science", "Bình")
-thu_vien.muon_sach("Machine Learning", "Châu")
+library.borrow_book("Python Programming", "An")
+library.borrow_book("Data Science", "Bình")
+library.borrow_book("Machine Learning", "Châu")
 
 # Hiển thị trạng thái
-thu_vien.hien_thi_sach_theo_loai()
+library.display_books_by_category()
 
 # Tìm kiếm
-thu_vien.tim_sach("Python")
+library.search_books("Python")
 
 # Thống kê
-thu_vien.thong_ke()
+library.show_statistics()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -356,43 +356,43 @@ thu_vien.thong_ke()
 import random
 
 # Tạo danh sách điểm ngẫu nhiên
-diem_so = [random.uniform(5.0, 10.0) for _ in range(20)]
-diem_so = [round(diem, 1) for diem in diem_so]  # Làm tròn 1 chữ số
+exam_scores = [random.uniform(5.0, 10.0) for _ in range(20)]
+exam_scores = [round(score, 1) for score in exam_scores]  # Làm tròn 1 chữ số
 
 print("📊 PHÂN TÍCH ĐIỂM SỐ LỚP HỌC")
 print("=" * 40)
 
 # Hiển thị điểm gốc
-print("Điểm gốc:", diem_so)
+print("Điểm gốc:", exam_scores)
 
 # Tạo bản sao để sắp xếp
-diem_tang = diem_so.copy()
-diem_giam = diem_so.copy()
+ascending_scores = exam_scores.copy()
+descending_scores = exam_scores.copy()
 
 # Sắp xếp tăng dần
-diem_tang.sort()
-print(f"\n📈 Điểm tăng dần: {diem_tang}")
+ascending_scores.sort()
+print(f"\n📈 Điểm tăng dần: {ascending_scores}")
 
 # Sắp xếp giảm dần
-diem_giam.sort(reverse=True)
-print(f"📉 Điểm giảm dần: {diem_giam}")
+descending_scores.sort(reverse=True)
+print(f"📉 Điểm giảm dần: {descending_scores}")
 
 # Thống kê
 print(f"\n📊 THỐNG KÊ:")
-print(f"   Điểm cao nhất: {max(diem_so)}")
-print(f"   Điểm thấp nhất: {min(diem_so)}")
-print(f"   Điểm trung bình: {sum(diem_so)/len(diem_so):.1f}")
+print(f"   Điểm cao nhất: {max(exam_scores)}")
+print(f"   Điểm thấp nhất: {min(exam_scores)}")
+print(f"   Điểm trung bình: {sum(exam_scores)/len(exam_scores):.1f}")
 
 # Đếm theo mức điểm
-diem_gioi = [d for d in diem_so if d >= 8.0]
-diem_kha = [d for d in diem_so if 6.5 <= d < 8.0]
-diem_tb = [d for d in diem_so if 5.0 <= d < 6.5]
-diem_yeu = [d for d in diem_so if d < 5.0]
+excellent_scores = [score for score in exam_scores if score >= 8.0]
+good_scores = [score for score in exam_scores if 6.5 <= score < 8.0]
+average_scores = [score for score in exam_scores if 5.0 <= score < 6.5]
+poor_scores = [score for score in exam_scores if score < 5.0]
 
-print(f"   Giỏi (≥8.0): {len(diem_gioi)} HS")
-print(f"   Khá (6.5-7.9): {len(diem_kha)} HS")
-print(f"   TB (5.0-6.4): {len(diem_tb)} HS")
-print(f"   Yếu (<5.0): {len(diem_yeu)} HS")
+print(f"   Giỏi (≥8.0): {len(excellent_scores)} HS")
+print(f"   Khá (6.5-7.9): {len(good_scores)} HS")
+print(f"   TB (5.0-6.4): {len(average_scores)} HS")
+print(f"   Yếu (<5.0): {len(poor_scores)} HS")
 ```
 
 ### 🥈 Bài Tập 2: Game Đoán Từ
@@ -402,91 +402,91 @@ print(f"   Yếu (<5.0): {len(diem_yeu)} HS")
 import random
 
 # Danh sách từ vựng
-tu_vung = [
+vocabulary = [
     "python", "programming", "computer", "algorithm", "function",
     "variable", "loop", "condition", "string", "number",
     "list", "dictionary", "class", "object", "method"
 ]
 
 # Chọn từ ngẫu nhiên
-tu_can_doan = random.choice(tu_vung)
-tu_da_doan = []
-so_lan_thu = 0
-so_lan_thu_toi_da = len(tu_can_doan) + 3
+target_word = random.choice(vocabulary)
+guessed_words = []
+attempt_count = 0
+max_attempts = len(target_word) + 3
 
 print("🎯 GAME ĐOÁN TỪ VỰNG LẬP TRÌNH")
 print("=" * 40)
-print(f"Từ có {len(tu_can_doan)} chữ cái")
-print(f"Bạn có {so_lan_thu_toi_da} lần đoán")
+print(f"Từ có {len(target_word)} chữ cái")
+print(f"Bạn có {max_attempts} lần đoán")
 print("Gõ 'quit' để thoát")
 print("-" * 40)
 
-while so_lan_thu < so_lan_thu_toi_da:
-    so_lan_thu += 1
-    print(f"\n🔤 Lần thử {so_lan_thu}/{so_lan_thu_toi_da}")
+while attempt_count < max_attempts:
+    attempt_count += 1
+    print(f"\n🔤 Lần thử {attempt_count}/{max_attempts}")
     
     # Hiển thị từ đã đoán
-    if tu_da_doan:
-        print(f"Từ đã đoán: {', '.join(tu_da_doan)}")
+    if guessed_words:
+        print(f"Từ đã đoán: {', '.join(guessed_words)}")
     
     # Nhập từ đoán
-    tu_doan = input("Nhập từ bạn đoán: ").lower().strip()
+    guessed_word = input("Nhập từ bạn đoán: ").lower().strip()
     
-    if tu_doan == 'quit':
+    if guessed_word == 'quit':
         print("👋 Tạm biệt!")
         break
     
-    if tu_doan == tu_can_doan:
+    if guessed_word == target_word:
         print("🎉 CHÍNH XÁC! Bạn đã đoán đúng!")
-        print(f"🏆 Từ đúng là: {tu_can_doan.upper()}")
-        print(f"📊 Số lần thử: {so_lan_thu}")
+        print(f"🏆 Từ đúng là: {target_word.upper()}")
+        print(f"📊 Số lần thử: {attempt_count}")
         
         # Đánh giá
-        if so_lan_thu <= 3:
+        if attempt_count <= 3:
             print("🌟 XUẤT SẮC! Bạn thật giỏi!")
-        elif so_lan_thu <= 5:
+        elif attempt_count <= 5:
             print("👍 RẤT TỐT! Kỹ năng ổn định!")
         else:
             print("😊 KHÔNG SAO! Lần sau sẽ tốt hơn!")
         break
     
-    elif tu_doan in tu_da_doan:
+    elif guessed_word in guessed_words:
         print("⚠️  Bạn đã đoán từ này rồi!")
-        so_lan_thu -= 1  # Không tính lần thử này
+        attempt_count -= 1  # Không tính lần thử này
     
-    elif len(tu_doan) != len(tu_can_doan):
-        print(f"❌ Từ phải có {len(tu_can_doan)} chữ cái!")
-        so_lan_thu -= 1
+    elif len(guessed_word) != len(target_word):
+        print(f"❌ Từ phải có {len(target_word)} chữ cái!")
+        attempt_count -= 1
     
-    elif tu_doan not in tu_vung:
+    elif guessed_word not in vocabulary:
         print("❌ Từ này không có trong danh sách từ vựng!")
-        so_lan_thu -= 1
+        attempt_count -= 1
     
     else:
-        tu_da_doan.append(tu_doan)
+        guessed_words.append(guessed_word)
         
         # Đếm số chữ cái đúng vị trí
-        so_chu_dung = 0
-        for i in range(len(tu_can_doan)):
-            if tu_doan[i] == tu_can_doan[i]:
-                so_chu_dung += 1
+        correct_positions = 0
+        for i in range(len(target_word)):
+            if guessed_word[i] == target_word[i]:
+                correct_positions += 1
         
-        print(f"📊 Có {so_chu_dung}/{len(tu_can_doan)} chữ cái đúng vị trí")
+        print(f"📊 Có {correct_positions}/{len(target_word)} chữ cái đúng vị trí")
         
-        if so_chu_dung == 0:
+        if correct_positions == 0:
             print("😅 Chưa có chữ cái nào đúng vị trí!")
-        elif so_chu_dung < len(tu_can_doan) // 2:
+        elif correct_positions < len(target_word) // 2:
             print("🤔 Một vài chữ cái đúng, cố gắng thêm!")
         else:
             print("🔥 Gần đúng rồi, cố lên!")
 
 else:
-    print(f"\n💔 HẾT LƯỢT! Từ đúng là: {tu_can_doan.upper()}")
+    print(f"\n💔 HẾT LƯỢT! Từ đúng là: {target_word.upper()}")
     print("🎯 Lần sau hãy thử chiến lược khác nhé!")
 
 # Hiển thị tất cả từ đã đoán
-if tu_da_doan:
-    print(f"\n📝 Tất cả từ đã đoán: {', '.join(tu_da_doan)}")
+if guessed_words:
+    print(f"\n📝 Tất cả từ đã đoán: {', '.join(guessed_words)}")
 ```
 
 ### 🥉 Bài Tập 3: Quản Lý Danh Sách Nhạc
@@ -499,73 +499,73 @@ class PlaylistManager:
         self.artists = []
         self.genres = []
     
-    def them_bai_hat(self, ten_bai, ca_si, the_loai):
+    def add_song(self, song_title, artist_name, genre):
         """Thêm bài hát mới"""
-        bai_hat = {
-            'ten': ten_bai,
-            'ca_si': ca_si,
-            'the_loai': the_loai
+        song = {
+            'title': song_title,
+            'artist': artist_name,
+            'genre': genre
         }
         
-        if bai_hat not in self.playlist:
-            self.playlist.append(bai_hat)
-            if ca_si not in self.artists:
-                self.artists.append(ca_si)
-            if the_loai not in self.genres:
-                self.genres.append(the_loai)
-            print(f"✅ Đã thêm: {ten_bai} - {ca_si}")
+        if song not in self.playlist:
+            self.playlist.append(song)
+            if artist_name not in self.artists:
+                self.artists.append(artist_name)
+            if genre not in self.genres:
+                self.genres.append(genre)
+            print(f"✅ Đã thêm: {song_title} - {artist_name}")
         else:
             print(f"⚠️  Bài hát đã có trong playlist")
     
-    def xoa_bai_hat(self, ten_bai):
+    def remove_song(self, song_title):
         """Xóa bài hát"""
-        for i, bai in enumerate(self.playlist):
-            if bai['ten'].lower() == ten_bai.lower():
-                bai_da_xoa = self.playlist.pop(i)
-                print(f"🗑️  Đã xóa: {bai_da_xoa['ten']} - {bai_da_xoa['ca_si']}")
+        for i, song in enumerate(self.playlist):
+            if song['title'].lower() == song_title.lower():
+                removed_song = self.playlist.pop(i)
+                print(f"🗑️  Đã xóa: {removed_song['title']} - {removed_song['artist']}")
                 return
-        print(f"❌ Không tìm thấy bài hát: {ten_bai}")
+        print(f"❌ Không tìm thấy bài hát: {song_title}")
     
-    def sap_xep_theo_ten(self):
+    def sort_by_title(self):
         """Sắp xếp theo tên bài hát"""
-        self.playlist.sort(key=lambda x: x['ten'].lower())
+        self.playlist.sort(key=lambda x: x['title'].lower())
         print("📝 Đã sắp xếp theo tên bài hát")
     
-    def sap_xep_theo_ca_si(self):
+    def sort_by_artist(self):
         """Sắp xếp theo tên ca sĩ"""
-        self.playlist.sort(key=lambda x: x['ca_si'].lower())
+        self.playlist.sort(key=lambda x: x['artist'].lower())
         print("🎤 Đã sắp xếp theo tên ca sĩ")
     
-    def tim_bai_hat(self, tu_khoa):
+    def search_songs(self, keyword):
         """Tìm bài hát theo từ khóa"""
-        ket_qua = []
-        tu_khoa_lower = tu_khoa.lower()
+        search_results = []
+        keyword_lower = keyword.lower()
         
-        for bai in self.playlist:
-            if (tu_khoa_lower in bai['ten'].lower() or 
-                tu_khoa_lower in bai['ca_si'].lower() or 
-                tu_khoa_lower in bai['the_loai'].lower()):
-                ket_qua.append(bai)
+        for song in self.playlist:
+            if (keyword_lower in song['title'].lower() or 
+                keyword_lower in song['artist'].lower() or 
+                keyword_lower in song['genre'].lower()):
+                search_results.append(song)
         
-        if ket_qua:
-            print(f"🔍 Tìm thấy {len(ket_qua)} bài hát:")
-            for bai in ket_qua:
-                print(f"   🎵 {bai['ten']} - {bai['ca_si']} ({bai['the_loai']})")
+        if search_results:
+            print(f"🔍 Tìm thấy {len(search_results)} bài hát:")
+            for song in search_results:
+                print(f"   🎵 {song['title']} - {song['artist']} ({song['genre']})")
         else:
-            print(f"😅 Không tìm thấy bài hát nào chứa '{tu_khoa}'")
+            print(f"😅 Không tìm thấy bài hát nào chứa '{keyword}'")
     
-    def loc_theo_the_loai(self, the_loai):
+    def filter_by_genre(self, genre):
         """Lọc bài hát theo thể loại"""
-        bai_theo_loai = [bai for bai in self.playlist if bai['the_loai'].lower() == the_loai.lower()]
+        songs_by_genre = [song for song in self.playlist if song['genre'].lower() == genre.lower()]
         
-        if bai_theo_loai:
-            print(f"🎭 Bài hát thể loại '{the_loai}':")
-            for bai in bai_theo_loai:
-                print(f"   🎵 {bai['ten']} - {bai['ca_si']}")
+        if songs_by_genre:
+            print(f"🎭 Bài hát thể loại '{genre}':")
+            for song in songs_by_genre:
+                print(f"   🎵 {song['title']} - {song['artist']}")
         else:
-            print(f"😅 Không có bài hát nào thuộc thể loại '{the_loai}'")
+            print(f"😅 Không có bài hát nào thuộc thể loại '{genre}'")
     
-    def hien_thi_playlist(self):
+    def display_playlist(self):
         """Hiển thị toàn bộ playlist"""
         if not self.playlist:
             print("📝 Playlist trống")
@@ -574,10 +574,10 @@ class PlaylistManager:
         print(f"\n🎵 PLAYLIST ({len(self.playlist)} bài)")
         print("=" * 50)
         
-        for i, bai in enumerate(self.playlist, 1):
-            print(f"{i:2d}. {bai['ten']} - {bai['ca_si']} ({bai['the_loai']})")
+        for i, song in enumerate(self.playlist, 1):
+            print(f"{i:2d}. {song['title']} - {song['artist']} ({song['genre']})")
     
-    def thong_ke(self):
+    def show_statistics(self):
         """Thống kê playlist"""
         if not self.playlist:
             print("📊 Playlist trống, không có thống kê")
@@ -590,20 +590,20 @@ class PlaylistManager:
         print(f"🎭 Số thể loại: {len(self.genres)}")
         
         # Thống kê theo thể loại
-        the_loai_count = {}
-        for bai in self.playlist:
-            the_loai = bai['the_loai']
-            the_loai_count[the_loai] = the_loai_count.get(the_loai, 0) + 1
+        genre_counts = {}
+        for song in self.playlist:
+            genre = song['genre']
+            genre_counts[genre] = genre_counts.get(genre, 0) + 1
         
         print(f"\n🎭 Phân bố theo thể loại:")
-        for the_loai, so_luong in sorted(the_loai_count.items()):
-            print(f"   {the_loai}: {so_luong} bài")
+        for genre, count in sorted(genre_counts.items()):
+            print(f"   {genre}: {count} bài")
 
 # Sử dụng PlaylistManager
 playlist = PlaylistManager()
 
 # Thêm một số bài hát mẫu
-bai_hat_mau = [
+sample_songs = [
     ("Shape of You", "Ed Sheeran", "Pop"),
     ("Blinding Lights", "The Weeknd", "Pop"),
     ("Watermelon Sugar", "Harry Styles", "Pop"),
@@ -616,24 +616,24 @@ bai_hat_mau = [
     ("Peaches", "Justin Bieber", "Pop")
 ]
 
-for ten, ca_si, the_loai in bai_hat_mau:
-    playlist.them_bai_hat(ten, ca_si, the_loai)
+for title, artist, genre in sample_songs:
+    playlist.add_song(title, artist, genre)
 
 # Hiển thị playlist
-playlist.hien_thi_playlist()
+playlist.display_playlist()
 
 # Thống kê
-playlist.thong_ke()
+playlist.show_statistics()
 
 # Tìm kiếm
-playlist.tim_bai_hat("Ed")
+playlist.search_songs("Ed")
 
 # Lọc theo thể loại
-playlist.loc_theo_the_loai("Pop")
+playlist.filter_by_genre("Pop")
 
 # Sắp xếp
-playlist.sap_xep_theo_ten()
-playlist.hien_thi_playlist()
+playlist.sort_by_title()
+playlist.display_playlist()
 ```
 
 ## 🎊 Tóm Tắt
@@ -658,3 +658,4 @@ Hãy thử tạo một "hệ thống quản lý điểm danh lớp học" sử d
 ---
 
 *🔗 **Bài tiếp theo**: [Dictionaries - Cấu Trúc Key-Value Siêu Mạnh](/python/intermediate/dictionaries)*
+

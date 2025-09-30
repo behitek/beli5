@@ -38,16 +38,16 @@ graph LR
 
 ```python
 # List - có thể thay đổi
-danh_sach = [1, 2, 3]
-danh_sach.append(4)        # ✅ Được
-danh_sach[0] = 10          # ✅ Được
-danh_sach.remove(2)        # ✅ Được
+list_example = [1, 2, 3]
+list_example.append(4)        # ✅ Được
+list_example[0] = 10          # ✅ Được
+list_example.remove(2)        # ✅ Được
 
 # Tuple - không thể thay đổi
-danh_sach_co_dinh = (1, 2, 3)
-# danh_sach_co_dinh.append(4)     # ❌ Lỗi!
-# danh_sach_co_dinh[0] = 10       # ❌ Lỗi!
-# danh_sach_co_dinh.remove(2)     # ❌ Lỗi!
+tuple_example = (1, 2, 3)
+# tuple_example.append(4)     # ❌ Lỗi!
+# tuple_example[0] = 10       # ❌ Lỗi!
+# tuple_example.remove(2)     # ❌ Lỗi!
 ```
 
 ## 🎯 Tạo Tuple
@@ -57,38 +57,38 @@ danh_sach_co_dinh = (1, 2, 3)
 ```python
 # Cách 1: Dùng dấu ngoặc đơn
 tuple_1 = (1, 2, 3, 4, 5)
-tuple_2 = ("An", "Bình", "Châu")
+tuple_2 = ("An", "Binh", "Chau")
 
 # Cách 2: Không cần dấu ngoặc (tuple packing)
 tuple_3 = 1, 2, 3, 4, 5
 tuple_4 = "Python", "Java", "C++"
 
 # Tuple rỗng
-tuple_rong = ()
+empty_tuple = ()
 
 # Tuple có 1 phần tử (cần dấu phẩy!)
-tuple_1_phan_tu = (42,)  # Quan trọng: dấu phẩy!
-tuple_1_phan_tu_2 = 42,  # Cũng được
+single_element_tuple = (42,)  # Quan trọng: dấu phẩy!
+single_element_tuple_2 = 42,  # Cũng được
 
 print("Tuple 1:", tuple_1)
 print("Tuple 2:", tuple_2)
-print("Tuple rỗng:", tuple_rong)
-print("Tuple 1 phần tử:", tuple_1_phan_tu)
+print("Tuple rỗng:", empty_tuple)
+print("Tuple 1 phần tử:", single_element_tuple)
 ```
 
 ### 🎨 Các Kiểu Dữ Liệu Trong Tuple
 
 ```python
 # Tuple hỗn hợp
-thong_tin_hoc_sinh = ("Nguyễn Văn An", 16, "9A", 8.5, True)
+student_info = ("Nguyen Van An", 16, "9A", 8.5, True)
 
 # Tuple lồng nhau
-diem_so = ((8.5, 7.0), (9.0, 8.5), (7.5, 6.0))
+scores = ((8.5, 7.0), (9.0, 8.5), (7.5, 6.0))
 
 # Tuple chứa list (list vẫn có thể thay đổi!)
-tuple_co_list = (1, 2, [3, 4, 5])
-tuple_co_list[2].append(6)  # ✅ Được! Vì list bên trong vẫn mutable
-print("Tuple có list:", tuple_co_list)  # (1, 2, [3, 4, 5, 6])
+tuple_with_list = (1, 2, [3, 4, 5])
+tuple_with_list[2].append(6)  # ✅ Được! Vì list bên trong vẫn mutable
+print("Tuple có list:", tuple_with_list)  # (1, 2, [3, 4, 5, 6])
 ```
 
 ## 🔍 Truy Cập Dữ Liệu
@@ -97,40 +97,40 @@ print("Tuple có list:", tuple_co_list)  # (1, 2, [3, 4, 5, 6])
 
 ```python
 # Tuple điểm số
-diem_so = (8.5, 7.0, 9.0, 6.5, 8.0)
+scores = (8.5, 7.0, 9.0, 6.5, 8.0)
 
 # Truy cập bằng index
-print("Điểm đầu tiên:", diem_so[0])      # 8.5
-print("Điểm cuối cùng:", diem_so[-1])     # 8.0
-print("Điểm thứ 3:", diem_so[2])          # 9.0
+print("Điểm đầu tiên:", scores[0])      # 8.5
+print("Điểm cuối cùng:", scores[-1])     # 8.0
+print("Điểm thứ 3:", scores[2])          # 9.0
 
 # Slicing
-print("3 điểm đầu:", diem_so[:3])         # (8.5, 7.0, 9.0)
-print("2 điểm cuối:", diem_so[-2:])       # (6.5, 8.0)
-print("Điểm giữa:", diem_so[1:4])         # (7.0, 9.0, 6.5)
+print("3 điểm đầu:", scores[:3])         # (8.5, 7.0, 9.0)
+print("2 điểm cuối:", scores[-2:])       # (6.5, 8.0)
+print("Điểm giữa:", scores[1:4])         # (7.0, 9.0, 6.5)
 ```
 
 ### 🔄 Unpacking - Giải Nén Tuple
 
 ```python
 # Tuple thông tin học sinh
-thong_tin = ("Nguyễn Văn An", 16, "9A", 8.5)
+student_info = ("Nguyen Van An", 16, "9A", 8.5)
 
 # Unpacking - gán từng giá trị vào biến
-ten, tuoi, lop, diem_tb = thong_tin
+name, age, class_name, average_score = student_info
 
-print(f"Tên: {ten}")
-print(f"Tuổi: {tuoi}")
-print(f"Lớp: {lop}")
-print(f"Điểm TB: {diem_tb}")
+print(f"Tên: {name}")
+print(f"Tuổi: {age}")
+print(f"Lớp: {class_name}")
+print(f"Điểm TB: {average_score}")
 
 # Unpacking với dấu * (rest)
-diem_so = (8.5, 7.0, 9.0, 6.5, 8.0)
-diem_cao_nhat, *diem_con_lai, diem_thap_nhat = diem_so
+scores = (8.5, 7.0, 9.0, 6.5, 8.0)
+highest_score, *remaining_scores, lowest_score = scores
 
-print(f"Điểm cao nhất: {diem_cao_nhat}")      # 8.5
-print(f"Điểm còn lại: {diem_con_lai}")        # [7.0, 9.0, 6.5]
-print(f"Điểm thấp nhất: {diem_thap_nhat}")    # 8.0
+print(f"Điểm cao nhất: {highest_score}")      # 8.5
+print(f"Điểm còn lại: {remaining_scores}")        # [7.0, 9.0, 6.5]
+print(f"Điểm thấp nhất: {lowest_score}")    # 8.0
 ```
 
 ## 🔍 Các Thao Tác Với Tuple
@@ -138,163 +138,163 @@ print(f"Điểm thấp nhất: {diem_thap_nhat}")    # 8.0
 ### 📊 Kiểm Tra và Đếm
 
 ```python
-diem_so = (8.5, 7.0, 9.0, 6.5, 8.0, 7.0)
+scores = (8.5, 7.0, 9.0, 6.5, 8.0, 7.0)
 
 # Kiểm tra có tồn tại không
-print("Có điểm 8.5?", 8.5 in diem_so)        # True
-print("Có điểm 10?", 10 in diem_so)          # False
+print("Có điểm 8.5?", 8.5 in scores)        # True
+print("Có điểm 10?", 10 in scores)          # False
 
 # Đếm số lần xuất hiện
-print("Số lần xuất hiện 7.0:", diem_so.count(7.0))  # 2
-print("Số lần xuất hiện 9.0:", diem_so.count(9.0))  # 1
+print("Số lần xuất hiện 7.0:", scores.count(7.0))  # 2
+print("Số lần xuất hiện 9.0:", scores.count(9.0))  # 1
 
 # Tìm vị trí
-print("Vị trí đầu tiên của 7.0:", diem_so.index(7.0))  # 1
+print("Vị trí đầu tiên của 7.0:", scores.index(7.0))  # 1
 
 # Độ dài
-print("Số lượng điểm:", len(diem_so))        # 6
+print("Số lượng điểm:", len(scores))        # 6
 ```
 
 ### 🔄 Chuyển Đổi
 
 ```python
 # Chuyển list thành tuple
-danh_sach = [1, 2, 3, 4, 5]
-tuple_tu_list = tuple(danh_sach)
-print("Tuple từ list:", tuple_tu_list)
+list_example = [1, 2, 3, 4, 5]
+tuple_from_list = tuple(list_example)
+print("Tuple từ list:", tuple_from_list)
 
 # Chuyển tuple thành list
-tuple_goc = (1, 2, 3, 4, 5)
-danh_sach_tu_tuple = list(tuple_goc)
-print("List từ tuple:", danh_sach_tu_tuple)
+original_tuple = (1, 2, 3, 4, 5)
+list_from_tuple = list(original_tuple)
+print("List từ tuple:", list_from_tuple)
 
 # Chuyển string thành tuple
-chuoi = "Python"
-tuple_tu_chuoi = tuple(chuoi)
-print("Tuple từ string:", tuple_tu_chuoi)  # ('P', 'y', 't', 'h', 'o', 'n')
+string_example = "Python"
+tuple_from_string = tuple(string_example)
+print("Tuple từ string:", tuple_from_string)  # ('P', 'y', 't', 'h', 'o', 'n')
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý Tọa Độ
 
 ```python
 # 🗺️ Hệ thống quản lý tọa độ với tuples
-class QuanLyToaDo:
+class CoordinateManager:
     def __init__(self):
-        self.diem_danh_dau = {}
-        self.duong_di = []
+        self.landmarks = {}
+        self.routes = []
     
-    def them_diem(self, ten_diem, x, y, mo_ta=""):
+    def add_point(self, point_name, x, y, description=""):
         """Thêm điểm mới vào bản đồ"""
-        toa_do = (x, y)  # Tuple không thể thay đổi
+        coordinates = (x, y)  # Tuple không thể thay đổi
         
-        self.diem_danh_dau[ten_diem] = {
-            "toa_do": toa_do,
-            "mo_ta": mo_ta
+        self.landmarks[point_name] = {
+            "coordinates": coordinates,
+            "description": description
         }
         
-        print(f"📍 Đã thêm điểm: {ten_diem} tại {toa_do}")
-        return toa_do
+        print(f"📍 Đã thêm điểm: {point_name} tại {coordinates}")
+        return coordinates
     
-    def tinh_khoang_cach(self, diem_1, diem_2):
+    def calculate_distance(self, point_1, point_2):
         """Tính khoảng cách giữa 2 điểm"""
-        if diem_1 not in self.diem_danh_dau or diem_2 not in self.diem_danh_dau:
+        if point_1 not in self.landmarks or point_2 not in self.landmarks:
             return None
         
         # Unpacking tuple tọa độ
-        x1, y1 = self.diem_danh_dau[diem_1]["toa_do"]
-        x2, y2 = self.diem_danh_dau[diem_2]["toa_do"]
+        x1, y1 = self.landmarks[point_1]["coordinates"]
+        x2, y2 = self.landmarks[point_2]["coordinates"]
         
-        khoang_cach = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
-        return round(khoang_cach, 2)
+        distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+        return round(distance, 2)
     
-    def tao_duong_di(self, *ten_cac_diem):
+    def create_route(self, *point_names):
         """Tạo đường đi qua nhiều điểm"""
-        if len(ten_cac_diem) < 2:
+        if len(point_names) < 2:
             print("❌ Cần ít nhất 2 điểm để tạo đường đi")
             return
         
         # Kiểm tra tất cả điểm có tồn tại
-        for ten_diem in ten_cac_diem:
-            if ten_diem not in self.diem_danh_dau:
-                print(f"❌ Không tìm thấy điểm: {ten_diem}")
+        for point_name in point_names:
+            if point_name not in self.landmarks:
+                print(f"❌ Không tìm thấy điểm: {point_name}")
                 return
         
         # Tạo tuple đường đi (không thể thay đổi)
-        duong_di = tuple(ten_cac_diem)
-        self.duong_di.append(duong_di)
+        route = tuple(point_names)
+        self.routes.append(route)
         
         # Tính tổng khoảng cách
-        tong_khoang_cach = 0
-        for i in range(len(duong_di) - 1):
-            khoang_cach = self.tinh_khoang_cach(duong_di[i], duong_di[i+1])
-            tong_khoang_cach += khoang_cach
+        total_distance = 0
+        for i in range(len(route) - 1):
+            distance = self.calculate_distance(route[i], route[i+1])
+            total_distance += distance
         
-        print(f"🛣️  Đã tạo đường đi: {' → '.join(duong_di)}")
-        print(f"📏 Tổng khoảng cách: {tong_khoang_cach:.2f} đơn vị")
+        print(f"🛣️  Đã tạo đường đi: {' → '.join(route)}")
+        print(f"📏 Tổng khoảng cách: {total_distance:.2f} đơn vị")
         
-        return duong_di
+        return route
     
-    def tim_diem_gan_nhat(self, ten_diem_goc):
+    def find_nearest_point(self, origin_point):
         """Tìm điểm gần nhất với điểm gốc"""
-        if ten_diem_goc not in self.diem_danh_dau:
-            print(f"❌ Không tìm thấy điểm: {ten_diem_goc}")
+        if origin_point not in self.landmarks:
+            print(f"❌ Không tìm thấy điểm: {origin_point}")
             return
         
-        diem_gan_nhat = None
-        khoang_cach_ngan_nhat = float('inf')
+        nearest_point = None
+        shortest_distance = float('inf')
         
-        for ten_diem, thong_tin in self.diem_danh_dau.items():
-            if ten_diem != ten_diem_goc:
-                khoang_cach = self.tinh_khoang_cach(ten_diem_goc, ten_diem)
-                if khoang_cach < khoang_cach_ngan_nhat:
-                    khoang_cach_ngan_nhat = khoang_cach
-                    diem_gan_nhat = ten_diem
+        for point_name, info in self.landmarks.items():
+            if point_name != origin_point:
+                distance = self.calculate_distance(origin_point, point_name)
+                if distance < shortest_distance:
+                    shortest_distance = distance
+                    nearest_point = point_name
         
-        if diem_gan_nhat:
-            print(f"🎯 Điểm gần nhất với {ten_diem_goc}: {diem_gan_nhat}")
-            print(f"📏 Khoảng cách: {khoang_cach_ngan_nhat:.2f} đơn vị")
+        if nearest_point:
+            print(f"🎯 Điểm gần nhất với {origin_point}: {nearest_point}")
+            print(f"📏 Khoảng cách: {shortest_distance:.2f} đơn vị")
         
-        return diem_gan_nhat, khoang_cach_ngan_nhat
+        return nearest_point, shortest_distance
     
-    def hien_thi_ban_do(self):
+    def display_map(self):
         """Hiển thị bản đồ"""
-        if not self.diem_danh_dau:
+        if not self.landmarks:
             print("🗺️  Bản đồ trống")
             return
         
         print("\n🗺️  BẢN ĐỒ")
         print("=" * 50)
         
-        for ten_diem, thong_tin in self.diem_danh_dau.items():
-            x, y = thong_tin["toa_do"]
-            mo_ta = thong_tin["mo_ta"]
-            print(f"📍 {ten_diem}: ({x}, {y}) - {mo_ta}")
+        for point_name, info in self.landmarks.items():
+            x, y = info["coordinates"]
+            description = info["description"]
+            print(f"📍 {point_name}: ({x}, {y}) - {description}")
         
-        if self.duong_di:
-            print(f"\n🛣️  ĐƯỜNG ĐI ({len(self.duong_di)} đường)")
-            for i, duong in enumerate(self.duong_di, 1):
-                print(f"   {i}. {' → '.join(duong)}")
+        if self.routes:
+            print(f"\n🛣️  ĐƯỜNG ĐI ({len(self.routes)} đường)")
+            for i, route in enumerate(self.routes, 1):
+                print(f"   {i}. {' → '.join(route)}")
 
 # Sử dụng hệ thống
-ban_do = QuanLyToaDo()
+map_manager = CoordinateManager()
 
 # Thêm các điểm
-ban_do.them_diem("Nhà", 0, 0, "Nhà của An")
-ban_do.them_diem("Trường", 5, 3, "Trường THCS")
-ban_do.them_diem("Thư viện", 2, 4, "Thư viện công cộng")
-ban_do.them_diem("Công viên", 7, 1, "Công viên trung tâm")
-ban_do.them_diem("Siêu thị", 3, 6, "Siêu thị lớn")
+map_manager.add_point("Home", 0, 0, "Nhà của An")
+map_manager.add_point("School", 5, 3, "Trường THCS")
+map_manager.add_point("Library", 2, 4, "Thư viện công cộng")
+map_manager.add_point("Park", 7, 1, "Công viên trung tâm")
+map_manager.add_point("Market", 3, 6, "Siêu thị lớn")
 
 # Tạo đường đi
-ban_do.tao_duong_di("Nhà", "Trường", "Thư viện")
-ban_do.tao_duong_di("Nhà", "Công viên", "Siêu thị")
+map_manager.create_route("Home", "School", "Library")
+map_manager.create_route("Home", "Park", "Market")
 
 # Tìm điểm gần nhất
-ban_do.tim_diem_gan_nhat("Nhà")
-ban_do.tim_diem_gan_nhat("Trường")
+map_manager.find_nearest_point("Home")
+map_manager.find_nearest_point("School")
 
 # Hiển thị bản đồ
-ban_do.hien_thi_ban_do()
+map_manager.display_map()
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -303,20 +303,20 @@ ban_do.hien_thi_ban_do()
 
 ```python
 # TODO: Tạo hệ thống quản lý thời khóa biểu với tuples
-def tao_thoi_khoa_bieu():
+def create_schedule():
     """Tạo thời khóa biểu cho một tuần"""
     
     # Tuple chứa các ngày trong tuần (không thể thay đổi)
-    cac_ngay = ("Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6")
+    weekdays = ("Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6")
     
     # Tuple chứa các tiết học (không thể thay đổi)
-    cac_tiet = ("Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5")
+    periods = ("Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5")
     
     # Dictionary chứa thời khóa biểu
-    thoi_khoa_bieu = {}
+    schedule = {}
     
     # Môn học cho mỗi ngày (tuple không thể thay đổi)
-    mon_hoc_ngay = {
+    daily_subjects = {
         "Thứ 2": ("Toán", "Lý", "Hóa", "Văn", "Anh"),
         "Thứ 3": ("Văn", "Toán", "Sử", "Địa", "Sinh"),
         "Thứ 4": ("Lý", "Hóa", "Toán", "Anh", "Thể dục"),
@@ -325,90 +325,90 @@ def tao_thoi_khoa_bieu():
     }
     
     # Tạo thời khóa biểu
-    for ngay in cac_ngay:
-        thoi_khoa_bieu[ngay] = {}
-        mon_hoc = mon_hoc_ngay[ngay]
+    for day in weekdays:
+        schedule[day] = {}
+        subjects = daily_subjects[day]
         
-        for i, tiet in enumerate(cac_tiet):
-            thoi_khoa_bieu[ngay][tiet] = mon_hoc[i]
+        for i, period in enumerate(periods):
+            schedule[day][period] = subjects[i]
     
-    return thoi_khoa_bieu, cac_ngay, cac_tiet
+    return schedule, weekdays, periods
 
-def hien_thi_thoi_khoa_bieu(thoi_khoa_bieu, cac_ngay, cac_tiet):
+def display_schedule(schedule, weekdays, periods):
     """Hiển thị thời khóa biểu"""
     print("📅 THỜI KHÓA BIỂU TUẦN")
     print("=" * 60)
     
     # Header
     print(f"{'Ngày':<10}", end="")
-    for tiet in cac_tiet:
-        print(f"{tiet:<12}", end="")
+    for period in periods:
+        print(f"{period:<12}", end="")
     print()
     print("-" * 60)
     
     # Nội dung
-    for ngay in cac_ngay:
-        print(f"{ngay:<10}", end="")
-        for tiet in cac_tiet:
-            mon = thoi_khoa_bieu[ngay][tiet]
-            print(f"{mon:<12}", end="")
+    for day in weekdays:
+        print(f"{day:<10}", end="")
+        for period in periods:
+            subject = schedule[day][period]
+            print(f"{subject:<12}", end="")
         print()
 
-def tim_mon_hoc_trong_tuan(thoi_khoa_bieu, ten_mon):
+def find_subject_in_week(schedule, subject_name):
     """Tìm môn học trong tuần"""
-    ket_qua = []
+    results = []
     
-    for ngay, tiet_hoc in thoi_khoa_bieu.items():
-        for tiet, mon in tiet_hoc.items():
-            if mon == ten_mon:
-                ket_qua.append((ngay, tiet))
+    for day, periods_dict in schedule.items():
+        for period, subject in periods_dict.items():
+            if subject == subject_name:
+                results.append((day, period))
     
-    return ket_qua
+    return results
 
-def thong_ke_mon_hoc(thoi_khoa_bieu):
+def count_subjects_statistics(schedule):
     """Thống kê số tiết của mỗi môn"""
-    thong_ke = {}
+    statistics = {}
     
-    for ngay, tiet_hoc in thoi_khoa_bieu.items():
-        for tiet, mon in tiet_hoc.items():
-            thong_ke[mon] = thong_ke.get(mon, 0) + 1
+    for day, periods_dict in schedule.items():
+        for period, subject in periods_dict.items():
+            statistics[subject] = statistics.get(subject, 0) + 1
     
-    return thong_ke
+    return statistics
 
 # Sử dụng hệ thống
-thoi_khoa_bieu, cac_ngay, cac_tiet = tao_thoi_khoa_bieu()
+schedule, weekdays, periods = create_schedule()
 
 # Hiển thị thời khóa biểu
-hien_thi_thoi_khoa_bieu(thoi_khoa_bieu, cac_ngay, cac_tiet)
+display_schedule(schedule, weekdays, periods)
 
 # Tìm môn học
 print(f"\n🔍 TÌM KIẾM MÔN HỌC")
 print("=" * 30)
 
-mon_can_tim = "Toán"
-ket_qua_tim = tim_mon_hoc_trong_tuan(thoi_khoa_bieu, mon_can_tim)
+search_subject = "Toán"
+search_results = find_subject_in_week(schedule, search_subject)
 
-if ket_qua_tim:
-    print(f"📚 Môn {mon_can_tim} có {len(ket_qua_tim)} tiết:")
-    for ngay, tiet in ket_qua_tim:
-        print(f"   {ngay} - {tiet}")
+if search_results:
+    print(f"📚 Môn {search_subject} có {len(search_results)} tiết:")
+    for day, period in search_results:
+        print(f"   {day} - {period}")
 else:
-    print(f"😅 Không tìm thấy môn {mon_can_tim}")
+    print(f"😅 Không tìm thấy môn {search_subject}")
 
 # Thống kê
 print(f"\n📊 THỐNG KÊ MÔN HỌC")
 print("=" * 30)
 
-thong_ke = thong_ke_mon_hoc(thoi_khoa_bieu)
-for mon, so_tiet in sorted(thong_ke.items()):
-    print(f"{mon:<10}: {so_tiet} tiết")
+statistics = count_subjects_statistics(schedule)
+for subject, period_count in sorted(statistics.items()):
+    print(f"{subject:<10}: {period_count} tiết")
 ```
 
 ### 🥈 Bài Tập 2: Game Tic-Tac-Toe
 
 ```python
 # TODO: Tạo game Tic-Tac-Toe với tuples
-def tao_ban_co():
+def create_board():
     """Tạo bàn cờ 3x3"""
     return (
         (" ", " ", " "),
@@ -416,63 +416,63 @@ def tao_ban_co():
         (" ", " ", " ")
     )
 
-def hien_thi_ban_co(ban_co):
+def display_board(board):
     """Hiển thị bàn cờ"""
     print("\n🎮 BÀN CỜ TIC-TAC-TOE")
     print("=" * 20)
     print("   1   2   3")
     
-    for i, hang in enumerate(ban_co):
-        print(f"{i+1}  {' | '.join(hang)}")
+    for i, row in enumerate(board):
+        print(f"{i+1}  {' | '.join(row)}")
         if i < 2:
             print("  -----------")
 
-def kiem_tra_thang(ban_co):
+def check_winner(board):
     """Kiểm tra có người thắng không"""
     # Chuyển tuple thành list để dễ xử lý
-    ban_co_list = [list(hang) for hang in ban_co]
+    board_list = [list(row) for row in board]
     
     # Kiểm tra hàng ngang
-    for hang in ban_co_list:
-        if hang[0] == hang[1] == hang[2] != " ":
-            return hang[0]
+    for row in board_list:
+        if row[0] == row[1] == row[2] != " ":
+            return row[0]
     
     # Kiểm tra cột dọc
-    for cot in range(3):
-        if ban_co_list[0][cot] == ban_co_list[1][cot] == ban_co_list[2][cot] != " ":
-            return ban_co_list[0][cot]
+    for col in range(3):
+        if board_list[0][col] == board_list[1][col] == board_list[2][col] != " ":
+            return board_list[0][col]
     
     # Kiểm tra đường chéo
-    if ban_co_list[0][0] == ban_co_list[1][1] == ban_co_list[2][2] != " ":
-        return ban_co_list[0][0]
+    if board_list[0][0] == board_list[1][1] == board_list[2][2] != " ":
+        return board_list[0][0]
     
-    if ban_co_list[0][2] == ban_co_list[1][1] == ban_co_list[2][0] != " ":
-        return ban_co_list[0][2]
+    if board_list[0][2] == board_list[1][1] == board_list[2][0] != " ":
+        return board_list[0][2]
     
     return None
 
-def kiem_tra_hoa(ban_co):
+def check_draw(board):
     """Kiểm tra hòa"""
-    for hang in ban_co:
-        if " " in hang:
+    for row in board:
+        if " " in row:
             return False
     return True
 
-def danh_co(ban_co, hang, cot, ky_hieu):
+def make_move(board, row, col, symbol):
     """Đánh cờ"""
     # Chuyển tuple thành list để thay đổi
-    ban_co_list = [list(hang) for hang in ban_co]
+    board_list = [list(row) for row in board]
     
-    if ban_co_list[hang][cot] != " ":
-        return False, ban_co  # Ô đã có quân
+    if board_list[row][col] != " ":
+        return False, board  # Ô đã có quân
     
-    ban_co_list[hang][cot] = ky_hieu
+    board_list[row][col] = symbol
     
     # Chuyển lại thành tuple
-    ban_co_moi = tuple(tuple(hang) for hang in ban_co_list)
-    return True, ban_co_moi
+    new_board = tuple(tuple(row) for row in board_list)
+    return True, new_board
 
-def game_tic_tac_toe():
+def play_tic_tac_toe():
     """Game Tic-Tac-Toe chính"""
     print("🎮 GAME TIC-TAC-TOE")
     print("=" * 30)
@@ -482,25 +482,25 @@ def game_tic_tac_toe():
     print("Nhập 'quit' để thoát")
     print("-" * 30)
     
-    ban_co = tao_ban_co()
-    nguoi_choi_hien_tai = "X"
+    board = create_board()
+    current_player = "X"
     
     while True:
-        hien_thi_ban_co(ban_co)
+        display_board(board)
         
         # Nhập tọa độ
         try:
-            nhap = input(f"\nNgười chơi {nguoi_choi_hien_tai}, nhập tọa độ (hàng,cột): ")
+            user_input = input(f"\nNgười chơi {current_player}, nhập tọa độ (hàng,cột): ")
             
-            if nhap.lower() == 'quit':
+            if user_input.lower() == 'quit':
                 print("👋 Tạm biệt!")
                 break
             
-            hang, cot = map(int, nhap.split(','))
-            hang -= 1  # Chuyển từ 1-3 thành 0-2
-            cot -= 1
+            row, col = map(int, user_input.split(','))
+            row -= 1  # Chuyển từ 1-3 thành 0-2
+            col -= 1
             
-            if not (0 <= hang <= 2 and 0 <= cot <= 2):
+            if not (0 <= row <= 2 and 0 <= col <= 2):
                 print("❌ Tọa độ không hợp lệ! Nhập từ 1-3")
                 continue
             
@@ -509,30 +509,30 @@ def game_tic_tac_toe():
             continue
         
         # Đánh cờ
-        thanh_cong, ban_co = danh_co(ban_co, hang, cot, nguoi_choi_hien_tai)
+        success, board = make_move(board, row, col, current_player)
         
-        if not thanh_cong:
+        if not success:
             print("❌ Ô này đã có quân rồi!")
             continue
         
         # Kiểm tra thắng
-        nguoi_thang = kiem_tra_thang(ban_co)
-        if nguoi_thang:
-            hien_thi_ban_co(ban_co)
-            print(f"🎉 Người chơi {nguoi_thang} thắng!")
+        winner = check_winner(board)
+        if winner:
+            display_board(board)
+            print(f"🎉 Người chơi {winner} thắng!")
             break
         
         # Kiểm tra hòa
-        if kiem_tra_hoa(ban_co):
-            hien_thi_ban_co(ban_co)
+        if check_draw(board):
+            display_board(board)
             print("🤝 Hòa! Không ai thắng!")
             break
         
         # Đổi người chơi
-        nguoi_choi_hien_tai = "O" if nguoi_choi_hien_tai == "X" else "X"
+        current_player = "O" if current_player == "X" else "X"
 
 # Chạy game
-game_tic_tac_toe()
+play_tic_tac_toe()
 ```
 
 ## 🎊 Tóm Tắt

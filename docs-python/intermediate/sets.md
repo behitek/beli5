@@ -37,16 +37,16 @@ graph LR
 
 ```python
 # List - có thể trùng lặp, có thứ tự
-danh_sach = [1, 2, 3, 2, 1, 3]
-print("List:", danh_sach)  # [1, 2, 3, 2, 1, 3]
+number_list = [1, 2, 3, 2, 1, 3]
+print("List:", number_list)  # [1, 2, 3, 2, 1, 3]
 
 # Set - không trùng lặp, không thứ tự
-tap_hop = {1, 2, 3, 2, 1, 3}
-print("Set:", tap_hop)     # {1, 2, 3} hoặc {2, 1, 3} (thứ tự ngẫu nhiên)
+number_set = {1, 2, 3, 2, 1, 3}
+print("Set:", number_set)     # {1, 2, 3} hoặc {2, 1, 3} (thứ tự ngẫu nhiên)
 
 # Tuple - có thể trùng lặp, có thứ tự, không thay đổi
-tuple_co_dinh = (1, 2, 3, 2, 1)
-print("Tuple:", tuple_co_dinh)  # (1, 2, 3, 2, 1)
+fixed_tuple = (1, 2, 3, 2, 1)
+print("Tuple:", fixed_tuple)  # (1, 2, 3, 2, 1)
 ```
 
 ## 🎯 Tạo Set
@@ -63,33 +63,33 @@ set_3 = set([1, 2, 3, 4, 5])
 set_4 = set("Python")  # {'P', 'y', 't', 'h', 'o', 'n'}
 
 # Set rỗng (phải dùng set(), không dùng {})
-set_rong = set()
+empty_set = set()
 
 # Từ string - loại bỏ ký tự trùng lặp
-chuoi = "hello world"
-set_ky_tu = set(chuoi)
-print("Ký tự unique:", set_ky_tu)  # {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'd'}
+text = "hello world"
+unique_chars = set(text)
+print("Ký tự unique:", unique_chars)  # {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'd'}
 
 # Từ list - loại bỏ phần tử trùng lặp
-danh_sach = [1, 2, 3, 2, 1, 4, 3, 5]
-set_so = set(danh_sach)
-print("Số unique:", set_so)  # {1, 2, 3, 4, 5}
+number_list = [1, 2, 3, 2, 1, 4, 3, 5]
+unique_numbers = set(number_list)
+print("Số unique:", unique_numbers)  # {1, 2, 3, 4, 5}
 ```
 
 ### 🎨 Các Kiểu Dữ Liệu Trong Set
 
 ```python
 # Set hỗn hợp
-set_hon_hop = {1, "Python", 3.14, True, (1, 2, 3)}
+mixed_set = {1, "Python", 3.14, True, (1, 2, 3)}
 
 # Set không thể chứa list hoặc dict (vì chúng mutable)
-# set_sai = {1, [2, 3]}  # ❌ Lỗi!
+# invalid_set = {1, [2, 3]}  # ❌ Lỗi!
 
 # Set có thể chứa tuple (vì tuple immutable)
-set_tot = {1, (2, 3), "Python"}
+valid_set = {1, (2, 3), "Python"}
 
-print("Set hỗn hợp:", set_hon_hop)
-print("Set với tuple:", set_tot)
+print("Set hỗn hợp:", mixed_set)
+print("Set với tuple:", valid_set)
 ```
 
 ## 🔍 Truy Cập và Thao Tác
@@ -98,51 +98,51 @@ print("Set với tuple:", set_tot)
 
 ```python
 # Tạo set
-so_thich = {"đọc sách", "nghe nhạc"}
+hobbies = {"đọc sách", "nghe nhạc"}
 
 # Thêm phần tử
-so_thich.add("xem phim")
-so_thich.add("chơi game")
-print("Sau khi thêm:", so_thich)
+hobbies.add("xem phim")
+hobbies.add("chơi game")
+print("Sau khi thêm:", hobbies)
 
 # Thêm nhiều phần tử
-so_thich.update(["du lịch", "nấu ăn", "vẽ tranh"])
-print("Sau khi update:", so_thich)
+hobbies.update(["du lịch", "nấu ăn", "vẽ tranh"])
+print("Sau khi update:", hobbies)
 
 # Xóa phần tử
-so_thich.remove("nghe nhạc")  # Xóa, nếu không có sẽ lỗi
-so_thich.discard("không có")  # Xóa, nếu không có không lỗi
-print("Sau khi xóa:", so_thich)
+hobbies.remove("nghe nhạc")  # Xóa, nếu không có sẽ lỗi
+hobbies.discard("không có")  # Xóa, nếu không có không lỗi
+print("Sau khi xóa:", hobbies)
 
 # Xóa ngẫu nhiên
-phan_tu_ngau_nhien = so_thich.pop()
-print(f"Phần tử ngẫu nhiên: {phan_tu_ngau_nhien}")
-print("Set còn lại:", so_thich)
+random_element = hobbies.pop()
+print(f"Phần tử ngẫu nhiên: {random_element}")
+print("Set còn lại:", hobbies)
 
 # Xóa tất cả
-so_thich.clear()
-print("Set sau khi clear:", so_thich)
+hobbies.clear()
+print("Set sau khi clear:", hobbies)
 ```
 
 ### 🔍 Kiểm Tra và Tìm Kiếm
 
 ```python
 # Tạo set
-mon_hoc = {"Toán", "Lý", "Hóa", "Văn", "Anh"}
+subjects = {"Toán", "Lý", "Hóa", "Văn", "Anh"}
 
 # Kiểm tra có tồn tại
-print("Có môn Toán?", "Toán" in mon_hoc)      # True
-print("Có môn Sử?", "Sử" in mon_hoc)          # False
+print("Có môn Toán?", "Toán" in subjects)      # True
+print("Có môn Sử?", "Sử" in subjects)          # False
 
 # Độ dài
-print("Số môn học:", len(mon_hoc))            # 5
+print("Số môn học:", len(subjects))            # 5
 
 # Kiểm tra set con
-mon_khoa_hoc = {"Toán", "Lý", "Hóa"}
-mon_xa_hoi = {"Văn", "Sử", "Địa"}
+science_subjects = {"Toán", "Lý", "Hóa"}
+social_subjects = {"Văn", "Sử", "Địa"}
 
-print("Môn khoa học có trong danh sách?", mon_khoa_hoc.issubset(mon_hoc))  # True
-print("Môn xã hội có trong danh sách?", mon_xa_hoi.issubset(mon_hoc))      # False
+print("Môn khoa học có trong danh sách?", science_subjects.issubset(subjects))  # True
+print("Môn xã hội có trong danh sách?", social_subjects.issubset(subjects))      # False
 ```
 
 ## 🧮 Phép Toán Tập Hợp
@@ -155,122 +155,122 @@ set_a = {1, 2, 3, 4, 5}
 set_b = {4, 5, 6, 7, 8}
 
 # Union - hợp (tất cả phần tử từ cả 2 set)
-hop_1 = set_a.union(set_b)
-hop_2 = set_a | set_b  # Toán tử
+union_result_1 = set_a.union(set_b)
+union_result_2 = set_a | set_b  # Toán tử
 
 print("Set A:", set_a)
 print("Set B:", set_b)
-print("Hợp (union):", hop_1)  # {1, 2, 3, 4, 5, 6, 7, 8}
-print("Hợp (|):", hop_2)      # {1, 2, 3, 4, 5, 6, 7, 8}
+print("Hợp (union):", union_result_1)  # {1, 2, 3, 4, 5, 6, 7, 8}
+print("Hợp (|):", union_result_2)      # {1, 2, 3, 4, 5, 6, 7, 8}
 ```
 
 ### 🎯 Intersection - Giao
 
 ```python
 # Giao - chỉ những phần tử có trong cả 2 set
-giao_1 = set_a.intersection(set_b)
-giao_2 = set_a & set_b  # Toán tử
+intersection_result_1 = set_a.intersection(set_b)
+intersection_result_2 = set_a & set_b  # Toán tử
 
-print("Giao (intersection):", giao_1)  # {4, 5}
-print("Giao (&):", giao_2)             # {4, 5}
+print("Giao (intersection):", intersection_result_1)  # {4, 5}
+print("Giao (&):", intersection_result_2)             # {4, 5}
 ```
 
 ### ➖ Difference - Hiệu
 
 ```python
 # Hiệu - phần tử có trong A nhưng không có trong B
-hieu_1 = set_a.difference(set_b)
-hieu_2 = set_a - set_b  # Toán tử
+difference_result_1 = set_a.difference(set_b)
+difference_result_2 = set_a - set_b  # Toán tử
 
-print("Hiệu (difference):", hieu_1)  # {1, 2, 3}
-print("Hiệu (-):", hieu_2)           # {1, 2, 3}
+print("Hiệu (difference):", difference_result_1)  # {1, 2, 3}
+print("Hiệu (-):", difference_result_2)           # {1, 2, 3}
 ```
 
 ### ⚡ Symmetric Difference - Hiệu Đối Xứng
 
 ```python
 # Hiệu đối xứng - phần tử có trong A hoặc B nhưng không có trong cả hai
-hieu_doi_xung_1 = set_a.symmetric_difference(set_b)
-hieu_doi_xung_2 = set_a ^ set_b  # Toán tử
+sym_diff_result_1 = set_a.symmetric_difference(set_b)
+sym_diff_result_2 = set_a ^ set_b  # Toán tử
 
-print("Hiệu đối xứng (symmetric_difference):", hieu_doi_xung_1)  # {1, 2, 3, 6, 7, 8}
-print("Hiệu đối xứng (^):", hieu_doi_xung_2)                    # {1, 2, 3, 6, 7, 8}
+print("Hiệu đối xứng (symmetric_difference):", sym_diff_result_1)  # {1, 2, 3, 6, 7, 8}
+print("Hiệu đối xứng (^):", sym_diff_result_2)                    # {1, 2, 3, 6, 7, 8}
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý Thành Viên
 
 ```python
 # 👥 Hệ thống quản lý thành viên với sets
-class QuanLyThanhVien:
+class MemberManager:
     def __init__(self):
-        self.thanh_vien = set()
-        self.thanh_vien_vip = set()
-        self.thanh_vien_moi = set()
-        self.so_thich_chung = set()
+        self.members = set()
+        self.vip_members = set()
+        self.new_members = set()
+        self.common_interests = set()
     
-    def them_thanh_vien(self, ten, la_vip=False, la_moi=False, *so_thich):
+    def add_member(self, name, is_vip=False, is_new=False, *interests):
         """Thêm thành viên mới"""
-        self.thanh_vien.add(ten)
+        self.members.add(name)
         
-        if la_vip:
-            self.thanh_vien_vip.add(ten)
+        if is_vip:
+            self.vip_members.add(name)
         
-        if la_moi:
-            self.thanh_vien_moi.add(ten)
+        if is_new:
+            self.new_members.add(name)
         
         # Thêm sở thích vào sở thích chung
-        for thich in so_thich:
-            self.so_thich_chung.add(thich)
+        for interest in interests:
+            self.common_interests.add(interest)
         
-        print(f"✅ Đã thêm thành viên: {ten}")
-        if so_thich:
-            print(f"   Sở thích: {', '.join(so_thich)}")
+        print(f"✅ Đã thêm thành viên: {name}")
+        if interests:
+            print(f"   Sở thích: {', '.join(interests)}")
     
-    def xoa_thanh_vien(self, ten):
+    def remove_member(self, name):
         """Xóa thành viên"""
-        if ten in self.thanh_vien:
-            self.thanh_vien.discard(ten)
-            self.thanh_vien_vip.discard(ten)
-            self.thanh_vien_moi.discard(ten)
-            print(f"🗑️  Đã xóa thành viên: {ten}")
+        if name in self.members:
+            self.members.discard(name)
+            self.vip_members.discard(name)
+            self.new_members.discard(name)
+            print(f"🗑️  Đã xóa thành viên: {name}")
         else:
-            print(f"❌ Không tìm thấy thành viên: {ten}")
+            print(f"❌ Không tìm thấy thành viên: {name}")
     
-    def tim_thanh_vien_chung(self, *ten_thanh_vien):
+    def find_common_members(self, *member_groups):
         """Tìm thành viên chung trong các nhóm"""
-        if not ten_thanh_vien:
+        if not member_groups:
             return set()
         
         # Tìm giao của tất cả set
-        ket_qua = set(ten_thanh_vien[0])
-        for ten in ten_thanh_vien[1:]:
-            ket_qua = ket_qua.intersection(set(ten))
+        result = set(member_groups[0])
+        for group in member_groups[1:]:
+            result = result.intersection(set(group))
         
-        return ket_qua
+        return result
     
-    def thong_ke_thanh_vien(self):
+    def show_statistics(self):
         """Thống kê thành viên"""
         print("\n📊 THỐNG KÊ THÀNH VIÊN")
         print("=" * 40)
         
-        print(f"👥 Tổng thành viên: {len(self.thanh_vien)}")
-        print(f"⭐ Thành viên VIP: {len(self.thanh_vien_vip)}")
-        print(f"🆕 Thành viên mới: {len(self.thanh_vien_moi)}")
+        print(f"👥 Tổng thành viên: {len(self.members)}")
+        print(f"⭐ Thành viên VIP: {len(self.vip_members)}")
+        print(f"🆕 Thành viên mới: {len(self.new_members)}")
         
         # Thành viên vừa VIP vừa mới
-        vip_moi = self.thanh_vien_vip.intersection(self.thanh_vien_moi)
-        print(f"🌟 VIP + Mới: {len(vip_moi)}")
+        vip_new = self.vip_members.intersection(self.new_members)
+        print(f"🌟 VIP + Mới: {len(vip_new)}")
         
         # Thành viên thường
-        thuong = self.thanh_vien - self.thanh_vien_vip
-        print(f"👤 Thành viên thường: {len(thuong)}")
+        regular_members = self.members - self.vip_members
+        print(f"👤 Thành viên thường: {len(regular_members)}")
         
         # Sở thích phổ biến
-        print(f"🎯 Sở thích chung: {len(self.so_thich_chung)} loại")
+        print(f"🎯 Sở thích chung: {len(self.common_interests)} loại")
     
-    def hien_thi_thanh_vien(self):
+    def display_members(self):
         """Hiển thị danh sách thành viên"""
-        if not self.thanh_vien:
+        if not self.members:
             print("👥 Chưa có thành viên nào")
             return
         
@@ -279,70 +279,70 @@ class QuanLyThanhVien:
         
         # Tất cả thành viên
         print("Tất cả thành viên:")
-        for i, ten in enumerate(sorted(self.thanh_vien), 1):
-            loai = []
-            if ten in self.thanh_vien_vip:
-                loai.append("VIP")
-            if ten in self.thanh_vien_moi:
-                loai.append("Mới")
+        for i, name in enumerate(sorted(self.members), 1):
+            member_types = []
+            if name in self.vip_members:
+                member_types.append("VIP")
+            if name in self.new_members:
+                member_types.append("Mới")
             
-            loai_str = f" ({', '.join(loai)})" if loai else ""
-            print(f"   {i:2d}. {ten}{loai_str}")
+            type_str = f" ({', '.join(member_types)})" if member_types else ""
+            print(f"   {i:2d}. {name}{type_str}")
         
         # Thành viên VIP
-        if self.thanh_vien_vip:
-            print(f"\n⭐ Thành viên VIP ({len(self.thanh_vien_vip)}):")
-            for ten in sorted(self.thanh_vien_vip):
-                print(f"   • {ten}")
+        if self.vip_members:
+            print(f"\n⭐ Thành viên VIP ({len(self.vip_members)}):")
+            for name in sorted(self.vip_members):
+                print(f"   • {name}")
         
         # Thành viên mới
-        if self.thanh_vien_moi:
-            print(f"\n🆕 Thành viên mới ({len(self.thanh_vien_moi)}):")
-            for ten in sorted(self.thanh_vien_moi):
-                print(f"   • {ten}")
+        if self.new_members:
+            print(f"\n🆕 Thành viên mới ({len(self.new_members)}):")
+            for name in sorted(self.new_members):
+                print(f"   • {name}")
         
         # Sở thích chung
-        if self.so_thich_chung:
-            print(f"\n🎯 Sở thích chung ({len(self.so_thich_chung)}):")
-            for thich in sorted(self.so_thich_chung):
-                print(f"   • {thich}")
+        if self.common_interests:
+            print(f"\n🎯 Sở thích chung ({len(self.common_interests)}):")
+            for interest in sorted(self.common_interests):
+                print(f"   • {interest}")
     
-    def tim_thanh_vien_theo_so_thich(self, so_thich_can_tim):
+    def find_members_by_interest(self, target_interest):
         """Tìm thành viên có sở thích cụ thể"""
         # Giả sử chúng ta có thông tin sở thích của từng thành viên
         # Trong thực tế, cần lưu thông tin này
-        print(f"🔍 Tìm thành viên có sở thích: {so_thich_can_tim}")
+        print(f"🔍 Tìm thành viên có sở thích: {target_interest}")
         print("(Chức năng này cần mở rộng để lưu sở thích cá nhân)")
 
 # Sử dụng hệ thống
-quan_ly = QuanLyThanhVien()
+manager = MemberManager()
 
 # Thêm thành viên
-quan_ly.them_thanh_vien("Nguyễn Văn An", la_vip=True, "lập trình", "đọc sách")
-quan_ly.them_thanh_vien("Trần Thị Bình", la_moi=True, "vẽ tranh", "nghe nhạc")
-quan_ly.them_thanh_vien("Lê Văn Châu", la_vip=True, la_moi=True, "lập trình", "chơi game")
-quan_ly.them_thanh_vien("Phạm Thị Dung", "nấu ăn", "du lịch")
-quan_ly.them_thanh_vien("Hoàng Văn Em", la_moi=True, "thể thao", "đọc sách")
+manager.add_member("Nguyễn Văn An", is_vip=True, "lập trình", "đọc sách")
+manager.add_member("Trần Thị Bình", is_new=True, "vẽ tranh", "nghe nhạc")
+manager.add_member("Lê Văn Châu", is_vip=True, is_new=True, "lập trình", "chơi game")
+manager.add_member("Phạm Thị Dung", "nấu ăn", "du lịch")
+manager.add_member("Hoàng Văn Em", is_new=True, "thể thao", "đọc sách")
 
 # Hiển thị thông tin
-quan_ly.hien_thi_thanh_vien()
-quan_ly.thong_ke_thanh_vien()
+manager.display_members()
+manager.show_statistics()
 
 # Tìm thành viên chung
 print(f"\n🔍 TÌM KIẾM")
 print("=" * 30)
 
 # Thành viên vừa VIP vừa mới
-vip_moi = quan_ly.thanh_vien_vip.intersection(quan_ly.thanh_vien_moi)
-print(f"Thành viên vừa VIP vừa mới: {vip_moi}")
+vip_new = manager.vip_members.intersection(manager.new_members)
+print(f"Thành viên vừa VIP vừa mới: {vip_new}")
 
 # Thành viên không phải VIP
-thuong = quan_ly.thanh_vien - quan_ly.thanh_vien_vip
-print(f"Thành viên thường: {thuong}")
+regular_members = manager.members - manager.vip_members
+print(f"Thành viên thường: {regular_members}")
 
 # Tất cả loại thành viên
-tat_ca_loai = quan_ly.thanh_vien_vip.union(quan_ly.thanh_vien_moi)
-print(f"Tất cả VIP và mới: {tat_ca_loai}")
+all_special = manager.vip_members.union(manager.new_members)
+print(f"Tất cả VIP và mới: {all_special}")
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -351,14 +351,14 @@ print(f"Tất cả VIP và mới: {tat_ca_loai}")
 
 ```python
 # TODO: Tạo hệ thống quản lý từ vựng với sets
-def tao_tu_dien_tu_vung():
+def create_vocabulary_dictionary():
     """Tạo từ điển từ vựng với sets"""
     
     # Set chứa tất cả từ vựng
-    tu_vung_tat_ca = set()
+    all_vocabulary = set()
     
     # Set chứa từ vựng theo chủ đề
-    tu_vung_chu_de = {
+    vocabulary_by_topic = {
         "lập trình": set(),
         "toán học": set(),
         "khoa học": set(),
@@ -367,116 +367,116 @@ def tao_tu_dien_tu_vung():
     }
     
     # Set chứa từ vựng theo độ khó
-    tu_vung_do_kho = {
+    vocabulary_by_difficulty = {
         "dễ": set(),
         "trung bình": set(),
         "khó": set()
     }
     
-    return tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho
+    return all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty
 
-def them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, tu, chu_de, do_kho):
+def add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, word, topic, difficulty):
     """Thêm từ vựng mới"""
-    tu_vung_tat_ca.add(tu)
+    all_vocabulary.add(word)
     
-    if chu_de in tu_vung_chu_de:
-        tu_vung_chu_de[chu_de].add(tu)
+    if topic in vocabulary_by_topic:
+        vocabulary_by_topic[topic].add(word)
     
-    if do_kho in tu_vung_do_kho:
-        tu_vung_do_kho[do_kho].add(tu)
+    if difficulty in vocabulary_by_difficulty:
+        vocabulary_by_difficulty[difficulty].add(word)
     
-    print(f"✅ Đã thêm từ: {tu} ({chu_de}, {do_kho})")
+    print(f"✅ Đã thêm từ: {word} ({topic}, {difficulty})")
 
-def tim_tu_vung_chung(tu_vung_chu_de, *chu_de_list):
+def find_common_vocabulary(vocabulary_by_topic, *topic_list):
     """Tìm từ vựng chung giữa các chủ đề"""
-    if not chu_de_list:
+    if not topic_list:
         return set()
     
     # Tìm giao của tất cả chủ đề
-    ket_qua = tu_vung_chu_de[chu_de_list[0]].copy()
-    for chu_de in chu_de_list[1:]:
-        if chu_de in tu_vung_chu_de:
-            ket_qua = ket_qua.intersection(tu_vung_chu_de[chu_de])
+    result = vocabulary_by_topic[topic_list[0]].copy()
+    for topic in topic_list[1:]:
+        if topic in vocabulary_by_topic:
+            result = result.intersection(vocabulary_by_topic[topic])
     
-    return ket_qua
+    return result
 
-def thong_ke_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho):
+def show_vocabulary_statistics(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty):
     """Thống kê từ vựng"""
     print("\n📊 THỐNG KÊ TỪ VỰNG")
     print("=" * 40)
     
-    print(f"📚 Tổng từ vựng: {len(tu_vung_tat_ca)}")
+    print(f"📚 Tổng từ vựng: {len(all_vocabulary)}")
     
     print(f"\n🎯 Theo chủ đề:")
-    for chu_de, tu_set in tu_vung_chu_de.items():
-        print(f"   {chu_de}: {len(tu_set)} từ")
+    for topic, word_set in vocabulary_by_topic.items():
+        print(f"   {topic}: {len(word_set)} từ")
     
     print(f"\n📈 Theo độ khó:")
-    for do_kho, tu_set in tu_vung_do_kho.items():
-        print(f"   {do_kho}: {len(tu_set)} từ")
+    for difficulty, word_set in vocabulary_by_difficulty.items():
+        print(f"   {difficulty}: {len(word_set)} từ")
     
     # Từ vựng phổ biến (có trong nhiều chủ đề)
-    tu_pho_bien = set()
-    for chu_de, tu_set in tu_vung_chu_de.items():
-        tu_pho_bien = tu_pho_bien.union(tu_set)
+    popular_words = set()
+    for topic, word_set in vocabulary_by_topic.items():
+        popular_words = popular_words.union(word_set)
     
-    print(f"\n🌟 Từ vựng phổ biến: {len(tu_pho_bien)} từ")
+    print(f"\n🌟 Từ vựng phổ biến: {len(popular_words)} từ")
 
-def hien_thi_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho):
+def display_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty):
     """Hiển thị từ vựng"""
     print("\n📚 TỪ VỰNG THEO CHỦ ĐỀ")
     print("=" * 50)
     
-    for chu_de, tu_set in tu_vung_chu_de.items():
-        if tu_set:
-            print(f"\n🎯 {chu_de.upper()} ({len(tu_set)} từ):")
-            for tu in sorted(tu_set):
-                print(f"   • {tu}")
+    for topic, word_set in vocabulary_by_topic.items():
+        if word_set:
+            print(f"\n🎯 {topic.upper()} ({len(word_set)} từ):")
+            for word in sorted(word_set):
+                print(f"   • {word}")
     
     print(f"\n📈 TỪ VỰNG THEO ĐỘ KHÓ")
     print("=" * 30)
     
-    for do_kho, tu_set in tu_vung_do_kho.items():
-        if tu_set:
-            print(f"\n{do_kho.upper()} ({len(tu_set)} từ):")
-            for tu in sorted(tu_set):
-                print(f"   • {tu}")
+    for difficulty, word_set in vocabulary_by_difficulty.items():
+        if word_set:
+            print(f"\n{difficulty.upper()} ({len(word_set)} từ):")
+            for word in sorted(word_set):
+                print(f"   • {word}")
 
 # Sử dụng hệ thống
-tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho = tao_tu_dien_tu_vung()
+all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty = create_vocabulary_dictionary()
 
 # Thêm từ vựng
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "variable", "lập trình", "dễ")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "function", "lập trình", "trung bình")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "algorithm", "lập trình", "khó")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "equation", "toán học", "trung bình")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "calculus", "toán học", "khó")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "gravity", "khoa học", "trung bình")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "quantum", "khoa học", "khó")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "painting", "nghệ thuật", "dễ")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "sculpture", "nghệ thuật", "trung bình")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "football", "thể thao", "dễ")
-them_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho, "basketball", "thể thao", "dễ")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "variable", "lập trình", "dễ")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "function", "lập trình", "trung bình")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "algorithm", "lập trình", "khó")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "equation", "toán học", "trung bình")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "calculus", "toán học", "khó")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "gravity", "khoa học", "trung bình")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "quantum", "khoa học", "khó")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "painting", "nghệ thuật", "dễ")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "sculpture", "nghệ thuật", "trung bình")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "football", "thể thao", "dễ")
+add_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty, "basketball", "thể thao", "dễ")
 
 # Hiển thị thông tin
-hien_thi_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho)
-thong_ke_tu_vung(tu_vung_tat_ca, tu_vung_chu_de, tu_vung_do_kho)
+display_vocabulary(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty)
+show_vocabulary_statistics(all_vocabulary, vocabulary_by_topic, vocabulary_by_difficulty)
 
 # Tìm từ vựng chung
 print(f"\n🔍 TÌM KIẾM")
 print("=" * 30)
 
 # Từ vựng khó
-tu_kho = tu_vung_do_kho["khó"]
-print(f"Từ vựng khó: {tu_kho}")
+hard_words = vocabulary_by_difficulty["khó"]
+print(f"Từ vựng khó: {hard_words}")
 
 # Từ vựng chung giữa lập trình và toán học
-tu_chung = tim_tu_vung_chung(tu_vung_chu_de, "lập trình", "toán học")
-print(f"Từ chung (lập trình + toán): {tu_chung}")
+common_words = find_common_vocabulary(vocabulary_by_topic, "lập trình", "toán học")
+print(f"Từ chung (lập trình + toán): {common_words}")
 
 # Từ vựng chỉ có trong một chủ đề
-tu_rieng_lap_trinh = tu_vung_chu_de["lập trình"] - tu_vung_chu_de["toán học"] - tu_vung_chu_de["khoa học"]
-print(f"Từ riêng lập trình: {tu_rieng_lap_trinh}")
+unique_programming_words = vocabulary_by_topic["lập trình"] - vocabulary_by_topic["toán học"] - vocabulary_by_topic["khoa học"]
+print(f"Từ riêng lập trình: {unique_programming_words}")
 ```
 
 ### 🥈 Bài Tập 2: Game Đoán Từ Với Sets
@@ -485,148 +485,148 @@ print(f"Từ riêng lập trình: {tu_rieng_lap_trinh}")
 # TODO: Tạo game đoán từ với sets
 import random
 
-def tao_game_doan_tu():
+def create_word_guessing_game():
     """Tạo game đoán từ với sets"""
     
     # Set chứa tất cả từ
-    tu_tat_ca = {
+    all_words = {
         "python", "programming", "computer", "algorithm", "function",
         "variable", "loop", "condition", "string", "number",
         "list", "dictionary", "class", "object", "method"
     }
     
     # Set chứa từ đã đoán
-    tu_da_doan = set()
+    guessed_words = set()
     
     # Set chứa ký tự đã đoán
-    ky_tu_da_doan = set()
+    guessed_letters = set()
     
-    return tu_tat_ca, tu_da_doan, ky_tu_da_doan
+    return all_words, guessed_words, guessed_letters
 
-def chon_tu_ngau_nhien(tu_tat_ca):
+def choose_random_word(all_words):
     """Chọn từ ngẫu nhiên"""
-    return random.choice(list(tu_tat_ca))
+    return random.choice(list(all_words))
 
-def hien_thi_tu_an(tu_can_doan, ky_tu_da_doan):
+def display_hidden_word(word_to_guess, guessed_letters):
     """Hiển thị từ ẩn với ký tự đã đoán"""
-    hien_thi = ""
-    for ky_tu in tu_can_doan:
-        if ky_tu in ky_tu_da_doan:
-            hien_thi += ky_tu
+    display = ""
+    for letter in word_to_guess:
+        if letter in guessed_letters:
+            display += letter
         else:
-            hien_thi += "_"
-    return hien_thi
+            display += "_"
+    return display
 
-def kiem_tra_ky_tu(tu_can_doan, ky_tu):
+def check_letter_in_word(word_to_guess, letter):
     """Kiểm tra ký tự có trong từ không"""
-    return ky_tu in tu_can_doan
+    return letter in word_to_guess
 
-def tinh_diem(tu_can_doan, so_lan_thu, ky_tu_da_doan):
+def calculate_score(word_to_guess, attempts_count, guessed_letters):
     """Tính điểm dựa trên hiệu suất"""
-    so_ky_tu_dung = len(ky_tu_da_doan.intersection(set(tu_can_doan)))
-    so_ky_tu_sai = len(ky_tu_da_doan - set(tu_can_doan))
+    correct_letters = len(guessed_letters.intersection(set(word_to_guess)))
+    wrong_letters = len(guessed_letters - set(word_to_guess))
     
-    diem_co_ban = len(tu_can_doan) * 10
-    diem_bo_sung = so_ky_tu_dung * 5
-    diem_tru = so_ky_tu_sai * 2
-    diem_tru_lan_thu = so_lan_thu * 1
+    base_score = len(word_to_guess) * 10
+    bonus_score = correct_letters * 5
+    penalty_wrong = wrong_letters * 2
+    penalty_attempts = attempts_count * 1
     
-    diem_tong = diem_co_ban + diem_bo_sung - diem_tru - diem_tru_lan_thu
-    return max(0, diem_tong)
+    total_score = base_score + bonus_score - penalty_wrong - penalty_attempts
+    return max(0, total_score)
 
-def game_doan_tu():
+def word_guessing_game():
     """Game đoán từ chính"""
     print("🎮 GAME ĐOÁN TỪ VỰNG LẬP TRÌNH")
     print("=" * 50)
     
-    tu_tat_ca, tu_da_doan, ky_tu_da_doan = tao_game_doan_tu()
-    tu_can_doan = chon_tu_ngau_nhien(tu_tat_ca)
-    so_lan_thu = 0
-    so_lan_thu_toi_da = len(tu_can_doan) + 5
+    all_words, guessed_words, guessed_letters = create_word_guessing_game()
+    word_to_guess = choose_random_word(all_words)
+    attempts_count = 0
+    max_attempts = len(word_to_guess) + 5
     
-    print(f"Từ có {len(tu_can_doan)} chữ cái")
-    print(f"Bạn có {so_lan_thu_toi_da} lần đoán")
+    print(f"Từ có {len(word_to_guess)} chữ cái")
+    print(f"Bạn có {max_attempts} lần đoán")
     print("Gõ 'quit' để thoát, 'hint' để gợi ý")
     print("-" * 50)
     
-    while so_lan_thu < so_lan_thu_toi_da:
-        so_lan_thu += 1
+    while attempts_count < max_attempts:
+        attempts_count += 1
         
         # Hiển thị từ ẩn
-        tu_an = hien_thi_tu_an(tu_can_doan, ky_tu_da_doan)
-        print(f"\n🔤 Lần thử {so_lan_thu}/{so_lan_thu_toi_da}")
-        print(f"Từ: {tu_an}")
+        hidden_word = display_hidden_word(word_to_guess, guessed_letters)
+        print(f"\n🔤 Lần thử {attempts_count}/{max_attempts}")
+        print(f"Từ: {hidden_word}")
         
         # Hiển thị ký tự đã đoán
-        if ky_tu_da_doan:
-            ky_tu_str = ", ".join(sorted(ky_tu_da_doan))
-            print(f"Ký tự đã đoán: {ky_tu_str}")
+        if guessed_letters:
+            letters_str = ", ".join(sorted(guessed_letters))
+            print(f"Ký tự đã đoán: {letters_str}")
         
         # Nhập ký tự
         try:
-            nhap = input("Nhập ký tự hoặc từ: ").lower().strip()
+            user_input = input("Nhập ký tự hoặc từ: ").lower().strip()
             
-            if nhap == 'quit':
+            if user_input == 'quit':
                 print("👋 Tạm biệt!")
                 break
             
-            if nhap == 'hint':
+            if user_input == 'hint':
                 # Gợi ý: hiển thị một ký tự chưa đoán
-                ky_tu_chua_doan = set(tu_can_doan) - ky_tu_da_doan
-                if ky_tu_chua_doan:
-                    ky_tu_gợi_ý = random.choice(list(ky_tu_chua_doan))
-                    print(f"💡 Gợi ý: Từ có chứa ký tự '{ky_tu_gợi_ý}'")
+                unguessed_letters = set(word_to_guess) - guessed_letters
+                if unguessed_letters:
+                    hint_letter = random.choice(list(unguessed_letters))
+                    print(f"💡 Gợi ý: Từ có chứa ký tự '{hint_letter}'")
                 else:
                     print("💡 Bạn đã đoán hết ký tự rồi!")
-                so_lan_thu -= 1
+                attempts_count -= 1
                 continue
             
             # Kiểm tra từ hoàn chỉnh
-            if len(nhap) > 1:
-                if nhap == tu_can_doan:
+            if len(user_input) > 1:
+                if user_input == word_to_guess:
                     print("🎉 CHÍNH XÁC! Bạn đã đoán đúng từ!")
-                    diem = tinh_diem(tu_can_doan, so_lan_thu, ky_tu_da_doan)
-                    print(f"🏆 Điểm: {diem}")
+                    score = calculate_score(word_to_guess, attempts_count, guessed_letters)
+                    print(f"🏆 Điểm: {score}")
                     break
                 else:
                     print("❌ Từ không đúng!")
                     continue
             
             # Kiểm tra ký tự
-            if len(nhap) == 1:
-                if nhap in ky_tu_da_doan:
+            if len(user_input) == 1:
+                if user_input in guessed_letters:
                     print("⚠️  Bạn đã đoán ký tự này rồi!")
-                    so_lan_thu -= 1
+                    attempts_count -= 1
                     continue
                 
-                ky_tu_da_doan.add(nhap)
+                guessed_letters.add(user_input)
                 
-                if kiem_tra_ky_tu(tu_can_doan, nhap):
+                if check_letter_in_word(word_to_guess, user_input):
                     print("✅ Đúng! Ký tự có trong từ")
                     
                     # Kiểm tra đã đoán hết chưa
-                    if set(tu_can_doan).issubset(ky_tu_da_doan):
+                    if set(word_to_guess).issubset(guessed_letters):
                         print("🎉 HOÀN THÀNH! Bạn đã đoán hết ký tự!")
-                        diem = tinh_diem(tu_can_doan, so_lan_thu, ky_tu_da_doan)
-                        print(f"🏆 Điểm: {diem}")
+                        score = calculate_score(word_to_guess, attempts_count, guessed_letters)
+                        print(f"🏆 Điểm: {score}")
                         break
                 else:
                     print("❌ Sai! Ký tự không có trong từ")
             else:
                 print("❌ Vui lòng nhập 1 ký tự hoặc từ hoàn chỉnh!")
-                so_lan_thu -= 1
+                attempts_count -= 1
         
         except KeyboardInterrupt:
             print("\n👋 Tạm biệt!")
             break
     
     else:
-        print(f"\n💔 HẾT LƯỢT! Từ đúng là: {tu_can_doan}")
-        diem = tinh_diem(tu_can_doan, so_lan_thu, ky_tu_da_doan)
-        print(f"🏆 Điểm: {diem}")
+        print(f"\n💔 HẾT LƯỢT! Từ đúng là: {word_to_guess}")
+        score = calculate_score(word_to_guess, attempts_count, guessed_letters)
+        print(f"🏆 Điểm: {score}")
 
 # Chạy game
-game_doan_tu()
+word_guessing_game()
 ```
 
 ## 🎊 Tóm Tắt
@@ -651,3 +651,4 @@ Hãy thử tạo một "hệ thống quản lý thẻ thành viên" sử dụng 
 ---
 
 *🔗 **Dự án tiếp theo**: [Guessing Game - Dự Án Thứ Hai](/python/projects/guessing-game)*
+

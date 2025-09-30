@@ -35,19 +35,19 @@ graph LR
 
 ```python
 # List - truy cập bằng index (số)
-hoc_sinh_list = ["An", 16, "9A", 8.5]
-ten = hoc_sinh_list[0]      # "An"
-tuoi = hoc_sinh_list[1]     # 16
+student_list = ["An", 16, "9A", 8.5]
+name = student_list[0]      # "An"
+age = student_list[1]       # 16
 
 # Dictionary - truy cập bằng key (tên)
-hoc_sinh_dict = {
-    "ten": "An",
-    "tuoi": 16,
-    "lop": "9A",
-    "diem": 8.5
+student_dict = {
+    "name": "An",
+    "age": 16,
+    "class": "9A",
+    "score": 8.5
 }
-ten = hoc_sinh_dict["ten"]      # "An"
-tuoi = hoc_sinh_dict["tuoi"]    # 16
+name = student_dict["name"]      # "An"
+age = student_dict["age"]        # 16
 ```
 
 ## 🎯 Tạo Dictionary
@@ -56,21 +56,21 @@ tuoi = hoc_sinh_dict["tuoi"]    # 16
 
 ```python
 # Từ điển rỗng
-tu_dien_rong = {}
-tu_dien_rong_2 = dict()
+empty_dict = {}
+empty_dict_2 = dict()
 
 # Từ điển với dữ liệu
-thong_tin_hoc_sinh = {
-    "ten": "Nguyễn Văn An",
-    "tuoi": 16,
-    "lop": "9A",
-    "diem_toan": 8.5,
-    "diem_van": 7.0,
-    "diem_anh": 9.0,
-    "co_hoi_boi": True
+student_info = {
+    "name": "Nguyễn Văn An",
+    "age": 16,
+    "class": "9A",
+    "math_score": 8.5,
+    "literature_score": 7.0,
+    "english_score": 9.0,
+    "can_swim": True
 }
 
-print("Thông tin học sinh:", thong_tin_hoc_sinh)
+print("Thông tin học sinh:", student_info)
 ```
 
 ### 🎨 Các Kiểu Key và Value
@@ -78,10 +78,10 @@ print("Thông tin học sinh:", thong_tin_hoc_sinh)
 ```python
 # Key có thể là string, number, tuple
 # Value có thể là bất kỳ kiểu dữ liệu nào
-tu_dien_da_dang = {
+diverse_dict = {
     # String keys
-    "ten": "Python",
-    "phi_ban": "3.11",
+    "name": "Python",
+    "version": "3.11",
     
     # Number keys
     1: "Một",
@@ -93,15 +93,15 @@ tu_dien_da_dang = {
     ("x", "y"): [10, 20],
     
     # Mixed values
-    "so_thich": ["lập trình", "đọc sách", "chơi game"],
-    "thong_tin": {
-        "chieu_cao": 1.65,
-        "can_nang": 50.5
+    "hobbies": ["lập trình", "đọc sách", "chơi game"],
+    "info": {
+        "height": 1.65,
+        "weight": 50.5
     },
-    "da_tot_nghiep": False
+    "is_graduated": False
 }
 
-print("Dictionary đa dạng:", tu_dien_da_dang)
+print("Dictionary đa dạng:", diverse_dict)
 ```
 
 ## 🔍 Truy Cập Dữ Liệu
@@ -109,25 +109,25 @@ print("Dictionary đa dạng:", tu_dien_da_dang)
 ### 📖 Truy Cập Bằng Key
 
 ```python
-hoc_sinh = {
-    "ten": "Trần Thị Lan",
-    "tuoi": 15,
-    "lop": "9B",
-    "diem_tb": 8.2
+student = {
+    "name": "Trần Thị Lan",
+    "age": 15,
+    "class": "9B",
+    "average_score": 8.2
 }
 
 # Truy cập trực tiếp
-print("Tên:", hoc_sinh["ten"])        # Trần Thị Lan
-print("Tuổi:", hoc_sinh["tuoi"])      # 15
-print("Lớp:", hoc_sinh["lop"])        # 9B
+print("Tên:", student["name"])        # Trần Thị Lan
+print("Tuổi:", student["age"])        # 15
+print("Lớp:", student["class"])       # 9B
 
 # Truy cập an toàn với get()
-diem_ly = hoc_sinh.get("diem_ly", "Chưa có điểm")
-print("Điểm Lý:", diem_ly)            # Chưa có điểm
+physics_score = student.get("physics_score", "Chưa có điểm")
+print("Điểm Lý:", physics_score)      # Chưa có điểm
 
 # Kiểm tra key có tồn tại
-if "diem_tb" in hoc_sinh:
-    print(f"Điểm TB: {hoc_sinh['diem_tb']}")
+if "average_score" in student:
+    print(f"Điểm TB: {student['average_score']}")
 ```
 
 ### 🔄 Lặp Qua Dictionary
@@ -135,17 +135,17 @@ if "diem_tb" in hoc_sinh:
 ```python
 # Lặp qua keys
 print("Các thông tin có sẵn:")
-for key in hoc_sinh.keys():
+for key in student.keys():
     print(f"- {key}")
 
 # Lặp qua values
 print("\nCác giá trị:")
-for value in hoc_sinh.values():
+for value in student.values():
     print(f"- {value}")
 
 # Lặp qua cả key và value
 print("\nThông tin chi tiết:")
-for key, value in hoc_sinh.items():
+for key, value in student.items():
     print(f"{key}: {value}")
 ```
 
@@ -154,194 +154,194 @@ for key, value in hoc_sinh.items():
 ### ➕ Thêm Key-Value Mới
 
 ```python
-hoc_sinh = {"ten": "An", "tuoi": 16}
+student = {"name": "An", "age": 16}
 
 # Thêm thông tin mới
-hoc_sinh["lop"] = "9A"
-hoc_sinh["diem_toan"] = 8.5
-hoc_sinh["so_thich"] = ["lập trình", "đọc sách"]
+student["class"] = "9A"
+student["math_score"] = 8.5
+student["hobbies"] = ["lập trình", "đọc sách"]
 
-print("Sau khi thêm:", hoc_sinh)
+print("Sau khi thêm:", student)
 ```
 
 ### 🔄 Cập Nhật Giá Trị
 
 ```python
 # Cập nhật giá trị hiện có
-hoc_sinh["tuoi"] = 17  # Tăng tuổi
-hoc_sinh["diem_toan"] = 9.0  # Cải thiện điểm
+student["age"] = 17  # Tăng tuổi
+student["math_score"] = 9.0  # Cải thiện điểm
 
 # Cập nhật nhiều giá trị cùng lúc
-hoc_sinh.update({
-    "diem_van": 8.0,
-    "diem_anh": 7.5,
-    "lop": "10A"  # Lên lớp
+student.update({
+    "literature_score": 8.0,
+    "english_score": 7.5,
+    "class": "10A"  # Lên lớp
 })
 
-print("Sau khi cập nhật:", hoc_sinh)
+print("Sau khi cập nhật:", student)
 ```
 
 ### ❌ Xóa Dữ Liệu
 
 ```python
 # Xóa bằng del
-del hoc_sinh["so_thich"]
-print("Sau khi xóa so_thich:", hoc_sinh)
+del student["hobbies"]
+print("Sau khi xóa hobbies:", student)
 
 # Xóa bằng pop() - trả về giá trị
-diem_anh = hoc_sinh.pop("diem_anh", "Không có")
-print(f"Điểm Anh đã xóa: {diem_anh}")
+english_score = student.pop("english_score", "Không có")
+print(f"Điểm Anh đã xóa: {english_score}")
 
 # Xóa tất cả
-hoc_sinh.clear()
-print("Sau khi xóa tất cả:", hoc_sinh)  # {}
+student.clear()
+print("Sau khi xóa tất cả:", student)  # {}
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Hệ Thống Quản Lý Học Sinh
 
 ```python
 # 📚 Hệ thống quản lý học sinh với Dictionary
-class QuanLyHocSinh:
+class StudentManager:
     def __init__(self):
-        self.danh_sach_hoc_sinh = {}
-        self.so_hoc_sinh = 0
+        self.student_list = {}
+        self.student_count = 0
     
-    def them_hoc_sinh(self, ten, tuoi, lop):
+    def add_student(self, name, age, class_name):
         """Thêm học sinh mới"""
-        self.so_hoc_sinh += 1
-        ma_hoc_sinh = f"HS{self.so_hoc_sinh:03d}"
+        self.student_count += 1
+        student_id = f"HS{self.student_count:03d}"
         
-        self.danh_sach_hoc_sinh[ma_hoc_sinh] = {
-            "ten": ten,
-            "tuoi": tuoi,
-            "lop": lop,
-            "diem": {},
-            "ngay_nhap_hoc": "2024-09-01",
-            "trang_thai": "Đang học"
+        self.student_list[student_id] = {
+            "name": name,
+            "age": age,
+            "class": class_name,
+            "scores": {},
+            "enrollment_date": "2024-09-01",
+            "status": "Đang học"
         }
         
-        print(f"✅ Đã thêm học sinh: {ten} (Mã: {ma_hoc_sinh})")
-        return ma_hoc_sinh
+        print(f"✅ Đã thêm học sinh: {name} (Mã: {student_id})")
+        return student_id
     
-    def cap_nhat_diem(self, ma_hoc_sinh, mon_hoc, diem):
+    def update_score(self, student_id, subject, score):
         """Cập nhật điểm cho học sinh"""
-        if ma_hoc_sinh in self.danh_sach_hoc_sinh:
-            self.danh_sach_hoc_sinh[ma_hoc_sinh]["diem"][mon_hoc] = diem
-            ten = self.danh_sach_hoc_sinh[ma_hoc_sinh]["ten"]
-            print(f"📊 Đã cập nhật điểm {mon_hoc}: {diem} cho {ten}")
+        if student_id in self.student_list:
+            self.student_list[student_id]["scores"][subject] = score
+            name = self.student_list[student_id]["name"]
+            print(f"📊 Đã cập nhật điểm {subject}: {score} cho {name}")
         else:
-            print(f"❌ Không tìm thấy học sinh với mã: {ma_hoc_sinh}")
+            print(f"❌ Không tìm thấy học sinh với mã: {student_id}")
     
-    def tinh_diem_trung_binh(self, ma_hoc_sinh):
+    def calculate_average_score(self, student_id):
         """Tính điểm trung bình"""
-        if ma_hoc_sinh not in self.danh_sach_hoc_sinh:
+        if student_id not in self.student_list:
             return None
         
-        diem_dict = self.danh_sach_hoc_sinh[ma_hoc_sinh]["diem"]
-        if not diem_dict:
+        scores_dict = self.student_list[student_id]["scores"]
+        if not scores_dict:
             return 0
         
-        return sum(diem_dict.values()) / len(diem_dict)
+        return sum(scores_dict.values()) / len(scores_dict)
     
-    def xep_loai_hoc_sinh(self, ma_hoc_sinh):
+    def classify_student(self, student_id):
         """Xếp loại học sinh"""
-        diem_tb = self.tinh_diem_trung_binh(ma_hoc_sinh)
-        if diem_tb is None:
+        average_score = self.calculate_average_score(student_id)
+        if average_score is None:
             return "Không có dữ liệu"
         
-        if diem_tb >= 8.5:
+        if average_score >= 8.5:
             return "Giỏi"
-        elif diem_tb >= 8.0:
+        elif average_score >= 8.0:
             return "Khá"
-        elif diem_tb >= 6.5:
+        elif average_score >= 6.5:
             return "Trung bình"
         else:
             return "Yếu"
     
-    def tim_hoc_sinh_theo_ten(self, ten):
+    def find_student_by_name(self, name):
         """Tìm học sinh theo tên"""
-        ket_qua = []
-        for ma, thong_tin in self.danh_sach_hoc_sinh.items():
-            if ten.lower() in thong_tin["ten"].lower():
-                ket_qua.append((ma, thong_tin))
+        results = []
+        for student_id, student_info in self.student_list.items():
+            if name.lower() in student_info["name"].lower():
+                results.append((student_id, student_info))
         
-        return ket_qua
+        return results
     
-    def thong_ke_lop(self, lop):
+    def class_statistics(self, class_name):
         """Thống kê theo lớp"""
-        hoc_sinh_lop = []
-        for ma, thong_tin in self.danh_sach_hoc_sinh.items():
-            if thong_tin["lop"] == lop:
-                hoc_sinh_lop.append((ma, thong_tin))
+        class_students = []
+        for student_id, student_info in self.student_list.items():
+            if student_info["class"] == class_name:
+                class_students.append((student_id, student_info))
         
-        if not hoc_sinh_lop:
-            print(f"❌ Không có học sinh nào trong lớp {lop}")
+        if not class_students:
+            print(f"❌ Không có học sinh nào trong lớp {class_name}")
             return
         
-        print(f"\n📊 THỐNG KÊ LỚP {lop}")
+        print(f"\n📊 THỐNG KÊ LỚP {class_name}")
         print("=" * 50)
         print(f"{'Mã HS':<8} {'Tên':<20} {'Tuổi':<6} {'Điểm TB':<8} {'Xếp loại'}")
         print("-" * 50)
         
-        for ma, thong_tin in hoc_sinh_lop:
-            diem_tb = self.tinh_diem_trung_binh(ma)
-            xep_loai = self.xep_loai_hoc_sinh(ma)
-            print(f"{ma:<8} {thong_tin['ten']:<20} {thong_tin['tuoi']:<6} {diem_tb:<8.1f} {xep_loai}")
+        for student_id, student_info in class_students:
+            average_score = self.calculate_average_score(student_id)
+            classification = self.classify_student(student_id)
+            print(f"{student_id:<8} {student_info['name']:<20} {student_info['age']:<6} {average_score:<8.1f} {classification}")
     
-    def hien_thi_chi_tiet(self, ma_hoc_sinh):
+    def show_student_details(self, student_id):
         """Hiển thị thông tin chi tiết"""
-        if ma_hoc_sinh not in self.danh_sach_hoc_sinh:
-            print(f"❌ Không tìm thấy học sinh với mã: {ma_hoc_sinh}")
+        if student_id not in self.student_list:
+            print(f"❌ Không tìm thấy học sinh với mã: {student_id}")
             return
         
-        thong_tin = self.danh_sach_hoc_sinh[ma_hoc_sinh]
-        diem_tb = self.tinh_diem_trung_binh(ma_hoc_sinh)
-        xep_loai = self.xep_loai_hoc_sinh(ma_hoc_sinh)
+        student_info = self.student_list[student_id]
+        average_score = self.calculate_average_score(student_id)
+        classification = self.classify_student(student_id)
         
-        print(f"\n📋 THÔNG TIN CHI TIẾT - {ma_hoc_sinh}")
+        print(f"\n📋 THÔNG TIN CHI TIẾT - {student_id}")
         print("=" * 40)
-        print(f"👤 Tên: {thong_tin['ten']}")
-        print(f"🎂 Tuổi: {thong_tin['tuoi']}")
-        print(f"🏫 Lớp: {thong_tin['lop']}")
-        print(f"📅 Ngày nhập học: {thong_tin['ngay_nhap_hoc']}")
-        print(f"📊 Điểm trung bình: {diem_tb:.1f}")
-        print(f"🏆 Xếp loại: {xep_loai}")
+        print(f"👤 Tên: {student_info['name']}")
+        print(f"🎂 Tuổi: {student_info['age']}")
+        print(f"🏫 Lớp: {student_info['class']}")
+        print(f"📅 Ngày nhập học: {student_info['enrollment_date']}")
+        print(f"📊 Điểm trung bình: {average_score:.1f}")
+        print(f"🏆 Xếp loại: {classification}")
         
-        if thong_tin["diem"]:
+        if student_info["scores"]:
             print(f"\n📚 CHI TIẾT ĐIỂM SỐ:")
-            for mon, diem in thong_tin["diem"].items():
-                print(f"   {mon}: {diem}")
+            for subject, score in student_info["scores"].items():
+                print(f"   {subject}: {score}")
         else:
             print("\n📚 Chưa có điểm số")
 
 # Sử dụng hệ thống
-quan_ly = QuanLyHocSinh()
+manager = StudentManager()
 
 # Thêm học sinh
-ma_an = quan_ly.them_hoc_sinh("Nguyễn Văn An", 16, "9A")
-ma_binh = quan_ly.them_hoc_sinh("Trần Thị Bình", 15, "9A")
-ma_chau = quan_ly.them_hoc_sinh("Lê Văn Châu", 16, "9B")
+student_id_an = manager.add_student("Nguyễn Văn An", 16, "9A")
+student_id_binh = manager.add_student("Trần Thị Bình", 15, "9A")
+student_id_chau = manager.add_student("Lê Văn Châu", 16, "9B")
 
 # Cập nhật điểm
-quan_ly.cap_nhat_diem(ma_an, "Toán", 8.5)
-quan_ly.cap_nhat_diem(ma_an, "Văn", 7.0)
-quan_ly.cap_nhat_diem(ma_an, "Anh", 9.0)
+manager.update_score(student_id_an, "Toán", 8.5)
+manager.update_score(student_id_an, "Văn", 7.0)
+manager.update_score(student_id_an, "Anh", 9.0)
 
-quan_ly.cap_nhat_diem(ma_binh, "Toán", 9.0)
-quan_ly.cap_nhat_diem(ma_binh, "Văn", 8.5)
-quan_ly.cap_nhat_diem(ma_binh, "Anh", 8.0)
+manager.update_score(student_id_binh, "Toán", 9.0)
+manager.update_score(student_id_binh, "Văn", 8.5)
+manager.update_score(student_id_binh, "Anh", 8.0)
 
-quan_ly.cap_nhat_diem(ma_chau, "Toán", 7.5)
-quan_ly.cap_nhat_diem(ma_chau, "Văn", 6.5)
-quan_ly.cap_nhat_diem(ma_chau, "Anh", 7.0)
+manager.update_score(student_id_chau, "Toán", 7.5)
+manager.update_score(student_id_chau, "Văn", 6.5)
+manager.update_score(student_id_chau, "Anh", 7.0)
 
 # Hiển thị thông tin
-quan_ly.hien_thi_chi_tiet(ma_an)
-quan_ly.thong_ke_lop("9A")
+manager.show_student_details(student_id_an)
+manager.class_statistics("9A")
 
 # Tìm kiếm
-ket_qua_tim = quan_ly.tim_hoc_sinh_theo_ten("An")
-print(f"\n🔍 Tìm thấy {len(ket_qua_tim)} học sinh tên 'An'")
+search_results = manager.find_student_by_name("An")
+print(f"\n🔍 Tìm thấy {len(search_results)} học sinh tên 'An'")
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -350,7 +350,7 @@ print(f"\n🔍 Tìm thấy {len(ket_qua_tim)} học sinh tên 'An'")
 
 ```python
 # TODO: Tạo từ điển tiếng Anh đơn giản
-tu_dien_anh_viet = {
+english_vietnamese_dict = {
     "hello": "xin chào",
     "goodbye": "tạm biệt",
     "thank you": "cảm ơn",
@@ -368,39 +368,39 @@ tu_dien_anh_viet = {
     "teacher": "giáo viên"
 }
 
-def tra_tu(tu_can_tra):
+def lookup_word(word_to_search):
     """Tra từ trong từ điển"""
-    tu_lower = tu_can_tra.lower()
+    word_lower = word_to_search.lower()
     
-    if tu_lower in tu_dien_anh_viet:
-        return tu_dien_anh_viet[tu_lower]
+    if word_lower in english_vietnamese_dict:
+        return english_vietnamese_dict[word_lower]
     else:
         # Tìm từ gần giống
-        tu_giong = []
-        for tu_anh in tu_dien_anh_viet.keys():
-            if tu_lower in tu_anh or tu_anh in tu_lower:
-                tu_giong.append(tu_anh)
+        similar_words = []
+        for english_word in english_vietnamese_dict.keys():
+            if word_lower in english_word or english_word in word_lower:
+                similar_words.append(english_word)
         
-        if tu_giong:
-            return f"Không tìm thấy '{tu_can_tra}'. Có thể bạn muốn: {', '.join(tu_giong)}"
+        if similar_words:
+            return f"Không tìm thấy '{word_to_search}'. Có thể bạn muốn: {', '.join(similar_words)}"
         else:
-            return f"Không tìm thấy '{tu_can_tra}' trong từ điển"
+            return f"Không tìm thấy '{word_to_search}' trong từ điển"
 
-def them_tu_moi(tu_anh, tu_viet):
+def add_new_word(english_word, vietnamese_word):
     """Thêm từ mới vào từ điển"""
-    tu_dien_anh_viet[tu_anh.lower()] = tu_viet
-    print(f"✅ Đã thêm: {tu_anh} → {tu_viet}")
+    english_vietnamese_dict[english_word.lower()] = vietnamese_word
+    print(f"✅ Đã thêm: {english_word} → {vietnamese_word}")
 
-def hien_thi_tat_ca():
+def show_all_words():
     """Hiển thị tất cả từ trong từ điển"""
     print("\n📖 TỪ ĐIỂN ANH-VIỆT")
     print("=" * 40)
     
     # Sắp xếp theo alphabet
-    tu_sap_xep = sorted(tu_dien_anh_viet.items())
+    sorted_words = sorted(english_vietnamese_dict.items())
     
-    for tu_anh, tu_viet in tu_sap_xep:
-        print(f"{tu_anh:<15} → {tu_viet}")
+    for english_word, vietnamese_word in sorted_words:
+        print(f"{english_word:<15} → {vietnamese_word}")
 
 # Menu chính
 while True:
@@ -410,22 +410,22 @@ while True:
     print("3. Xem tất cả từ")
     print("4. Thoát")
     
-    lua_chon = input("👉 Chọn chức năng (1-4): ")
+    choice = input("👉 Chọn chức năng (1-4): ")
     
-    if lua_chon == "1":
-        tu_can_tra = input("Nhập từ tiếng Anh cần tra: ")
-        ket_qua = tra_tu(tu_can_tra)
-        print(f"📖 {ket_qua}")
+    if choice == "1":
+        word_to_search = input("Nhập từ tiếng Anh cần tra: ")
+        result = lookup_word(word_to_search)
+        print(f"📖 {result}")
     
-    elif lua_chon == "2":
-        tu_anh = input("Nhập từ tiếng Anh: ")
-        tu_viet = input("Nhập nghĩa tiếng Việt: ")
-        them_tu_moi(tu_anh, tu_viet)
+    elif choice == "2":
+        english_word = input("Nhập từ tiếng Anh: ")
+        vietnamese_word = input("Nhập nghĩa tiếng Việt: ")
+        add_new_word(english_word, vietnamese_word)
     
-    elif lua_chon == "3":
-        hien_thi_tat_ca()
+    elif choice == "3":
+        show_all_words()
     
-    elif lua_chon == "4":
+    elif choice == "4":
         print("👋 Cảm ơn bạn đã sử dụng từ điển!")
         break
     
@@ -437,77 +437,77 @@ while True:
 
 ```python
 # TODO: Tạo hệ thống quản lý kho hàng
-class QuanLyKho:
+class WarehouseManager:
     def __init__(self):
-        self.kho_hang = {}
-        self.lich_su_nhap_xuat = []
+        self.inventory = {}
+        self.transaction_history = []
     
-    def them_san_pham(self, ma_sp, ten_sp, gia, so_luong):
+    def add_product(self, product_id, product_name, price, quantity):
         """Thêm sản phẩm mới vào kho"""
-        if ma_sp in self.kho_hang:
-            print(f"⚠️  Sản phẩm {ma_sp} đã tồn tại!")
+        if product_id in self.inventory:
+            print(f"⚠️  Sản phẩm {product_id} đã tồn tại!")
             return
         
-        self.kho_hang[ma_sp] = {
-            "ten": ten_sp,
-            "gia": gia,
-            "so_luong": so_luong,
-            "ngay_them": "2024-09-01"
+        self.inventory[product_id] = {
+            "name": product_name,
+            "price": price,
+            "quantity": quantity,
+            "date_added": "2024-09-01"
         }
         
-        self.lich_su_nhap_xuat.append({
-            "ngay": "2024-09-01",
-            "loai": "NHẬP",
-            "ma_sp": ma_sp,
-            "so_luong": so_luong,
-            "ghi_chu": f"Thêm sản phẩm mới: {ten_sp}"
+        self.transaction_history.append({
+            "date": "2024-09-01",
+            "type": "NHẬP",
+            "product_id": product_id,
+            "quantity": quantity,
+            "note": f"Thêm sản phẩm mới: {product_name}"
         })
         
-        print(f"✅ Đã thêm sản phẩm: {ten_sp} (Mã: {ma_sp})")
+        print(f"✅ Đã thêm sản phẩm: {product_name} (Mã: {product_id})")
     
-    def nhap_kho(self, ma_sp, so_luong):
+    def stock_in(self, product_id, quantity):
         """Nhập thêm hàng vào kho"""
-        if ma_sp not in self.kho_hang:
-            print(f"❌ Không tìm thấy sản phẩm {ma_sp}")
+        if product_id not in self.inventory:
+            print(f"❌ Không tìm thấy sản phẩm {product_id}")
             return
         
-        self.kho_hang[ma_sp]["so_luong"] += so_luong
+        self.inventory[product_id]["quantity"] += quantity
         
-        self.lich_su_nhap_xuat.append({
-            "ngay": "2024-09-01",
-            "loai": "NHẬP",
-            "ma_sp": ma_sp,
-            "so_luong": so_luong,
-            "ghi_chu": f"Nhập thêm {so_luong} {self.kho_hang[ma_sp]['ten']}"
+        self.transaction_history.append({
+            "date": "2024-09-01",
+            "type": "NHẬP",
+            "product_id": product_id,
+            "quantity": quantity,
+            "note": f"Nhập thêm {quantity} {self.inventory[product_id]['name']}"
         })
         
-        print(f"📦 Đã nhập {so_luong} {self.kho_hang[ma_sp]['ten']}")
+        print(f"📦 Đã nhập {quantity} {self.inventory[product_id]['name']}")
     
-    def xuat_kho(self, ma_sp, so_luong):
+    def stock_out(self, product_id, quantity):
         """Xuất hàng khỏi kho"""
-        if ma_sp not in self.kho_hang:
-            print(f"❌ Không tìm thấy sản phẩm {ma_sp}")
+        if product_id not in self.inventory:
+            print(f"❌ Không tìm thấy sản phẩm {product_id}")
             return
         
-        if self.kho_hang[ma_sp]["so_luong"] < so_luong:
-            print(f"❌ Không đủ hàng! Chỉ còn {self.kho_hang[ma_sp]['so_luong']}")
+        if self.inventory[product_id]["quantity"] < quantity:
+            print(f"❌ Không đủ hàng! Chỉ còn {self.inventory[product_id]['quantity']}")
             return
         
-        self.kho_hang[ma_sp]["so_luong"] -= so_luong
+        self.inventory[product_id]["quantity"] -= quantity
         
-        self.lich_su_nhap_xuat.append({
-            "ngay": "2024-09-01",
-            "loai": "XUẤT",
-            "ma_sp": ma_sp,
-            "so_luong": so_luong,
-            "ghi_chu": f"Xuất {so_luong} {self.kho_hang[ma_sp]['ten']}"
+        self.transaction_history.append({
+            "date": "2024-09-01",
+            "type": "XUẤT",
+            "product_id": product_id,
+            "quantity": quantity,
+            "note": f"Xuất {quantity} {self.inventory[product_id]['name']}"
         })
         
-        print(f"📤 Đã xuất {so_luong} {self.kho_hang[ma_sp]['ten']}")
+        print(f"📤 Đã xuất {quantity} {self.inventory[product_id]['name']}")
     
-    def hien_thi_kho(self):
+    def display_inventory(self):
         """Hiển thị tình trạng kho"""
-        if not self.kho_hang:
+        if not self.inventory:
             print("📦 Kho trống")
             return
         
@@ -516,73 +516,73 @@ class QuanLyKho:
         print(f"{'Mã SP':<8} {'Tên sản phẩm':<20} {'Giá':<10} {'Số lượng':<10} {'Tổng giá trị'}")
         print("-" * 70)
         
-        tong_gia_tri = 0
-        for ma_sp, thong_tin in self.kho_hang.items():
-            gia_tri = thong_tin["gia"] * thong_tin["so_luong"]
-            tong_gia_tri += gia_tri
+        total_value = 0
+        for product_id, product_info in self.inventory.items():
+            item_value = product_info["price"] * product_info["quantity"]
+            total_value += item_value
             
-            print(f"{ma_sp:<8} {thong_tin['ten']:<20} {thong_tin['gia']:<10,} {thong_tin['so_luong']:<10} {gia_tri:<10,}")
+            print(f"{product_id:<8} {product_info['name']:<20} {product_info['price']:<10,} {product_info['quantity']:<10} {item_value:<10,}")
         
         print("-" * 70)
-        print(f"💰 TỔNG GIÁ TRỊ KHO: {tong_gia_tri:,} VNĐ")
+        print(f"💰 TỔNG GIÁ TRỊ KHO: {total_value:,} VNĐ")
     
-    def tim_san_pham(self, tu_khoa):
+    def search_product(self, keyword):
         """Tìm sản phẩm theo từ khóa"""
-        ket_qua = []
-        tu_khoa_lower = tu_khoa.lower()
+        results = []
+        keyword_lower = keyword.lower()
         
-        for ma_sp, thong_tin in self.kho_hang.items():
-            if (tu_khoa_lower in ma_sp.lower() or 
-                tu_khoa_lower in thong_tin["ten"].lower()):
-                ket_qua.append((ma_sp, thong_tin))
+        for product_id, product_info in self.inventory.items():
+            if (keyword_lower in product_id.lower() or 
+                keyword_lower in product_info["name"].lower()):
+                results.append((product_id, product_info))
         
-        if ket_qua:
-            print(f"\n🔍 Tìm thấy {len(ket_qua)} sản phẩm:")
-            for ma_sp, thong_tin in ket_qua:
-                print(f"   {ma_sp}: {thong_tin['ten']} - {thong_tin['so_luong']} cái")
+        if results:
+            print(f"\n🔍 Tìm thấy {len(results)} sản phẩm:")
+            for product_id, product_info in results:
+                print(f"   {product_id}: {product_info['name']} - {product_info['quantity']} cái")
         else:
-            print(f"😅 Không tìm thấy sản phẩm nào chứa '{tu_khoa}'")
+            print(f"😅 Không tìm thấy sản phẩm nào chứa '{keyword}'")
     
-    def bao_cao_ton_kho_thap(self, nguong=10):
+    def low_stock_report(self, threshold=10):
         """Báo cáo sản phẩm sắp hết hàng"""
-        san_pham_ton_thap = []
+        low_stock_products = []
         
-        for ma_sp, thong_tin in self.kho_hang.items():
-            if thong_tin["so_luong"] <= nguong:
-                san_pham_ton_thap.append((ma_sp, thong_tin))
+        for product_id, product_info in self.inventory.items():
+            if product_info["quantity"] <= threshold:
+                low_stock_products.append((product_id, product_info))
         
-        if san_pham_ton_thap:
-            print(f"\n⚠️  CẢNH BÁO: {len(san_pham_ton_thap)} sản phẩm sắp hết hàng (≤{nguong}):")
-            for ma_sp, thong_tin in san_pham_ton_thap:
-                print(f"   {ma_sp}: {thong_tin['ten']} - Còn {thong_tin['so_luong']} cái")
+        if low_stock_products:
+            print(f"\n⚠️  CẢNH BÁO: {len(low_stock_products)} sản phẩm sắp hết hàng (≤{threshold}):")
+            for product_id, product_info in low_stock_products:
+                print(f"   {product_id}: {product_info['name']} - Còn {product_info['quantity']} cái")
         else:
-            print(f"✅ Tất cả sản phẩm đều đủ hàng (> {nguong})")
+            print(f"✅ Tất cả sản phẩm đều đủ hàng (> {threshold})")
 
 # Sử dụng hệ thống quản lý kho
-kho = QuanLyKho()
+warehouse = WarehouseManager()
 
 # Thêm sản phẩm
-kho.them_san_pham("SP001", "Laptop Dell", 15000000, 5)
-kho.them_san_pham("SP002", "Mouse Logitech", 500000, 20)
-kho.them_san_pham("SP003", "Keyboard Mechanical", 1200000, 8)
-kho.them_san_pham("SP004", "Monitor 24 inch", 4000000, 3)
+warehouse.add_product("SP001", "Laptop Dell", 15000000, 5)
+warehouse.add_product("SP002", "Mouse Logitech", 500000, 20)
+warehouse.add_product("SP003", "Keyboard Mechanical", 1200000, 8)
+warehouse.add_product("SP004", "Monitor 24 inch", 4000000, 3)
 
 # Nhập thêm hàng
-kho.nhap_kho("SP001", 3)
-kho.nhap_kho("SP002", 10)
+warehouse.stock_in("SP001", 3)
+warehouse.stock_in("SP002", 10)
 
 # Xuất hàng
-kho.xuat_kho("SP001", 2)
-kho.xuat_kho("SP003", 5)
+warehouse.stock_out("SP001", 2)
+warehouse.stock_out("SP003", 5)
 
 # Hiển thị kho
-kho.hien_thi_kho()
+warehouse.display_inventory()
 
 # Tìm kiếm
-kho.tim_san_pham("Laptop")
+warehouse.search_product("Laptop")
 
 # Báo cáo tồn kho thấp
-kho.bao_cao_ton_kho_thap(5)
+warehouse.low_stock_report(5)
 ```
 
 ## 🎊 Tóm Tắt

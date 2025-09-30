@@ -58,7 +58,7 @@ graph TD
 ### 📌 Cú Pháp Cơ Bản
 
 ```python
-for biến_đếm in range(số_lần_lặp):
+for counter_variable in range(loop_count):
     # Công việc cần lặp lại
     print("Làm việc gì đó")
 ```
@@ -75,8 +75,8 @@ print("\n" + "="*30)
 
 # Chào 10 lần
 print("Chào bạn 10 lần:")
-for lan in range(10):
-    print(f"Xin chào lần {lan + 1}!")
+for turn in range(10):
+    print(f"Xin chào lần {turn + 1}!")
 ```
 
 ### 🎯 Range Với Tham Số Khác Nhau
@@ -99,38 +99,38 @@ print("range(10, 0, -1):", list(range(10, 0, -1)))  # [10, 9, 8, 7, 6, 5, 4, 3, 
 
 ```python
 # Danh sách môn học
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
 
 print("Các môn học hôm nay:")
-for mon in mon_hoc:
-    print(f"📖 {mon}")
+for subject in subjects:
+    print(f"📖 {subject}")
 
 print("\n" + "="*30)
 
 # Danh sách điểm số
-diem_so = [8.5, 7.0, 9.0, 6.5, 8.0]
+scores = [8.5, 7.0, 9.0, 6.5, 8.0]
 
 print("Báo cáo điểm số:")
-for i in range(len(diem_so)):
-    print(f"{mon_hoc[i]}: {diem_so[i]} điểm")
+for i in range(len(scores)):
+    print(f"{subjects[i]}: {scores[i]} điểm")
 ```
 
 ### 📝 Lặp Qua Chuỗi
 
 ```python
 # Lặp qua từng ký tự
-ten = "PYTHON"
+name = "PYTHON"
 
 print("Phân tích từng chữ cái:")
-for chu_cai in ten:
-    print(f"Chữ '{chu_cai}' - Mã ASCII: {ord(chu_cai)}")
+for letter in name:
+    print(f"Chữ '{letter}' - Mã ASCII: {ord(letter)}")
 
 print("\n" + "="*30)
 
 # Đếm ngược từ tên
 print("Đếm ngược:")
-for i in range(len(ten) - 1, -1, -1):
-    print(f"Vị trí {i}: {ten[i]}")
+for i in range(len(name) - 1, -1, -1):
+    print(f"Vị trí {i}: {name[i]}")
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Bảng Cửu Chương
@@ -140,13 +140,13 @@ for i in range(len(ten) - 1, -1, -1):
 print("🧮 BẢNG CỬU CHƯƠNG")
 print("=" * 50)
 
-for bang in range(2, 10):
-    print(f"\n📋 Bảng cửu chương {bang}:")
+for table in range(2, 10):
+    print(f"\n📋 Bảng cửu chương {table}:")
     print("-" * 25)
     
-    for so in range(1, 11):
-        ket_qua = bang * so
-        print(f"{bang} × {so:2d} = {ket_qua:2d}")
+    for number in range(1, 11):
+        result = table * number
+        print(f"{table} × {number:2d} = {result:2d}")
     
     print("-" * 25)
 
@@ -163,11 +163,11 @@ print()
 print("   " + "-" * 40)
 
 # In từng hàng
-for bang in range(2, 10):
-    print(f"{bang}: ", end="")
-    for so in range(1, 11):
-        ket_qua = bang * so
-        print(f"{ket_qua:4d}", end="")
+for table in range(2, 10):
+    print(f"{table}: ", end="")
+    for number in range(1, 11):
+        result = table * number
+        print(f"{result:4d}", end="")
     print()
 ```
 
@@ -175,68 +175,68 @@ for bang in range(2, 10):
 
 ```python
 # 📊 Dữ liệu lớp học
-ten_hoc_sinh = ["An", "Bình", "Châu", "Dung", "Em", "Phong"]
-diem_toan = [8.5, 7.0, 9.5, 6.0, 8.0, 7.5]
-diem_van = [7.5, 8.0, 8.5, 7.0, 9.0, 6.5]
-diem_anh = [9.0, 6.5, 8.0, 8.5, 7.5, 8.0]
+student_names = ["An", "Bình", "Châu", "Dung", "Em", "Phong"]
+math_scores = [8.5, 7.0, 9.5, 6.0, 8.0, 7.5]
+literature_scores = [7.5, 8.0, 8.5, 7.0, 9.0, 6.5]
+english_scores = [9.0, 6.5, 8.0, 8.5, 7.5, 8.0]
 
 print("📋 BÁO CÁO ĐIỂM SỐ LỚP 9A")
 print("=" * 60)
 
 # Tính điểm trung bình từng học sinh
-tong_diem_lop = 0
-so_hoc_sinh = len(ten_hoc_sinh)
+total_class_score = 0
+student_count = len(student_names)
 
 print(f"{'STT':<3} {'Tên':<10} {'Toán':<6} {'Văn':<6} {'Anh':<6} {'TB':<6} {'Xếp Loại'}")
 print("-" * 60)
 
-for i in range(so_hoc_sinh):
+for i in range(student_count):
     # Tính điểm trung bình cá nhân
-    diem_tb = (diem_toan[i] + diem_van[i] + diem_anh[i]) / 3
-    tong_diem_lop += diem_tb
+    average_score = (math_scores[i] + literature_scores[i] + english_scores[i]) / 3
+    total_class_score += average_score
     
     # Xếp loại
-    if diem_tb >= 8.5:
-        xep_loai = "Giỏi"
-        mau_sac = "🥇"
-    elif diem_tb >= 8.0:
-        xep_loai = "Khá"
-        mau_sac = "🥈"
-    elif diem_tb >= 6.5:
-        xep_loai = "TB"
-        mau_sac = "🥉"
+    if average_score >= 8.5:
+        rating = "Giỏi"
+        color_icon = "🥇"
+    elif average_score >= 8.0:
+        rating = "Khá"
+        color_icon = "🥈"
+    elif average_score >= 6.5:
+        rating = "TB"
+        color_icon = "🥉"
     else:
-        xep_loai = "Yếu"
-        mau_sac = "📚"
+        rating = "Yếu"
+        color_icon = "📚"
     
     # In thông tin
-    print(f"{i+1:<3} {ten_hoc_sinh[i]:<10} {diem_toan[i]:<6} {diem_van[i]:<6} {diem_anh[i]:<6} {diem_tb:<6.1f} {mau_sac} {xep_loai}")
+    print(f"{i+1:<3} {student_names[i]:<10} {math_scores[i]:<6} {literature_scores[i]:<6} {english_scores[i]:<6} {average_score:<6.1f} {color_icon} {rating}")
 
 # Thống kê tổng lớp
-diem_tb_lop = tong_diem_lop / so_hoc_sinh
+class_average = total_class_score / student_count
 print("-" * 60)
 print(f"📊 THỐNG KÊ TỔNG LỚP:")
-print(f"   Sĩ số: {so_hoc_sinh} học sinh")
-print(f"   Điểm TB lớp: {diem_tb_lop:.2f}")
+print(f"   Sĩ số: {student_count} học sinh")
+print(f"   Điểm TB lớp: {class_average:.2f}")
 
 # Đếm số học sinh theo xếp loại
-dem_gioi = dem_kha = dem_tb = dem_yeu = 0
+excellent_count = good_count = average_count = poor_count = 0
 
-for i in range(so_hoc_sinh):
-    diem_tb = (diem_toan[i] + diem_van[i] + diem_anh[i]) / 3
-    if diem_tb >= 8.5:
-        dem_gioi += 1
-    elif diem_tb >= 8.0:
-        dem_kha += 1
-    elif diem_tb >= 6.5:
-        dem_tb += 1
+for i in range(student_count):
+    average_score = (math_scores[i] + literature_scores[i] + english_scores[i]) / 3
+    if average_score >= 8.5:
+        excellent_count += 1
+    elif average_score >= 8.0:
+        good_count += 1
+    elif average_score >= 6.5:
+        average_count += 1
     else:
-        dem_yeu += 1
+        poor_count += 1
 
-print(f"   Giỏi: {dem_gioi} HS ({dem_gioi/so_hoc_sinh*100:.1f}%)")
-print(f"   Khá: {dem_kha} HS ({dem_kha/so_hoc_sinh*100:.1f}%)")
-print(f"   TB: {dem_tb} HS ({dem_tb/so_hoc_sinh*100:.1f}%)")
-print(f"   Yếu: {dem_yeu} HS ({dem_yeu/so_hoc_sinh*100:.1f}%)")
+print(f"   Giỏi: {excellent_count} HS ({excellent_count/student_count*100:.1f}%)")
+print(f"   Khá: {good_count} HS ({good_count/student_count*100:.1f}%)")
+print(f"   TB: {average_count} HS ({average_count/student_count*100:.1f}%)")
+print(f"   Yếu: {poor_count} HS ({poor_count/student_count*100:.1f}%)")
 ```
 
 ## 🎨 Vòng Lặp Lồng Nhau (Nested Loops)
@@ -246,8 +246,8 @@ print(f"   Yếu: {dem_yeu} HS ({dem_yeu/so_hoc_sinh*100:.1f}%)")
 ```python
 # Tam giác sao
 print("⭐ TAM GIÁC SAO")
-for hang in range(1, 6):
-    for sao in range(hang):
+for row in range(1, 6):
+    for star in range(row):
         print("⭐", end=" ")
     print()  # Xuống dòng
 
@@ -255,17 +255,17 @@ print("\n" + "="*20)
 
 # Tam giác số
 print("🔢 TAM GIÁC SỐ")
-for hang in range(1, 6):
-    for so in range(1, hang + 1):
-        print(so, end=" ")
+for row in range(1, 6):
+    for number in range(1, row + 1):
+        print(number, end=" ")
     print()
 
 print("\n" + "="*20)
 
 # Hình chữ nhật
 print("🟦 HÌNH CHỮ NHẬT 5x3")
-for hang in range(3):
-    for cot in range(5):
+for row in range(3):
+    for col in range(5):
         print("🟦", end=" ")
     print()
 ```
@@ -297,31 +297,31 @@ for y in range(4):
 ### 🎯 Enumerate - Lấy Cả Index và Giá Trị
 
 ```python
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
 
 # Cách thông thường
 print("Cách thông thường:")
-for i in range(len(mon_hoc)):
-    print(f"{i+1}. {mon_hoc[i]}")
+for i in range(len(subjects)):
+    print(f"{i+1}. {subjects[i]}")
 
 print("\n" + "="*30)
 
 # Cách dùng enumerate (thanh lịch hơn)
 print("Cách dùng enumerate:")
-for i, mon in enumerate(mon_hoc, 1):  # Bắt đầu từ 1
-    print(f"{i}. {mon}")
+for i, subject in enumerate(subjects, 1):  # Bắt đầu từ 1
+    print(f"{i}. {subject}")
 ```
 
 ### 🔄 Zip - Lặp Nhiều Danh Sách Cùng Lúc
 
 ```python
-ten = ["An", "Bình", "Châu"]
-tuoi = [15, 16, 14]
-lop = ["9A", "9B", "9A"]
+names = ["An", "Bình", "Châu"]
+ages = [15, 16, 14]
+classes = ["9A", "9B", "9A"]
 
 print("Thông tin học sinh:")
-for t, tu, l in zip(ten, tuoi, lop):
-    print(f"Tên: {t}, Tuổi: {tu}, Lớp: {l}")
+for name, age, class_name in zip(names, ages, classes):
+    print(f"Tên: {name}, Tuổi: {age}, Lớp: {class_name}")
 ```
 
 ## 🎯 Bài Tập Thực Hành
@@ -330,27 +330,27 @@ for t, tu, l in zip(ten, tuoi, lop):
 
 ```python
 # TODO: Tính lãi suất kép theo năm
-so_tien_ban_dau = float(input("Số tiền gửi ban đầu (VNĐ): "))
-lai_suat = float(input("Lãi suất hàng năm (%): ")) / 100
-so_nam = int(input("Số năm gửi: "))
+initial_amount = float(input("Số tiền gửi ban đầu (VNĐ): "))
+interest_rate = float(input("Lãi suất hàng năm (%): ")) / 100
+years = int(input("Số năm gửi: "))
 
 print(f"\n📊 BẢNG TÍNH LÃI SUẤT KÉP")
 print("=" * 50)
 print(f"{'Năm':<5} {'Tiền Gốc':<15} {'Lãi':<15} {'Tổng Tiền':<15}")
 print("-" * 50)
 
-so_tien_hien_tai = so_tien_ban_dau
+current_amount = initial_amount
 
-for nam in range(1, so_nam + 1):
-    lai = so_tien_hien_tai * lai_suat
-    so_tien_hien_tai += lai
+for year in range(1, years + 1):
+    interest = current_amount * interest_rate
+    current_amount += interest
     
-    print(f"{nam:<5} {so_tien_ban_dau:,.0f} VNĐ{lai:>10,.0f} VNĐ{so_tien_hien_tai:>12,.0f} VNĐ")
+    print(f"{year:<5} {initial_amount:,.0f} VNĐ{interest:>10,.0f} VNĐ{current_amount:>12,.0f} VNĐ")
 
 print("-" * 50)
-tong_lai = so_tien_hien_tai - so_tien_ban_dau
-print(f"💰 Tổng lãi nhận được: {tong_lai:,.0f} VNĐ")
-print(f"🎯 Tổng tiền cuối kỳ: {so_tien_hien_tai:,.0f} VNĐ")
+total_interest = current_amount - initial_amount
+print(f"💰 Tổng lãi nhận được: {total_interest:,.0f} VNĐ")
+print(f"🎯 Tổng tiền cuối kỳ: {current_amount:,.0f} VNĐ")
 ```
 
 ### 🥈 Bài Tập 2: Game Đoán Số Nâng Cao
@@ -359,45 +359,45 @@ print(f"🎯 Tổng tiền cuối kỳ: {so_tien_hien_tai:,.0f} VNĐ")
 import random
 
 # TODO: Game đoán số với số lần thử giới hạn
-so_may_tinh = random.randint(1, 100)
-so_lan_thi_toi_da = 7
+computer_number = random.randint(1, 100)
+max_attempts = 7
 
 print("🎮 GAME ĐOÁN SỐ NÂNG CAO")
 print("=" * 40)
 print("🎯 Tôi đã nghĩ ra một số từ 1-100")
-print(f"🎪 Bạn có {so_lan_thi_toi_da} lần đoán!")
+print(f"🎪 Bạn có {max_attempts} lần đoán!")
 print("💡 Mẹo: Tôi sẽ gợi ý 'cao hơn' hoặc 'thấp hơn'")
 print("-" * 40)
 
-for lan_thu in range(1, so_lan_thi_toi_da + 1):
-    print(f"\n🔢 Lần thử {lan_thu}/{so_lan_thi_toi_da}")
+for attempt in range(1, max_attempts + 1):
+    print(f"\n🔢 Lần thử {attempt}/{max_attempts}")
     
     try:
-        so_doan = int(input("Nhập số bạn đoán: "))
+        guessed_number = int(input("Nhập số bạn đoán: "))
     except ValueError:
         print("❌ Vui lòng nhập một số hợp lệ!")
         continue
     
-    if so_doan == so_may_tinh:
-        print(f"🎉 CHÍNH XÁC! Số tôi nghĩ là {so_may_tinh}")
-        print(f"🏆 Bạn đã đoán đúng trong {lan_thu} lần thử!")
+    if guessed_number == computer_number:
+        print(f"🎉 CHÍNH XÁC! Số tôi nghĩ là {computer_number}")
+        print(f"🏆 Bạn đã đoán đúng trong {attempt} lần thử!")
         
         # Đánh giá kết quả
-        if lan_thu <= 3:
+        if attempt <= 3:
             print("🌟 XUẤT SẮC! Bạn là cao thủ đoán số!")
-        elif lan_thu <= 5:
+        elif attempt <= 5:
             print("👍 RẤT TỐT! Kỹ năng ổn định!")
         else:
             print("😊 KHÔNG SAO! Lần sau sẽ tốt hơn!")
         break
-    elif so_doan < so_may_tinh:
+    elif guessed_number < computer_number:
         print("📈 Số tôi nghĩ CAO HÔN!")
     else:
         print("📉 Số tôi nghĩ THẤP HƠN!")
         
     # Kiểm tra lần cuối
-    if lan_thu == so_lan_thi_toi_da:
-        print(f"\n💔 HẾT LƯỢT! Số tôi nghĩ là {so_may_tinh}")
+    if attempt == max_attempts:
+        print(f"\n💔 HẾT LƯỢT! Số tôi nghĩ là {computer_number}")
         print("🎯 Lần sau hãy thử chiến lược khác nhé!")
 ```
 
@@ -408,15 +408,15 @@ for lan_thu in range(1, so_lan_thi_toi_da + 1):
 print("🏛️ KIM TỰ THÁP")
 
 # Kim tự tháp
-chieu_cao = int(input("Nhập chiều cao kim tự tháp: "))
+height = int(input("Nhập chiều cao kim tự tháp: "))
 
-for hang in range(chieu_cao):
+for row in range(height):
     # In khoảng trắng
-    for space in range(chieu_cao - hang - 1):
+    for space in range(height - row - 1):
         print(" ", end="")
     
     # In dấu sao
-    for sao in range(2 * hang + 1):
+    for star in range(2 * row + 1):
         print("*", end="")
     
     print()  # Xuống dòng
@@ -425,19 +425,19 @@ print("\n" + "="*40)
 
 # Hình thoi
 print("💎 HÌNH THOI")
-kich_thuoc = 5
+size = 5
 
 # Nửa trên
-for i in range(kich_thuoc):
-    for j in range(kich_thuoc - i - 1):
+for i in range(size):
+    for j in range(size - i - 1):
         print(" ", end="")
     for j in range(2 * i + 1):
         print("💎", end="")
     print()
 
 # Nửa dưới
-for i in range(kich_thuoc - 2, -1, -1):
-    for j in range(kich_thuoc - i - 1):
+for i in range(size - 2, -1, -1):
+    for j in range(size - i - 1):
         print(" ", end="")
     for j in range(2 * i + 1):
         print("💎", end="")

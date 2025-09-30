@@ -41,7 +41,7 @@ graph TD
 ## 🎯 Cú Pháp While Cơ Bản
 
 ```python
-while điều_kiện:
+while condition:
     # Công việc cần lặp
     # Nhớ cập nhật biến để tránh vòng lặp vô tận!
 ```
@@ -50,10 +50,10 @@ while điều_kiện:
 
 ```python
 # Đếm từ 1 đến 5
-dem = 1
-while dem <= 5:
-    print(f"Đếm: {dem}")
-    dem += 1  # QUAN TRỌNG: Tăng biến đếm!
+count = 1
+while count <= 5:
+    print(f"Đếm: {count}")
+    count += 1  # QUAN TRỌNG: Tăng biến đếm!
 
 print("Xong rồi!")
 ```
@@ -62,16 +62,16 @@ print("Xong rồi!")
 Nếu quên cập nhật biến, vòng lặp sẽ chạy mãi mãi!
 ```python
 # ❌ NGUY HIỂM - Vòng lặp vô tận!
-dem = 1
-while dem <= 5:
-    print(f"Đếm: {dem}")
-    # Quên tăng dem - chạy mãi mãi!
+count = 1
+while count <= 5:
+    print(f"Đếm: {count}")
+    # Quên tăng count - chạy mãi mãi!
 
 # ✅ AN TOÀN - Nhớ cập nhật
-dem = 1
-while dem <= 5:
-    print(f"Đếm: {dem}")
-    dem += 1  # Cập nhật biến
+count = 1
+while count <= 5:
+    print(f"Đếm: {count}")
+    count += 1  # Cập nhật biến
 ```
 :::
 
@@ -81,35 +81,35 @@ while dem <= 5:
 import random
 
 # Game đoán số với while
-so_may_tinh = random.randint(1, 20)
-da_doan_dung = False
-so_lan_thu = 0
+computer_number = random.randint(1, 20)
+is_correct_guess = False
+attempt_count = 0
 
 print("🎮 GAME ĐOÁN SỐ")
 print("Tôi đã nghĩ ra một số từ 1-20")
 print("Hãy đoán xem đó là số nào!")
 print("-" * 30)
 
-while not da_doan_dung:
-    so_lan_thu += 1
+while not is_correct_guess:
+    attempt_count += 1
     
     try:
-        so_doan = int(input(f"Lần {so_lan_thu} - Nhập số: "))
+        guessed_number = int(input(f"Lần {attempt_count} - Nhập số: "))
     except ValueError:
         print("❌ Vui lòng nhập một số!")
         continue
     
-    if so_doan == so_may_tinh:
-        print(f"🎉 ĐÚNG RỒI! Số tôi nghĩ là {so_may_tinh}")
-        print(f"🏆 Bạn đoán đúng sau {so_lan_thu} lần!")
-        da_doan_dung = True  # Kết thúc vòng lặp
-    elif so_doan < so_may_tinh:
+    if guessed_number == computer_number:
+        print(f"🎉 ĐÚNG RỒI! Số tôi nghĩ là {computer_number}")
+        print(f"🏆 Bạn đoán đúng sau {attempt_count} lần!")
+        is_correct_guess = True  # Kết thúc vòng lặp
+    elif guessed_number < computer_number:
         print("📈 Số tôi nghĩ lớn hơn!")
     else:
         print("📉 Số tôi nghĩ nhỏ hơn!")
     
     # Gợi ý nếu đoán quá nhiều lần
-    if so_lan_thu >= 5 and not da_doan_dung:
+    if attempt_count >= 5 and not is_correct_guess:
         print("💡 Gợi ý: Hãy thử số ở giữa khoảng!")
 
 print("Cảm ơn bạn đã chơi!")
@@ -121,21 +121,21 @@ print("Cảm ơn bạn đã chơi!")
 
 ```python
 # Tìm số chia hết cho 7
-so = 1
+number = 1
 
 print("Tìm 5 số đầu tiên chia hết cho 7:")
-dem_tim_duoc = 0
+found_count = 0
 
 while True:  # Vòng lặp vô tận
-    if so % 7 == 0:
-        print(f"Số {so} chia hết cho 7")
-        dem_tim_duoc += 1
+    if number % 7 == 0:
+        print(f"Số {number} chia hết cho 7")
+        found_count += 1
         
-        if dem_tim_duoc == 5:
+        if found_count == 5:
             print("Đã tìm đủ 5 số!")
             break  # Thoát khỏi vòng lặp
     
-    so += 1
+    number += 1
 
 print("Kết thúc tìm kiếm")
 ```
@@ -144,16 +144,16 @@ print("Kết thúc tìm kiếm")
 
 ```python
 # In số từ 1-10, bỏ qua số chẵn
-so = 0
+number = 0
 
 print("Các số lẻ từ 1-10:")
-while so < 10:
-    so += 1
+while number < 10:
+    number += 1
     
-    if so % 2 == 0:  # Nếu là số chẵn
-        continue     # Bỏ qua, quay lại đầu vòng lặp
+    if number % 2 == 0:  # Nếu là số chẵn
+        continue         # Bỏ qua, quay lại đầu vòng lặp
     
-    print(f"Số lẻ: {so}")
+    print(f"Số lẻ: {number}")
 
 print("Hoàn thành!")
 ```
@@ -162,80 +162,80 @@ print("Hoàn thành!")
 
 ```python
 # Mô phỏng máy ATM đơn giản
-so_du_tai_khoan = 1000000  # 1 triệu VNĐ
-ma_pin_dung = "1234"
-so_lan_nhap_sai = 0
-tai_khoan_bi_khoa = False
+account_balance = 1000000  # 1 triệu VNĐ
+correct_pin = "1234"
+failed_attempts = 0
+is_account_locked = False
 
 print("🏧 CHÀO MỪNG ĐẾN VỚI ATM BEHITEK")
 print("=" * 40)
 
 # Xác thực PIN
-while so_lan_nhap_sai < 3:
-    ma_pin = input("Nhập mã PIN (4 số): ")
+while failed_attempts < 3:
+    entered_pin = input("Nhập mã PIN (4 số): ")
     
-    if ma_pin == ma_pin_dung:
+    if entered_pin == correct_pin:
         print("✅ Xác thực thành công!")
         break
     else:
-        so_lan_nhap_sai += 1
-        so_lan_con_lai = 3 - so_lan_nhap_sai
+        failed_attempts += 1
+        remaining_attempts = 3 - failed_attempts
         
-        if so_lan_con_lai > 0:
-            print(f"❌ Mã PIN sai! Còn {so_lan_con_lai} lần thử")
+        if remaining_attempts > 0:
+            print(f"❌ Mã PIN sai! Còn {remaining_attempts} lần thử")
         else:
             print("🔒 Tài khoản bị khóa do nhập sai PIN 3 lần!")
-            tai_khoan_bi_khoa = True
+            is_account_locked = True
 
 # Nếu tài khoản không bị khóa, cho phép giao dịch
-if not tai_khoan_bi_khoa:
-    print(f"\n💰 Số dư hiện tại: {so_du_tai_khoan:,} VNĐ")
+if not is_account_locked:
+    print(f"\n💰 Số dư hiện tại: {account_balance:,} VNĐ")
     
-    dang_giao_dich = True
-    while dang_giao_dich:
+    is_transaction_active = True
+    while is_transaction_active:
         print("\n📋 MENU GIAO DỊCH:")
         print("1. Kiểm tra số dư")
         print("2. Rút tiền")
         print("3. Thoát")
         
-        lua_chon = input("Chọn chức năng (1-3): ")
+        user_choice = input("Chọn chức năng (1-3): ")
         
-        if lua_chon == "1":
-            print(f"💰 Số dư tài khoản: {so_du_tai_khoan:,} VNĐ")
+        if user_choice == "1":
+            print(f"💰 Số dư tài khoản: {account_balance:,} VNĐ")
             
-        elif lua_chon == "2":
+        elif user_choice == "2":
             try:
-                so_tien_rut = int(input("Nhập số tiền muốn rút: "))
+                withdrawal_amount = int(input("Nhập số tiền muốn rút: "))
                 
-                if so_tien_rut <= 0:
+                if withdrawal_amount <= 0:
                     print("❌ Số tiền phải lớn hơn 0!")
-                elif so_tien_rut > so_du_tai_khoan:
+                elif withdrawal_amount > account_balance:
                     print("❌ Số dư không đủ!")
-                    print(f"   Số dư hiện tại: {so_du_tai_khoan:,} VNĐ")
-                elif so_tien_rut % 50000 != 0:
+                    print(f"   Số dư hiện tại: {account_balance:,} VNĐ")
+                elif withdrawal_amount % 50000 != 0:
                     print("❌ Số tiền rút phải là bội số của 50,000 VNĐ!")
                 else:
-                    so_du_tai_khoan -= so_tien_rut
-                    print(f"✅ Rút thành công {so_tien_rut:,} VNĐ")
-                    print(f"💰 Số dư còn lại: {so_du_tai_khoan:,} VNĐ")
+                    account_balance -= withdrawal_amount
+                    print(f"✅ Rút thành công {withdrawal_amount:,} VNĐ")
+                    print(f"💰 Số dư còn lại: {account_balance:,} VNĐ")
                     
             except ValueError:
                 print("❌ Vui lòng nhập số hợp lệ!")
                 
-        elif lua_chon == "3":
+        elif user_choice == "3":
             print("👋 Cảm ơn bạn đã sử dụng dịch vụ ATM!")
             print("🔒 Đang đăng xuất...")
-            dang_giao_dich = False
+            is_transaction_active = False
             
         else:
             print("❌ Lựa chọn không hợp lệ!")
         
         # Hỏi có muốn tiếp tục không
-        if dang_giao_dich and lua_chon in ["1", "2"]:
-            tiep_tuc = input("\nBạn có muốn thực hiện giao dịch khác? (y/n): ")
-            if tiep_tuc.lower() != 'y':
+        if is_transaction_active and user_choice in ["1", "2"]:
+            continue_transaction = input("\nBạn có muốn thực hiện giao dịch khác? (y/n): ")
+            if continue_transaction.lower() != 'y':
                 print("👋 Cảm ơn bạn đã sử dụng dịch vụ!")
-                dang_giao_dich = False
+                is_transaction_active = False
 
 print("🔚 Kết thúc phiên giao dịch")
 ```
@@ -248,65 +248,65 @@ print("📊 PHÂN TÍCH ĐIỂM SỐ LỚP HỌC")
 print("Nhập điểm các em (nhập -1 để kết thúc)")
 print("-" * 40)
 
-diem_so = []
-tong_diem = 0
-so_hoc_sinh = 0
+scores_list = []
+total_score = 0
+student_count = 0
 
 while True:
     try:
-        diem = float(input(f"Nhập điểm học sinh {so_hoc_sinh + 1}: "))
+        score = float(input(f"Nhập điểm học sinh {student_count + 1}: "))
         
-        if diem == -1:
+        if score == -1:
             print("Kết thúc nhập liệu!")
             break
             
-        if diem < 0 or diem > 10:
+        if score < 0 or score > 10:
             print("❌ Điểm phải từ 0-10!")
             continue
             
-        diem_so.append(diem)
-        tong_diem += diem
-        so_hoc_sinh += 1
+        scores_list.append(score)
+        total_score += score
+        student_count += 1
         
     except ValueError:
         print("❌ Vui lòng nhập số hợp lệ!")
         continue
 
 # Phân tích kết quả
-if so_hoc_sinh > 0:
-    diem_trung_binh = tong_diem / so_hoc_sinh
-    diem_cao_nhat = max(diem_so)
-    diem_thap_nhat = min(diem_so)
+if student_count > 0:
+    average_score = total_score / student_count
+    highest_score = max(scores_list)
+    lowest_score = min(scores_list)
     
     # Đếm xếp loại
-    xuat_sac = gioi = kha = trung_binh = yeu = 0
+    excellent_count = good_count = fair_count = average_count = poor_count = 0
     
-    for diem in diem_so:
-        if diem >= 9:
-            xuat_sac += 1
-        elif diem >= 8:
-            gioi += 1
-        elif diem >= 6.5:
-            kha += 1
-        elif diem >= 5:
-            trung_binh += 1
+    for score in scores_list:
+        if score >= 9:
+            excellent_count += 1
+        elif score >= 8:
+            good_count += 1
+        elif score >= 6.5:
+            fair_count += 1
+        elif score >= 5:
+            average_count += 1
         else:
-            yeu += 1
+            poor_count += 1
     
     print("\n" + "="*50)
     print("📈 KẾT QUẢ PHÂN TÍCH")
     print("="*50)
-    print(f"👥 Tổng số học sinh: {so_hoc_sinh}")
-    print(f"📊 Điểm trung bình: {diem_trung_binh:.2f}")
-    print(f"🏆 Điểm cao nhất: {diem_cao_nhat}")
-    print(f"📉 Điểm thấp nhất: {diem_thap_nhat}")
+    print(f"👥 Tổng số học sinh: {student_count}")
+    print(f"📊 Điểm trung bình: {average_score:.2f}")
+    print(f"🏆 Điểm cao nhất: {highest_score}")
+    print(f"📉 Điểm thấp nhất: {lowest_score}")
     
     print(f"\n🎯 THỐNG KÊ XẾP LOẠI:")
-    print(f"   Xuất sắc (≥9.0): {xuat_sac} HS ({xuat_sac/so_hoc_sinh*100:.1f}%)")
-    print(f"   Giỏi (8.0-8.9): {gioi} HS ({gioi/so_hoc_sinh*100:.1f}%)")
-    print(f"   Khá (6.5-7.9): {kha} HS ({kha/so_hoc_sinh*100:.1f}%)")
-    print(f"   TB (5.0-6.4): {trung_binh} HS ({trung_binh/so_hoc_sinh*100:.1f}%)")
-    print(f"   Yếu (<5.0): {yeu} HS ({yeu/so_hoc_sinh*100:.1f}%)")
+    print(f"   Xuất sắc (≥9.0): {excellent_count} HS ({excellent_count/student_count*100:.1f}%)")
+    print(f"   Giỏi (8.0-8.9): {good_count} HS ({good_count/student_count*100:.1f}%)")
+    print(f"   Khá (6.5-7.9): {fair_count} HS ({fair_count/student_count*100:.1f}%)")
+    print(f"   TB (5.0-6.4): {average_count} HS ({average_count/student_count*100:.1f}%)")
+    print(f"   Yếu (<5.0): {poor_count} HS ({poor_count/student_count*100:.1f}%)")
     
 else:
     print("❌ Không có dữ liệu để phân tích!")
@@ -323,20 +323,20 @@ print("Các phép tính: +, -, *, /, %, **")
 print("Gõ 'quit' để thoát")
 print("-" * 30)
 
-tiep_tuc = True
-while tiep_tuc:
+should_continue = True
+while should_continue:
     try:
         # Nhập biểu thức
-        bieu_thuc = input("Nhập phép tính (vd: 5 + 3): ")
+        expression = input("Nhập phép tính (vd: 5 + 3): ")
         
-        if bieu_thuc.lower() == 'quit':
+        if expression.lower() == 'quit':
             print("👋 Tạm biệt!")
-            tiep_tuc = False
+            should_continue = False
             continue
         
         # Tính toán (cẩn thận với eval!)
-        ket_qua = eval(bieu_thuc)
-        print(f"📊 Kết quả: {bieu_thuc} = {ket_qua}")
+        result = eval(expression)
+        print(f"📊 Kết quả: {expression} = {result}")
         
     except ZeroDivisionError:
         print("❌ Không thể chia cho 0!")
@@ -352,28 +352,28 @@ while tiep_tuc:
 import random
 
 # TODO: Game tài xỉu với tiền cược
-tien_hien_tai = 100000  # 100k VNĐ ban đầu
+current_money = 100000  # 100k VNĐ ban đầu
 
 print("🎲 GAME TÀI XỈU")
-print(f"💰 Tiền ban đầu: {tien_hien_tai:,} VNĐ")
+print(f"💰 Tiền ban đầu: {current_money:,} VNĐ")
 print("🎯 Tài: tổng >= 11, Xỉu: tổng <= 10")
 print("-" * 40)
 
-while tien_hien_tai > 0:
-    print(f"\n💰 Tiền hiện tại: {tien_hien_tai:,} VNĐ")
+while current_money > 0:
+    print(f"\n💰 Tiền hiện tại: {current_money:,} VNĐ")
     
     # Nhập cược
     try:
-        tien_cuoc = int(input("Số tiền cược (0 để thoát): "))
+        bet_amount = int(input("Số tiền cược (0 để thoát): "))
         
-        if tien_cuoc == 0:
+        if bet_amount == 0:
             break
             
-        if tien_cuoc > tien_hien_tai:
+        if bet_amount > current_money:
             print("❌ Không đủ tiền!")
             continue
             
-        if tien_cuoc < 1000:
+        if bet_amount < 1000:
             print("❌ Cược tối thiểu 1,000 VNĐ!")
             continue
             
@@ -382,48 +382,48 @@ while tien_hien_tai > 0:
         continue
     
     # Chọn Tài/Xỉu
-    lua_chon = input("Chọn Tài (T) hay Xỉu (X): ").upper()
-    if lua_chon not in ['T', 'X']:
+    user_choice = input("Chọn Tài (T) hay Xỉu (X): ").upper()
+    if user_choice not in ['T', 'X']:
         print("❌ Chọn T hoặc X!")
         continue
     
     # Tung xúc xắc
-    xuc_xac_1 = random.randint(1, 6)
-    xuc_xac_2 = random.randint(1, 6)
-    xuc_xac_3 = random.randint(1, 6)
-    tong = xuc_xac_1 + xuc_xac_2 + xuc_xac_3
+    dice_1 = random.randint(1, 6)
+    dice_2 = random.randint(1, 6)
+    dice_3 = random.randint(1, 6)
+    total_sum = dice_1 + dice_2 + dice_3
     
-    print(f"🎲 Kết quả: {xuc_xac_1} - {xuc_xac_2} - {xuc_xac_3}")
-    print(f"📊 Tổng: {tong}")
+    print(f"🎲 Kết quả: {dice_1} - {dice_2} - {dice_3}")
+    print(f"📊 Tổng: {total_sum}")
     
     # Xác định kết quả
-    if tong >= 11:
-        ket_qua = "TÀI"
+    if total_sum >= 11:
+        game_result = "TÀI"
     else:
-        ket_qua = "XỈU"
+        game_result = "XỈU"
     
-    print(f"🎯 Kết quả: {ket_qua}")
+    print(f"🎯 Kết quả: {game_result}")
     
     # So sánh và tính tiền
-    if (lua_chon == 'T' and ket_qua == "TÀI") or (lua_chon == 'X' and ket_qua == "XỈU"):
-        tien_thang = tien_cuoc
-        tien_hien_tai += tien_thang
-        print(f"🎉 THẮNG! +{tien_thang:,} VNĐ")
+    if (user_choice == 'T' and game_result == "TÀI") or (user_choice == 'X' and game_result == "XỈU"):
+        winning_amount = bet_amount
+        current_money += winning_amount
+        print(f"🎉 THẮNG! +{winning_amount:,} VNĐ")
     else:
-        tien_hien_tai -= tien_cuoc
-        print(f"😢 THUA! -{tien_cuoc:,} VNĐ")
+        current_money -= bet_amount
+        print(f"😢 THUA! -{bet_amount:,} VNĐ")
     
     # Kiểm tra hết tiền
-    if tien_hien_tai <= 0:
+    if current_money <= 0:
         print("💸 Bạn đã hết tiền!")
         break
 
 print(f"\n🏁 KẾT THÚC GAME")
-print(f"💰 Tiền cuối game: {tien_hien_tai:,} VNĐ")
+print(f"💰 Tiền cuối game: {current_money:,} VNĐ")
 
-if tien_hien_tai > 100000:
+if current_money > 100000:
     print("🎊 Chúc mừng! Bạn đã thắng lớn!")
-elif tien_hien_tai == 100000:
+elif current_money == 100000:
     print("😐 Hòa vốn, không thắng không thua!")
 else:
     print("😅 Thua rồi! Lần sau cẩn thận hơn nhé!")

@@ -17,23 +17,23 @@ Trước đây, để lưu nhiều dữ liệu, chúng ta phải tạo nhiều b
 
 ```python
 # ❌ Cách cũ - phức tạp và không linh hoạt
-hoc_sinh_1 = "An"
-hoc_sinh_2 = "Bình"
-hoc_sinh_3 = "Châu"
-hoc_sinh_4 = "Dung"
-hoc_sinh_5 = "Em"
+student_1 = "An"
+student_2 = "Bình"
+student_3 = "Châu"
+student_4 = "Dung"
+student_5 = "Em"
 
-diem_1 = 8.5
-diem_2 = 7.0
-diem_3 = 9.0
-diem_4 = 6.5
-diem_5 = 8.0
+score_1 = 8.5
+score_2 = 7.0
+score_3 = 9.0
+score_4 = 6.5
+score_5 = 8.0
 ```
 
 ```python
 # ✅ Cách mới - sử dụng danh sách
-hoc_sinh = ["An", "Bình", "Châu", "Dung", "Em"]
-diem_so = [8.5, 7.0, 9.0, 6.5, 8.0]
+students = ["An", "Bình", "Châu", "Dung", "Em"]
+scores = [8.5, 7.0, 9.0, 6.5, 8.0]
 ```
 
 ```mermaid
@@ -58,28 +58,28 @@ graph LR
 
 ```python
 # Danh sách rỗng
-danh_sach_rong = []
-danh_sach_rong_2 = list()
+empty_list = []
+empty_list_2 = list()
 
 # Danh sách số
-so_yeu_thich = [7, 13, 21, 9, 15]
+favorite_numbers = [7, 13, 21, 9, 15]
 
 # Danh sách chuỗi
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
 
 # Danh sách hỗn hợp (nhiều kiểu dữ liệu)
-thong_tin_ca_nhan = ["An", 16, 1.65, True, "9A"]
+personal_info = ["An", 16, 1.65, True, "9A"]
 
 # Danh sách lồng nhau
-lop_hoc = [
+class_groups = [
     ["An", "Bình", "Châu"],      # Nhóm 1
     ["Dung", "Em", "Phong"],     # Nhóm 2
     ["Giang", "Hoa", "Ích"]      # Nhóm 3
 ]
 
-print("Số yêu thích:", so_yeu_thich)
-print("Môn học:", mon_hoc)
-print("Thông tin:", thong_tin_ca_nhan)
+print("Số yêu thích:", favorite_numbers)
+print("Môn học:", subjects)
+print("Thông tin:", personal_info)
 ```
 
 ## 🔍 Truy Cập Phần Tử
@@ -87,42 +87,42 @@ print("Thông tin:", thong_tin_ca_nhan)
 ### 📊 Index (Chỉ Số)
 
 ```python
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
-#           0      1     2      3      4     (index dương)
-#          -5     -4    -3     -2     -1     (index âm)
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh"]
+#            0      1     2      3      4     (index dương)
+#           -5     -4    -3     -2     -1     (index âm)
 
 # Truy cập từ đầu
-print("Môn đầu tiên:", mon_hoc[0])      # Toán
-print("Môn thứ hai:", mon_hoc[1])       # Lý
-print("Môn thứ ba:", mon_hoc[2])        # Hóa
+print("Môn đầu tiên:", subjects[0])      # Toán
+print("Môn thứ hai:", subjects[1])       # Lý
+print("Môn thứ ba:", subjects[2])        # Hóa
 
 # Truy cập từ cuối
-print("Môn cuối cùng:", mon_hoc[-1])    # Anh
-print("Môn áp cuối:", mon_hoc[-2])      # Văn
+print("Môn cuối cùng:", subjects[-1])    # Anh
+print("Môn áp cuối:", subjects[-2])      # Văn
 
 # Kiểm tra độ dài
-print("Tổng số môn:", len(mon_hoc))     # 5
+print("Tổng số môn:", len(subjects))     # 5
 ```
 
 ### ✂️ Cắt Danh Sách (Slicing)
 
 ```python
-so_tu_1_den_10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numbers_1_to_10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # Lấy 3 số đầu
-print("3 số đầu:", so_tu_1_den_10[:3])        # [1, 2, 3]
+print("3 số đầu:", numbers_1_to_10[:3])        # [1, 2, 3]
 
 # Lấy 3 số cuối
-print("3 số cuối:", so_tu_1_den_10[-3:])      # [8, 9, 10]
+print("3 số cuối:", numbers_1_to_10[-3:])      # [8, 9, 10]
 
 # Lấy từ vị trí 3 đến 7
-print("Từ 3 đến 7:", so_tu_1_den_10[3:7])     # [4, 5, 6, 7]
+print("Từ 3 đến 7:", numbers_1_to_10[3:7])     # [4, 5, 6, 7]
 
 # Lấy số chẵn (bước nhảy 2)
-print("Số chẵn:", so_tu_1_den_10[1::2])       # [2, 4, 6, 8, 10]
+print("Số chẵn:", numbers_1_to_10[1::2])       # [2, 4, 6, 8, 10]
 
 # Đảo ngược danh sách
-print("Đảo ngược:", so_tu_1_den_10[::-1])     # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print("Đảo ngược:", numbers_1_to_10[::-1])     # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
 ## ➕ Thêm Phần Tử
@@ -130,52 +130,52 @@ print("Đảo ngược:", so_tu_1_den_10[::-1])     # [10, 9, 8, 7, 6, 5, 4, 3, 
 ### 🎯 Append - Thêm Vào Cuối
 
 ```python
-mon_an_yeu_thich = ["Phở", "Bún chả", "Cơm tấm"]
-print("Ban đầu:", mon_an_yeu_thich)
+favorite_foods = ["Phở", "Bún chả", "Cơm tấm"]
+print("Ban đầu:", favorite_foods)
 
 # Thêm món mới
-mon_an_yeu_thich.append("Bánh mì")
-print("Sau khi thêm:", mon_an_yeu_thich)
+favorite_foods.append("Bánh mì")
+print("Sau khi thêm:", favorite_foods)
 
 # Thêm nhiều món (từng món một)
-mon_them = ["Chả cá", "Bún bò Huế"]
-for mon in mon_them:
-    mon_an_yeu_thich.append(mon)
+additional_foods = ["Chả cá", "Bún bò Huế"]
+for food in additional_foods:
+    favorite_foods.append(food)
 
-print("Danh sách cuối:", mon_an_yeu_thich)
+print("Danh sách cuối:", favorite_foods)
 ```
 
 ### 📥 Insert - Thêm Vào Vị Trí Cụ Thể
 
 ```python
-hang_doi = ["An", "Bình", "Châu"]
-print("Hàng đợi ban đầu:", hang_doi)
+queue = ["An", "Bình", "Châu"]
+print("Hàng đợi ban đầu:", queue)
 
 # Thêm vào đầu hàng (vị trí 0)
-hang_doi.insert(0, "Dung")
-print("Dung chen ngang:", hang_doi)
+queue.insert(0, "Dung")
+print("Dung chen ngang:", queue)
 
 # Thêm vào giữa (vị trí 2)
-hang_doi.insert(2, "Em")
-print("Em chen giữa:", hang_doi)
+queue.insert(2, "Em")
+print("Em chen giữa:", queue)
 ```
 
 ### 🔗 Extend - Nối Danh Sách
 
 ```python
-lop_9a = ["An", "Bình", "Châu"]
-hoc_sinh_chuyen = ["Dung", "Em"]
-hoc_sinh_moi = ["Phong", "Giang"]
+class_9a = ["An", "Bình", "Châu"]
+transfer_students = ["Dung", "Em"]
+new_students = ["Phong", "Giang"]
 
-print("Lớp 9A ban đầu:", lop_9a)
+print("Lớp 9A ban đầu:", class_9a)
 
 # Thêm học sinh chuyển lớp
-lop_9a.extend(hoc_sinh_chuyen)
-print("Sau khi có HS chuyển:", lop_9a)
+class_9a.extend(transfer_students)
+print("Sau khi có HS chuyển:", class_9a)
 
 # Cách khác: dùng toán tử +
-lop_9a_moi = lop_9a + hoc_sinh_moi
-print("Lớp 9A hoàn chỉnh:", lop_9a_moi)
+complete_class_9a = class_9a + new_students
+print("Lớp 9A hoàn chỉnh:", complete_class_9a)
 ```
 
 ## ❌ Xóa Phần Tử
@@ -183,151 +183,155 @@ print("Lớp 9A hoàn chỉnh:", lop_9a_moi)
 ### 🗑️ Remove - Xóa Theo Giá Trị
 
 ```python
-mon_hoc = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Lý"]
-print("Danh sách ban đầu:", mon_hoc)
+subjects = ["Toán", "Lý", "Hóa", "Văn", "Anh", "Lý"]
+print("Danh sách ban đầu:", subjects)
 
 # Xóa môn Lý (chỉ xóa cái đầu tiên)
-mon_hoc.remove("Lý")
-print("Sau khi xóa Lý:", mon_hoc)
+subjects.remove("Lý")
+print("Sau khi xóa Lý:", subjects)
 
 # Xóa an toàn (kiểm tra trước)
-mon_can_xoa = "Sinh"
-if mon_can_xoa in mon_hoc:
-    mon_hoc.remove(mon_can_xoa)
-    print(f"Đã xóa {mon_can_xoa}")
+subject_to_remove = "Sinh"
+if subject_to_remove in subjects:
+    subjects.remove(subject_to_remove)
+    print(f"Đã xóa {subject_to_remove}")
 else:
-    print(f"Không tìm thấy {mon_can_xoa}")
+    print(f"Không tìm thấy {subject_to_remove}")
 ```
 
 ### 📦 Pop - Lấy Ra và Xóa
 
 ```python
-diem_thi = [8.5, 7.0, 9.0, 6.5, 8.0]
-print("Điểm ban đầu:", diem_thi)
+exam_scores = [8.5, 7.0, 9.0, 6.5, 8.0]
+print("Điểm ban đầu:", exam_scores)
 
 # Lấy điểm cuối cùng
-diem_cuoi = diem_thi.pop()
-print(f"Điểm vừa lấy: {diem_cuoi}")
-print("Điểm còn lại:", diem_thi)
+last_score = exam_scores.pop()
+print(f"Điểm vừa lấy: {last_score}")
+print("Điểm còn lại:", exam_scores)
 
 # Lấy điểm ở vị trí 1
-diem_vi_tri_1 = diem_thi.pop(1)
-print(f"Điểm vị trí 1: {diem_vi_tri_1}")
-print("Điểm còn lại:", diem_thi)
+score_at_index_1 = exam_scores.pop(1)
+print(f"Điểm vị trí 1: {score_at_index_1}")
+print("Điểm còn lại:", exam_scores)
 ```
 
 ### 🧹 Clear - Xóa Tất Cả
 
 ```python
-gio_hang = ["Sách", "Bút", "Tẩy", "Thước"]
-print("Giỏ hàng:", gio_hang)
+shopping_cart = ["Sách", "Bút", "Tẩy", "Thước"]
+print("Giỏ hàng:", shopping_cart)
 
 # Xóa tất cả
-gio_hang.clear()
-print("Sau khi xóa:", gio_hang)  # []
+shopping_cart.clear()
+print("Sau khi xóa:", shopping_cart)  # []
 ```
 
 ## 🔄 Thay Đổi Phần Tử
 
 ```python
-diem_so = [7.0, 6.5, 8.0, 5.5, 9.0]
-print("Điểm ban đầu:", diem_so)
+scores = [7.0, 6.5, 8.0, 5.5, 9.0]
+print("Điểm ban đầu:", scores)
 
 # Thay đổi điểm thứ 2 (index 1)
-diem_so[1] = 8.5
-print("Sau khi sửa điểm:", diem_so)
+scores[1] = 8.5
+print("Sau khi sửa điểm:", scores)
 
 # Thay đổi nhiều điểm cùng lúc
-diem_so[2:4] = [8.5, 7.0]
-print("Sau khi sửa nhiều điểm:", diem_so)
+scores[2:4] = [8.5, 7.0]
+print("Sau khi sửa nhiều điểm:", scores)
 
 # Thêm điểm thưởng cho tất cả
-for i in range(len(diem_so)):
-    diem_so[i] += 0.5
+for i in range(len(scores)):
+    scores[i] += 0.5
 
-print("Sau khi cộng điểm thưởng:", diem_so)
+print("Sau khi cộng điểm thưởng:", scores)
 ```
 
 ## 🔍 Tìm Kiếm và Kiểm Tra
 
 ```python
-hoc_sinh = ["An", "Bình", "Châu", "Dung", "An", "Em"]
+students = ["An", "Bình", "Châu", "Dung", "An", "Em"]
 
 # Kiểm tra có tồn tại không
-print("An có trong lớp?", "An" in hoc_sinh)           # True
-print("Phong có trong lớp?", "Phong" in hoc_sinh)     # False
+print("An có trong lớp?", "An" in students)           # True
+print("Phong có trong lớp?", "Phong" in students)     # False
 
 # Tìm vị trí đầu tiên
-vi_tri_an = hoc_sinh.index("An")
-print(f"An ở vị trí: {vi_tri_an}")                    # 0
+position_an = students.index("An")
+print(f"An ở vị trí: {position_an}")                    # 0
 
 # Đếm số lần xuất hiện
-so_lan_an = hoc_sinh.count("An")
-print(f"An xuất hiện {so_lan_an} lần")                # 2
+count_an = students.count("An")
+print(f"An xuất hiện {count_an} lần")                # 2
 
 # Tìm tất cả vị trí của "An"
-vi_tri_tat_ca_an = []
-for i, ten in enumerate(hoc_sinh):
-    if ten == "An":
-        vi_tri_tat_ca_an.append(i)
+all_positions_an = []
+for i, name in enumerate(students):
+    if name == "An":
+        all_positions_an.append(i)
 
-print(f"Tất cả vị trí của An: {vi_tri_tat_ca_an}")    # [0, 4]
+print(f"Tất cả vị trí của An: {all_positions_an}")    # [0, 4]
 ```
 
 ## 🎪 Ví Dụ Thực Tế: Quản Lý Danh Sách Mua Sắm
 
 ```python
 # 🛒 Ứng dụng quản lý danh sách mua sắm
-danh_sach_mua_sam = []
+shopping_list = []
 
 print("🛒 ỨNG DỤNG QUẢN LÝ MUA SẮM")
 print("=" * 40)
 
-def hien_thi_danh_sach():
-    if not danh_sach_mua_sam:
+def display_list():
+    """Hiển thị danh sách mua sắm"""
+    if not shopping_list:
         print("📝 Danh sách trống")
     else:
         print("📝 DANH SÁCH MUA SẮM:")
-        for i, item in enumerate(danh_sach_mua_sam, 1):
+        for i, item in enumerate(shopping_list, 1):
             print(f"   {i}. {item}")
     print("-" * 30)
 
-def them_san_pham():
-    san_pham = input("➕ Nhập tên sản phẩm: ").strip()
-    if san_pham:
-        if san_pham not in danh_sach_mua_sam:
-            danh_sach_mua_sam.append(san_pham)
-            print(f"✅ Đã thêm '{san_pham}'")
+def add_product():
+    """Thêm sản phẩm vào danh sách"""
+    product = input("➕ Nhập tên sản phẩm: ").strip()
+    if product:
+        if product not in shopping_list:
+            shopping_list.append(product)
+            print(f"✅ Đã thêm '{product}'")
         else:
-            print(f"⚠️  '{san_pham}' đã có trong danh sách")
+            print(f"⚠️  '{product}' đã có trong danh sách")
     else:
         print("❌ Tên sản phẩm không được rỗng")
 
-def xoa_san_pham():
-    hien_thi_danh_sach()
-    if danh_sach_mua_sam:
+def remove_product():
+    """Xóa sản phẩm khỏi danh sách"""
+    display_list()
+    if shopping_list:
         try:
-            chi_so = int(input("🗑️  Nhập số thứ tự cần xóa: ")) - 1
-            if 0 <= chi_so < len(danh_sach_mua_sam):
-                san_pham_da_xoa = danh_sach_mua_sam.pop(chi_so)
-                print(f"✅ Đã xóa '{san_pham_da_xoa}'")
+            index = int(input("🗑️  Nhập số thứ tự cần xóa: ")) - 1
+            if 0 <= index < len(shopping_list):
+                removed_product = shopping_list.pop(index)
+                print(f"✅ Đã xóa '{removed_product}'")
             else:
                 print("❌ Số thứ tự không hợp lệ")
         except ValueError:
             print("❌ Vui lòng nhập số")
 
-def tim_san_pham():
-    tu_khoa = input("🔍 Nhập tên sản phẩm cần tìm: ").strip().lower()
-    ket_qua = []
+def search_product():
+    """Tìm kiếm sản phẩm trong danh sách"""
+    keyword = input("🔍 Nhập tên sản phẩm cần tìm: ").strip().lower()
+    results = []
     
-    for i, san_pham in enumerate(danh_sach_mua_sam):
-        if tu_khoa in san_pham.lower():
-            ket_qua.append((i + 1, san_pham))
+    for i, product in enumerate(shopping_list):
+        if keyword in product.lower():
+            results.append((i + 1, product))
     
-    if ket_qua:
+    if results:
         print("🎯 Kết quả tìm kiếm:")
-        for stt, san_pham in ket_qua:
-            print(f"   {stt}. {san_pham}")
+        for order, product in results:
+            print(f"   {order}. {product}")
     else:
         print("😅 Không tìm thấy sản phẩm nào")
 
@@ -340,19 +344,19 @@ while True:
     print("4. Tìm sản phẩm")
     print("5. Thoát")
     
-    lua_chon = input("👉 Chọn chức năng (1-5): ")
+    choice = input("👉 Chọn chức năng (1-5): ")
     
-    if lua_chon == "1":
-        hien_thi_danh_sach()
-    elif lua_chon == "2":
-        them_san_pham()
-    elif lua_chon == "3":
-        xoa_san_pham()
-    elif lua_chon == "4":
-        tim_san_pham()
-    elif lua_chon == "5":
+    if choice == "1":
+        display_list()
+    elif choice == "2":
+        add_product()
+    elif choice == "3":
+        remove_product()
+    elif choice == "4":
+        search_product()
+    elif choice == "5":
         print("👋 Cảm ơn bạn đã sử dụng!")
-        print(f"📊 Tổng cộng: {len(danh_sach_mua_sam)} sản phẩm")
+        print(f"📊 Tổng cộng: {len(shopping_list)} sản phẩm")
         break
     else:
         print("❌ Lựa chọn không hợp lệ!")
@@ -364,24 +368,24 @@ while True:
 
 ```python
 # TODO: Tạo chương trình quản lý điểm số lớp học
-ten_hoc_sinh = []
-diem_toan = []
-diem_van = []
+student_names = []
+math_scores = []
+literature_scores = []
 
 print("📊 QUẢN LÝ ĐIỂM SỐ LỚP HỌC")
 
 # Nhập thông tin học sinh
-so_hoc_sinh = int(input("Nhập số học sinh: "))
+student_count = int(input("Nhập số học sinh: "))
 
-for i in range(so_hoc_sinh):
+for i in range(student_count):
     print(f"\nHọc sinh {i + 1}:")
-    ten = input("Tên: ")
-    toan = float(input("Điểm Toán: "))
-    van = float(input("Điểm Văn: "))
+    name = input("Tên: ")
+    math = float(input("Điểm Toán: "))
+    literature = float(input("Điểm Văn: "))
     
-    ten_hoc_sinh.append(ten)
-    diem_toan.append(toan)
-    diem_van.append(van)
+    student_names.append(name)
+    math_scores.append(math)
+    literature_scores.append(literature)
 
 # Tính và hiển thị kết quả
 print("\n" + "="*50)
@@ -390,29 +394,29 @@ print("="*50)
 print(f"{'STT':<3} {'Tên':<15} {'Toán':<6} {'Văn':<6} {'TB':<6} {'Xếp loại'}")
 print("-"*50)
 
-for i in range(len(ten_hoc_sinh)):
-    diem_tb = (diem_toan[i] + diem_van[i]) / 2
+for i in range(len(student_names)):
+    average_score = (math_scores[i] + literature_scores[i]) / 2
     
-    if diem_tb >= 8.0:
-        xep_loai = "Giỏi"
-    elif diem_tb >= 6.5:
-        xep_loai = "Khá"
-    elif diem_tb >= 5.0:
-        xep_loai = "TB"
+    if average_score >= 8.0:
+        classification = "Giỏi"
+    elif average_score >= 6.5:
+        classification = "Khá"
+    elif average_score >= 5.0:
+        classification = "TB"
     else:
-        xep_loai = "Yếu"
+        classification = "Yếu"
     
-    print(f"{i+1:<3} {ten_hoc_sinh[i]:<15} {diem_toan[i]:<6} {diem_van[i]:<6} {diem_tb:<6.1f} {xep_loai}")
+    print(f"{i+1:<3} {student_names[i]:<15} {math_scores[i]:<6} {literature_scores[i]:<6} {average_score:<6.1f} {classification}")
 
 # Thống kê
 print("\n📊 THỐNG KÊ:")
-diem_cao_nhat_toan = max(diem_toan)
-diem_cao_nhat_van = max(diem_van)
-vi_tri_gioi_nhat_toan = diem_toan.index(diem_cao_nhat_toan)
-vi_tri_gioi_nhat_van = diem_van.index(diem_cao_nhat_van)
+highest_math_score = max(math_scores)
+highest_literature_score = max(literature_scores)
+best_math_position = math_scores.index(highest_math_score)
+best_literature_position = literature_scores.index(highest_literature_score)
 
-print(f"🏆 Điểm Toán cao nhất: {diem_cao_nhat_toan} - {ten_hoc_sinh[vi_tri_gioi_nhat_toan]}")
-print(f"🏆 Điểm Văn cao nhất: {diem_cao_nhat_van} - {ten_hoc_sinh[vi_tri_gioi_nhat_van]}")
+print(f"🏆 Điểm Toán cao nhất: {highest_math_score} - {student_names[best_math_position]}")
+print(f"🏆 Điểm Văn cao nhất: {highest_literature_score} - {student_names[best_literature_position]}")
 ```
 
 ### 🥈 Bài Tập 2: Game Xổ Số Mini
@@ -426,14 +430,14 @@ print("Chọn 6 số từ 1-45")
 print("-" * 30)
 
 # Nhập số người chơi
-so_nguoi_choi = []
+player_numbers = []
 for i in range(6):
     while True:
         try:
-            so = int(input(f"Nhập số thứ {i+1} (1-45): "))
-            if 1 <= so <= 45:
-                if so not in so_nguoi_choi:
-                    so_nguoi_choi.append(so)
+            number = int(input(f"Nhập số thứ {i+1} (1-45): "))
+            if 1 <= number <= 45:
+                if number not in player_numbers:
+                    player_numbers.append(number)
                     break
                 else:
                     print("❌ Số này đã chọn rồi!")
@@ -444,36 +448,36 @@ for i in range(6):
 
 # Quay số ngẫu nhiên
 print("\n🎲 ĐANG QUAY SỐ...")
-so_trung_thuong = []
-while len(so_trung_thuong) < 6:
-    so_ngau_nhien = random.randint(1, 45)
-    if so_ngau_nhien not in so_trung_thuong:
-        so_trung_thuong.append(so_ngau_nhien)
+winning_numbers = []
+while len(winning_numbers) < 6:
+    random_number = random.randint(1, 45)
+    if random_number not in winning_numbers:
+        winning_numbers.append(random_number)
 
-so_trung_thuong.sort()
-so_nguoi_choi.sort()
+winning_numbers.sort()
+player_numbers.sort()
 
 # Hiển thị kết quả
-print(f"🎯 Số bạn chọn: {so_nguoi_choi}")
-print(f"🎰 Số trúng thưởng: {so_trung_thuong}")
+print(f"🎯 Số bạn chọn: {player_numbers}")
+print(f"🎰 Số trúng thưởng: {winning_numbers}")
 
 # Kiểm tra trúng
-so_trung = []
-for so in so_nguoi_choi:
-    if so in so_trung_thuong:
-        so_trung.append(so)
+matched_numbers = []
+for number in player_numbers:
+    if number in winning_numbers:
+        matched_numbers.append(number)
 
-print(f"✅ Số trúng: {so_trung}")
-print(f"🎊 Số lượng trúng: {len(so_trung)}/6")
+print(f"✅ Số trúng: {matched_numbers}")
+print(f"🎊 Số lượng trúng: {len(matched_numbers)}/6")
 
 # Xác định giải thưởng
-if len(so_trung) == 6:
+if len(matched_numbers) == 6:
     print("🏆 JACKPOT! Trúng đặc biệt!")
-elif len(so_trung) == 5:
+elif len(matched_numbers) == 5:
     print("🥇 Trúng giải nhất!")
-elif len(so_trung) == 4:
+elif len(matched_numbers) == 4:
     print("🥈 Trúng giải nhì!")
-elif len(so_trung) == 3:
+elif len(matched_numbers) == 3:
     print("🥉 Trúng giải ba!")
 else:
     print("😅 Chúc bạn may mắn lần sau!")

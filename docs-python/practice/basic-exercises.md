@@ -34,16 +34,16 @@ Sau bài này bạn sẽ:
 
 ```python
 # Giải pháp 1: Cơ bản
-ten = input("Tên bạn là gì? ")
-print("Xin chào " + ten + "!")
+user_name = input("Tên bạn là gì? ")
+print("Xin chào " + user_name + "!")
 
 # Giải pháp 2: Dùng f-string (khuyến nghị)
-ten = input("Tên bạn là gì? ")
-print(f"Xin chào {ten}!")
+user_name = input("Tên bạn là gì? ")
+print(f"Xin chào {user_name}!")
 
 # Giải pháp 3: Thêm phần thân thiện
-ten = input("Tên bạn là gì? ")
-print(f"Xin chào {ten}! Rất vui được gặp bạn! 😊")
+user_name = input("Tên bạn là gì? ")
+print(f"Xin chào {user_name}! Rất vui được gặp bạn! 😊")
 ```
 </details>
 
@@ -68,24 +68,24 @@ print(f"Xin chào {ten}! Rất vui được gặp bạn! 😊")
 
 ```python
 # Giải pháp 1: Đơn giản
-nam_sinh = int(input("Bạn sinh năm nào? "))
-tuoi = 2024 - nam_sinh
-print(f"Bạn {tuoi} tuổi!")
+birth_year = int(input("Bạn sinh năm nào? "))
+age = 2024 - birth_year
+print(f"Bạn {age} tuổi!")
 
 # Giải pháp 2: Tự động lấy năm hiện tại
 import datetime
-nam_sinh = int(input("Bạn sinh năm nào? "))
-nam_hien_tai = datetime.datetime.now().year
-tuoi = nam_hien_tai - nam_sinh
-print(f"Bạn {tuoi} tuổi!")
+birth_year = int(input("Bạn sinh năm nào? "))
+current_year = datetime.datetime.now().year
+age = current_year - birth_year
+print(f"Bạn {age} tuổi!")
 
 # Giải pháp 3: Có kiểm tra
-nam_sinh = int(input("Bạn sinh năm nào? "))
-if nam_sinh > 2024:
+birth_year = int(input("Bạn sinh năm nào? "))
+if birth_year > 2024:
     print("Bạn chưa ra đời à? 😄")
 else:
-    tuoi = 2024 - nam_sinh
-    print(f"Bạn {tuoi} tuổi!")
+    age = 2024 - birth_year
+    print(f"Bạn {age} tuổi!")
 ```
 </details>
 
@@ -160,20 +160,20 @@ else:
 print("📐 TÍNH DIỆN TÍCH HÌNH CHỮ NHẬT")
 print("=" * 35)
 
-chieu_dai = float(input("Nhập chiều dài (m): "))
-chieu_rong = float(input("Nhập chiều rộng (m): "))
+length = float(input("Nhập chiều dài (m): "))
+width = float(input("Nhập chiều rộng (m): "))
 
-dien_tich = chieu_dai * chieu_rong
-chu_vi = 2 * (chieu_dai + chieu_rong)
+area = length * width
+perimeter = 2 * (length + width)
 
 print(f"\n📊 Kết quả:")
-print(f"   📏 Diện tích: {dien_tich} m²")
-print(f"   🔄 Chu vi: {chu_vi} m")
+print(f"   📏 Diện tích: {area} m²")
+print(f"   🔄 Chu vi: {perimeter} m")
 
 # Thêm phân loại kích thước
-if dien_tich < 10:
+if area < 10:
     print("   📦 Kích thước nhỏ")
-elif dien_tich < 50:
+elif area < 50:
     print("   🏠 Kích thước trung bình")
 else:
     print("   🏢 Kích thước lớn")
@@ -204,31 +204,31 @@ else:
 print("💰 MÁY TÍNH TIP NHÀ HÀNG")
 print("=" * 30)
 
-tong_hoa_don = float(input("💳 Tổng hóa đơn: "))
+total_bill = float(input("💳 Tổng hóa đơn: "))
 print("\n📋 Chọn mức tip:")
 print("   1. 10% - Dịch vụ bình thường")
 print("   2. 15% - Dịch vụ tốt")
 print("   3. 20% - Dịch vụ xuất sắc")
 print("   4. Tự nhập")
 
-lua_chon = input("👉 Chọn (1-4): ")
+choice = input("👉 Chọn (1-4): ")
 
-if lua_chon == "1":
-    phan_tram_tip = 10
-elif lua_chon == "2":
-    phan_tram_tip = 15
-elif lua_chon == "3":
-    phan_tram_tip = 20
+if choice == "1":
+    tip_percentage = 10
+elif choice == "2":
+    tip_percentage = 15
+elif choice == "3":
+    tip_percentage = 20
 else:
-    phan_tram_tip = float(input("Nhập % tip: "))
+    tip_percentage = float(input("Nhập % tip: "))
 
-tien_tip = tong_hoa_don * phan_tram_tip / 100
-tong_cong = tong_hoa_don + tien_tip
+tip_amount = total_bill * tip_percentage / 100
+total_amount = total_bill + tip_amount
 
 print(f"\n📊 Chi tiết thanh toán:")
-print(f"   💳 Hóa đơn: {tong_hoa_don:,.0f}đ")
-print(f"   💝 Tip ({phan_tram_tip}%): {tien_tip:,.0f}đ")
-print(f"   💰 Tổng cộng: {tong_cong:,.0f}đ")
+print(f"   💳 Hóa đơn: {total_bill:,.0f}đ")
+print(f"   💝 Tip ({tip_percentage}%): {tip_amount:,.0f}đ")
+print(f"   💰 Tổng cộng: {total_amount:,.0f}đ")
 ```
 </details>
 
@@ -258,25 +258,25 @@ print(f"   💰 Tổng cộng: {tong_cong:,.0f}đ")
 print("📊 PHÂN LOẠI HỌC LỰC")
 print("=" * 25)
 
-diem = float(input("Nhập điểm (0-10): "))
+score = float(input("Nhập điểm (0-10): "))
 
 # Kiểm tra điểm hợp lệ
-if diem < 0 or diem > 10:
+if score < 0 or score > 10:
     print("❌ Điểm không hợp lệ!")
 else:
-    if diem >= 9:
-        print(f"🏆 Xuất sắc! Điểm {diem} thật tuyệt vời!")
-    elif diem >= 8:
-        print(f"🌟 Giỏi! Điểm {diem} rất tốt!")
-    elif diem >= 7:
-        print(f"👍 Khá! Điểm {diem} ổn đấy!")
-    elif diem >= 5:
-        print(f"📚 Trung bình. Điểm {diem}, cần cố gắng thêm!")
+    if score >= 9:
+        print(f"🏆 Xuất sắc! Điểm {score} thật tuyệt vời!")
+    elif score >= 8:
+        print(f"🌟 Giỏi! Điểm {score} rất tốt!")
+    elif score >= 7:
+        print(f"👍 Khá! Điểm {score} ổn đấy!")
+    elif score >= 5:
+        print(f"📚 Trung bình. Điểm {score}, cần cố gắng thêm!")
     else:
-        print(f"💪 Yếu. Điểm {diem}, đừng bỏ cuộc nhé!")
+        print(f"💪 Yếu. Điểm {score}, đừng bỏ cuộc nhé!")
 
     # Thêm lời khuyên
-    if diem < 8:
+    if score < 8:
         print("💡 Lời khuyên: Hãy ôn tập thêm và không ngừng cố gắng!")
 ```
 </details>
@@ -307,19 +307,19 @@ print("=" * 30)
 
 while True:
     try:
-        so = int(input("Nhập một số nguyên (0 để thoát): "))
+        number = int(input("Nhập một số nguyên (0 để thoát): "))
         
-        if so == 0:
+        if number == 0:
             print("👋 Tạm biệt!")
             break
         
-        if so % 2 == 0:
-            print(f"✅ Số {so} là số CHẴN")
+        if number % 2 == 0:
+            print(f"✅ Số {number} là số CHẴN")
         else:
-            print(f"❌ Số {so} là số LẺ")
+            print(f"❌ Số {number} là số LẺ")
         
         # Thêm thông tin bổ sung
-        if so > 0:
+        if number > 0:
             print(f"   📈 Đây là số dương")
         else:
             print(f"   📉 Đây là số âm")
@@ -354,44 +354,44 @@ while True:
 print("📅 TÍNH SỐ NGÀY TRONG THÁNG")
 print("=" * 35)
 
-thang = int(input("Nhập tháng (1-12): "))
-nam = int(input("Nhập năm: "))
+month = int(input("Nhập tháng (1-12): "))
+year = int(input("Nhập năm: "))
 
 # Kiểm tra tháng hợp lệ
-if thang < 1 or thang > 12:
+if month < 1 or month > 12:
     print("❌ Tháng không hợp lệ!")
 else:
     # Tháng có 31 ngày
-    if thang in [1, 3, 5, 7, 8, 10, 12]:
-        so_ngay = 31
+    if month in [1, 3, 5, 7, 8, 10, 12]:
+        days_count = 31
     # Tháng có 30 ngày
-    elif thang in [4, 6, 9, 11]:
-        so_ngay = 30
+    elif month in [4, 6, 9, 11]:
+        days_count = 30
     # Tháng 2
     else:
         # Kiểm tra năm nhuận
-        if (nam % 4 == 0 and nam % 100 != 0) or (nam % 400 == 0):
-            so_ngay = 29
-            nam_nhuan = True
+        if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+            days_count = 29
+            is_leap_year = True
         else:
-            so_ngay = 28
-            nam_nhuan = False
+            days_count = 28
+            is_leap_year = False
     
     # Tên tháng
-    ten_thang = [
+    month_names = [
         "", "Một", "Hai", "Ba", "Tư", "Năm", "Sáu",
         "Bảy", "Tám", "Chín", "Mười", "Mười một", "Mười hai"
     ]
     
     print(f"\n📊 Kết quả:")
-    print(f"   📅 Tháng {ten_thang[thang]} năm {nam}")
-    print(f"   🗓️ Có {so_ngay} ngày")
+    print(f"   📅 Tháng {month_names[month]} năm {year}")
+    print(f"   🗓️ Có {days_count} ngày")
     
-    if thang == 2:
-        if nam_nhuan:
-            print(f"   🌟 {nam} là năm nhuận!")
+    if month == 2:
+        if is_leap_year:
+            print(f"   🌟 {year} là năm nhuận!")
         else:
-            print(f"   📝 {nam} không phải năm nhuận")
+            print(f"   📝 {year} không phải năm nhuận")
 ```
 </details>
 
@@ -421,35 +421,35 @@ print("🏃‍♂️ TÍNH CHỈ SỐ BMI")
 print("=" * 25)
 
 print("📝 Nhập thông tin của bạn:")
-can_nang = float(input("⚖️ Cân nặng (kg): "))
-chieu_cao = float(input("📏 Chiều cao (cm): "))
+weight = float(input("⚖️ Cân nặng (kg): "))
+height_cm = float(input("📏 Chiều cao (cm): "))
 
 # Chuyển cm thành m
-chieu_cao_m = chieu_cao / 100
+height_m = height_cm / 100
 
 # Tính BMI
-bmi = can_nang / (chieu_cao_m ** 2)
+bmi = weight / (height_m ** 2)
 
 print(f"\n📊 Kết quả:")
-print(f"   📏 Chiều cao: {chieu_cao} cm")
-print(f"   ⚖️ Cân nặng: {can_nang} kg")
+print(f"   📏 Chiều cao: {height_cm} cm")
+print(f"   ⚖️ Cân nặng: {weight} kg")
 print(f"   📈 BMI: {bmi:.1f}")
 
 # Phân loại
 if bmi < 18.5:
     print(f"   🥺 Gầy - Cần tăng cân")
-    loi_khuyen = "Hãy ăn uống đủ chất và tập thể dục!"
+    advice = "Hãy ăn uống đủ chất và tập thể dục!"
 elif bmi < 25:
     print(f"   😊 Bình thường - Tuyệt vời!")
-    loi_khuyen = "Hãy duy trì lối sống lành mạnh!"
+    advice = "Hãy duy trì lối sống lành mạnh!"
 elif bmi < 30:
     print(f"   😐 Thừa cân - Cần chú ý")
-    loi_khuyen = "Hãy ăn ít hơn và vận động nhiều hơn!"
+    advice = "Hãy ăn ít hơn và vận động nhiều hơn!"
 else:
     print(f"   😰 Béo phì - Cần giảm cân")
-    loi_khuyen = "Hãy tham khảo ý kiến bác sĩ và có chế độ lành mạnh!"
+    advice = "Hãy tham khảo ý kiến bác sĩ và có chế độ lành mạnh!"
 
-print(f"   💡 Lời khuyên: {loi_khuyen}")
+print(f"   💡 Lời khuyên: {advice}")
 ```
 </details>
 
@@ -481,43 +481,43 @@ print("🎯 Tôi đang nghĩ một số từ 1 đến 10")
 print("🤔 Bạn có thể đoán được không?")
 
 # Tạo số ngẫu nhiên
-so_may_tinh = random.randint(1, 10)
-so_lan_doan = 0
-max_lan_doan = 3
+computer_number = random.randint(1, 10)
+attempt_count = 0
+max_attempts = 3
 
-while so_lan_doan < max_lan_doan:
+while attempt_count < max_attempts:
     try:
-        so_lan_doan += 1
-        so_du_doan = int(input(f"\n🎯 Lần đoán {so_lan_doan}: "))
+        attempt_count += 1
+        guessed_number = int(input(f"\n🎯 Lần đoán {attempt_count}: "))
         
-        if so_du_doan == so_may_tinh:
-            print(f"🎉 Chính xác! Số đó là {so_may_tinh}")
-            print(f"🏆 Bạn đoán đúng trong {so_lan_doan} lần!")
+        if guessed_number == computer_number:
+            print(f"🎉 Chính xác! Số đó là {computer_number}")
+            print(f"🏆 Bạn đoán đúng trong {attempt_count} lần!")
             
-            if so_lan_doan == 1:
+            if attempt_count == 1:
                 print("🌟 Xuất sắc! Đoán trúng ngay lần đầu!")
-            elif so_lan_doan == 2:
+            elif attempt_count == 2:
                 print("👍 Giỏi lắm! Nhanh như chớp!")
             else:
                 print("😊 Cuối cùng cũng đúng!")
             break
             
-        elif so_du_doan < so_may_tinh:
+        elif guessed_number < computer_number:
             print("📈 Số tôi nghĩ LỚN HƠN!")
         else:
             print("📉 Số tôi nghĩ NHỎ HƠN!")
         
         # Kiểm tra hết lượt
-        if so_lan_doan == max_lan_doan:
-            print(f"\n😅 Hết lượt rồi! Số đó là {so_may_tinh}")
+        if attempt_count == max_attempts:
+            print(f"\n😅 Hết lượt rồi! Số đó là {computer_number}")
             print("🎮 Chơi lại lần sau nhé!")
         else:
-            con_lai = max_lan_doan - so_lan_doan
-            print(f"⏰ Còn {con_lai} lần đoán!")
+            remaining_attempts = max_attempts - attempt_count
+            print(f"⏰ Còn {remaining_attempts} lần đoán!")
             
     except ValueError:
         print("⚠️ Vui lòng nhập số từ 1 đến 10!")
-        so_lan_doan -= 1  # Không tính lần nhập sai
+        attempt_count -= 1  # Không tính lần nhập sai
 ```
 </details>
 
@@ -547,53 +547,53 @@ while so_lan_doan < max_lan_doan:
 print("⚡ MÁY TÍNH TIỀN ĐIỆN")
 print("=" * 30)
 
-so_dien = float(input("📊 Nhập số điện đã dùng (kWh): "))
+electricity_usage = float(input("📊 Nhập số điện đã dùng (kWh): "))
 
-if so_dien <= 0:
+if electricity_usage <= 0:
     print("❌ Số điện không hợp lệ!")
 else:
-    tien_dien = 0
+    electricity_cost = 0
     
     # Bậc 1: 0-50 kWh
-    if so_dien <= 50:
-        tien_dien = so_dien * 1806
+    if electricity_usage <= 50:
+        electricity_cost = electricity_usage * 1806
     else:
-        tien_dien += 50 * 1806
-        so_dien_con_lai = so_dien - 50
+        electricity_cost += 50 * 1806
+        remaining_usage = electricity_usage - 50
         
         # Bậc 2: 51-100 kWh
-        if so_dien_con_lai <= 50:
-            tien_dien += so_dien_con_lai * 1866
+        if remaining_usage <= 50:
+            electricity_cost += remaining_usage * 1866
         else:
-            tien_dien += 50 * 1866
-            so_dien_con_lai -= 50
+            electricity_cost += 50 * 1866
+            remaining_usage -= 50
             
             # Bậc 3: 101-200 kWh
-            if so_dien_con_lai <= 100:
-                tien_dien += so_dien_con_lai * 2167
+            if remaining_usage <= 100:
+                electricity_cost += remaining_usage * 2167
             else:
-                tien_dien += 100 * 2167
-                so_dien_con_lai -= 100
+                electricity_cost += 100 * 2167
+                remaining_usage -= 100
                 
                 # Bậc 4: >200 kWh
-                tien_dien += so_dien_con_lai * 2729
+                electricity_cost += remaining_usage * 2729
     
     # Thêm VAT 10%
-    tien_vat = tien_dien * 0.1
-    tong_tien = tien_dien + tien_vat
+    vat_amount = electricity_cost * 0.1
+    total_amount = electricity_cost + vat_amount
     
     print(f"\n💡 HÓA ĐƠN ĐIỆN")
     print("-" * 25)
-    print(f"⚡ Số điện: {so_dien:.1f} kWh")
-    print(f"💰 Tiền điện: {tien_dien:,.0f}đ")
-    print(f"📊 VAT (10%): {tien_vat:,.0f}đ")
-    print(f"💳 Tổng cộng: {tong_tien:,.0f}đ")
+    print(f"⚡ Số điện: {electricity_usage:.1f} kWh")
+    print(f"💰 Tiền điện: {electricity_cost:,.0f}đ")
+    print(f"📊 VAT (10%): {vat_amount:,.0f}đ")
+    print(f"💳 Tổng cộng: {total_amount:,.0f}đ")
     
     # Lời khuyên tiết kiệm
-    if so_dien > 200:
+    if electricity_usage > 200:
         print("\n💡 Lời khuyên: Bạn dùng nhiều điện quá!")
         print("🔌 Hãy tắt các thiết bị không cần thiết")
-    elif so_dien > 100:
+    elif electricity_usage > 100:
         print("\n👍 Mức tiêu thụ ở mức trung bình")
         print("💡 Có thể tiết kiệm thêm một chút")
     else:

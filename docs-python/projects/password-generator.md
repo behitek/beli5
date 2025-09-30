@@ -58,20 +58,20 @@ from datetime import datetime
 
 class PasswordGenerator:
     def __init__(self):
-        self.ky_tu_thuong = string.ascii_lowercase
-        self.ky_tu_hoa = string.ascii_uppercase
-        self.ky_tu_so = string.digits
-        self.ky_tu_dac_biet = "!@#$%^&*()_+-=[]{}|;:,.<>?"
-        self.lich_su_mat_khau = []
-        self.thu_muc_luu = "passwords"
-        self.tao_thu_muc()
+        self.lowercase_chars = string.ascii_lowercase
+        self.uppercase_chars = string.ascii_uppercase
+        self.digit_chars = string.digits
+        self.special_chars = "!@#$%^&*()_+-=[]{}|;:,.<>?"
+        self.password_history = []
+        self.storage_folder = "passwords"
+        self.create_folder()
     
-    def tao_thu_muc(self):
+    def create_folder(self):
         """Tạo thư mục lưu trữ"""
         try:
-            if not os.path.exists(self.thu_muc_luu):
-                os.makedirs(self.thu_muc_luu)
-                print(f"✅ Đã tạo thư mục: {self.thu_muc_luu}")
+            if not os.path.exists(self.storage_folder):
+                os.makedirs(self.storage_folder)
+                print(f"✅ Đã tạo thư mục: {self.storage_folder}")
         except Exception as e:
             print(f"❌ Lỗi tạo thư mục: {e}")
     
@@ -91,90 +91,91 @@ class PasswordGenerator:
 ### 🎲 Functions Tạo Mật Khẩu
 
 ```python
-    def tao_mat_khau_co_ban(self, do_dai=8):
+    def generate_basic_password(self, length=8):
         """Tạo mật khẩu cơ bản"""
         try:
             # Chỉ sử dụng chữ thường và số
-            ky_tu_hop_le = self.ky_tu_thuong + self.ky_tu_so
-            mat_khau = [random.choice(ky_tu_hop_le) for _ in range(do_dai)]
-            random.shuffle(mat_khau)
-            return ''.join(mat_khau)
+            valid_chars = self.lowercase_chars + self.digit_chars
+            password = [random.choice(valid_chars) for _ in range(length)]
+            random.shuffle(password)
+            return ''.join(password)
         except Exception as e:
             print(f"❌ Lỗi tạo mật khẩu cơ bản: {e}")
             return None
     
-    def tao_mat_khau_manh(self, do_dai=12):
+    def generate_strong_password(self, length=12):
         """Tạo mật khẩu mạnh"""
         try:
             # Đảm bảo có ít nhất 1 ký tự từ mỗi loại
-            mat_khau = [
-                random.choice(self.ky_tu_thuong),
-                random.choice(self.ky_tu_hoa),
-                random.choice(self.ky_tu_so),
-                random.choice(self.ky_tu_dac_biet)
+            password = [
+                random.choice(self.lowercase_chars),
+                random.choice(self.uppercase_chars),
+                random.choice(self.digit_chars),
+                random.choice(self.special_chars)
             ]
             
             # Thêm ký tự ngẫu nhiên
-            ky_tu_tat_ca = (self.ky_tu_thuong + self.ky_tu_hoa + 
-                           self.ky_tu_so + self.ky_tu_dac_biet)
-            mat_khau.extend([random.choice(ky_tu_tat_ca) 
-                           for _ in range(do_dai - 4)])
+            all_chars = (self.lowercase_chars + self.uppercase_chars + 
+                        self.digit_chars + self.special_chars)
+            password.extend([random.choice(all_chars) 
+                           for _ in range(length - 4)])
             
             # Xáo trộn
-            random.shuffle(mat_khau)
-            return ''.join(mat_khau)
+            random.shuffle(password)
+            return ''.join(password)
         except Exception as e:
             print(f"❌ Lỗi tạo mật khẩu mạnh: {e}")
             return None
     
-    def tao_mat_khau_tuy_chinh(self, do_dai, co_chu_thuong=True, 
-                               co_chu_hoa=True, co_so=True, co_ky_tu_dac_biet=True):
+    def generate_custom_password(self, length, include_lowercase=True, 
+                               include_uppercase=True, include_digits=True, 
+                               include_special=True):
         """Tạo mật khẩu tùy chỉnh"""
         try:
-            ky_tu_hop_le = ""
+            valid_chars = ""
             
-            if co_chu_thuong:
-                ky_tu_hop_le += self.ky_tu_thuong
-            if co_chu_hoa:
-                ky_tu_hop_le += self.ky_tu_hoa
-            if co_so:
-                ky_tu_hop_le += self.ky_tu_so
-            if co_ky_tu_dac_biet:
-                ky_tu_hop_le += self.ky_tu_dac_biet
+            if include_lowercase:
+                valid_chars += self.lowercase_chars
+            if include_uppercase:
+                valid_chars += self.uppercase_chars
+            if include_digits:
+                valid_chars += self.digit_chars
+            if include_special:
+                valid_chars += self.special_chars
             
-            if not ky_tu_hop_le:
+            if not valid_chars:
                 print("❌ Phải chọn ít nhất một loại ký tự!")
                 return None
             
-            mat_khau = [random.choice(ky_tu_hop_le) for _ in range(do_dai)]
-            random.shuffle(mat_khau)
-            return ''.join(mat_khau)
+            password = [random.choice(valid_chars) for _ in range(length)]
+            random.shuffle(password)
+            return ''.join(password)
         except Exception as e:
             print(f"❌ Lỗi tạo mật khẩu tùy chỉnh: {e}")
             return None
     
-    def tao_mat_khau_tu_tu(self, tu_goc):
+    def generate_password_from_word(self, base_word):
         """Tạo mật khẩu từ từ gốc"""
         try:
-            mat_khau = []
+            password = []
             
             # Biến đổi từ gốc
-            for ky_tu in tu_goc:
-                if ky_tu.isalpha():
-                    if ky_tu.islower():
-                        mat_khau.append(ky_tu.upper())
+            for char in base_word:
+                if char.isalpha():
+                    if char.islower():
+                        password.append(char.upper())
                     else:
-                        mat_khau.append(ky_tu.lower())
+                        password.append(char.lower())
                 else:
-                    mat_khau.append(ky_tu)
+                    password.append(char)
             
             # Thêm số và ký tự đặc biệt
-            mat_khau.extend([random.choice(self.ky_tu_so) for _ in range(2)])
-            mat_khau.extend([random.choice(self.ky_tu_dac_biet) for _ in range(2)])
+            password.extend([random.choice(self.digit_chars) for _ in range(2)])
+            password.extend([random.choice(self.special_chars) for _ in range(2)])
             
             # Xáo trộn
-            random.shuffle(mat_khau)
-            return ''.join(mat_khau)
+            random.shuffle(password)
+            return ''.join(password)
         except Exception as e:
             print(f"❌ Lỗi tạo mật khẩu từ từ: {e}")
             return None
@@ -183,100 +184,100 @@ class PasswordGenerator:
 ## 🎪 Bước 2: Hệ Thống Đánh Giá Mật Khẩu
 
 ```python
-    def danh_gia_mat_khau(self, mat_khau):
+    def evaluate_password(self, password):
         """Đánh giá độ mạnh của mật khẩu"""
         try:
-            diem = 0
-            chi_tiet = []
+            score = 0
+            details = []
             
             # Độ dài
-            if len(mat_khau) >= 12:
-                diem += 3
-                chi_tiet.append("✅ Độ dài tốt (≥12)")
-            elif len(mat_khau) >= 8:
-                diem += 2
-                chi_tiet.append("✅ Độ dài trung bình (≥8)")
+            if len(password) >= 12:
+                score += 3
+                details.append("✅ Độ dài tốt (≥12)")
+            elif len(password) >= 8:
+                score += 2
+                details.append("✅ Độ dài trung bình (≥8)")
             else:
-                diem += 1
-                chi_tiet.append("⚠️  Độ dài ngắn (<8)")
+                score += 1
+                details.append("⚠️  Độ dài ngắn (<8)")
             
             # Chữ thường
-            if any(c.islower() for c in mat_khau):
-                diem += 1
-                chi_tiet.append("✅ Có chữ thường")
+            if any(c.islower() for c in password):
+                score += 1
+                details.append("✅ Có chữ thường")
             else:
-                chi_tiet.append("❌ Thiếu chữ thường")
+                details.append("❌ Thiếu chữ thường")
             
             # Chữ hoa
-            if any(c.isupper() for c in mat_khau):
-                diem += 1
-                chi_tiet.append("✅ Có chữ hoa")
+            if any(c.isupper() for c in password):
+                score += 1
+                details.append("✅ Có chữ hoa")
             else:
-                chi_tiet.append("❌ Thiếu chữ hoa")
+                details.append("❌ Thiếu chữ hoa")
             
             # Số
-            if any(c.isdigit() for c in mat_khau):
-                diem += 1
-                chi_tiet.append("✅ Có số")
+            if any(c.isdigit() for c in password):
+                score += 1
+                details.append("✅ Có số")
             else:
-                chi_tiet.append("❌ Thiếu số")
+                details.append("❌ Thiếu số")
             
             # Ký tự đặc biệt
-            if any(c in self.ky_tu_dac_biet for c in mat_khau):
-                diem += 2
-                chi_tiet.append("✅ Có ký tự đặc biệt")
+            if any(c in self.special_chars for c in password):
+                score += 2
+                details.append("✅ Có ký tự đặc biệt")
             else:
-                chi_tiet.append("❌ Thiếu ký tự đặc biệt")
+                details.append("❌ Thiếu ký tự đặc biệt")
             
             # Đánh giá tổng thể
-            if diem >= 8:
-                xep_loai = "Rất mạnh"
-                mau_sac = "🟢"
-            elif diem >= 6:
-                xep_loai = "Mạnh"
-                mau_sac = "🟡"
-            elif diem >= 4:
-                xep_loai = "Trung bình"
-                mau_sac = "🟠"
+            if score >= 8:
+                rating = "Rất mạnh"
+                color_indicator = "🟢"
+            elif score >= 6:
+                rating = "Mạnh"
+                color_indicator = "🟡"
+            elif score >= 4:
+                rating = "Trung bình"
+                color_indicator = "🟠"
             else:
-                xep_loai = "Yếu"
-                mau_sac = "🔴"
+                rating = "Yếu"
+                color_indicator = "🔴"
             
             return {
-                "diem": diem,
-                "xep_loai": xep_loai,
-                "mau_sac": mau_sac,
-                "chi_tiet": chi_tiet
+                "score": score,
+                "rating": rating,
+                "color_indicator": color_indicator,
+                "details": details
             }
         except Exception as e:
             print(f"❌ Lỗi đánh giá mật khẩu: {e}")
             return None
     
-    def hien_thi_danh_gia(self, mat_khau, danh_gia):
+    def display_evaluation(self, password, evaluation):
         """Hiển thị đánh giá mật khẩu"""
         try:
             print(f"\n📊 ĐÁNH GIÁ MẬT KHẨU")
             print("=" * 40)
-            print(f"🔐 Mật khẩu: {mat_khau}")
-            print(f"{danh_gia['mau_sac']} Xếp loại: {danh_gia['xep_loai']}")
-            print(f"📈 Điểm: {danh_gia['diem']}/8")
+            print(f"🔐 Mật khẩu: {password}")
+            print(f"{evaluation['color_indicator']} Xếp loại: {evaluation['rating']}")
+            print(f"📈 Điểm: {evaluation['score']}/8")
             
             print(f"\n📋 CHI TIẾT:")
-            for chi_tiet in danh_gia['chi_tiet']:
-                print(f"   {chi_tiet}")
+            for detail in evaluation['details']:
+                print(f"   {detail}")
             
             # Gợi ý cải thiện
-            if danh_gia['diem'] < 8:
+            if evaluation['score'] < 8:
                 print(f"\n💡 GỢI Ý CẢI THIỆN:")
-                if len(mat_khau) < 12:
+                if len(password) < 12:
                     print("   - Tăng độ dài mật khẩu (≥12 ký tự)")
-                if not any(c.islower() for c in mat_khau):
+                if not any(c.islower() for c in password):
                     print("   - Thêm chữ thường")
-                if not any(c.isupper() for c in mat_khau):
+                if not any(c.isupper() for c in password):
                     print("   - Thêm chữ hoa")
-                if not any(c.isdigit() for c in mat_khau):
+                if not any(c.isdigit() for c in password):
                     print("   - Thêm số")
-                if not any(c in self.ky_tu_dac_biet for c in mat_khau):
+                if not any(c in self.special_chars for c in password):
                     print("   - Thêm ký tự đặc biệt")
         except Exception as e:
             print(f"❌ Lỗi hiển thị đánh giá: {e}")
@@ -285,70 +286,70 @@ class PasswordGenerator:
 ## 🎯 Bước 3: Hệ Thống Lưu Trữ
 
 ```python
-    def luu_mat_khau(self, mat_khau, ten_tai_khoan="", ghi_chu=""):
+    def save_password(self, password, account_name="", note=""):
         """Lưu mật khẩu vào lịch sử"""
         try:
-            thong_tin = {
-                "mat_khau": mat_khau,
-                "ten_tai_khoan": ten_tai_khoan,
-                "ghi_chu": ghi_chu,
-                "thoi_gian": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "danh_gia": self.danh_gia_mat_khau(mat_khau)
+            info = {
+                "password": password,
+                "account_name": account_name,
+                "note": note,
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "evaluation": self.evaluate_password(password)
             }
             
-            self.lich_su_mat_khau.append(thong_tin)
+            self.password_history.append(info)
             print(f"✅ Đã lưu mật khẩu vào lịch sử")
             return True
         except Exception as e:
             print(f"❌ Lỗi lưu mật khẩu: {e}")
             return False
     
-    def luu_vao_file(self, ten_file="passwords.json"):
+    def save_to_file(self, filename="passwords.json"):
         """Lưu lịch sử mật khẩu vào file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_luu, ten_file)
-            with open(duong_dan, 'w', encoding='utf-8') as f:
-                json.dump(self.lich_su_mat_khau, f, ensure_ascii=False, indent=2)
-            print(f"✅ Đã lưu {len(self.lich_su_mat_khau)} mật khẩu vào {ten_file}")
+            file_path = os.path.join(self.storage_folder, filename)
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(self.password_history, f, ensure_ascii=False, indent=2)
+            print(f"✅ Đã lưu {len(self.password_history)} mật khẩu vào {filename}")
             return True
         except Exception as e:
             print(f"❌ Lỗi lưu file: {e}")
             return False
     
-    def doc_tu_file(self, ten_file="passwords.json"):
+    def load_from_file(self, filename="passwords.json"):
         """Đọc lịch sử mật khẩu từ file"""
         try:
-            duong_dan = os.path.join(self.thu_muc_luu, ten_file)
-            if os.path.exists(duong_dan):
-                with open(duong_dan, 'r', encoding='utf-8') as f:
-                    self.lich_su_mat_khau = json.load(f)
-                print(f"✅ Đã đọc {len(self.lich_su_mat_khau)} mật khẩu từ {ten_file}")
+            file_path = os.path.join(self.storage_folder, filename)
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    self.password_history = json.load(f)
+                print(f"✅ Đã đọc {len(self.password_history)} mật khẩu từ {filename}")
                 return True
             else:
-                print(f"⚠️  File {ten_file} không tồn tại")
+                print(f"⚠️  File {filename} không tồn tại")
                 return False
         except Exception as e:
             print(f"❌ Lỗi đọc file: {e}")
             return False
     
-    def hien_thi_lich_su(self):
+    def display_history(self):
         """Hiển thị lịch sử mật khẩu"""
         try:
-            if not self.lich_su_mat_khau:
+            if not self.password_history:
                 print("📋 Chưa có mật khẩu nào trong lịch sử")
                 return
             
-            print(f"\n📋 LỊCH SỬ MẬT KHẨU ({len(self.lich_su_mat_khau)} mật khẩu)")
+            print(f"\n📋 LỊCH SỬ MẬT KHẨU ({len(self.password_history)} mật khẩu)")
             print("=" * 60)
             
-            for i, thong_tin in enumerate(self.lich_su_mat_khau, 1):
-                print(f"{i:2d}. {thong_tin['mat_khau']}")
-                if thong_tin['ten_tai_khoan']:
-                    print(f"    Tài khoản: {thong_tin['ten_tai_khoan']}")
-                if thong_tin['ghi_chu']:
-                    print(f"    Ghi chú: {thong_tin['ghi_chu']}")
-                print(f"    Thời gian: {thong_tin['thoi_gian']}")
-                print(f"    Xếp loại: {thong_tin['danh_gia']['xep_loai']}")
+            for i, info in enumerate(self.password_history, 1):
+                print(f"{i:2d}. {info['password']}")
+                if info['account_name']:
+                    print(f"    Tài khoản: {info['account_name']}")
+                if info['note']:
+                    print(f"    Ghi chú: {info['note']}")
+                print(f"    Thời gian: {info['timestamp']}")
+                print(f"    Xếp loại: {info['evaluation']['rating']}")
                 print("-" * 40)
         except Exception as e:
             print(f"❌ Lỗi hiển thị lịch sử: {e}")
@@ -357,7 +358,7 @@ class PasswordGenerator:
 ## 🚀 Bước 4: Menu Chính
 
 ```python
-    def menu_chinh(self):
+    def show_main_menu(self):
         """Hiển thị menu chính"""
         self.print_header()
         print("\n📋 MENU CHÍNH")
@@ -373,37 +374,37 @@ class PasswordGenerator:
         print("0. 👋 Thoát")
         self.print_separator()
     
-    def chay_ung_dung(self):
+    def run_application(self):
         """Chạy ứng dụng chính"""
         # Đọc lịch sử từ file
-        self.doc_tu_file()
+        self.load_from_file()
         
         while True:
             try:
-                self.menu_chinh()
-                lua_chon = input("👉 Chọn chức năng (0-9): ").strip()
+                self.show_main_menu()
+                choice = input("👉 Chọn chức năng (0-9): ").strip()
                 
-                if lua_chon == "0":
+                if choice == "0":
                     print("👋 Cảm ơn bạn đã sử dụng!")
                     break
-                elif lua_chon == "1":
-                    self.tao_mat_khau_co_ban_menu()
-                elif lua_chon == "2":
-                    self.tao_mat_khau_manh_menu()
-                elif lua_chon == "3":
-                    self.tao_mat_khau_tuy_chinh_menu()
-                elif lua_chon == "4":
-                    self.tao_mat_khau_tu_tu_menu()
-                elif lua_chon == "5":
-                    self.danh_gia_mat_khau_menu()
-                elif lua_chon == "6":
-                    self.hien_thi_lich_su()
-                elif lua_chon == "7":
-                    self.luu_vao_file()
-                elif lua_chon == "8":
-                    self.doc_tu_file()
-                elif lua_chon == "9":
-                    self.cai_dat_menu()
+                elif choice == "1":
+                    self.basic_password_menu()
+                elif choice == "2":
+                    self.strong_password_menu()
+                elif choice == "3":
+                    self.custom_password_menu()
+                elif choice == "4":
+                    self.word_based_password_menu()
+                elif choice == "5":
+                    self.password_evaluation_menu()
+                elif choice == "6":
+                    self.display_history()
+                elif choice == "7":
+                    self.save_to_file()
+                elif choice == "8":
+                    self.load_from_file()
+                elif choice == "9":
+                    self.settings_menu()
                 else:
                     print("❌ Lựa chọn không hợp lệ!")
                 
@@ -416,169 +417,171 @@ class PasswordGenerator:
                 print(f"❌ Lỗi không mong muốn: {e}")
                 input("Nhấn Enter để tiếp tục...")
     
-    def tao_mat_khau_co_ban_menu(self):
+    def basic_password_menu(self):
         """Menu tạo mật khẩu cơ bản"""
         try:
             print("\n🔐 TẠO MẬT KHẨU CƠ BẢN")
             self.print_separator()
             
-            do_dai = int(input("Nhập độ dài mật khẩu (mặc định 8): ") or "8")
+            length = int(input("Nhập độ dài mật khẩu (mặc định 8): ") or "8")
             
-            if do_dai < 4:
+            if length < 4:
                 print("❌ Độ dài mật khẩu phải ít nhất 4 ký tự!")
                 return
             
-            mat_khau = self.tao_mat_khau_co_ban(do_dai)
-            if mat_khau:
-                print(f"🔐 Mật khẩu cơ bản: {mat_khau}")
+            password = self.generate_basic_password(length)
+            if password:
+                print(f"🔐 Mật khẩu cơ bản: {password}")
                 
                 # Đánh giá
-                danh_gia = self.danh_gia_mat_khau(mat_khau)
-                self.hien_thi_danh_gia(mat_khau, danh_gia)
+                evaluation = self.evaluate_password(password)
+                self.display_evaluation(password, evaluation)
                 
                 # Lưu vào lịch sử
-                luu = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
-                if luu in ['y', 'yes', 'có', 'c']:
-                    ten_tk = input("Tên tài khoản (tùy chọn): ").strip()
-                    ghi_chu = input("Ghi chú (tùy chọn): ").strip()
-                    self.luu_mat_khau(mat_khau, ten_tk, ghi_chu)
+                save_choice = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
+                if save_choice in ['y', 'yes', 'có', 'c']:
+                    account_name = input("Tên tài khoản (tùy chọn): ").strip()
+                    note = input("Ghi chú (tùy chọn): ").strip()
+                    self.save_password(password, account_name, note)
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
         except Exception as e:
             print(f"❌ Lỗi: {e}")
     
-    def tao_mat_khau_manh_menu(self):
+    def strong_password_menu(self):
         """Menu tạo mật khẩu mạnh"""
         try:
             print("\n💪 TẠO MẬT KHẨU MẠNH")
             self.print_separator()
             
-            do_dai = int(input("Nhập độ dài mật khẩu (mặc định 12): ") or "12")
+            length = int(input("Nhập độ dài mật khẩu (mặc định 12): ") or "12")
             
-            if do_dai < 8:
+            if length < 8:
                 print("❌ Mật khẩu mạnh phải ít nhất 8 ký tự!")
                 return
             
-            mat_khau = self.tao_mat_khau_manh(do_dai)
-            if mat_khau:
-                print(f"💪 Mật khẩu mạnh: {mat_khau}")
+            password = self.generate_strong_password(length)
+            if password:
+                print(f"💪 Mật khẩu mạnh: {password}")
                 
                 # Đánh giá
-                danh_gia = self.danh_gia_mat_khau(mat_khau)
-                self.hien_thi_danh_gia(mat_khau, danh_gia)
+                evaluation = self.evaluate_password(password)
+                self.display_evaluation(password, evaluation)
                 
                 # Lưu vào lịch sử
-                luu = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
-                if luu in ['y', 'yes', 'có', 'c']:
-                    ten_tk = input("Tên tài khoản (tùy chọn): ").strip()
-                    ghi_chu = input("Ghi chú (tùy chọn): ").strip()
-                    self.luu_mat_khau(mat_khau, ten_tk, ghi_chu)
+                save_choice = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
+                if save_choice in ['y', 'yes', 'có', 'c']:
+                    account_name = input("Tên tài khoản (tùy chọn): ").strip()
+                    note = input("Ghi chú (tùy chọn): ").strip()
+                    self.save_password(password, account_name, note)
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
         except Exception as e:
             print(f"❌ Lỗi: {e}")
     
-    def tao_mat_khau_tuy_chinh_menu(self):
+    def custom_password_menu(self):
         """Menu tạo mật khẩu tùy chỉnh"""
         try:
             print("\n🎯 TẠO MẬT KHẨU TÙY CHỈNH")
             self.print_separator()
             
-            do_dai = int(input("Nhập độ dài mật khẩu: "))
+            length = int(input("Nhập độ dài mật khẩu: "))
             
-            if do_dai < 4:
+            if length < 4:
                 print("❌ Độ dài mật khẩu phải ít nhất 4 ký tự!")
                 return
             
             print("\nChọn loại ký tự:")
-            co_chu_thuong = input("Chữ thường (a-z)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
-            co_chu_hoa = input("Chữ hoa (A-Z)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
-            co_so = input("Số (0-9)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
-            co_ky_tu_dac_biet = input("Ký tự đặc biệt (!@#$...)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
+            include_lowercase = input("Chữ thường (a-z)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
+            include_uppercase = input("Chữ hoa (A-Z)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
+            include_digits = input("Số (0-9)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
+            include_special = input("Ký tự đặc biệt (!@#$...)? (y/n): ").lower() in ['y', 'yes', 'có', 'c']
             
-            mat_khau = self.tao_mat_khau_tuy_chinh(do_dai, co_chu_thuong, co_chu_hoa, co_so, co_ky_tu_dac_biet)
-            if mat_khau:
-                print(f"🎯 Mật khẩu tùy chỉnh: {mat_khau}")
+            password = self.generate_custom_password(length, include_lowercase, 
+                                                   include_uppercase, include_digits, 
+                                                   include_special)
+            if password:
+                print(f"🎯 Mật khẩu tùy chỉnh: {password}")
                 
                 # Đánh giá
-                danh_gia = self.danh_gia_mat_khau(mat_khau)
-                self.hien_thi_danh_gia(mat_khau, danh_gia)
+                evaluation = self.evaluate_password(password)
+                self.display_evaluation(password, evaluation)
                 
                 # Lưu vào lịch sử
-                luu = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
-                if luu in ['y', 'yes', 'có', 'c']:
-                    ten_tk = input("Tên tài khoản (tùy chọn): ").strip()
-                    ghi_chu = input("Ghi chú (tùy chọn): ").strip()
-                    self.luu_mat_khau(mat_khau, ten_tk, ghi_chu)
+                save_choice = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
+                if save_choice in ['y', 'yes', 'có', 'c']:
+                    account_name = input("Tên tài khoản (tùy chọn): ").strip()
+                    note = input("Ghi chú (tùy chọn): ").strip()
+                    self.save_password(password, account_name, note)
         except ValueError:
             print("❌ Vui lòng nhập số hợp lệ!")
         except Exception as e:
             print(f"❌ Lỗi: {e}")
     
-    def tao_mat_khau_tu_tu_menu(self):
+    def word_based_password_menu(self):
         """Menu tạo mật khẩu từ từ gốc"""
         try:
             print("\n📝 TẠO MẬT KHẨU TỪ TỪ GỐC")
             self.print_separator()
             
-            tu_goc = input("Nhập từ gốc: ").strip()
+            base_word = input("Nhập từ gốc: ").strip()
             
-            if not tu_goc:
+            if not base_word:
                 print("❌ Vui lòng nhập từ gốc!")
                 return
             
-            mat_khau = self.tao_mat_khau_tu_tu(tu_goc)
-            if mat_khau:
-                print(f"📝 Mật khẩu từ '{tu_goc}': {mat_khau}")
+            password = self.generate_password_from_word(base_word)
+            if password:
+                print(f"📝 Mật khẩu từ '{base_word}': {password}")
                 
                 # Đánh giá
-                danh_gia = self.danh_gia_mat_khau(mat_khau)
-                self.hien_thi_danh_gia(mat_khau, danh_gia)
+                evaluation = self.evaluate_password(password)
+                self.display_evaluation(password, evaluation)
                 
                 # Lưu vào lịch sử
-                luu = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
-                if luu in ['y', 'yes', 'có', 'c']:
-                    ten_tk = input("Tên tài khoản (tùy chọn): ").strip()
-                    ghi_chu = input("Ghi chú (tùy chọn): ").strip()
-                    self.luu_mat_khau(mat_khau, ten_tk, ghi_chu)
+                save_choice = input("\n💾 Lưu vào lịch sử? (y/n): ").lower()
+                if save_choice in ['y', 'yes', 'có', 'c']:
+                    account_name = input("Tên tài khoản (tùy chọn): ").strip()
+                    note = input("Ghi chú (tùy chọn): ").strip()
+                    self.save_password(password, account_name, note)
         except Exception as e:
             print(f"❌ Lỗi: {e}")
     
-    def danh_gia_mat_khau_menu(self):
+    def password_evaluation_menu(self):
         """Menu đánh giá mật khẩu"""
         try:
             print("\n📊 ĐÁNH GIÁ MẬT KHẨU")
             self.print_separator()
             
-            mat_khau = input("Nhập mật khẩu cần đánh giá: ").strip()
+            password = input("Nhập mật khẩu cần đánh giá: ").strip()
             
-            if not mat_khau:
+            if not password:
                 print("❌ Vui lòng nhập mật khẩu!")
                 return
             
-            danh_gia = self.danh_gia_mat_khau(mat_khau)
-            if danh_gia:
-                self.hien_thi_danh_gia(mat_khau, danh_gia)
+            evaluation = self.evaluate_password(password)
+            if evaluation:
+                self.display_evaluation(password, evaluation)
         except Exception as e:
             print(f"❌ Lỗi: {e}")
     
-    def cai_dat_menu(self):
+    def settings_menu(self):
         """Menu cài đặt"""
         try:
             print("\n⚙️  CÀI ĐẶT")
             self.print_separator()
-            print(f"📁 Thư mục lưu trữ: {self.thu_muc_luu}")
-            print(f"📊 Số mật khẩu trong lịch sử: {len(self.lich_su_mat_khau)}")
-            print(f"🔤 Ký tự đặc biệt: {self.ky_tu_dac_biet}")
+            print(f"📁 Thư mục lưu trữ: {self.storage_folder}")
+            print(f"📊 Số mật khẩu trong lịch sử: {len(self.password_history)}")
+            print(f"🔤 Ký tự đặc biệt: {self.special_chars}")
             
             # Tùy chọn thay đổi thư mục
-            thay_doi = input("\nThay đổi thư mục lưu trữ? (y/n): ").lower()
-            if thay_doi in ['y', 'yes', 'có', 'c']:
-                thu_muc_moi = input("Nhập thư mục mới: ").strip()
-                if thu_muc_moi:
-                    self.thu_muc_luu = thu_muc_moi
-                    self.tao_thu_muc()
-                    print(f"✅ Đã thay đổi thư mục thành: {thu_muc_moi}")
+            change_folder = input("\nThay đổi thư mục lưu trữ? (y/n): ").lower()
+            if change_folder in ['y', 'yes', 'có', 'c']:
+                new_folder = input("Nhập thư mục mới: ").strip()
+                if new_folder:
+                    self.storage_folder = new_folder
+                    self.create_folder()
+                    print(f"✅ Đã thay đổi thư mục thành: {new_folder}")
         except Exception as e:
             print(f"❌ Lỗi: {e}")
 ```
@@ -587,7 +590,7 @@ class PasswordGenerator:
 
 ```python
 # 🔐 PASSWORD GENERATOR HOÀN CHỈNH
-# Tác giả: Học sinh Python
+# Tác giả: Behitek Team
 # Ngày: 2024
 
 def main():
@@ -595,7 +598,7 @@ def main():
     try:
         # Tạo và chạy ứng dụng
         app = PasswordGenerator()
-        app.chay_ung_dung()
+        app.run_application()
         
     except KeyboardInterrupt:
         print("\n\n👋 Chương trình bị dừng bởi người dùng!")
@@ -615,22 +618,22 @@ if __name__ == "__main__":
 
 ```python
 # TODO: Thêm các tính năng sau vào password generator
-def tao_mat_khau_phan_biom(self, thong_tin_ca_nhan):
+def generate_biometric_password(self, personal_info):
     """Tạo mật khẩu dựa trên thông tin cá nhân"""
     # Sử dụng thông tin cá nhân để tạo mật khẩu dễ nhớ
     pass
 
-def kiem_tra_mat_khau_bi_hack(self, mat_khau):
+def check_password_breach(self, password):
     """Kiểm tra mật khẩu có bị hack không"""
     # Kiểm tra với danh sách mật khẩu phổ biến
     pass
 
-def tao_mat_khau_2fa(self):
+def generate_2fa_code(self):
     """Tạo mã 2FA"""
     # Tạo mã xác thực 2 yếu tố
     pass
 
-def ma_hoa_mat_khau(self, mat_khau, khoa):
+def encrypt_password(self, password, encryption_key):
     """Mã hóa mật khẩu"""
     # Mã hóa mật khẩu với khóa
     pass

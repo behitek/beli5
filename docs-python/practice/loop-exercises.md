@@ -19,8 +19,8 @@ for i in range(1, 6):
 
 print("\n2. Bảng cửu chương 7:")
 for i in range(1, 11):
-    ket_qua = 7 * i
-    print(f"7 x {i} = {ket_qua}")
+    result = 7 * i
+    print(f"7 x {i} = {result}")
 
 print("\n3. Đếm ngược từ 10 về 0:")
 for i in range(10, -1, -1):
@@ -31,26 +31,26 @@ for i in range(10, -1, -1):
 
 # 4. Lặp qua danh sách
 print("\n4. Các môn học yêu thích:")
-mon_hoc = ["Toán", "Lý", "Hóa", "Sinh", "Văn"]
-for i, mon in enumerate(mon_hoc, 1):
-    print(f"Môn {i}: {mon}")
+subjects = ["Toán", "Lý", "Hóa", "Sinh", "Văn"]
+for i, subject in enumerate(subjects, 1):
+    print(f"Môn {i}: {subject}")
 
 # 5. Lặp qua chuỗi
 print("\n5. Phân tích từ 'PYTHON':")
-tu = "PYTHON"
-for i, ky_tu in enumerate(tu):
-    print(f"Vị trí {i}: '{ky_tu}'")
+word = "PYTHON"
+for i, character in enumerate(word):
+    print(f"Vị trí {i}: '{character}'")
 
 # 6. Lặp qua dictionary
 print("\n6. Thông tin học sinh:")
-hoc_sinh = {
+student = {
     "tên": "Nguyễn Văn An",
     "tuổi": 16,
     "lớp": "10A1",
     "điểm_tb": 8.5
 }
 
-for key, value in hoc_sinh.items():
+for key, value in student.items():
     print(f"{key.replace('_', ' ').title()}: {value}")
 ```
 
@@ -66,19 +66,19 @@ print("=== VÒNG LẶP WHILE ===")
 import random
 
 print("1. Trò chơi đoán số:")
-so_bi_mat = random.randint(1, 10)
-so_lan_doan = 0
-doan_dung = False
+secret_number = random.randint(1, 10)
+attempt_count = 0
+is_correct = False
 
-while not doan_dung and so_lan_doan < 3:
+while not is_correct and attempt_count < 3:
     try:
-        du_doan = int(input(f"Đoán số từ 1-10 (lần {so_lan_doan + 1}/3): "))
-        so_lan_doan += 1
+        user_guess = int(input(f"Đoán số từ 1-10 (lần {attempt_count + 1}/3): "))
+        attempt_count += 1
         
-        if du_doan == so_bi_mat:
-            print(f"🎉 Chúc mừng! Bạn đoán đúng số {so_bi_mat}")
-            doan_dung = True
-        elif du_doan < so_bi_mat:
+        if user_guess == secret_number:
+            print(f"🎉 Chúc mừng! Bạn đoán đúng số {secret_number}")
+            is_correct = True
+        elif user_guess < secret_number:
             print("📈 Số cần tìm lớn hơn!")
         else:
             print("📉 Số cần tìm nhỏ hơn!")
@@ -86,8 +86,8 @@ while not doan_dung and so_lan_doan < 3:
     except ValueError:
         print("❌ Vui lòng nhập số nguyên!")
 
-if not doan_dung:
-    print(f"😢 Hết lượt! Số bí mật là {so_bi_mat}")
+if not is_correct:
+    print(f"😢 Hết lượt! Số bí mật là {secret_number}")
 
 # 2. Menu lựa chọn
 print("\n2. Menu máy tính đơn giản:")
@@ -99,25 +99,25 @@ while True:
     print("4. Chia")
     print("0. Thoát")
     
-    lua_chon = input("Chọn phép tính (0-4): ")
+    choice = input("Chọn phép tính (0-4): ")
     
-    if lua_chon == "0":
+    if choice == "0":
         print("Tạm biệt! 👋")
         break
-    elif lua_chon in ["1", "2", "3", "4"]:
+    elif choice in ["1", "2", "3", "4"]:
         try:
-            a = float(input("Nhập số thứ nhất: "))
-            b = float(input("Nhập số thứ hai: "))
+            first_number = float(input("Nhập số thứ nhất: "))
+            second_number = float(input("Nhập số thứ hai: "))
             
-            if lua_chon == "1":
-                print(f"Kết quả: {a} + {b} = {a + b}")
-            elif lua_chon == "2":
-                print(f"Kết quả: {a} - {b} = {a - b}")
-            elif lua_chon == "3":
-                print(f"Kết quả: {a} × {b} = {a * b}")
-            elif lua_chon == "4":
-                if b != 0:
-                    print(f"Kết quả: {a} ÷ {b} = {a / b:.2f}")
+            if choice == "1":
+                print(f"Kết quả: {first_number} + {second_number} = {first_number + second_number}")
+            elif choice == "2":
+                print(f"Kết quả: {first_number} - {second_number} = {first_number - second_number}")
+            elif choice == "3":
+                print(f"Kết quả: {first_number} × {second_number} = {first_number * second_number}")
+            elif choice == "4":
+                if second_number != 0:
+                    print(f"Kết quả: {first_number} ÷ {second_number} = {first_number / second_number:.2f}")
                 else:
                     print("❌ Không thể chia cho 0!")
                     
@@ -128,26 +128,26 @@ while True:
 
 # 3. Tính tổng đến khi nhập 0
 print("\n3. Tính tổng các số (nhập 0 để dừng):")
-tong = 0
-so_luong = 0
+total = 0
+count = 0
 
 while True:
     try:
-        so = float(input("Nhập số (0 để kết thúc): "))
-        if so == 0:
+        number = float(input("Nhập số (0 để kết thúc): "))
+        if number == 0:
             break
-        tong += so
-        so_luong += 1
-        print(f"Tổng hiện tại: {tong}")
+        total += number
+        count += 1
+        print(f"Tổng hiện tại: {total}")
     except ValueError:
         print("❌ Vui lòng nhập số hợp lệ!")
 
-if so_luong > 0:
-    trung_binh = tong / so_luong
+if count > 0:
+    average = total / count
     print(f"📊 Kết quả:")
-    print(f"   Tổng: {tong}")
-    print(f"   Số lượng: {so_luong}")
-    print(f"   Trung bình: {trung_binh:.2f}")
+    print(f"   Tổng: {total}")
+    print(f"   Số lượng: {count}")
+    print(f"   Trung bình: {average:.2f}")
 else:
     print("Không có số nào được nhập!")
 ```
@@ -161,80 +161,80 @@ else:
 print("=== BREAK VÀ CONTINUE ===")
 
 # 1. Tìm số nguyên tố đầu tiên > n
-def tim_so_nguyen_to_dau_tien(n):
+def find_first_prime(n):
     """Tìm số nguyên tố đầu tiên lớn hơn n"""
     
-    def kiem_tra_nguyen_to(so):
+    def is_prime(number):
         """Kiểm tra số nguyên tố"""
-        if so < 2:
+        if number < 2:
             return False
-        for i in range(2, int(so ** 0.5) + 1):
-            if so % i == 0:
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
                 return False
         return True
     
     # Bắt đầu tìm từ n+1
-    so_hien_tai = n + 1
+    current_number = n + 1
     
     while True:  # Vòng lặp vô tận
-        if kiem_tra_nguyen_to(so_hien_tai):
-            return so_hien_tai  # Tìm thấy -> thoát bằng return
-        so_hien_tai += 1
+        if is_prime(current_number):
+            return current_number  # Tìm thấy -> thoát bằng return
+        current_number += 1
 
 print("1. Tìm số nguyên tố:")
 n = int(input("Nhập số n: "))
-so_nguyen_to = tim_so_nguyen_to_dau_tien(n)
-print(f"Số nguyên tố đầu tiên > {n} là: {so_nguyen_to}")
+first_prime = find_first_prime(n)
+print(f"Số nguyên tố đầu tiên > {n} là: {first_prime}")
 
 # 2. Bỏ qua số chẵn khi tính tổng
 print("\n2. Tính tổng các số lẻ từ 1 đến 20:")
-tong_le = 0
-cac_so_le = []
+odd_sum = 0
+odd_numbers = []
 
 for i in range(1, 21):
     if i % 2 == 0:  # Số chẵn
         continue    # Bỏ qua, tiếp tục vòng lặp tiếp theo
     
-    tong_le += i
-    cac_so_le.append(i)
+    odd_sum += i
+    odd_numbers.append(i)
 
-print(f"Các số lẻ: {cac_so_le}")
-print(f"Tổng các số lẻ: {tong_le}")
+print(f"Các số lẻ: {odd_numbers}")
+print(f"Tổng các số lẻ: {odd_sum}")
 
 # 3. Dừng khi gặp điều kiện đặc biệt
 print("\n3. Nhập danh sách số (dừng khi nhập số âm hoặc đủ 5 số):")
-danh_sach = []
-so_thu_tu = 1
+number_list = []
+order = 1
 
-while len(danh_sach) < 5:  # Tối đa 5 số
+while len(number_list) < 5:  # Tối đa 5 số
     try:
-        so = float(input(f"Nhập số thứ {so_thu_tu}: "))
+        number = float(input(f"Nhập số thứ {order}: "))
         
-        if so < 0:  # Điều kiện dừng
+        if number < 0:  # Điều kiện dừng
             print("❌ Gặp số âm - Dừng nhập!")
             break
             
-        danh_sach.append(so)
-        so_thu_tu += 1
+        number_list.append(number)
+        order += 1
         
     except ValueError:
         print("⚠️ Số không hợp lệ - Bỏ qua!")
         continue  # Bỏ qua lần nhập này
 
-print(f"Danh sách cuối cùng: {danh_sach}")
+print(f"Danh sách cuối cùng: {number_list}")
 
 # 4. Xử lý lỗi với continue
 print("\n4. Tính căn bậc hai (bỏ qua số âm):")
-cac_so = [4, -2, 9, -5, 16, -1, 25]
+numbers = [4, -2, 9, -5, 16, -1, 25]
 
 print("Kết quả:")
-for so in cac_so:
-    if so < 0:
-        print(f"  {so}: Bỏ qua (số âm)")
+for number in numbers:
+    if number < 0:
+        print(f"  {number}: Bỏ qua (số âm)")
         continue
     
-    can_bac_hai = so ** 0.5
-    print(f"  √{so} = {can_bac_hai:.2f}")
+    square_root = number ** 0.5
+    print(f"  √{number} = {square_root:.2f}")
 
 # 5. Vòng lặp lồng nhau với break/continue
 print("\n5. Tìm cặp số có tổng = 10:")
@@ -271,22 +271,22 @@ for i in range(1, 6):
 
 print("\nb) Tam giác cân:")
 for i in range(1, 6):
-    khoang_trang = " " * (5 - i)
-    sao = "* " * i
-    print(khoang_trang + sao)
+    spaces = " " * (5 - i)
+    stars = "* " * i
+    print(spaces + stars)
 
 print("\nc) Kim cương:")
 # Nửa trên
 for i in range(1, 5):
-    khoang_trang = " " * (4 - i)
-    sao = "* " * i
-    print(khoang_trang + sao)
+    spaces = " " * (4 - i)
+    stars = "* " * i
+    print(spaces + stars)
 
 # Nửa dưới
 for i in range(3, 0, -1):
-    khoang_trang = " " * (4 - i)
-    sao = "* " * i
-    print(khoang_trang + sao)
+    spaces = " " * (4 - i)
+    stars = "* " * i
+    print(spaces + stars)
 
 # 2. Bảng cửu chương đầy đủ
 print("\n2. Bảng cửu chương:")
@@ -300,17 +300,17 @@ print("   " + "-" * 40)
 for i in range(1, 11):
     print(f"{i:2} | ", end="")
     for j in range(1, 11):
-        ket_qua = i * j
-        print(f"{ket_qua:4}", end="")
+        result = i * j
+        print(f"{result:4}", end="")
     print()
 
 # 3. Ma trận số
 print("\n3. Ma trận số đặc biệt:")
 
 print("a) Ma trận đường chéo:")
-kich_thuoc = 5
-for i in range(kich_thuoc):
-    for j in range(kich_thuoc):
+size = 5
+for i in range(size):
+    for j in range(size):
         if i == j:  # Đường chéo chính
             print("1 ", end="")
         else:
@@ -318,8 +318,8 @@ for i in range(kich_thuoc):
     print()
 
 print("\nb) Ma trận tam giác trên:")
-for i in range(kich_thuoc):
-    for j in range(kich_thuoc):
+for i in range(size):
+    for j in range(size):
         if j >= i:  # Tam giác trên
             print("1 ", end="")
         else:
@@ -328,45 +328,45 @@ for i in range(kich_thuoc):
 
 # 4. Tìm kiếm trong danh sách 2 chiều
 print("\n4. Tìm kiếm trong ma trận:")
-ma_tran = [
+matrix = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12]
 ]
 
 print("Ma trận:")
-for hang in ma_tran:
-    for phan_tu in hang:
-        print(f"{phan_tu:4}", end="")
+for row in matrix:
+    for element in row:
+        print(f"{element:4}", end="")
     print()
 
-so_can_tim = 7
-tim_thay = False
+target_number = 7
+found = False
 
-for i in range(len(ma_tran)):
-    for j in range(len(ma_tran[i])):
-        if ma_tran[i][j] == so_can_tim:
-            print(f"Tìm thấy số {so_can_tim} tại vị trí ({i}, {j})")
-            tim_thay = True
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        if matrix[i][j] == target_number:
+            print(f"Tìm thấy số {target_number} tại vị trí ({i}, {j})")
+            found = True
             break
-    if tim_thay:
+    if found:
         break
 
-if not tim_thay:
-    print(f"Không tìm thấy số {so_can_tim}")
+if not found:
+    print(f"Không tìm thấy số {target_number}")
 
 # 5. Sinh tổ hợp
 print("\n5. Tổ hợp 2 phần tử từ danh sách:")
-danh_sach = ['A', 'B', 'C', 'D']
-to_hop = []
+items = ['A', 'B', 'C', 'D']
+combinations = []
 
-for i in range(len(danh_sach)):
-    for j in range(i + 1, len(danh_sach)):
-        to_hop.append((danh_sach[i], danh_sach[j]))
+for i in range(len(items)):
+    for j in range(i + 1, len(items)):
+        combinations.append((items[i], items[j]))
 
 print("Các tổ hợp:")
-for i, (a, b) in enumerate(to_hop, 1):
-    print(f"{i:2}. ({a}, {b})")
+for i, (first, second) in enumerate(combinations, 1):
+    print(f"{i:2}. ({first}, {second})")
 ```
 
 ## Bài Tập 5: List Comprehension
@@ -381,99 +381,99 @@ print("=== LIST COMPREHENSION ===")
 print("1. Tạo danh sách:")
 
 # Cách truyền thống
-binh_phuong_1 = []
+squares_1 = []
 for i in range(1, 6):
-    binh_phuong_1.append(i ** 2)
-print(f"Cách 1 (for thường): {binh_phuong_1}")
+    squares_1.append(i ** 2)
+print(f"Cách 1 (for thường): {squares_1}")
 
 # List comprehension
-binh_phuong_2 = [i ** 2 for i in range(1, 6)]
-print(f"Cách 2 (comprehension): {binh_phuong_2}")
+squares_2 = [i ** 2 for i in range(1, 6)]
+print(f"Cách 2 (comprehension): {squares_2}")
 
 # 2. Với điều kiện
 print("\n2. Lọc với điều kiện:")
 
-so_chan = [i for i in range(1, 21) if i % 2 == 0]
-print(f"Số chẵn từ 1-20: {so_chan}")
+even_numbers = [i for i in range(1, 21) if i % 2 == 0]
+print(f"Số chẵn từ 1-20: {even_numbers}")
 
-so_le_binh_phuong = [i ** 2 for i in range(1, 11) if i % 2 == 1]
-print(f"Bình phương số lẻ: {so_le_binh_phuong}")
+odd_squares = [i ** 2 for i in range(1, 11) if i % 2 == 1]
+print(f"Bình phương số lẻ: {odd_squares}")
 
 # 3. Xử lý chuỗi
 print("\n3. Xử lý chuỗi:")
 
-cau = "Python là ngôn ngữ tuyệt vời"
-cac_tu = cau.split()
+sentence = "Python là ngôn ngữ tuyệt vời"
+words = sentence.split()
 
 # Độ dài của mỗi từ
-do_dai_tu = [len(tu) for tu in cac_tu]
-print(f"Độ dài từ: {do_dai_tu}")
+word_lengths = [len(word) for word in words]
+print(f"Độ dài từ: {word_lengths}")
 
 # Từ có độ dài > 4
-tu_dai = [tu for tu in cac_tu if len(tu) > 4]
-print(f"Từ dài (>4 ký tự): {tu_dai}")
+long_words = [word for word in words if len(word) > 4]
+print(f"Từ dài (>4 ký tự): {long_words}")
 
 # Viết hoa từ đầu tiên của mỗi từ
-tu_viet_hoa = [tu.capitalize() for tu in cac_tu]
-print(f"Viết hoa: {' '.join(tu_viet_hoa)}")
+capitalized_words = [word.capitalize() for word in words]
+print(f"Viết hoa: {' '.join(capitalized_words)}")
 
 # 4. Nested comprehension (lồng nhau)
 print("\n4. List comprehension lồng nhau:")
 
 # Ma trận 3x3
-ma_tran_3x3 = [[i + j for j in range(3)] for i in range(0, 9, 3)]
+matrix_3x3 = [[i + j for j in range(3)] for i in range(0, 9, 3)]
 print("Ma trận 3x3:")
-for hang in ma_tran_3x3:
-    print(hang)
+for row in matrix_3x3:
+    print(row)
 
 # Flatten ma trận (chuyển 2D thành 1D)
-ma_tran_2d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-ma_tran_1d = [phan_tu for hang in ma_tran_2d for phan_tu in hang]
-print(f"Ma trận 2D: {ma_tran_2d}")
-print(f"Ma trận 1D: {ma_tran_1d}")
+matrix_2d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrix_1d = [element for row in matrix_2d for element in row]
+print(f"Ma trận 2D: {matrix_2d}")
+print(f"Ma trận 1D: {matrix_1d}")
 
 # 5. Dictionary và Set comprehension
 print("\n5. Dictionary và Set comprehension:")
 
 # Dictionary comprehension
-binh_phuong_dict = {i: i ** 2 for i in range(1, 6)}
-print(f"Dict bình phương: {binh_phuong_dict}")
+squares_dict = {i: i ** 2 for i in range(1, 6)}
+print(f"Dict bình phương: {squares_dict}")
 
 # Set comprehension
-ky_tu_unique = {ky_tu.lower() for ky_tu in "Python Programming"}
-print(f"Ký tự unique: {sorted(ky_tu_unique)}")
+unique_chars = {char.lower() for char in "Python Programming"}
+print(f"Ký tự unique: {sorted(unique_chars)}")
 
 # 6. Ví dụ thực tế - xử lý dữ liệu học sinh
 print("\n6. Ví dụ thực tế:")
 
-hoc_sinh = [
-    {"ten": "An", "toan": 8, "ly": 7, "hoa": 9},
-    {"ten": "Bình", "toan": 6, "ly": 8, "hoa": 7},
-    {"ten": "Chi", "toan": 9, "ly": 9, "hoa": 8},
-    {"ten": "Dung", "toan": 5, "ly": 6, "hoa": 6}
+students = [
+    {"tên": "An", "toán": 8, "lý": 7, "hóa": 9},
+    {"tên": "Bình", "toán": 6, "lý": 8, "hóa": 7},
+    {"tên": "Chi", "toán": 9, "lý": 9, "hóa": 8},
+    {"tên": "Dung", "toán": 5, "lý": 6, "hóa": 6}
 ]
 
 # Tính điểm trung bình
-diem_tb = [{
-    "ten": hs["ten"], 
-    "diem_tb": (hs["toan"] + hs["ly"] + hs["hoa"]) / 3
-} for hs in hoc_sinh]
+average_scores = [{
+    "tên": student["tên"], 
+    "điểm_tb": (student["toán"] + student["lý"] + student["hóa"]) / 3
+} for student in students]
 
 print("Điểm trung bình:")
-for hs in diem_tb:
-    print(f"  {hs['ten']}: {hs['diem_tb']:.1f}")
+for student in average_scores:
+    print(f"  {student['tên']}: {student['điểm_tb']:.1f}")
 
 # Học sinh giỏi (điểm TB >= 8)
-hoc_sinh_gioi = [hs["ten"] for hs in diem_tb if hs["diem_tb"] >= 8]
-print(f"Học sinh giỏi: {hoc_sinh_gioi}")
+excellent_students = [student["tên"] for student in average_scores if student["điểm_tb"] >= 8]
+print(f"Học sinh giỏi: {excellent_students}")
 
 # Điểm cao nhất mỗi môn
-diem_cao_nhat = {
-    "toan": max(hs["toan"] for hs in hoc_sinh),
-    "ly": max(hs["ly"] for hs in hoc_sinh),
-    "hoa": max(hs["hoa"] for hs in hoc_sinh)
+highest_scores = {
+    "toán": max(student["toán"] for student in students),
+    "lý": max(student["lý"] for student in students),
+    "hóa": max(student["hóa"] for student in students)
 }
-print(f"Điểm cao nhất: {diem_cao_nhat}")
+print(f"Điểm cao nhất: {highest_scores}")
 ```
 
 ## Bài Tập 6: Các Thuật Toán Sắp Xếp
@@ -487,38 +487,38 @@ import time
 
 print("=== THUẬT TOÁN SẮP XẾP ===")
 
-def tao_mang_ngau_nhien(kich_thuoc, min_val=1, max_val=100):
+def create_random_array(size, min_val=1, max_val=100):
     """Tạo mảng số ngẫu nhiên"""
-    return [random.randint(min_val, max_val) for _ in range(kich_thuoc)]
+    return [random.randint(min_val, max_val) for _ in range(size)]
 
 def bubble_sort(arr):
     """Sắp xếp nổi bọt (Bubble Sort)"""
     arr = arr.copy()  # Không thay đổi mảng gốc
     n = len(arr)
-    so_lan_so_sanh = 0
-    so_lan_hoan_vi = 0
+    comparison_count = 0
+    swap_count = 0
     
     print("Quá trình Bubble Sort:")
     
     for i in range(n):
-        co_hoan_vi = False
+        has_swapped = False
         
         for j in range(0, n - i - 1):
-            so_lan_so_sanh += 1
+            comparison_count += 1
             
             if arr[j] > arr[j + 1]:
                 # Hoán vị
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                co_hoan_vi = True
-                so_lan_hoan_vi += 1
+                has_swapped = True
+                swap_count += 1
         
         print(f"  Lần {i + 1}: {arr}")
         
-        if not co_hoan_vi:  # Đã sắp xếp xong
+        if not has_swapped:  # Đã sắp xếp xong
             break
     
-    print(f"Số lần so sánh: {so_lan_so_sanh}")
-    print(f"Số lần hoán vị: {so_lan_hoan_vi}")
+    print(f"Số lần so sánh: {comparison_count}")
+    print(f"Số lần hoán vị: {swap_count}")
     return arr
 
 def selection_sort(arr):
@@ -565,44 +565,44 @@ def insertion_sort(arr):
     return arr
 
 # Demo các thuật toán
-mang_goc = tao_mang_ngau_nhien(8)
-print(f"Mảng gốc: {mang_goc}")
+original_array = create_random_array(8)
+print(f"Mảng gốc: {original_array}")
 
 print(f"\n{'='*50}")
-ket_qua_1 = bubble_sort(mang_goc)
-print(f"Kết quả Bubble Sort: {ket_qua_1}")
+result_1 = bubble_sort(original_array)
+print(f"Kết quả Bubble Sort: {result_1}")
 
 print(f"\n{'='*50}")
-ket_qua_2 = selection_sort(mang_goc)
-print(f"Kết quả Selection Sort: {ket_qua_2}")
+result_2 = selection_sort(original_array)
+print(f"Kết quả Selection Sort: {result_2}")
 
 print(f"\n{'='*50}")
-ket_qua_3 = insertion_sort(mang_goc)
-print(f"Kết quả Insertion Sort: {ket_qua_3}")
+result_3 = insertion_sort(original_array)
+print(f"Kết quả Insertion Sort: {result_3}")
 
 # So sánh hiệu suất
 print(f"\n{'='*50}")
 print("SO SÁNH HIỆU SUẤT:")
 
-kich_thuoc_test = 1000
-mang_test = tao_mang_ngau_nhien(kich_thuoc_test)
+test_size = 1000
+test_array = create_random_array(test_size)
 
 # Test Bubble Sort
 start_time = time.time()
-bubble_sort(mang_test)
+bubble_sort(test_array)
 bubble_time = time.time() - start_time
 
 # Test Selection Sort
 start_time = time.time()
-selection_sort(mang_test)
+selection_sort(test_array)
 selection_time = time.time() - start_time
 
 # Test Insertion Sort
 start_time = time.time()
-insertion_sort(mang_test)
+insertion_sort(test_array)
 insertion_time = time.time() - start_time
 
-print(f"Mảng {kich_thuoc_test} phần tử:")
+print(f"Mảng {test_size} phần tử:")
 print(f"  Bubble Sort: {bubble_time:.4f}s")
 print(f"  Selection Sort: {selection_time:.4f}s") 
 print(f"  Insertion Sort: {insertion_time:.4f}s")
@@ -619,156 +619,156 @@ import time
 import os
 from collections import deque
 
-class TroChoiRanSanMoi:
+class SnakeGame:
     """Trò chơi rắn săn mồi chạy trên console"""
     
-    def __init__(self, rong=20, cao=10):
-        self.rong = rong
-        self.cao = cao
-        self.ran = deque([(cao//2, rong//2)])  # Vị trí đầu rắn
-        self.huong = (0, 1)  # Di chuyển sang phải
-        self.moi = self.tao_moi()
-        self.diem = 0
+    def __init__(self, width=20, height=10):
+        self.width = width
+        self.height = height
+        self.snake = deque([(height//2, width//2)])  # Vị trí đầu rắn
+        self.direction = (0, 1)  # Di chuyển sang phải
+        self.food = self.create_food()
+        self.score = 0
         self.game_over = False
         
         # Ký tự hiển thị
-        self.ky_tu_ran_dau = "🟢"
-        self.ky_tu_ran_than = "🟩" 
-        self.ky_tu_moi = "🍎"
-        self.ky_tu_trong = "⬜"
-        self.ky_tu_tuong = "⬛"
+        self.snake_head_char = "🟢"
+        self.snake_body_char = "🟩" 
+        self.food_char = "🍎"
+        self.empty_char = "⬜"
+        self.wall_char = "⬛"
     
-    def tao_moi(self):
+    def create_food(self):
         """Tạo mồi ở vị trí ngẫu nhiên"""
         while True:
-            moi = (random.randint(1, self.cao-2), 
-                   random.randint(1, self.rong-2))
-            if moi not in self.ran:
-                return moi
+            food = (random.randint(1, self.height-2), 
+                   random.randint(1, self.width-2))
+            if food not in self.snake:
+                return food
     
-    def di_chuyen(self):
+    def move(self):
         """Di chuyển rắn"""
-        dau_cu = self.ran[0]
-        dau_moi = (dau_cu[0] + self.huong[0], 
-                   dau_cu[1] + self.huong[1])
+        old_head = self.snake[0]
+        new_head = (old_head[0] + self.direction[0], 
+                   old_head[1] + self.direction[1])
         
         # Kiểm tra va chạm tường
-        if (dau_moi[0] <= 0 or dau_moi[0] >= self.cao-1 or
-            dau_moi[1] <= 0 or dau_moi[1] >= self.rong-1):
+        if (new_head[0] <= 0 or new_head[0] >= self.height-1 or
+            new_head[1] <= 0 or new_head[1] >= self.width-1):
             self.game_over = True
             return
         
         # Kiểm tra va chạm thân
-        if dau_moi in self.ran:
+        if new_head in self.snake:
             self.game_over = True
             return
         
         # Thêm đầu mới
-        self.ran.appendleft(dau_moi)
+        self.snake.appendleft(new_head)
         
         # Kiểm tra ăn mồi
-        if dau_moi == self.moi:
-            self.diem += 1
-            self.moi = self.tao_moi()
+        if new_head == self.food:
+            self.score += 1
+            self.food = self.create_food()
         else:
             # Bỏ đuôi (nếu không ăn mồi)
-            self.ran.pop()
+            self.snake.pop()
     
-    def thay_doi_huong(self, huong_moi):
+    def change_direction(self, new_direction):
         """Thay đổi hướng (không cho phép quay đầu)"""
         # Không cho phép đi ngược lại
-        if (huong_moi[0] + self.huong[0] == 0 and 
-            huong_moi[1] + self.huong[1] == 0):
+        if (new_direction[0] + self.direction[0] == 0 and 
+            new_direction[1] + self.direction[1] == 0):
             return
-        self.huong = huong_moi
+        self.direction = new_direction
     
-    def ve_man_hinh(self):
+    def draw_screen(self):
         """Vẽ màn hình game"""
         os.system('clear' if os.name == 'posix' else 'cls')  # Xóa màn hình
         
-        print(f"🎮 RẮSĂN MỒI | Điểm: {self.diem} | Độ dài: {len(self.ran)}")
-        print("=" * (self.rong * 2))
+        print(f"🎮 RẮN SĂN MỒI | Điểm: {self.score} | Độ dài: {len(self.snake)}")
+        print("=" * (self.width * 2))
         
-        for hang in range(self.cao):
-            for cot in range(self.rong):
-                vi_tri = (hang, cot)
+        for row in range(self.height):
+            for col in range(self.width):
+                position = (row, col)
                 
                 # Tường
-                if hang == 0 or hang == self.cao-1 or cot == 0 or cot == self.rong-1:
-                    print(self.ky_tu_tuong, end="")
+                if row == 0 or row == self.height-1 or col == 0 or col == self.width-1:
+                    print(self.wall_char, end="")
                 # Đầu rắn
-                elif vi_tri == self.ran[0]:
-                    print(self.ky_tu_ran_dau, end="")
+                elif position == self.snake[0]:
+                    print(self.snake_head_char, end="")
                 # Thân rắn
-                elif vi_tri in self.ran:
-                    print(self.ky_tu_ran_than, end="")
+                elif position in self.snake:
+                    print(self.snake_body_char, end="")
                 # Mồi
-                elif vi_tri == self.moi:
-                    print(self.ky_tu_moi, end="")
+                elif position == self.food:
+                    print(self.food_char, end="")
                 # Chỗ trống
                 else:
-                    print(self.ky_tu_trong, end="")
+                    print(self.empty_char, end="")
             print()  # Xuống dòng
         
-        print("=" * (self.rong * 2))
+        print("=" * (self.width * 2))
         print("Điều khiển: W(↑) A(←) S(↓) D(→) Q(Thoát)")
     
-    def chay_game(self):
+    def run_game(self):
         """Chạy game chính"""
         print("🎮 Chào mừng đến với Rắn Săn Mồi!")
         print("Nhấn Enter để bắt đầu...")
         input()
         
         while not self.game_over:
-            self.ve_man_hinh()
+            self.draw_screen()
             
             # Tự động di chuyển (demo mode)
             print("Game đang chạy tự động (demo)...")
             
             # AI đơn giản - di chuyển về phía mồi
-            dau_ran = self.ran[0]
+            snake_head = self.snake[0]
             
             # Tính hướng tối ưu đến mồi
-            dy = self.moi[0] - dau_ran[0]
-            dx = self.moi[1] - dau_ran[1]
+            dy = self.food[0] - snake_head[0]
+            dx = self.food[1] - snake_head[1]
             
             # Chọn hướng ưu tiên
             if abs(dx) > abs(dy):
                 if dx > 0:
-                    huong_moi = (0, 1)  # Phải
+                    new_direction = (0, 1)  # Phải
                 else:
-                    huong_moi = (0, -1)  # Trái
+                    new_direction = (0, -1)  # Trái
             else:
                 if dy > 0:
-                    huong_moi = (1, 0)  # Xuống
+                    new_direction = (1, 0)  # Xuống
                 else:
-                    huong_moi = (-1, 0)  # Lên
+                    new_direction = (-1, 0)  # Lên
             
-            self.thay_doi_huong(huong_moi)
-            self.di_chuyen()
+            self.change_direction(new_direction)
+            self.move()
             
             time.sleep(0.5)  # Nghỉ 0.5 giây
             
             # Dừng khi rắn đủ dài hoặc điểm cao
-            if len(self.ran) > 15 or self.diem > 10:
+            if len(self.snake) > 15 or self.score > 10:
                 print("🎉 Demo hoàn thành!")
                 break
         
         # Kết thúc game
-        self.ve_man_hinh()
+        self.draw_screen()
         if self.game_over:
             print("💀 GAME OVER!")
-        print(f"🏆 Điểm cuối cùng: {self.diem}")
-        print(f"📏 Độ dài rắn: {len(self.ran)}")
+        print(f"🏆 Điểm cuối cùng: {self.score}")
+        print(f"📏 Độ dài rắn: {len(self.snake)}")
 
 # Chạy trò chơi
-def demo_ran_san_moi():
+def demo_snake_game():
     """Chạy demo trò chơi rắn săn mồi"""
-    game = TroChoiRanSanMoi(rong=15, cao=8)
-    game.chay_game()
+    game = SnakeGame(width=15, height=8)
+    game.run_game()
 
 if __name__ == "__main__":
-    demo_ran_san_moi()
+    demo_snake_game()
 ```
 
 ## Bài Tập 8: Bài Tập Tổng Hợp
@@ -781,25 +781,25 @@ import json
 from datetime import datetime, timedelta
 import os
 
-class QuanLyThuVien:
+class LibraryManager:
     """Hệ thống quản lý thư viện đơn giản"""
     
     def __init__(self):
-        self.sach = {}  # Dictionary lưu thông tin sách
-        self.ban_doc = {}  # Dictionary lưu thông tin bạn đọc
-        self.muon_tra = []  # List lưu lịch sử mượn/trả
-        self.file_data = "thu_vien_data.json"
+        self.books = {}  # Dictionary lưu thông tin sách
+        self.readers = {}  # Dictionary lưu thông tin bạn đọc
+        self.borrow_history = []  # List lưu lịch sử mượn/trả
+        self.data_file = "thu_vien_data.json"
         self.load_data()
     
     def load_data(self):
         """Tải dữ liệu từ file"""
-        if os.path.exists(self.file_data):
+        if os.path.exists(self.data_file):
             try:
-                with open(self.file_data, 'r', encoding='utf-8') as f:
+                with open(self.data_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    self.sach = data.get('sach', {})
-                    self.ban_doc = data.get('ban_doc', {})
-                    self.muon_tra = data.get('muon_tra', [])
+                    self.books = data.get('books', {})
+                    self.readers = data.get('readers', {})
+                    self.borrow_history = data.get('borrow_history', [])
                 print("✅ Đã tải dữ liệu từ file")
             except Exception as e:
                 print(f"⚠️ Lỗi tải dữ liệu: {e}")
@@ -808,183 +808,183 @@ class QuanLyThuVien:
         """Lưu dữ liệu vào file"""
         try:
             data = {
-                'sach': self.sach,
-                'ban_doc': self.ban_doc,
-                'muon_tra': self.muon_tra
+                'books': self.books,
+                'readers': self.readers,
+                'borrow_history': self.borrow_history
             }
-            with open(self.file_data, 'w', encoding='utf-8') as f:
+            with open(self.data_file, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             print("✅ Đã lưu dữ liệu")
         except Exception as e:
             print(f"⚠️ Lỗi lưu dữ liệu: {e}")
     
-    def them_sach(self):
+    def add_book(self):
         """Thêm sách mới"""
         print("\n📚 THÊM SÁCH MỚI")
         print("-" * 30)
         
         while True:
-            ma_sach = input("Mã sách (hoặc 'q' để thoát): ")
-            if ma_sach.lower() == 'q':
+            book_id = input("Mã sách (hoặc 'q' để thoát): ")
+            if book_id.lower() == 'q':
                 break
                 
-            if ma_sach in self.sach:
+            if book_id in self.books:
                 print("❌ Mã sách đã tồn tại!")
                 continue
             
-            ten_sach = input("Tên sách: ")
-            tac_gia = input("Tác giả: ")
+            book_title = input("Tên sách: ")
+            author = input("Tác giả: ")
             
             try:
-                nam_xb = int(input("Năm xuất bản: "))
-                so_luong = int(input("Số lượng: "))
+                publish_year = int(input("Năm xuất bản: "))
+                quantity = int(input("Số lượng: "))
             except ValueError:
                 print("❌ Năm và số lượng phải là số!")
                 continue
             
-            the_loai = input("Thể loại: ")
+            genre = input("Thể loại: ")
             
-            self.sach[ma_sach] = {
-                'ten': ten_sach,
-                'tac_gia': tac_gia,
-                'nam_xb': nam_xb,
-                'so_luong': so_luong,
-                'so_luong_con': so_luong,
-                'the_loai': the_loai
+            self.books[book_id] = {
+                'title': book_title,
+                'author': author,
+                'publish_year': publish_year,
+                'quantity': quantity,
+                'available_quantity': quantity,
+                'genre': genre
             }
             
-            print(f"✅ Đã thêm sách '{ten_sach}'")
+            print(f"✅ Đã thêm sách '{book_title}'")
             
-            tiep_tuc = input("Thêm sách khác? (y/n): ")
-            if tiep_tuc.lower() != 'y':
+            continue_choice = input("Thêm sách khác? (y/n): ")
+            if continue_choice.lower() != 'y':
                 break
     
-    def them_ban_doc(self):
+    def add_reader(self):
         """Thêm bạn đọc mới"""
         print("\n👤 THÊM BẠN ĐỌC MỚI")
         print("-" * 30)
         
         while True:
-            ma_bd = input("Mã bạn đọc (hoặc 'q' để thoát): ")
-            if ma_bd.lower() == 'q':
+            reader_id = input("Mã bạn đọc (hoặc 'q' để thoát): ")
+            if reader_id.lower() == 'q':
                 break
                 
-            if ma_bd in self.ban_doc:
+            if reader_id in self.readers:
                 print("❌ Mã bạn đọc đã tồn tại!")
                 continue
             
-            ten_bd = input("Tên bạn đọc: ")
+            reader_name = input("Tên bạn đọc: ")
             
             try:
-                tuoi = int(input("Tuổi: "))
+                age = int(input("Tuổi: "))
             except ValueError:
                 print("❌ Tuổi phải là số!")
                 continue
                 
-            sdt = input("Số điện thoại: ")
-            dia_chi = input("Địa chỉ: ")
+            phone = input("Số điện thoại: ")
+            address = input("Địa chỉ: ")
             
-            self.ban_doc[ma_bd] = {
-                'ten': ten_bd,
-                'tuoi': tuoi,
-                'sdt': sdt,
-                'dia_chi': dia_chi,
-                'sach_dang_muon': [],
-                'lich_su_muon': []
+            self.readers[reader_id] = {
+                'name': reader_name,
+                'age': age,
+                'phone': phone,
+                'address': address,
+                'borrowed_books': [],
+                'borrow_history': []
             }
             
-            print(f"✅ Đã thêm bạn đọc '{ten_bd}'")
+            print(f"✅ Đã thêm bạn đọc '{reader_name}'")
             
-            tiep_tuc = input("Thêm bạn đọc khác? (y/n): ")
-            if tiep_tuc.lower() != 'y':
+            continue_choice = input("Thêm bạn đọc khác? (y/n): ")
+            if continue_choice.lower() != 'y':
                 break
     
-    def muon_sach(self):
+    def borrow_book(self):
         """Mượn sách"""
         print("\n📖 MƯỢN SÁCH")
         print("-" * 30)
         
-        ma_bd = input("Mã bạn đọc: ")
-        if ma_bd not in self.ban_doc:
+        reader_id = input("Mã bạn đọc: ")
+        if reader_id not in self.readers:
             print("❌ Không tìm thấy bạn đọc!")
             return
         
-        ban_doc = self.ban_doc[ma_bd]
-        print(f"Bạn đọc: {ban_doc['ten']}")
-        print(f"Sách đang mượn: {len(ban_doc['sach_dang_muon'])}")
+        reader = self.readers[reader_id]
+        print(f"Bạn đọc: {reader['name']}")
+        print(f"Sách đang mượn: {len(reader['borrowed_books'])}")
         
-        if len(ban_doc['sach_dang_muon']) >= 3:
+        if len(reader['borrowed_books']) >= 3:
             print("❌ Bạn đọc đã mượn tối đa 3 sách!")
             return
         
-        ma_sach = input("Mã sách muốn mượn: ")
-        if ma_sach not in self.sach:
+        book_id = input("Mã sách muốn mượn: ")
+        if book_id not in self.books:
             print("❌ Không tìm thấy sách!")
             return
         
-        sach = self.sach[ma_sach]
-        if sach['so_luong_con'] <= 0:
+        book = self.books[book_id]
+        if book['available_quantity'] <= 0:
             print("❌ Sách đã hết!")
             return
         
         # Thực hiện mượn sách
-        ngay_muon = datetime.now().strftime("%Y-%m-%d")
-        ngay_tra_du_kien = (datetime.now() + timedelta(days=14)).strftime("%Y-%m-%d")
+        borrow_date = datetime.now().strftime("%Y-%m-%d")
+        return_date = (datetime.now() + timedelta(days=14)).strftime("%Y-%m-%d")
         
-        thong_tin_muon = {
-            'ma_sach': ma_sach,
-            'ten_sach': sach['ten'],
-            'ngay_muon': ngay_muon,
-            'ngay_tra_du_kien': ngay_tra_du_kien,
-            'trang_thai': 'dang_muon'
+        borrow_info = {
+            'book_id': book_id,
+            'book_title': book['title'],
+            'borrow_date': borrow_date,
+            'expected_return_date': return_date,
+            'status': 'borrowed'
         }
         
         # Cập nhật dữ liệu
-        ban_doc['sach_dang_muon'].append(thong_tin_muon)
-        ban_doc['lich_su_muon'].append(thong_tin_muon.copy())
-        sach['so_luong_con'] -= 1
+        reader['borrowed_books'].append(borrow_info)
+        reader['borrow_history'].append(borrow_info.copy())
+        book['available_quantity'] -= 1
         
-        self.muon_tra.append({
-            'ma_bd': ma_bd,
-            'ten_bd': ban_doc['ten'],
-            'ma_sach': ma_sach,
-            'ten_sach': sach['ten'],
-            'ngay_muon': ngay_muon,
-            'ngay_tra_du_kien': ngay_tra_du_kien,
-            'loai': 'muon'
+        self.borrow_history.append({
+            'reader_id': reader_id,
+            'reader_name': reader['name'],
+            'book_id': book_id,
+            'book_title': book['title'],
+            'borrow_date': borrow_date,
+            'expected_return_date': return_date,
+            'type': 'borrow'
         })
         
-        print(f"✅ Đã cho mượn sách '{sach['ten']}'")
-        print(f"📅 Ngày trả dự kiến: {ngay_tra_du_kien}")
+        print(f"✅ Đã cho mượn sách '{book['title']}'")
+        print(f"📅 Ngày trả dự kiến: {return_date}")
     
-    def tra_sach(self):
+    def return_book(self):
         """Trả sách"""
         print("\n📚 TRẢ SÁCH")
         print("-" * 30)
         
-        ma_bd = input("Mã bạn đọc: ")
-        if ma_bd not in self.ban_doc:
+        reader_id = input("Mã bạn đọc: ")
+        if reader_id not in self.readers:
             print("❌ Không tìm thấy bạn đọc!")
             return
         
-        ban_doc = self.ban_doc[ma_bd]
-        sach_dang_muon = ban_doc['sach_dang_muon']
+        reader = self.readers[reader_id]
+        borrowed_books = reader['borrowed_books']
         
-        if not sach_dang_muon:
+        if not borrowed_books:
             print("❌ Bạn đọc không mượn sách nào!")
             return
         
-        print(f"Bạn đọc: {ban_doc['ten']}")
+        print(f"Bạn đọc: {reader['name']}")
         print("Sách đang mượn:")
         
-        for i, sach_muon in enumerate(sach_dang_muon):
-            print(f"{i+1}. {sach_muon['ten_sach']} (Mã: {sach_muon['ma_sach']})")
-            print(f"   Ngày mượn: {sach_muon['ngay_muon']}")
-            print(f"   Ngày trả DK: {sach_muon['ngay_tra_du_kien']}")
+        for i, borrowed_book in enumerate(borrowed_books):
+            print(f"{i+1}. {borrowed_book['book_title']} (Mã: {borrowed_book['book_id']})")
+            print(f"   Ngày mượn: {borrowed_book['borrow_date']}")
+            print(f"   Ngày trả DK: {borrowed_book['expected_return_date']}")
         
         try:
-            lua_chon = int(input("Chọn sách cần trả (số thứ tự): ")) - 1
-            if lua_chon < 0 or lua_chon >= len(sach_dang_muon):
+            choice = int(input("Chọn sách cần trả (số thứ tự): ")) - 1
+            if choice < 0 or choice >= len(borrowed_books):
                 print("❌ Lựa chọn không hợp lệ!")
                 return
         except ValueError:
@@ -992,95 +992,95 @@ class QuanLyThuVien:
             return
         
         # Thực hiện trả sách
-        sach_tra = sach_dang_muon.pop(lua_chon)
-        ma_sach = sach_tra['ma_sach']
+        returned_book = borrowed_books.pop(choice)
+        book_id = returned_book['book_id']
         
         # Cập nhật số lượng sách
-        self.sach[ma_sach]['so_luong_con'] += 1
+        self.books[book_id]['available_quantity'] += 1
         
         # Ghi nhận lịch sử trả
-        ngay_tra = datetime.now().strftime("%Y-%m-%d")
-        self.muon_tra.append({
-            'ma_bd': ma_bd,
-            'ten_bd': ban_doc['ten'],
-            'ma_sach': ma_sach,
-            'ten_sach': sach_tra['ten_sach'],
-            'ngay_tra': ngay_tra,
-            'loai': 'tra'
+        return_date = datetime.now().strftime("%Y-%m-%d")
+        self.borrow_history.append({
+            'reader_id': reader_id,
+            'reader_name': reader['name'],
+            'book_id': book_id,
+            'book_title': returned_book['book_title'],
+            'return_date': return_date,
+            'type': 'return'
         })
         
-        print(f"✅ Đã trả sách '{sach_tra['ten_sach']}'")
+        print(f"✅ Đã trả sách '{returned_book['book_title']}'")
     
-    def tim_kiem_sach(self):
+    def search_book(self):
         """Tìm kiếm sách"""
         print("\n🔍 TÌM KIẾM SÁCH")
         print("-" * 30)
         
-        tu_khoa = input("Nhập từ khóa (tên sách/tác giả/thể loại): ").lower()
+        keyword = input("Nhập từ khóa (tên sách/tác giả/thể loại): ").lower()
         
-        ket_qua = []
-        for ma_sach, thong_tin in self.sach.items():
-            if (tu_khoa in thong_tin['ten'].lower() or
-                tu_khoa in thong_tin['tac_gia'].lower() or
-                tu_khoa in thong_tin['the_loai'].lower()):
-                ket_qua.append((ma_sach, thong_tin))
+        results = []
+        for book_id, book_info in self.books.items():
+            if (keyword in book_info['title'].lower() or
+                keyword in book_info['author'].lower() or
+                keyword in book_info['genre'].lower()):
+                results.append((book_id, book_info))
         
-        if not ket_qua:
+        if not results:
             print("❌ Không tìm thấy sách nào!")
             return
         
-        print(f"🔍 Tìm thấy {len(ket_qua)} sách:")
+        print(f"🔍 Tìm thấy {len(results)} sách:")
         print("-" * 80)
         print(f"{'Mã':<8} {'Tên sách':<30} {'Tác giả':<20} {'Còn lại':<10}")
         print("-" * 80)
         
-        for ma_sach, thong_tin in ket_qua:
-            print(f"{ma_sach:<8} {thong_tin['ten']:<30} "
-                  f"{thong_tin['tac_gia']:<20} {thong_tin['so_luong_con']:<10}")
+        for book_id, book_info in results:
+            print(f"{book_id:<8} {book_info['title']:<30} "
+                  f"{book_info['author']:<20} {book_info['available_quantity']:<10}")
     
-    def thong_ke(self):
+    def statistics(self):
         """Thống kê tổng quan"""
         print("\n📊 THỐNG KÊ TỔNG QUAN")
         print("=" * 50)
         
         # Thống kê sách
-        tong_sach = len(self.sach)
-        tong_so_luong = sum(s['so_luong'] for s in self.sach.values())
-        sach_con_lai = sum(s['so_luong_con'] for s in self.sach.values())
-        sach_dang_muon = tong_so_luong - sach_con_lai
+        total_books = len(self.books)
+        total_quantity = sum(book['quantity'] for book in self.books.values())
+        available_books = sum(book['available_quantity'] for book in self.books.values())
+        borrowed_books = total_quantity - available_books
         
         print(f"📚 SÁCH:")
-        print(f"  Tổng đầu sách: {tong_sach}")
-        print(f"  Tổng số lượng: {tong_so_luong}")
-        print(f"  Đang được mượn: {sach_dang_muon}")
-        print(f"  Còn lại: {sach_con_lai}")
+        print(f"  Tổng đầu sách: {total_books}")
+        print(f"  Tổng số lượng: {total_quantity}")
+        print(f"  Đang được mượn: {borrowed_books}")
+        print(f"  Còn lại: {available_books}")
         
         # Thống kê bạn đọc
-        tong_ban_doc = len(self.ban_doc)
-        ban_doc_dang_muon = sum(1 for bd in self.ban_doc.values() 
-                               if bd['sach_dang_muon'])
+        total_readers = len(self.readers)
+        readers_with_books = sum(1 for reader in self.readers.values() 
+                               if reader['borrowed_books'])
         
         print(f"\n👤 BẠN ĐỌC:")
-        print(f"  Tổng bạn đọc: {tong_ban_doc}")
-        print(f"  Đang mượn sách: {ban_doc_dang_muon}")
+        print(f"  Tổng bạn đọc: {total_readers}")
+        print(f"  Đang mượn sách: {readers_with_books}")
         
         # Top sách được mượn nhiều
-        thong_ke_muon = {}
-        for giao_dich in self.muon_tra:
-            if giao_dich['loai'] == 'muon':
-                ma_sach = giao_dich['ma_sach']
-                thong_ke_muon[ma_sach] = thong_ke_muon.get(ma_sach, 0) + 1
+        borrow_stats = {}
+        for transaction in self.borrow_history:
+            if transaction['type'] == 'borrow':
+                book_id = transaction['book_id']
+                borrow_stats[book_id] = borrow_stats.get(book_id, 0) + 1
         
-        if thong_ke_muon:
+        if borrow_stats:
             print(f"\n🏆 TOP SÁCH ĐƯỢC MƯỢN NHIỀU:")
-            sorted_books = sorted(thong_ke_muon.items(), 
+            sorted_books = sorted(borrow_stats.items(), 
                                 key=lambda x: x[1], reverse=True)[:5]
             
-            for i, (ma_sach, so_lan) in enumerate(sorted_books, 1):
-                ten_sach = self.sach.get(ma_sach, {}).get('ten', 'N/A')
-                print(f"  {i}. {ten_sach} ({so_lan} lần)")
+            for i, (book_id, count) in enumerate(sorted_books, 1):
+                book_title = self.books.get(book_id, {}).get('title', 'N/A')
+                print(f"  {i}. {book_title} ({count} lần)")
     
-    def menu_chinh(self):
+    def main_menu(self):
         """Menu chính của hệ thống"""
         while True:
             print("\n" + "="*50)
@@ -1096,80 +1096,80 @@ class QuanLyThuVien:
             print("0. Thoát")
             print("-"*50)
             
-            lua_chon = input("Chọn chức năng (0-7): ")
+            choice = input("Chọn chức năng (0-7): ")
             
-            if lua_chon == "0":
+            if choice == "0":
                 print("💾 Đang lưu dữ liệu...")
                 self.save_data()
                 print("👋 Tạm biệt!")
                 break
-            elif lua_chon == "1":
-                self.them_sach()
-            elif lua_chon == "2":
-                self.them_ban_doc()
-            elif lua_chon == "3":
-                self.muon_sach()
-            elif lua_chon == "4":
-                self.tra_sach()
-            elif lua_chon == "5":
-                self.tim_kiem_sach()
-            elif lua_chon == "6":
-                self.thong_ke()
-            elif lua_chon == "7":
+            elif choice == "1":
+                self.add_book()
+            elif choice == "2":
+                self.add_reader()
+            elif choice == "3":
+                self.borrow_book()
+            elif choice == "4":
+                self.return_book()
+            elif choice == "5":
+                self.search_book()
+            elif choice == "6":
+                self.statistics()
+            elif choice == "7":
                 self.save_data()
             else:
                 print("❌ Lựa chọn không hợp lệ!")
 
 # Demo hệ thống
-def demo_quan_ly_thu_vien():
+def demo_library_system():
     """Demo hệ thống quản lý thư viện"""
     
     # Tạo dữ liệu mẫu
-    thu_vien = QuanLyThuVien()
+    library = LibraryManager()
     
     # Thêm sách mẫu nếu chưa có
-    if not thu_vien.sach:
-        sach_mau = [
+    if not library.books:
+        sample_books = [
             ("PY001", "Học Python Cơ Bản", "Nguyễn Văn A", 2023, 5, "Lập trình"),
             ("PY002", "Python Nâng Cao", "Trần Thị B", 2023, 3, "Lập trình"),
             ("VL001", "Vật Lý Đại Cương", "Lê Văn C", 2022, 4, "Khoa học"),
             ("TH001", "Toán Học Cao Cấp", "Phạm Thị D", 2022, 6, "Toán học"),
         ]
         
-        for ma, ten, tac_gia, nam, sl, the_loai in sach_mau:
-            thu_vien.sach[ma] = {
-                'ten': ten,
-                'tac_gia': tac_gia,
-                'nam_xb': nam,
-                'so_luong': sl,
-                'so_luong_con': sl,
-                'the_loai': the_loai
+        for book_id, title, author, year, quantity, genre in sample_books:
+            library.books[book_id] = {
+                'title': title,
+                'author': author,
+                'publish_year': year,
+                'quantity': quantity,
+                'available_quantity': quantity,
+                'genre': genre
             }
     
     # Thêm bạn đọc mẫu nếu chưa có
-    if not thu_vien.ban_doc:
-        ban_doc_mau = [
+    if not library.readers:
+        sample_readers = [
             ("BD001", "Nguyễn Văn An", 20, "0123456789", "Hà Nội"),
             ("BD002", "Trần Thị Bình", 21, "0987654321", "TP.HCM"),
         ]
         
-        for ma, ten, tuoi, sdt, dia_chi in ban_doc_mau:
-            thu_vien.ban_doc[ma] = {
-                'ten': ten,
-                'tuoi': tuoi,
-                'sdt': sdt,
-                'dia_chi': dia_chi,
-                'sach_dang_muon': [],
-                'lich_su_muon': []
+        for reader_id, name, age, phone, address in sample_readers:
+            library.readers[reader_id] = {
+                'name': name,
+                'age': age,
+                'phone': phone,
+                'address': address,
+                'borrowed_books': [],
+                'borrow_history': []
             }
     
     print("📚 Hệ thống đã được khởi tạo với dữ liệu mẫu!")
     
     # Chạy menu chính
-    thu_vien.menu_chinh()
+    library.main_menu()
 
 if __name__ == "__main__":
-    demo_quan_ly_thu_vien()
+    demo_library_system()
 ```
 
 ## Tổng Kết
@@ -1198,3 +1198,4 @@ Qua các bài tập về vòng lặp, bạn đã học được:
 - Sử dụng vòng lặp phù hợp với từng bài toán
 
 Tiếp tục luyện tập để thành thạo! 🔄
+

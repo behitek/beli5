@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Thảo luận học tập
+    url: https://github.com/behitek/beli5/discussions
+    about: Đặt câu hỏi, chia sẻ kinh nghiệm học tập và thảo luận với cộng đồng
+  - name: 💬 Discord Community
+    url: https://discord.gg/behitek
+    about: Tham gia cộng đồng Behitek trên Discord để được hỗ trợ trực tiếp
+  - name: 🌐 Website chính
+    url: https://behitek.com
+    about: Truy cập website chính của Behitek

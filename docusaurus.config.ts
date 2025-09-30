@@ -9,6 +9,11 @@ const config: Config = {
   tagline: 'Behitek + ELI5: Blog Chia Sẻ Lập Trình Được Giải Thích Như Bạn 5 Tuổi',
   favicon: 'img/favicon.ico',
 
+  // Facebook App ID cho comments plugin
+  customFields: {
+    facebookAppId: '4183372098576273',
+  },
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -142,7 +147,7 @@ const config: Config = {
     
     // Color mode configuration
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },

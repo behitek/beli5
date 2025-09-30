@@ -48,22 +48,22 @@ import json
 # JSON string (thường nhận từ API)
 json_string = '''
 {
-    "hoc_sinh": {
-        "ho_ten": "Trần Thị Bình",
-        "tuoi": 15,
-        "lop": "9B",
-        "diem_so": {
-            "toan": [8.5, 9.0, 7.5],
-            "van": [8.0, 8.5, 9.0],
-            "anh": [9.0, 8.0, 9.5]
+    "student": {
+        "full_name": "Trần Thị Bình",
+        "age": 15,
+        "class": "9B",
+        "scores": {
+            "math": [8.5, 9.0, 7.5],
+            "literature": [8.0, 8.5, 9.0],
+            "english": [9.0, 8.0, 9.5]
         },
-        "sở_thich": ["đọc sách", "nghe nhạc", "học Python"],
-        "la_hoc_sinh_gioi": true
+        "hobbies": ["đọc sách", "nghe nhạc", "học Python"],
+        "is_honor_student": true
     },
-    "thong_tin_lop": {
-        "ten_lop": "9B",
-        "si_so": 35,
-        "giao_vien_chu_nhiem": "Cô Lan"
+    "class_info": {
+        "class_name": "9B",
+        "student_count": 35,
+        "homeroom_teacher": "Cô Lan"
     }
 }
 '''
@@ -74,18 +74,18 @@ print("📊 DỮ LIỆU ĐÃ CHUYỂN ĐỔI:")
 print(type(data))  # <class 'dict'>
 
 # Truy cập dữ liệu như dictionary bình thường
-hoc_sinh = data["hoc_sinh"]
-print(f"Học sinh: {hoc_sinh['ho_ten']}")
-print(f"Tuổi: {hoc_sinh['tuoi']}")
-print(f"Lớp: {hoc_sinh['lop']}")
+student = data["student"]
+print(f"Học sinh: {student['full_name']}")
+print(f"Tuổi: {student['age']}")
+print(f"Lớp: {student['class']}")
 
 # Truy cập dữ liệu lồng nhau
-diem_toan = hoc_sinh["diem_so"]["toan"]
-print(f"Điểm Toán: {diem_toan}")
-print(f"Điểm TB Toán: {sum(diem_toan) / len(diem_toan):.1f}")
+math_scores = student["scores"]["math"]
+print(f"Điểm Toán: {math_scores}")
+print(f"Điểm TB Toán: {sum(math_scores) / len(math_scores):.1f}")
 
 # Kiểm tra có phải học sinh giỏi không
-if hoc_sinh["la_hoc_sinh_gioi"]:
+if student["is_honor_student"]:
     print("🏆 Đây là học sinh giỏi!")
 ```
 
@@ -94,29 +94,29 @@ if hoc_sinh["la_hoc_sinh_gioi"]:
 import json
 
 # Tạo file JSON mẫu trước
-du_lieu_mau = {
-    "truong_hoc": {
-        "ten": "THPT Behitek Academy",
-        "dia_chi": "123 Đường Lập Trình, Quận Code, TP.HCM",
-        "so_hoc_sinh": 500,
-        "cac_lop": [
+sample_data = {
+    "school": {
+        "name": "THPT Behitek Academy",
+        "address": "123 Đường Lập Trình, Quận Code, TP.HCM",
+        "student_count": 500,
+        "classes": [
             {
-                "ten_lop": "10A",
-                "si_so": 30,
-                "chuyen_nganh": "Tin học",
-                "hoc_sinh": [
-                    {"ten": "An", "diem_tb": 8.5},
-                    {"ten": "Bình", "diem_tb": 9.0},
-                    {"ten": "Chi", "diem_tb": 8.8}
+                "class_name": "10A",
+                "student_count": 30,
+                "major": "Tin học",
+                "students": [
+                    {"name": "An", "average_score": 8.5},
+                    {"name": "Bình", "average_score": 9.0},
+                    {"name": "Chi", "average_score": 8.8}
                 ]
             },
             {
-                "ten_lop": "11B", 
-                "si_so": 28,
-                "chuyen_nganh": "Toán tin",
-                "hoc_sinh": [
-                    {"ten": "Dũng", "diem_tb": 9.2},
-                    {"ten": "Em", "diem_tb": 8.7}
+                "class_name": "11B", 
+                "student_count": 28,
+                "major": "Toán tin",
+                "students": [
+                    {"name": "Dũng", "average_score": 9.2},
+                    {"name": "Em", "average_score": 8.7}
                 ]
             }
         ]
@@ -124,13 +124,13 @@ du_lieu_mau = {
 }
 
 # Lưu dữ liệu mẫu vào file
-with open('truong_hoc.json', 'w', encoding='utf-8') as file:
-    json.dump(du_lieu_mau, file, ensure_ascii=False, indent=2)
+with open('school_info.json', 'w', encoding='utf-8') as file:
+    json.dump(sample_data, file, ensure_ascii=False, indent=2)
 
-print("✅ Đã tạo file truong_hoc.json")
+print("✅ Đã tạo file school_info.json")
 
 # Đọc dữ liệu từ file JSON
-def doc_thong_tin_truong(file_name):
+def read_school_info(file_name):
     """Đọc thông tin trường từ file JSON"""
     try:
         with open(file_name, 'r', encoding='utf-8') as file:
@@ -144,21 +144,21 @@ def doc_thong_tin_truong(file_name):
         return None
 
 # Sử dụng
-thong_tin = doc_thong_tin_truong('truong_hoc.json')
-if thong_tin:
-    truong = thong_tin["truong_hoc"]
-    print(f"🏫 Trường: {truong['ten']}")
-    print(f"📍 Địa chỉ: {truong['dia_chi']}")
-    print(f"👥 Tổng số học sinh: {truong['so_hoc_sinh']}")
+school_data = read_school_info('school_info.json')
+if school_data:
+    school = school_data["school"]
+    print(f"🏫 Trường: {school['name']}")
+    print(f"📍 Địa chỉ: {school['address']}")
+    print(f"👥 Tổng số học sinh: {school['student_count']}")
     
     print("\n📚 DANH SÁCH LỚP:")
-    for lop in truong["cac_lop"]:
-        print(f"- {lop['ten_lop']}: {lop['si_so']} HS ({lop['chuyen_nganh']})")
+    for class_item in school["classes"]:
+        print(f"- {class_item['class_name']}: {class_item['student_count']} HS ({class_item['major']})")
         
         # Tính điểm TB của lớp
-        tong_diem = sum(hs["diem_tb"] for hs in lop["hoc_sinh"])
-        diem_tb_lop = tong_diem / len(lop["hoc_sinh"])
-        print(f"  📊 Điểm TB lớp: {diem_tb_lop:.1f}")
+        total_score = sum(student["average_score"] for student in class_item["students"])
+        class_average = total_score / len(class_item["students"])
+        print(f"  📊 Điểm TB lớp: {class_average:.1f}")
 ```
 
 ## ✍️ Ghi JSON trong Python
@@ -169,31 +169,31 @@ import json
 from datetime import datetime
 
 # Tạo dữ liệu Python phức tạp
-du_lieu_hoc_tap = {
-    "thoi_gian_tao": datetime.now().strftime("%d/%m/%Y %H:%M"),
-    "hoc_sinh": "Nguyễn Văn An",
-    "ket_qua_hoc_tap": {
-        "hoc_ki_1": {
-            "toan": {"diem": [8.5, 9.0, 8.0], "nhan_xet": "Khá tốt"},
-            "ly": {"diem": [7.5, 8.0, 9.0], "nhan_xet": "Cần cố gắng hơn"},
-            "hoa": {"diem": [9.0, 8.5, 9.5], "nhan_xet": "Rất giỏi"}
+study_data = {
+    "created_time": datetime.now().strftime("%d/%m/%Y %H:%M"),
+    "student": "Nguyễn Văn An",
+    "academic_results": {
+        "semester_1": {
+            "math": {"scores": [8.5, 9.0, 8.0], "comment": "Khá tốt"},
+            "physics": {"scores": [7.5, 8.0, 9.0], "comment": "Cần cố gắng hơn"},
+            "chemistry": {"scores": [9.0, 8.5, 9.5], "comment": "Rất giỏi"}
         },
-        "hoat_dong_ngoai_khoa": [
-            {"ten": "CLB Lập trình", "vai_tro": "Thành viên", "tham_gia": True},
-            {"ten": "Đội bóng đá", "vai_tro": "Thủ môn", "tham_gia": False},
-            {"ten": "Ban nhạc", "vai_tro": "Guitar", "tham_gia": True}
+        "extracurricular_activities": [
+            {"name": "CLB Lập trình", "role": "Thành viên", "participating": True},
+            {"name": "Đội bóng đá", "role": "Thủ môn", "participating": False},
+            {"name": "Ban nhạc", "role": "Guitar", "participating": True}
         ]
     },
-    "muc_tieu": {
-        "ngắn_hạn": "Đạt điểm 9+ tất cả môn",
-        "dài_hạn": "Trở thành lập trình viên Python",
-        "ước_mơ": "Tạo ra ứng dụng giúp ích cho mọi người"
+    "goals": {
+        "short_term": "Đạt điểm 9+ tất cả môn",
+        "long_term": "Trở thành lập trình viên Python",
+        "dream": "Tạo ra ứng dụng giúp ích cho mọi người"
     }
 }
 
 # Chuyển thành JSON string với format đẹp
 json_string = json.dumps(
-    du_lieu_hoc_tap, 
+    study_data, 
     ensure_ascii=False,  # Hiển thị tiếng Việt đúng
     indent=2,           # Thụt lề 2 space
     separators=(',', ': ')  # Dấu phẩy và dấu hai chấm
@@ -203,10 +203,10 @@ print("📄 JSON STRING:")
 print(json_string)
 
 # Lưu vào file với encoding UTF-8
-with open('ket_qua_hoc_tap.json', 'w', encoding='utf-8') as file:
-    json.dump(du_lieu_hoc_tap, file, ensure_ascii=False, indent=2)
+with open('academic_results.json', 'w', encoding='utf-8') as file:
+    json.dump(study_data, file, ensure_ascii=False, indent=2)
 
-print("\n💾 Đã lưu vào file ket_qua_hoc_tap.json")
+print("\n💾 Đã lưu vào file academic_results.json")
 ```
 
 ## 🎮 Ví Dụ Thực Tế: Hệ Thống Quản Lý Game
@@ -420,24 +420,24 @@ print("🎮 === BEHITEK RPG GAME MANAGER ===")
 game = GameManager("behitek_rpg.json")
 
 # Tạo nhân vật mới
-game.create_player("HiepSiBehitek")
-game.create_player("PhapSuCode")
+game.create_player("WarriorBehitek")
+game.create_player("MageCode")
 
 # Xem thông tin nhân vật
-game.get_player_info("HiepSiBehitek")
+game.get_player_info("WarriorBehitek")
 
 # Thêm item cho nhân vật
-game.add_item_to_player("HiepSiBehitek", "potion_health", 5)
-game.add_item_to_player("HiepSiBehitek", "armor_leather", 1)
+game.add_item_to_player("WarriorBehitek", "potion_health", 5)
+game.add_item_to_player("WarriorBehitek", "armor_leather", 1)
 
 # Hoàn thành quest
-game.complete_quest("HiepSiBehitek", "kill_10_goblins")
+game.complete_quest("WarriorBehitek", "kill_10_goblins")
 
 # Xem lại thông tin sau khi hoàn thành quest
-game.get_player_info("HiepSiBehitek")
+game.get_player_info("WarriorBehitek")
 
 # Xuất dữ liệu nhân vật
-game.export_player_data("HiepSiBehitek", "hiep_si_behitek_save.json")
+game.export_player_data("WarriorBehitek", "warrior_behitek_save.json")
 ```
 
 ## 🌐 Làm Việc với API JSON
@@ -495,14 +495,14 @@ class WeatherAPI:
             feels_like_celsius = data["main"]["feels_like"] - 273.15
             
             weather_info = {
-                "thanh_pho": data["name"],
-                "quoc_gia": data.get("country", "N/A"),
-                "mo_ta": data["weather"][0]["description"],
-                "nhiet_do": round(temp_celsius, 1),
-                "cam_giac_nhu": round(feels_like_celsius, 1),
-                "do_am": data["main"]["humidity"],
-                "ap_suat": data["main"]["pressure"],
-                "toc_do_gio": data["wind"]["speed"]
+                "city": data["name"],
+                "country": data.get("country", "N/A"),
+                "description": data["weather"][0]["description"],
+                "temperature": round(temp_celsius, 1),
+                "feels_like": round(feels_like_celsius, 1),
+                "humidity": data["main"]["humidity"],
+                "pressure": data["main"]["pressure"],
+                "wind_speed": data["wind"]["speed"]
             }
             
             return weather_info
@@ -520,13 +520,13 @@ class WeatherAPI:
         weather_data = self.parse_weather_data(json_response)
         
         if weather_data:
-            print(f"📍 Thành phố: {weather_data['thanh_pho']}")
-            print(f"🌡️ Nhiệt độ: {weather_data['nhiet_do']}°C")
-            print(f"🤔 Cảm giác như: {weather_data['cam_giac_nhu']}°C")
-            print(f"☁️ Mô tả: {weather_data['mo_ta']}")
-            print(f"💧 Độ ẩm: {weather_data['do_am']}%")
-            print(f"📊 Áp suất: {weather_data['ap_suat']} hPa")
-            print(f"💨 Gió: {weather_data['toc_do_gio']} m/s")
+            print(f"📍 Thành phố: {weather_data['city']}")
+            print(f"🌡️ Nhiệt độ: {weather_data['temperature']}°C")
+            print(f"🤔 Cảm giác như: {weather_data['feels_like']}°C")
+            print(f"☁️ Mô tả: {weather_data['description']}")
+            print(f"💧 Độ ẩm: {weather_data['humidity']}%")
+            print(f"📊 Áp suất: {weather_data['pressure']} hPa")
+            print(f"💨 Gió: {weather_data['wind_speed']} m/s")
             
             # Lưu vào file để backup
             filename = f"weather_{city.replace(' ', '_').lower()}.json"
@@ -585,20 +585,20 @@ def safe_json_operations():
     
     # Test
     test_data = {
-        "hoc_sinh": {
-            "thong_tin": {
-                "ten": "An",
-                "tuoi": 16
+        "student": {
+            "info": {
+                "name": "An",
+                "age": 16
             }
         }
     }
     
     # An toàn
-    ten = safe_get_value(test_data, "hoc_sinh", "thong_tin", "ten")
-    diem = safe_get_value(test_data, "hoc_sinh", "diem_so", "toan")  # Không tồn tại
+    name = safe_get_value(test_data, "student", "info", "name")
+    score = safe_get_value(test_data, "student", "scores", "math")  # Không tồn tại
     
-    print(f"Tên: {ten}")
-    print(f"Điểm toán: {diem}")
+    print(f"Tên: {name}")
+    print(f"Điểm toán: {score}")
 
 safe_json_operations()
 ```
@@ -610,8 +610,8 @@ safe_json_operations()
 import json
 from datetime import datetime
 
-class HocSinhEncoder(json.JSONEncoder):
-    """Custom encoder cho class HocSinh"""
+class StudentEncoder(json.JSONEncoder):
+    """Custom encoder cho class Student"""
     
     def default(self, obj):
         if isinstance(obj, datetime):
@@ -621,16 +621,16 @@ class HocSinhEncoder(json.JSONEncoder):
             return obj.__dict__
         return super().default(obj)
 
-class HocSinh:
-    def __init__(self, ten, tuoi):
-        self.ten = ten
-        self.tuoi = tuoi
-        self.ngay_tao = datetime.now()
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.created_date = datetime.now()
 
 # Sử dụng custom encoder
-hoc_sinh = HocSinh("An", 16)
+student = Student("An", 16)
 
-json_string = json.dumps(hoc_sinh, cls=HocSinhEncoder, ensure_ascii=False, indent=2)
+json_string = json.dumps(student, cls=StudentEncoder, ensure_ascii=False, indent=2)
 print(json_string)
 ```
 

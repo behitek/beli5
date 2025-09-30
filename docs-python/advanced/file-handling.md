@@ -21,14 +21,14 @@ Hãy tưởng tượng **file** như những **cuốn sổ ghi chép** trên má
 ### 🔍 Cách Cơ Bản Nhất
 ```python
 # Đọc file giống như mở sách ra xem
-with open('danh_sach_mon_an.txt', 'r', encoding='utf-8') as file:
-    noi_dung = file.read()
-    print(noi_dung)
+with open('food_list.txt', 'r', encoding='utf-8') as file:
+    content = file.read()
+    print(content)
 ```
 
 **Giải thích từng phần:**
 - `open()` = Mở cuốn sách ra
-- `'danh_sach_mon_an.txt'` = Tên cuốn sách
+- `'food_list.txt'` = Tên cuốn sách
 - `'r'` = "Read" - chỉ đọc thôi, không viết
 - `encoding='utf-8'` = Đọc tiếng Việt có dấu
 - `with` = Tự động đóng sách khi đọc xong
@@ -36,20 +36,20 @@ with open('danh_sach_mon_an.txt', 'r', encoding='utf-8') as file:
 ### 📄 Đọc Từng Dòng (Như Đọc Thơ)
 ```python
 # Đọc từng câu thơ một
-with open('bai_tho.txt', 'r', encoding='utf-8') as file:
-    for dong in file:
-        print(f"Câu thơ: {dong.strip()}")
+with open('poem.txt', 'r', encoding='utf-8') as file:
+    for line in file:
+        print(f"Câu thơ: {line.strip()}")
 ```
 
 ### 📋 Đọc Thành Danh Sách
 ```python
 # Biến mỗi dòng thành một phần tử trong list
-with open('danh_sach_hoc_sinh.txt', 'r', encoding='utf-8') as file:
-    danh_sach = file.readlines()
+with open('student_list.txt', 'r', encoding='utf-8') as file:
+    student_names = file.readlines()
     
 # Xóa bỏ ký tự xuống dòng thừa
-danh_sach_sach = [ten.strip() for ten in danh_sach]
-print(danh_sach_sach)
+clean_student_list = [name.strip() for name in student_names]
+print(clean_student_list)
 ```
 
 ## ✍️ Viết File - Như Viết Nhật Ký
@@ -57,7 +57,7 @@ print(danh_sach_sach)
 ### 📝 Ghi Đè Hoàn Toàn (Viết Lại Từ Đầu)
 ```python
 # Tạo file mới hoặc xóa hết nội dung cũ
-with open('nhat_ky.txt', 'w', encoding='utf-8') as file:
+with open('diary.txt', 'w', encoding='utf-8') as file:
     file.write("Hôm nay tôi học Python!\n")
     file.write("Python thật thú vị!\n")
     file.write("Tôi có thể tạo file rồi! 🎉\n")
@@ -66,45 +66,45 @@ with open('nhat_ky.txt', 'w', encoding='utf-8') as file:
 ### 📄 Thêm Nội Dung (Viết Tiếp)
 ```python
 # Viết thêm vào cuối file (không xóa nội dung cũ)
-with open('nhat_ky.txt', 'a', encoding='utf-8') as file:
+with open('diary.txt', 'a', encoding='utf-8') as file:
     file.write("Ngày mai tôi sẽ học thêm nhiều điều mới!\n")
 ```
 
 ### 📊 Ghi Nhiều Dòng Cùng Lúc
 ```python
-mon_hoc = ["Toán", "Lý", "Hóa", "Sinh", "Văn"]
+subjects = ["Toán", "Lý", "Hóa", "Sinh", "Văn"]
 
-with open('mon_hoc_yeu_thich.txt', 'w', encoding='utf-8') as file:
-    for mon in mon_hoc:
-        file.write(f"Môn {mon} rất thú vị!\n")
+with open('favorite_subjects.txt', 'w', encoding='utf-8') as file:
+    for subject in subjects:
+        file.write(f"Môn {subject} rất thú vị!\n")
 ```
 
 ## 🛠️ Ví Dụ Thực Tế: Quản Lý Điểm Số
 
 ```python
-def luu_diem_so(ten_hoc_sinh, diem, mon_hoc):
+def save_student_score(student_name, score, subject):
     """Lưu điểm số của học sinh vào file"""
-    with open('bang_diem.txt', 'a', encoding='utf-8') as file:
-        file.write(f"{ten_hoc_sinh}: {mon_hoc} - {diem} điểm\n")
-    print(f"✅ Đã lưu điểm {diem} môn {mon_hoc} cho {ten_hoc_sinh}")
+    with open('score_board.txt', 'a', encoding='utf-8') as file:
+        file.write(f"{student_name}: {subject} - {score} điểm\n")
+    print(f"✅ Đã lưu điểm {score} môn {subject} cho {student_name}")
 
-def xem_tat_ca_diem():
+def view_all_scores():
     """Xem tất cả điểm số đã lưu"""
     try:
-        with open('bang_diem.txt', 'r', encoding='utf-8') as file:
+        with open('score_board.txt', 'r', encoding='utf-8') as file:
             print("📊 BẢNG ĐIỂM TỔNG HỢP:")
             print("-" * 30)
-            for dong in file:
-                print(dong.strip())
+            for line in file:
+                print(line.strip())
     except FileNotFoundError:
         print("❌ Chưa có file điểm nào. Hãy nhập điểm trước!")
 
 # Sử dụng chương trình
-luu_diem_so("An", 9.5, "Toán")
-luu_diem_so("Bình", 8.7, "Lý")
-luu_diem_so("Chi", 9.2, "Hóa")
+save_student_score("An", 9.5, "Toán")
+save_student_score("Bình", 8.7, "Lý")
+save_student_score("Chi", 9.2, "Hóa")
 
-xem_tat_ca_diem()
+view_all_scores()
 ```
 
 ## 🔥 Ví Dụ Nâng Cao: Todo List Lưu File
@@ -152,7 +152,7 @@ class TodoList:
             print(f"{i+1}. {task}")
 
 # Sử dụng Todo List với file
-todo = TodoList("cong_viec_behitek.txt")
+todo = TodoList("behitek_tasks.txt")
 
 # Thêm một số việc
 todo.add_task("Học Python file handling")
@@ -170,7 +170,7 @@ todo.show_tasks()
 ## 🚨 Xử Lý Lỗi Thông Minh
 
 ```python
-def doc_file_an_toan(file_name):
+def read_file_safely(file_name):
     """Đọc file một cách an toàn với xử lý lỗi"""
     try:
         with open(file_name, 'r', encoding='utf-8') as file:
@@ -191,9 +191,9 @@ def doc_file_an_toan(file_name):
             return None
 
 # Test với file không tồn tại
-noi_dung = doc_file_an_toan("file_khong_ton_tai.txt")
-if noi_dung:
-    print(noi_dung)
+content = read_file_safely("non_existent_file.txt")
+if content:
+    print(content)
 else:
     print("Không đọc được file")
 ```

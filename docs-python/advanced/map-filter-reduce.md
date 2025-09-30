@@ -13,20 +13,20 @@ Hãy tưởng tượng bạn có một danh sách sinh viên và cần:
 
 ```python
 # Ví dụ minh họa
-diem_so = [7, 8.5, 6, 9.2, 5.5, 8.8, 7.5]
+scores = [7, 8.5, 6, 9.2, 5.5, 8.8, 7.5]
 
 # Map: Chuyển điểm thành thang 4
-diem_thang_4 = list(map(lambda x: round(x / 2.5, 1), diem_so))
-print(f"🗺️ Map - Thang 4.0: {diem_thang_4}")
+gpa_scores = list(map(lambda x: round(x / 2.5, 1), scores))
+print(f"🗺️ Map - Thang 4.0: {gpa_scores}")
 
 # Filter: Lọc điểm >= 8
-diem_cao = list(filter(lambda x: x >= 8, diem_so))  
-print(f"🔍 Filter - Điểm cao: {diem_cao}")
+high_scores = list(filter(lambda x: x >= 8, scores))  
+print(f"🔍 Filter - Điểm cao: {high_scores}")
 
 # Reduce: Tính điểm trung bình
 from functools import reduce
-diem_tb = reduce(lambda x, y: x + y, diem_so) / len(diem_so)
-print(f"⚡ Reduce - Điểm TB: {diem_tb:.1f}")
+average_score = reduce(lambda x, y: x + y, scores) / len(scores)
+print(f"⚡ Reduce - Điểm TB: {average_score:.1f}")
 ```
 
 ## 🗺️ MAP - Máy biến đổi thần kỳ
@@ -40,78 +40,79 @@ Map áp dụng một hàm cho **TẤT CẢ** phần tử trong iterable.
 # Trả về map object (cần convert thành list để xem)
 
 # Ví dụ cơ bản
-so_list = [1, 2, 3, 4, 5]
+numbers = [1, 2, 3, 4, 5]
 
 # Bình phương tất cả
-binh_phuong = list(map(lambda x: x**2, so_list))
-print(f"📊 Bình phương: {binh_phuong}")  # [1, 4, 9, 16, 25]
+squared_numbers = list(map(lambda x: x**2, numbers))
+print(f"📊 Bình phương: {squared_numbers}")  # [1, 4, 9, 16, 25]
 
 # Với function định sẵn
-def chuyen_thanh_chu(so):
-    chu_so = ["Không", "Một", "Hai", "Ba", "Bốn", "Năm"]
-    return chu_so[so] if 0 <= so < len(chu_so) else str(so)
+def convert_to_text(number):
+    """Chuyển số thành chữ"""
+    digit_names = ["Không", "Một", "Hai", "Ba", "Bốn", "Năm"]
+    return digit_names[number] if 0 <= number < len(digit_names) else str(number)
 
-chu_list = list(map(chuyen_thanh_chu, so_list))
-print(f"🔤 Thành chữ: {chu_list}")
+text_numbers = list(map(convert_to_text, numbers))
+print(f"🔤 Thành chữ: {text_numbers}")
 ```
 
 ### Map với nhiều iterables
 
 ```python
 # Map với 2 lists
-danh_sach_a = [1, 2, 3, 4]
-danh_sach_b = [10, 20, 30, 40]
+list_a = [1, 2, 3, 4]
+list_b = [10, 20, 30, 40]
 
 # Cộng từng cặp
-tong_cac_cap = list(map(lambda x, y: x + y, danh_sach_a, danh_sach_b))
-print(f"➕ Tổng các cặp: {tong_cac_cap}")  # [11, 22, 33, 44]
+pair_sums = list(map(lambda x, y: x + y, list_a, list_b))
+print(f"➕ Tổng các cặp: {pair_sums}")  # [11, 22, 33, 44]
 
 # Nhân từng cặp
-nhan_cac_cap = list(map(lambda x, y: x * y, danh_sach_a, danh_sach_b))
-print(f"✖️ Nhân các cặp: {nhan_cac_cap}")  # [10, 40, 90, 160]
+pair_products = list(map(lambda x, y: x * y, list_a, list_b))
+print(f"✖️ Nhân các cặp: {pair_products}")  # [10, 40, 90, 160]
 
 # Map với 3 lists
-ten_list = ["An", "Bình", "Cường"]
-tuoi_list = [20, 19, 21]
-diem_list = [8.5, 9.0, 7.8]
+names = ["An", "Bình", "Cường"]
+ages = [20, 19, 21]
+scores = [8.5, 9.0, 7.8]
 
-thong_tin = list(map(
-    lambda ten, tuoi, diem: f"{ten} ({tuoi} tuổi) - {diem} điểm",
-    ten_list, tuoi_list, diem_list
+student_info = list(map(
+    lambda name, age, score: f"{name} ({age} tuổi) - {score} điểm",
+    names, ages, scores
 ))
 print("👥 Thông tin sinh viên:")
-for tt in thong_tin:
-    print(f"   📝 {tt}")
+for info in student_info:
+    print(f"   📝 {info}")
 ```
 
 ### Map với String processing
 
 ```python
 # Xử lý chuỗi
-cau_list = [
+sentences = [
     "python là tuyệt vời",
     "học lập trình rất thú vị", 
     "ai và machine learning"
 ]
 
 # Capitalize từng từ
-cau_format = list(map(lambda cau: cau.title(), cau_list))
+formatted_sentences = list(map(lambda sentence: sentence.title(), sentences))
 print("✨ Formatted sentences:")
-for cau in cau_format:
-    print(f"   📄 {cau}")
+for sentence in formatted_sentences:
+    print(f"   📄 {sentence}")
 
 # Đếm từ trong mỗi câu
-so_tu = list(map(lambda cau: len(cau.split()), cau_list))
-print(f"📊 Số từ: {so_tu}")
+word_counts = list(map(lambda sentence: len(sentence.split()), sentences))
+print(f"📊 Số từ: {word_counts}")
 
 # Thay thế từ khóa
-thay_the = list(map(
-    lambda cau: cau.replace("python", "Python 🐍").replace("ai", "AI 🤖"),
-    cau_list
+replaced_sentences = list(map(
+    lambda sentence: sentence.replace("python", "Python 🐍").replace("ai", "AI 🤖"),
+    sentences
 ))
 print("🔄 Sau khi thay thế:")
-for cau in thay_the:
-    print(f"   🎯 {cau}")
+for sentence in replaced_sentences:
+    print(f"   🎯 {sentence}")
 ```
 
 ## 🔍 FILTER - Cái rây thông minh
@@ -125,12 +126,13 @@ Filter chỉ giữ lại những phần tử thỏa mãn điều kiện.
 # function trả về True/False
 
 # Lọc số chẵn
-so_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-so_chan = list(filter(lambda x: x % 2 == 0, so_list))
-print(f"🔢 Số chẵn: {so_chan}")  # [2, 4, 6, 8, 10]
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(f"🔢 Số chẵn: {even_numbers}")  # [2, 4, 6, 8, 10]
 
 # Lọc số nguyên tố đơn giản
-def la_so_nguyen_to(n):
+def is_prime(n):
+    """Kiểm tra số nguyên tố"""
     if n < 2:
         return False
     for i in range(2, int(n**0.5) + 1):
@@ -138,51 +140,51 @@ def la_so_nguyen_to(n):
             return False
     return True
 
-so_nguyen_to = list(filter(la_so_nguyen_to, range(2, 30)))
-print(f"🔍 Số nguyên tố < 30: {so_nguyen_to}")
+prime_numbers = list(filter(is_prime, range(2, 30)))
+print(f"🔍 Số nguyên tố < 30: {prime_numbers}")
 
 # Lọc chuỗi không rỗng
-chuoi_list = ["Python", "", "Java", "   ", "C++", None, "Go"]
-chuoi_hop_le = list(filter(
+string_list = ["Python", "", "Java", "   ", "C++", None, "Go"]
+valid_strings = list(filter(
     lambda s: s and s.strip(), 
-    [s for s in chuoi_list if s is not None]
+    [s for s in string_list if s is not None]
 ))
-print(f"📝 Chuỗi hợp lệ: {chuoi_hop_le}")
+print(f"📝 Chuỗi hợp lệ: {valid_strings}")
 ```
 
 ### Filter với Objects
 
 ```python
 # Danh sách sản phẩm
-san_pham = [
-    {"ten": "Laptop", "gia": 15000000, "ton_kho": 5, "loai": "electronics"},
-    {"ten": "Mouse", "gia": 200000, "ton_kho": 0, "loai": "electronics"}, 
-    {"ten": "Áo thun", "gia": 150000, "ton_kho": 20, "loai": "clothing"},
-    {"ten": "Giày", "gia": 800000, "ton_kho": 8, "loai": "clothing"},
-    {"ten": "Sách", "gia": 50000, "ton_kho": 15, "loai": "books"}
+products = [
+    {"name": "Laptop", "price": 15000000, "stock": 5, "category": "electronics"},
+    {"name": "Mouse", "price": 200000, "stock": 0, "category": "electronics"}, 
+    {"name": "Áo thun", "price": 150000, "stock": 20, "category": "clothing"},
+    {"name": "Giày", "price": 800000, "stock": 8, "category": "clothing"},
+    {"name": "Sách", "price": 50000, "stock": 15, "category": "books"}
 ]
 
 # Lọc sản phẩm còn hàng
-con_hang = list(filter(lambda sp: sp["ton_kho"] > 0, san_pham))
-print(f"📦 Sản phẩm còn hàng: {len(con_hang)}/{len(san_pham)}")
+in_stock_products = list(filter(lambda product: product["stock"] > 0, products))
+print(f"📦 Sản phẩm còn hàng: {len(in_stock_products)}/{len(products)}")
 
 # Lọc sản phẩm electronics đắt tiền
-electronics_dat = list(filter(
-    lambda sp: sp["loai"] == "electronics" and sp["gia"] >= 500000,
-    san_pham
+expensive_electronics = list(filter(
+    lambda product: product["category"] == "electronics" and product["price"] >= 500000,
+    products
 ))
 print("💻 Electronics đắt tiền:")
-for sp in electronics_dat:
-    print(f"   🛍️ {sp['ten']}: {sp['gia']:,}đ")
+for product in expensive_electronics:
+    print(f"   🛍️ {product['name']}: {product['price']:,}đ")
 
 # Lọc theo nhiều điều kiện
-sp_ban_chay = list(filter(
-    lambda sp: sp["ton_kho"] > 10 and sp["gia"] <= 500000,
-    san_pham
+bestsellers = list(filter(
+    lambda product: product["stock"] > 10 and product["price"] <= 500000,
+    products
 ))
 print("🔥 Sản phẩm bán chạy (nhiều hàng + giá rẻ):")
-for sp in sp_ban_chay:
-    print(f"   ⭐ {sp['ten']}: {sp['gia']:,}đ (còn {sp['ton_kho']})")
+for product in bestsellers:
+    print(f"   ⭐ {product['name']}: {product['price']:,}đ (còn {product['stock']})")
 ```
 
 ## ⚡ REDUCE - Máy nén siêu mạnh
@@ -198,40 +200,40 @@ from functools import reduce
 # function nhận 2 tham số: accumulator và current_item
 
 # Tính tổng
-so_list = [1, 2, 3, 4, 5]
-tong = reduce(lambda x, y: x + y, so_list)
-print(f"➕ Tổng: {tong}")  # 15
+numbers = [1, 2, 3, 4, 5]
+total = reduce(lambda x, y: x + y, numbers)
+print(f"➕ Tổng: {total}")  # 15
 
 # Tính tích
-tich = reduce(lambda x, y: x * y, so_list)
-print(f"✖️ Tích: {tich}")  # 120
+product = reduce(lambda x, y: x * y, numbers)
+print(f"✖️ Tích: {product}")  # 120
 
 # Tìm số lớn nhất
-so_max = reduce(lambda x, y: x if x > y else y, so_list)
-print(f"🔝 Max: {so_max}")  # 5
+max_number = reduce(lambda x, y: x if x > y else y, numbers)
+print(f"🔝 Max: {max_number}")  # 5
 
 # Với initial value
-tong_co_initial = reduce(lambda x, y: x + y, so_list, 100)
-print(f"➕ Tổng + 100: {tong_co_initial}")  # 115
+total_with_initial = reduce(lambda x, y: x + y, numbers, 100)
+print(f"➕ Tổng + 100: {total_with_initial}")  # 115
 ```
 
 ### Reduce nâng cao
 
 ```python
 # Nối chuỗi
-tu_list = ["Python", "is", "really", "awesome"]
-cau = reduce(lambda x, y: x + " " + y, tu_list)
-print(f"📝 Câu: {cau}")
+words = ["Python", "is", "really", "awesome"]
+sentence = reduce(lambda x, y: x + " " + y, words)
+print(f"📝 Câu: {sentence}")
 
 # Tạo dictionary từ lists
-keys = ["ten", "tuoi", "diem"]
+keys = ["name", "age", "score"]
 values = ["An", 20, 8.5]
-sinh_vien_dict = reduce(
+student_dict = reduce(
     lambda d, kv: {**d, kv[0]: kv[1]},
     zip(keys, values),
     {}
 )
-print(f"👤 Sinh viên: {sinh_vien_dict}")
+print(f"👤 Sinh viên: {student_dict}")
 
 # Flatten nested list
 nested_list = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
@@ -239,201 +241,202 @@ flat_list = reduce(lambda x, y: x + y, nested_list)
 print(f"📋 Flattened: {flat_list}")
 
 # Tính factorial
-def factorial(n):
+def calculate_factorial(n):
+    """Tính giai thừa"""
     if n <= 1:
         return 1
     return reduce(lambda x, y: x * y, range(1, n + 1))
 
-print(f"🧮 5! = {factorial(5)}")  # 120
-print(f"🧮 7! = {factorial(7)}")  # 5040
+print(f"🧮 5! = {calculate_factorial(5)}")  # 120
+print(f"🧮 7! = {calculate_factorial(7)}")  # 5040
 ```
 
 ## 🎭 Kết hợp Map, Filter, Reduce
 
 ```python
 # Dữ liệu bán hàng
-ban_hang = [
-    {"nhan_vien": "An", "don_hang": [100000, 200000, 150000]},
-    {"nhan_vien": "Bình", "don_hang": [300000, 250000, 400000]},
-    {"nhan_vien": "Cường", "don_hang": [180000, 220000]},
-    {"nhan_vien": "Dung", "don_hang": [500000, 120000, 300000, 180000]}
+sales_data = [
+    {"employee": "An", "orders": [100000, 200000, 150000]},
+    {"employee": "Bình", "orders": [300000, 250000, 400000]},
+    {"employee": "Cường", "orders": [180000, 220000]},
+    {"employee": "Dung", "orders": [500000, 120000, 300000, 180000]}
 ]
 
 print("🏪 Phân tích doanh số bán hàng")
 print("="*50)
 
 # Bước 1: Map - Tính tổng doanh thu mỗi nhân viên
-nv_doanh_thu = list(map(
-    lambda nv: {
-        "ten": nv["nhan_vien"], 
-        "tong_dt": sum(nv["don_hang"]),
-        "so_don": len(nv["don_hang"])
+employee_revenues = list(map(
+    lambda emp: {
+        "name": emp["employee"], 
+        "total_revenue": sum(emp["orders"]),
+        "order_count": len(emp["orders"])
     },
-    ban_hang
+    sales_data
 ))
 
-for nv in nv_doanh_thu:
-    print(f"👤 {nv['ten']}: {nv['tong_dt']:,}đ ({nv['so_don']} đơn)")
+for emp in employee_revenues:
+    print(f"👤 {emp['name']}: {emp['total_revenue']:,}đ ({emp['order_count']} đơn)")
 
 # Bước 2: Filter - Lọc nhân viên doanh thu cao
-nv_xuat_sac = list(filter(
-    lambda nv: nv["tong_dt"] >= 400000,
-    nv_doanh_thu
+top_performers = list(filter(
+    lambda emp: emp["total_revenue"] >= 400000,
+    employee_revenues
 ))
 
 print(f"\n🌟 Nhân viên xuất sắc (≥400k):")
-for nv in nv_xuat_sac:
-    tb_don = nv["tong_dt"] // nv["so_don"]
-    print(f"   🏆 {nv['ten']}: {nv['tong_dt']:,}đ (TB: {tb_don:,}đ/đơn)")
+for emp in top_performers:
+    avg_order = emp["total_revenue"] // emp["order_count"]
+    print(f"   🏆 {emp['name']}: {emp['total_revenue']:,}đ (TB: {avg_order:,}đ/đơn)")
 
 # Bước 3: Reduce - Tính tổng doanh thu công ty
-tong_cong_ty = reduce(
-    lambda total, nv: total + nv["tong_dt"],
-    nv_doanh_thu,
+company_total = reduce(
+    lambda total, emp: total + emp["total_revenue"],
+    employee_revenues,
     0
 )
 
-print(f"\n💰 Tổng doanh thu công ty: {tong_cong_ty:,}đ")
+print(f"\n💰 Tổng doanh thu công ty: {company_total:,}đ")
 
 # Combo: Tính phần trăm đóng góp
-nv_phan_tram = list(map(
-    lambda nv: {
-        **nv,
-        "phan_tram": round(nv["tong_dt"] / tong_cong_ty * 100, 1)
+employee_percentages = list(map(
+    lambda emp: {
+        **emp,
+        "percentage": round(emp["total_revenue"] / company_total * 100, 1)
     },
-    nv_doanh_thu
+    employee_revenues
 ))
 
 print(f"\n📊 Phần trăm đóng góp:")
-for nv in nv_phan_tram:
-    print(f"   📈 {nv['ten']}: {nv['phan_tram']}%")
+for emp in employee_percentages:
+    print(f"   📈 {emp['name']}: {emp['percentage']}%")
 ```
 
 ## 🚀 Ví dụ thực tế: Xử lý dữ liệu học sinh
 
 ```python
 # Dữ liệu học sinh
-hoc_sinh = [
-    {"ten": "Nguyễn Văn An", "lop": "10A", "mon": {"toan": 8, "ly": 7, "hoa": 9}},
-    {"ten": "Trần Thị Bình", "lop": "10A", "mon": {"toan": 9, "ly": 8, "hoa": 8}},
-    {"ten": "Lê Văn Cường", "lop": "10B", "mon": {"toan": 6, "ly": 7, "hoa": 6}},
-    {"ten": "Phạm Thị Dung", "lop": "10B", "mon": {"toan": 9, "ly": 9, "hoa": 10}},
-    {"ten": "Hoàng Văn Em", "lop": "10A", "mon": {"toan": 7, "ly": 6, "hoa": 8}}
+students = [
+    {"name": "Nguyễn Văn An", "class": "10A", "subjects": {"math": 8, "physics": 7, "chemistry": 9}},
+    {"name": "Trần Thị Bình", "class": "10A", "subjects": {"math": 9, "physics": 8, "chemistry": 8}},
+    {"name": "Lê Văn Cường", "class": "10B", "subjects": {"math": 6, "physics": 7, "chemistry": 6}},
+    {"name": "Phạm Thị Dung", "class": "10B", "subjects": {"math": 9, "physics": 9, "chemistry": 10}},
+    {"name": "Hoàng Văn Em", "class": "10A", "subjects": {"math": 7, "physics": 6, "chemistry": 8}}
 ]
 
-class QuanLyHocSinh:
+class StudentManager:
     """Quản lý học sinh với Map, Filter, Reduce"""
     
-    def __init__(self, ds_hoc_sinh):
-        self.hoc_sinh = ds_hoc_sinh
+    def __init__(self, students_list):
+        self.students = students_list
     
-    def tinh_diem_tb(self):
+    def calculate_average_scores(self):
         """Map: Tính điểm trung bình cho mỗi học sinh"""
         return list(map(
-            lambda hs: {
-                **hs,
-                "diem_tb": round(sum(hs["mon"].values()) / len(hs["mon"]), 1)
+            lambda student: {
+                **student,
+                "average_score": round(sum(student["subjects"].values()) / len(student["subjects"]), 1)
             },
-            self.hoc_sinh
+            self.students
         ))
     
-    def loc_hoc_sinh_gioi(self, ds_co_diem_tb):
+    def filter_excellent_students(self, students_with_avg):
         """Filter: Lọc học sinh giỏi (≥8.0)"""
         return list(filter(
-            lambda hs: hs["diem_tb"] >= 8.0,
-            ds_co_diem_tb
+            lambda student: student["average_score"] >= 8.0,
+            students_with_avg
         ))
     
-    def thong_ke_lop(self, ds_co_diem_tb):
+    def analyze_by_class(self, students_with_avg):
         """Thống kê theo lớp"""
         # Nhóm theo lớp
-        lop_groups = {}
-        for hs in ds_co_diem_tb:
-            lop = hs["lop"]
-            if lop not in lop_groups:
-                lop_groups[lop] = []
-            lop_groups[lop].append(hs)
+        class_groups = {}
+        for student in students_with_avg:
+            class_name = student["class"]
+            if class_name not in class_groups:
+                class_groups[class_name] = []
+            class_groups[class_name].append(student)
         
         # Tính thống kê cho mỗi lớp
-        thong_ke = {}
-        for lop, ds_hs in lop_groups.items():
+        statistics = {}
+        for class_name, students_list in class_groups.items():
             # Map: lấy điểm TB của từng HS trong lớp
-            diem_tb_lop = list(map(lambda hs: hs["diem_tb"], ds_hs))
+            class_scores = list(map(lambda student: student["average_score"], students_list))
             
             # Reduce: tính điểm TB lớp
-            tb_lop = reduce(lambda x, y: x + y, diem_tb_lop) / len(diem_tb_lop)
+            class_average = reduce(lambda x, y: x + y, class_scores) / len(class_scores)
             
             # Filter: đếm số HS giỏi trong lớp
-            hs_gioi = list(filter(lambda hs: hs["diem_tb"] >= 8.0, ds_hs))
+            excellent_students = list(filter(lambda student: student["average_score"] >= 8.0, students_list))
             
-            thong_ke[lop] = {
-                "so_hs": len(ds_hs),
-                "diem_tb": round(tb_lop, 1),
-                "hs_gioi": len(hs_gioi),
-                "ty_le_gioi": round(len(hs_gioi) / len(ds_hs) * 100, 1)
+            statistics[class_name] = {
+                "student_count": len(students_list),
+                "class_average": round(class_average, 1),
+                "excellent_count": len(excellent_students),
+                "excellent_rate": round(len(excellent_students) / len(students_list) * 100, 1)
             }
         
-        return thong_ke
+        return statistics
     
-    def tim_mon_kho_nhat(self, ds_co_diem_tb):
+    def find_hardest_subject(self, students_with_avg):
         """Tìm môn khó nhất (điểm TB thấp nhất)"""
         # Map: lấy điểm từng môn của tất cả HS
-        tat_ca_diem_mon = {}
+        all_subject_scores = {}
         
-        for hs in ds_co_diem_tb:
-            for mon, diem in hs["mon"].items():
-                if mon not in tat_ca_diem_mon:
-                    tat_ca_diem_mon[mon] = []
-                tat_ca_diem_mon[mon].append(diem)
+        for student in students_with_avg:
+            for subject, score in student["subjects"].items():
+                if subject not in all_subject_scores:
+                    all_subject_scores[subject] = []
+                all_subject_scores[subject].append(score)
         
         # Tính TB từng môn
-        tb_cac_mon = {}
-        for mon, danh_sach_diem in tat_ca_diem_mon.items():
-            tb_mon = reduce(lambda x, y: x + y, danh_sach_diem) / len(danh_sach_diem)
-            tb_cac_mon[mon] = round(tb_mon, 1)
+        subject_averages = {}
+        for subject, scores_list in all_subject_scores.items():
+            subject_avg = reduce(lambda x, y: x + y, scores_list) / len(scores_list)
+            subject_averages[subject] = round(subject_avg, 1)
         
         # Tìm môn có điểm thấp nhất
-        mon_kho_nhat = reduce(
-            lambda mon1, mon2: mon1 if tb_cac_mon[mon1] < tb_cac_mon[mon2] else mon2,
-            tb_cac_mon.keys()
+        hardest_subject = reduce(
+            lambda subj1, subj2: subj1 if subject_averages[subj1] < subject_averages[subj2] else subj2,
+            subject_averages.keys()
         )
         
-        return mon_kho_nhat, tb_cac_mon
+        return hardest_subject, subject_averages
 
 # Sử dụng hệ thống
-ql = QuanLyHocSinh(hoc_sinh)
+manager = StudentManager(students)
 
 print("🎓 HỆ THỐNG QUẢN LÝ HỌC SINH")
 print("="*50)
 
 # Bước 1: Tính điểm TB
-hs_co_diem_tb = ql.tinh_diem_tb()
+students_with_avg = manager.calculate_average_scores()
 print("📊 Điểm trung bình:")
-for hs in hs_co_diem_tb:
-    print(f"   👤 {hs['ten']}: {hs['diem_tb']} điểm")
+for student in students_with_avg:
+    print(f"   👤 {student['name']}: {student['average_score']} điểm")
 
 # Bước 2: Lọc học sinh giỏi  
-hs_gioi = ql.loc_hoc_sinh_gioi(hs_co_diem_tb)
-print(f"\n🌟 Học sinh giỏi ({len(hs_gioi)}/{len(hoc_sinh)}):")
-for hs in hs_gioi:
-    print(f"   🏆 {hs['ten']} ({hs['lop']}): {hs['diem_tb']} điểm")
+excellent_students = manager.filter_excellent_students(students_with_avg)
+print(f"\n🌟 Học sinh giỏi ({len(excellent_students)}/{len(students)}):")
+for student in excellent_students:
+    print(f"   🏆 {student['name']} ({student['class']}): {student['average_score']} điểm")
 
 # Bước 3: Thống kê theo lớp
-thong_ke_lop = ql.thong_ke_lop(hs_co_diem_tb)
+class_statistics = manager.analyze_by_class(students_with_avg)
 print(f"\n📈 Thống kê theo lớp:")
-for lop, stats in thong_ke_lop.items():
-    print(f"   🏫 Lớp {lop}:")
-    print(f"      👥 Số HS: {stats['so_hs']}")
-    print(f"      📊 Điểm TB: {stats['diem_tb']}")
-    print(f"      🌟 HS giỏi: {stats['hs_gioi']} ({stats['ty_le_gioi']}%)")
+for class_name, stats in class_statistics.items():
+    print(f"   🏫 Lớp {class_name}:")
+    print(f"      👥 Số HS: {stats['student_count']}")
+    print(f"      📊 Điểm TB: {stats['class_average']}")
+    print(f"      🌟 HS giỏi: {stats['excellent_count']} ({stats['excellent_rate']}%)")
 
 # Bước 4: Tìm môn khó nhất
-mon_kho, tb_mon = ql.tim_mon_kho_nhat(hs_co_diem_tb)
+hardest_subject, subject_averages = manager.find_hardest_subject(students_with_avg)
 print(f"\n📚 Thống kê môn học:")
-for mon, tb in tb_mon.items():
-    icon = "😰" if mon == mon_kho else "😊"
-    print(f"   {icon} {mon.capitalize()}: {tb} điểm")
-print(f"\n🎯 Môn khó nhất: {mon_kho.capitalize()} ({tb_mon[mon_kho]} điểm)")
+for subject, avg in subject_averages.items():
+    icon = "😰" if subject == hardest_subject else "😊"
+    print(f"   {icon} {subject.capitalize()}: {avg} điểm")
+print(f"\n🎯 Môn khó nhất: {hardest_subject.capitalize()} ({subject_averages[hardest_subject]} điểm)")
 ```
 
 ## ⚡ Performance và Best Practices
@@ -465,8 +468,8 @@ def benchmark_processing():
     
     # Cách 3: Map + Filter
     start = time.time()
-    filtered = filter(lambda x: x % 2 == 0, data)
-    result3 = list(map(lambda x: x * x, filtered))
+    filtered_data = filter(lambda x: x % 2 == 0, data)
+    result3 = list(map(lambda x: x * x, filtered_data))
     time3 = time.time() - start
     
     print(f"🐌 For loop:         {time1:.4f}s")
@@ -518,10 +521,11 @@ Bộ ba Map, Filter, Reduce giúp bạn:
 - 🧹 Code sạch và dễ hiểu
 - ⚡ Performance tối ưu cho nhiều case
 
-**Bước tiếp theo**: Chúng ta đã hoàn thành phần Advanced! Hãy chuyển sang [Projects](../projects/) để thực hành những gì đã học!
+**Bước tiếp theo**: Chúng ta đã hoàn thành phần Advanced! Hãy chuyển sang mục [Projects](/python/projects/calculator) để thực hành những gì đã học!
 
 ---
 *💡 Tip: Map/Filter/Reduce như ba anh em siêu nhân - hợp lực để xử lý mọi dữ liệu!*
 
 ---
 **Behitek - Học lập trình Python một cách dễ hiểu nhất! 🚀**
+

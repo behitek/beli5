@@ -20,32 +20,32 @@ Hãy tưởng tượng **module** như những **hộp đồ nghề chuyên dụ
 ```python
 # Module tính toán cho Behitek Academy
 
-def cong(a, b):
+def add(a, b):
     """Cộng hai số"""
     return a + b
 
-def tru(a, b):
+def subtract(a, b):
     """Trừ hai số"""
     return a - b
 
-def nhan(a, b):
+def multiply(a, b):
     """Nhân hai số"""
     return a * b
 
-def chia(a, b):
+def divide(a, b):
     """Chia hai số (có kiểm tra chia 0)"""
     if b == 0:
         return "❌ Không thể chia cho 0!"
     return a / b
 
-def tinh_dien_tich_hinh_chu_nhat(dai, rong):
+def calculate_rectangle_area(length, width):
     """Tính diện tích hình chữ nhật"""
-    return dai * rong
+    return length * width
 
-def tinh_chu_vi_hinh_tron(ban_kinh):
+def calculate_circle_perimeter(radius):
     """Tính chu vi hình tròn"""
     PI = 3.14159
-    return 2 * PI * ban_kinh
+    return 2 * PI * radius
 
 # Biến toàn cục trong module
 VERSION = "1.0.0"
@@ -61,11 +61,11 @@ print(f"📚 Module Calculator v{VERSION} được tải thành công!")
 import calculator
 
 # Sử dụng các hàm từ module
-ket_qua = calculator.cong(5, 3)
-print(f"5 + 3 = {ket_qua}")
+result = calculator.add(5, 3)
+print(f"5 + 3 = {result}")
 
-dien_tich = calculator.tinh_dien_tich_hinh_chu_nhat(10, 6)
-print(f"Diện tích: {dien_tich}")
+area = calculator.calculate_rectangle_area(10, 6)
+print(f"Diện tích: {area}")
 
 # Truy cập biến trong module
 print(f"Phiên bản: {calculator.VERSION}")
@@ -77,11 +77,11 @@ print(f"Tác giả: {calculator.AUTHOR}")
 ### 📦 Import Cụ Thể (Recommended)
 ```python
 # Chỉ import những gì cần dùng
-from calculator import cong, nhan, VERSION
+from calculator import add, multiply, VERSION
 
 # Sử dụng trực tiếp, không cần tiền tố
-ket_qua = cong(10, 5)
-tich = nhan(4, 7)
+result = add(10, 5)
+product = multiply(4, 7)
 print(f"Version: {VERSION}")
 ```
 
@@ -91,8 +91,8 @@ print(f"Version: {VERSION}")
 import calculator as calc
 
 # Sử dụng với tên ngắn
-ket_qua = calc.cong(8, 2)
-print(ket_qua)
+result = calc.add(8, 2)
+print(result)
 ```
 
 ### 💫 Import Tất Cả (Cẩn Thận!)
@@ -101,7 +101,7 @@ print(ket_qua)
 from calculator import *
 
 # Có thể dùng trực tiếp mọi thứ
-ket_qua = cong(1, 2)  # Nguy hiểm vì có thể conflict
+result = add(1, 2)  # Nguy hiểm vì có thể conflict
 ```
 
 ## 🏗️ Tạo Package - Hộp Lớn Chứa Nhiều Hộp Nhỏ
@@ -130,9 +130,9 @@ Tác giả: Behitek Academy
 """
 
 # Import những thứ quan trọng nhất
-from .calculator import cong, tru, nhan, chia
-from .string_utils import lam_sach_chuoi, dem_tu
-from .date_helper import lay_ngay_hom_nay
+from .calculator import add, subtract, multiply, divide
+from .string_utils import clean_string, count_words
+from .date_helper import get_today
 
 # Thông tin package
 __version__ = "1.0.0"
@@ -141,9 +141,9 @@ __email__ = "info@behitek.com"
 
 # Danh sách những gì được export
 __all__ = [
-    'cong', 'tru', 'nhan', 'chia',
-    'lam_sach_chuoi', 'dem_tu',
-    'lay_ngay_hom_nay'
+    'add', 'subtract', 'multiply', 'divide',
+    'clean_string', 'count_words',
+    'get_today'
 ]
 
 print("🎉 Behitek Tools đã sẵn sàng!")
@@ -154,40 +154,40 @@ print("🎉 Behitek Tools đã sẵn sàng!")
 ```python
 # Các hàm tiện ích cho chuỗi
 
-def lam_sach_chuoi(chuoi):
+def clean_string(text):
     """Loại bỏ khoảng trắng thừa và chuyển thành chữ thường"""
-    return chuoi.strip().lower()
+    return text.strip().lower()
 
-def dem_tu(chuoi):
+def count_words(text):
     """Đếm số từ trong câu"""
-    return len(chuoi.split())
+    return len(text.split())
 
-def viet_hoa_chu_cai_dau(chuoi):
+def capitalize_words(text):
     """Viết hoa chữ cái đầu mỗi từ"""
-    return chuoi.title()
+    return text.title()
 
-def dao_nguoc_chuoi(chuoi):
+def reverse_string(text):
     """Đảo ngược chuỗi"""
-    return chuoi[::-1]
+    return text[::-1]
 
-def kiem_tra_email(email):
+def validate_email(email):
     """Kiểm tra email có hợp lệ không (đơn giản)"""
     return '@' in email and '.' in email.split('@')[1]
 
-def ma_hoa_don_gian(chuoi, buoc=3):
+def simple_encrypt(text, step=3):
     """Mã hóa Caesar đơn giản"""
-    ket_qua = ""
-    for ky_tu in chuoi:
-        if ky_tu.isalpha():
+    result = ""
+    for character in text:
+        if character.isalpha():
             # Xử lý cho chữ cái
-            ma_ascii = ord(ky_tu)
-            if ky_tu.islower():
-                ket_qua += chr((ma_ascii - ord('a') + buoc) % 26 + ord('a'))
+            ascii_code = ord(character)
+            if character.islower():
+                result += chr((ascii_code - ord('a') + step) % 26 + ord('a'))
             else:
-                ket_qua += chr((ma_ascii - ord('A') + buoc) % 26 + ord('A'))
+                result += chr((ascii_code - ord('A') + step) % 26 + ord('A'))
         else:
-            ket_qua += ky_tu
-    return ket_qua
+            result += character
+    return result
 ```
 
 ### 📅 Module Xử Lý Thời Gian
@@ -195,36 +195,36 @@ def ma_hoa_don_gian(chuoi, buoc=3):
 ```python
 from datetime import datetime, timedelta
 
-def lay_ngay_hom_nay():
+def get_today():
     """Lấy ngày hôm nay theo định dạng Việt Nam"""
     return datetime.now().strftime("%d/%m/%Y")
 
-def lay_gio_hien_tai():
+def get_current_time():
     """Lấy giờ hiện tại"""
     return datetime.now().strftime("%H:%M:%S")
 
-def tinh_tuoi(nam_sinh):
+def calculate_age(birth_year):
     """Tính tuổi từ năm sinh"""
-    nam_hien_tai = datetime.now().year
-    return nam_hien_tai - nam_sinh
+    current_year = datetime.now().year
+    return current_year - birth_year
 
-def la_nam_nhuan(nam):
+def is_leap_year(year):
     """Kiểm tra có phải năm nhuận không"""
-    return nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
-def dem_ngay_den_tet():
+def count_days_to_tet():
     """Đếm số ngày đến Tết (đơn giản hóa)"""
-    hom_nay = datetime.now()
-    tet = datetime(hom_nay.year + 1, 1, 22)  # Tết dương lịch ước lượng
-    if hom_nay > tet:
-        tet = datetime(hom_nay.year + 1, 1, 22)
+    today = datetime.now()
+    tet = datetime(today.year + 1, 1, 22)  # Tết dương lịch ước lượng
+    if today > tet:
+        tet = datetime(today.year + 1, 1, 22)
     
-    chenh_lech = tet - hom_nay
-    return chenh_lech.days
+    difference = tet - today
+    return difference.days
 
-def dinh_dang_thoi_gian_viet(datetime_obj):
+def format_vietnamese_time(datetime_obj):
     """Format thời gian theo kiểu Việt Nam"""
-    thu_mapping = {
+    day_mapping = {
         'Monday': 'Thứ Hai',
         'Tuesday': 'Thứ Ba', 
         'Wednesday': 'Thứ Tư',
@@ -234,11 +234,11 @@ def dinh_dang_thoi_gian_viet(datetime_obj):
         'Sunday': 'Chủ Nhật'
     }
     
-    thu = thu_mapping[datetime_obj.strftime('%A')]
-    ngay = datetime_obj.strftime('%d/%m/%Y')
-    gio = datetime_obj.strftime('%H:%M')
+    day = day_mapping[datetime_obj.strftime('%A')]
+    date = datetime_obj.strftime('%d/%m/%Y')
+    time = datetime_obj.strftime('%H:%M')
     
-    return f"{thu}, {ngay} lúc {gio}"
+    return f"{day}, {date} lúc {time}"
 ```
 
 ## 🎮 Sử Dụng Package Hoàn Chỉnh
@@ -252,32 +252,32 @@ from behitek_tools.games import guessing_game
 
 # Test các chức năng calculator
 print("🧮 TEST CALCULATOR:")
-print(f"5 + 3 = {behitek_tools.cong(5, 3)}")
-print(f"10 - 4 = {behitek_tools.tru(10, 4)}")
+print(f"5 + 3 = {behitek_tools.add(5, 3)}")
+print(f"10 - 4 = {behitek_tools.subtract(10, 4)}")
 
 # Test string utils
 print("\n📝 TEST STRING UTILS:")
-chuoi_test = "  XIN CHÀO BEHITEK ACADEMY  "
-print(f"Chuỗi gốc: '{chuoi_test}'")
-print(f"Làm sạch: '{string_utils.lam_sach_chuoi(chuoi_test)}'")
-print(f"Số từ: {string_utils.dem_tu(chuoi_test)}")
-print(f"Viết hoa đầu từ: '{string_utils.viet_hoa_chu_cai_dau(chuoi_test)}'")
-print(f"Đảo ngược: '{string_utils.dao_nguoc_chuoi(chuoi_test.strip())}'")
+test_string = "  XIN CHÀO BEHITEK ACADEMY  "
+print(f"Chuỗi gốc: '{test_string}'")
+print(f"Làm sạch: '{string_utils.clean_string(test_string)}'")
+print(f"Số từ: {string_utils.count_words(test_string)}")
+print(f"Viết hoa đầu từ: '{string_utils.capitalize_words(test_string)}'")
+print(f"Đảo ngược: '{string_utils.reverse_string(test_string.strip())}'")
 
 email = "hoc_vien@behitek.com"
-print(f"Email '{email}' hợp lệ: {string_utils.kiem_tra_email(email)}")
+print(f"Email '{email}' hợp lệ: {string_utils.validate_email(email)}")
 
 # Test mã hóa
-ma_hoa = string_utils.ma_hoa_don_gian("Hello Behitek", 3)
-print(f"Mã hóa 'Hello Behitek': '{ma_hoa}'")
+encrypted = string_utils.simple_encrypt("Hello Behitek", 3)
+print(f"Mã hóa 'Hello Behitek': '{encrypted}'")
 
 # Test date helper
 print(f"\n📅 TEST DATE HELPER:")
-print(f"Ngày hôm nay: {date_helper.lay_ngay_hom_nay()}")
-print(f"Giờ hiện tại: {date_helper.lay_gio_hien_tai()}")
-print(f"Tuổi (sinh 2005): {date_helper.tinh_tuoi(2005)}")
-print(f"2024 là năm nhuận: {date_helper.la_nam_nhuan(2024)}")
-print(f"Số ngày đến Tết: {date_helper.dem_ngay_den_tet()}")
+print(f"Ngày hôm nay: {date_helper.get_today()}")
+print(f"Giờ hiện tại: {date_helper.get_current_time()}")
+print(f"Tuổi (sinh 2005): {date_helper.calculate_age(2005)}")
+print(f"2024 là năm nhuận: {date_helper.is_leap_year(2024)}")
+print(f"Số ngày đến Tết: {date_helper.count_days_to_tet()}")
 
 # Hiển thị thông tin package
 print(f"\n📦 PACKAGE INFO:")
@@ -306,9 +306,9 @@ import random
 print(f"Số ngẫu nhiên 1-100: {random.randint(1, 100)}")
 print(f"Chọn món ăn: {random.choice(['Phở', 'Bún bò', 'Cơm tấm'])}")
 
-danh_sach = ['An', 'Bình', 'Chi', 'Dũng']
-random.shuffle(danh_sach)
-print(f"Danh sách xáo trộn: {danh_sach}")
+name_list = ['An', 'Bình', 'Chi', 'Dũng']
+random.shuffle(name_list)
+print(f"Danh sách xáo trộn: {name_list}")
 
 print(f"Số thực ngẫu nhiên: {random.random()}")
 ```
@@ -318,30 +318,30 @@ print(f"Số thực ngẫu nhiên: {random.random()}")
 from datetime import datetime, date, timedelta
 
 # Thời gian hiện tại
-gio_hien_tai = datetime.now()
-print(f"Bây giờ: {gio_hien_tai}")
+current_time = datetime.now()
+print(f"Bây giờ: {current_time}")
 
 # Ngày hôm nay
-ngay_hom_nay = date.today()
-print(f"Hôm nay: {ngay_hom_nay}")
+today = date.today()
+print(f"Hôm nay: {today}")
 
 # Thời gian tương lai
-ngay_mai = ngay_hom_nay + timedelta(days=1)
-print(f"Ngày mai: {ngay_mai}")
+tomorrow = today + timedelta(days=1)
+print(f"Ngày mai: {tomorrow}")
 
 # Format theo ý muốn
-print(f"Định dạng Việt: {gio_hien_tai.strftime('%d/%m/%Y %H:%M')}")
+print(f"Định dạng Việt: {current_time.strftime('%d/%m/%Y %H:%M')}")
 ```
 
 ## 🎯 Ví Dụ Thực Tế: Hệ Thống Quản Lý Học Sinh
 
 ### 📂 Cấu Trúc Dự Án
 ```
-quan_ly_hoc_sinh/
+student_management/
     __init__.py
-    hoc_sinh.py
-    diem_so.py
-    bao_cao.py
+    student.py
+    grade.py
+    report.py
     utils/
         __init__.py
         validation.py
@@ -349,62 +349,62 @@ quan_ly_hoc_sinh/
 ```
 
 ### 👨‍🎓 Module Học Sinh
-**File: `quan_ly_hoc_sinh/hoc_sinh.py`**
+**File: `student_management/student.py`**
 ```python
-class HocSinh:
-    def __init__(self, ma_so, ho_ten, tuoi, lop):
-        self.ma_so = ma_so
-        self.ho_ten = ho_ten
-        self.tuoi = tuoi
-        self.lop = lop
-        self.diem_so = {}
+class Student:
+    def __init__(self, student_id, full_name, age, class_name):
+        self.student_id = student_id
+        self.full_name = full_name
+        self.age = age
+        self.class_name = class_name
+        self.grades = {}
     
-    def them_diem(self, mon_hoc, diem):
+    def add_grade(self, subject, grade):
         """Thêm điểm cho môn học"""
-        if mon_hoc not in self.diem_so:
-            self.diem_so[mon_hoc] = []
-        self.diem_so[mon_hoc].append(diem)
+        if subject not in self.grades:
+            self.grades[subject] = []
+        self.grades[subject].append(grade)
     
-    def tinh_diem_trung_binh(self, mon_hoc):
+    def calculate_average_grade(self, subject):
         """Tính điểm trung bình môn học"""
-        if mon_hoc in self.diem_so and self.diem_so[mon_hoc]:
-            return sum(self.diem_so[mon_hoc]) / len(self.diem_so[mon_hoc])
+        if subject in self.grades and self.grades[subject]:
+            return sum(self.grades[subject]) / len(self.grades[subject])
         return 0
     
     def __str__(self):
-        return f"HS{self.ma_so}: {self.ho_ten} ({self.tuoi} tuổi, {self.lop})"
+        return f"HS{self.student_id}: {self.full_name} ({self.age} tuổi, {self.class_name})"
 
-def tao_hoc_sinh_mau():
+def create_sample_students():
     """Tạo dữ liệu học sinh mẫu"""
-    hoc_sinh_list = [
-        HocSinh("001", "Nguyễn Văn An", 16, "10A1"),
-        HocSinh("002", "Trần Thị Bình", 15, "9B2"),
-        HocSinh("003", "Lê Hoàng Chi", 17, "11C3")
+    student_list = [
+        Student("001", "Nguyễn Văn An", 16, "10A1"),
+        Student("002", "Trần Thị Bình", 15, "9B2"),
+        Student("003", "Lê Hoàng Chi", 17, "11C3")
     ]
     
     # Thêm điểm mẫu
-    hoc_sinh_list[0].them_diem("Toán", 8.5)
-    hoc_sinh_list[0].them_diem("Toán", 9.0)
-    hoc_sinh_list[0].them_diem("Văn", 7.5)
+    student_list[0].add_grade("Toán", 8.5)
+    student_list[0].add_grade("Toán", 9.0)
+    student_list[0].add_grade("Văn", 7.5)
     
-    return hoc_sinh_list
+    return student_list
 ```
 
 ### 📊 Sử Dụng Hệ Thống
 **File: `main.py`**
 ```python
-from quan_ly_hoc_sinh import hoc_sinh
-from quan_ly_hoc_sinh.utils import validation
+from student_management import student
+from student_management.utils import validation
 
 # Tạo danh sách học sinh
-danh_sach = hoc_sinh.tao_hoc_sinh_mau()
+student_list = student.create_sample_students()
 
 # Hiển thị thông tin
-for hs in danh_sach:
+for hs in student_list:
     print(hs)
-    for mon in hs.diem_so:
-        dtb = hs.tinh_diem_trung_binh(mon)
-        print(f"  {mon}: {dtb:.1f}")
+    for subject in hs.grades:
+        average = hs.calculate_average_grade(subject)
+        print(f"  {subject}: {average:.1f}")
 ```
 
 ## 💡 Mẹo Hay Ho Về Module

@@ -12,14 +12,14 @@ Lambda function như một nhân viên part-time:
 
 ```python
 # ❌ Function thường - dài dòng cho việc đơn giản
-def binh_phuong(x):
+def square(x):
     return x * x
 
 # ✅ Lambda - ngắn gọn và súc tích  
-binh_phuong_lambda = lambda x: x * x
+square_lambda = lambda x: x * x
 
-print(f"Function thường: {binh_phuong(5)}")      # 25
-print(f"Lambda function: {binh_phuong_lambda(5)}") # 25
+print(f"Function thường: {square(5)}")      # 25
+print(f"Lambda function: {square_lambda(5)}") # 25
 ```
 
 ## 🔧 Cú pháp Lambda
@@ -29,20 +29,20 @@ print(f"Lambda function: {binh_phuong_lambda(5)}") # 25
 # lambda arguments: expression
 
 # Ví dụ đơn giản
-cong = lambda a, b: a + b
-print(f"2 + 3 = {cong(2, 3)}")  # 5
+add = lambda a, b: a + b
+print(f"2 + 3 = {add(2, 3)}")  # 5
 
 # Nhiều tham số
-tinh_diem = lambda toan, ly, hoa: (toan + ly + hoa) / 3
-print(f"Điểm TB: {tinh_diem(8, 9, 7):.1f}")  # 8.0
+calculate_average = lambda math, physics, chemistry: (math + physics + chemistry) / 3
+print(f"Điểm TB: {calculate_average(8, 9, 7):.1f}")  # 8.0
 
 # Với điều kiện
 max_value = lambda a, b: a if a > b else b
 print(f"Max(10, 5) = {max_value(10, 5)}")  # 10
 
 # Phức tạp hơn
-kiem_tra_chan = lambda n: "Chẵn" if n % 2 == 0 else "Lẻ"
-print(f"7 là số: {kiem_tra_chan(7)}")  # Lẻ
+check_even = lambda n: "Chẵn" if n % 2 == 0 else "Lẻ"
+print(f"7 là số: {check_even(7)}")  # Lẻ
 ```
 
 ## 🎯 Lambda với Built-in Functions
@@ -51,50 +51,50 @@ print(f"7 là số: {kiem_tra_chan(7)}")  # Lẻ
 
 ```python
 # Chuyển đổi danh sách số
-so_list = [1, 2, 3, 4, 5]
+number_list = [1, 2, 3, 4, 5]
 
 # Bình phương tất cả số
-binh_phuong_list = list(map(lambda x: x ** 2, so_list))
-print(f"📊 Bình phương: {binh_phuong_list}")  # [1, 4, 9, 16, 25]
+square_list = list(map(lambda x: x ** 2, number_list))
+print(f"📊 Bình phương: {square_list}")  # [1, 4, 9, 16, 25]
 
 # Chuyển Celsius sang Fahrenheit
-nhiet_do_c = [0, 20, 30, 37, 100]
-nhiet_do_f = list(map(lambda c: (c * 9/5) + 32, nhiet_do_c))
+celsius_temps = [0, 20, 30, 37, 100]
+fahrenheit_temps = list(map(lambda c: (c * 9/5) + 32, celsius_temps))
 print(f"🌡️ Celsius -> Fahrenheit:")
-for c, f in zip(nhiet_do_c, nhiet_do_f):
+for c, f in zip(celsius_temps, fahrenheit_temps):
     print(f"   {c}°C = {f}°F")
 
 # Xử lý chuỗi
-ten_list = ["nguyễn văn an", "trần thị bình", "lê văn cường"]
-ten_format = list(map(lambda ten: ten.title(), ten_list))
-print(f"✨ Formatted names: {ten_format}")
+name_list = ["nguyễn văn an", "trần thị bình", "lê văn cường"]
+formatted_names = list(map(lambda name: name.title(), name_list))
+print(f"✨ Formatted names: {formatted_names}")
 ```
 
 ### 2. Filter() - Lọc phần tử
 
 ```python
 # Lọc số chẵn
-so_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-so_chan = list(filter(lambda x: x % 2 == 0, so_list))
-print(f"🔢 Số chẵn: {so_chan}")  # [2, 4, 6, 8, 10]
+number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, number_list))
+print(f"🔢 Số chẵn: {even_numbers}")  # [2, 4, 6, 8, 10]
 
 # Lọc điểm cao
-diem_list = [
-    {"ten": "An", "diem": 8.5},
-    {"ten": "Bình", "diem": 6.0},
-    {"ten": "Cường", "diem": 9.2},
-    {"ten": "Dung", "diem": 7.8}
+score_list = [
+    {"name": "An", "score": 8.5},
+    {"name": "Binh", "score": 6.0},
+    {"name": "Cuong", "score": 9.2},
+    {"name": "Dung", "score": 7.8}
 ]
 
-hoc_sinh_gioi = list(filter(lambda sv: sv["diem"] >= 8.0, diem_list))
+excellent_students = list(filter(lambda student: student["score"] >= 8.0, score_list))
 print("🌟 Học sinh giỏi:")
-for sv in hoc_sinh_gioi:
-    print(f"   👤 {sv['ten']}: {sv['diem']} điểm")
+for student in excellent_students:
+    print(f"   👤 {student['name']}: {student['score']} điểm")
 
 # Lọc chuỗi
-tu_list = ["Python", "Java", "C++", "JavaScript", "Go", "Rust"]
-tu_ngan = list(filter(lambda tu: len(tu) <= 4, tu_list))
-print(f"📝 Từ ngắn (≤4 ký tự): {tu_ngan}")  # ['Java', 'C++', 'Go', 'Rust']
+word_list = ["Python", "Java", "C++", "JavaScript", "Go", "Rust"]
+short_words = list(filter(lambda word: len(word) <= 4, word_list))
+print(f"📝 Từ ngắn (≤4 ký tự): {short_words}")  # ['Java', 'C++', 'Go', 'Rust']
 ```
 
 ### 3. Reduce() - Kết hợp phần tử
@@ -103,55 +103,55 @@ print(f"📝 Từ ngắn (≤4 ký tự): {tu_ngan}")  # ['Java', 'C++', 'Go', '
 from functools import reduce
 
 # Tính tổng
-so_list = [1, 2, 3, 4, 5]
-tong = reduce(lambda x, y: x + y, so_list)
-print(f"➕ Tổng: {tong}")  # 15
+number_list = [1, 2, 3, 4, 5]
+total = reduce(lambda x, y: x + y, number_list)
+print(f"➕ Tổng: {total}")  # 15
 
 # Tìm số lớn nhất
-so_max = reduce(lambda x, y: x if x > y else y, so_list)
-print(f"🔝 Max: {so_max}")  # 5
+max_number = reduce(lambda x, y: x if x > y else y, number_list)
+print(f"🔝 Max: {max_number}")  # 5
 
 # Tính giai thừa
 n = 5
-giai_thua = reduce(lambda x, y: x * y, range(1, n + 1))
-print(f"🧮 {n}! = {giai_thua}")  # 120
+factorial = reduce(lambda x, y: x * y, range(1, n + 1))
+print(f"🧮 {n}! = {factorial}")  # 120
 
 # Nối chuỗi
-tu_list = ["Python", "is", "awesome"]
-cau = reduce(lambda x, y: x + " " + y, tu_list)
-print(f"📝 Câu: {cau}")  # Python is awesome
+word_list = ["Python", "is", "awesome"]
+sentence = reduce(lambda x, y: x + " " + y, word_list)
+print(f"📝 Câu: {sentence}")  # Python is awesome
 ```
 
 ## 🎮 Lambda trong Sorting
 
 ```python
 # Danh sách sinh viên
-sinh_vien = [
-    {"ten": "An", "tuoi": 20, "diem": 8.5},
-    {"ten": "Bình", "tuoi": 19, "diem": 9.2},
-    {"ten": "Cường", "tuoi": 21, "diem": 7.8},
-    {"ten": "Dung", "tuoi": 20, "diem": 9.0}
+students = [
+    {"name": "An", "age": 20, "score": 8.5},
+    {"name": "Binh", "age": 19, "score": 9.2},
+    {"name": "Cuong", "age": 21, "score": 7.8},
+    {"name": "Dung", "age": 20, "score": 9.0}
 ]
 
 print("👥 Danh sách gốc:")
-for sv in sinh_vien:
-    print(f"   {sv['ten']} - {sv['tuoi']} tuổi - {sv['diem']} điểm")
+for student in students:
+    print(f"   {student['name']} - {student['age']} tuổi - {student['score']} điểm")
 
 # Sắp xếp theo điểm (cao xuống thấp)
 print("\n📊 Sắp xếp theo điểm (cao -> thấp):")
-sorted_by_diem = sorted(sinh_vien, key=lambda sv: sv["diem"], reverse=True)
-for sv in sorted_by_diem:
-    print(f"   🏆 {sv['ten']}: {sv['diem']} điểm")
+sorted_by_score = sorted(students, key=lambda student: student["score"], reverse=True)
+for student in sorted_by_score:
+    print(f"   🏆 {student['name']}: {student['score']} điểm")
 
 # Sắp xếp theo tuổi rồi theo tên
 print("\n📅 Sắp xếp theo tuổi, sau đó theo tên:")
-sorted_complex = sorted(sinh_vien, key=lambda sv: (sv["tuoi"], sv["ten"]))
-for sv in sorted_complex:
-    print(f"   👤 {sv['ten']} - {sv['tuoi']} tuổi")
+sorted_complex = sorted(students, key=lambda student: (student["age"], student["name"]))
+for student in sorted_complex:
+    print(f"   👤 {student['name']} - {student['age']} tuổi")
 
 # Sắp xếp chuỗi theo độ dài
-tu_list = ["Python", "AI", "Machine Learning", "Data", "Science"]
-sorted_by_length = sorted(tu_list, key=lambda s: len(s))
+word_list = ["Python", "AI", "Machine Learning", "Data", "Science"]
+sorted_by_length = sorted(word_list, key=lambda s: len(s))
 print(f"\n📏 Sắp xếp theo độ dài: {sorted_by_length}")
 ```
 
@@ -161,63 +161,63 @@ print(f"\n📏 Sắp xếp theo độ dài: {sorted_by_length}")
 
 ```python
 # Phân loại học sinh
-phan_loai = lambda diem: (
-    "Xuất sắc" if diem >= 9 else
-    "Giỏi" if diem >= 8 else  
-    "Khá" if diem >= 7 else
-    "Trung bình" if diem >= 5 else
+classify_grade = lambda score: (
+    "Xuất sắc" if score >= 9 else
+    "Giỏi" if score >= 8 else  
+    "Khá" if score >= 7 else
+    "Trung bình" if score >= 5 else
     "Yếu"
 )
 
-diem_list = [9.5, 8.2, 7.8, 6.0, 4.5]
-for diem in diem_list:
-    print(f"📊 Điểm {diem}: {phan_loai(diem)}")
+score_list = [9.5, 8.2, 7.8, 6.0, 4.5]
+for score in score_list:
+    print(f"📊 Điểm {score}: {classify_grade(score)}")
 
 # Kiểm tra năm nhuận
-nam_nhuan = lambda nam: nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)
+is_leap_year = lambda year: year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
-nam_list = [2020, 2021, 2024, 1900, 2000]
-for nam in nam_list:
-    status = "nhuận" if nam_nhuan(nam) else "không nhuận"
-    print(f"📅 Năm {nam}: {status}")
+year_list = [2020, 2021, 2024, 1900, 2000]
+for year in year_list:
+    status = "nhuận" if is_leap_year(year) else "không nhuận"
+    print(f"📅 Năm {year}: {status}")
 ```
 
 ### 2. Lambda với Dictionary Operations
 
 ```python
 # Xử lý dictionary với lambda
-san_pham = [
-    {"ten": "Laptop", "gia": 15000000, "so_luong": 5},
-    {"ten": "Mouse", "gia": 200000, "so_luong": 20},
-    {"ten": "Keyboard", "gia": 800000, "so_luong": 10},
-    {"ten": "Monitor", "gia": 5000000, "so_luong": 3}
+products = [
+    {"name": "Laptop", "price": 15000000, "quantity": 5},
+    {"name": "Mouse", "price": 200000, "quantity": 20},
+    {"name": "Keyboard", "price": 800000, "quantity": 10},
+    {"name": "Monitor", "price": 5000000, "quantity": 3}
 ]
 
 # Tính tổng giá trị kho
-tong_gia_tri = sum(map(lambda sp: sp["gia"] * sp["so_luong"], san_pham))
-print(f"💰 Tổng giá trị kho: {tong_gia_tri:,}đ")
+total_value = sum(map(lambda product: product["price"] * product["quantity"], products))
+print(f"💰 Tổng giá trị kho: {total_value:,}đ")
 
 # Lọc sản phẩm đắt tiền
-sp_dat = list(filter(lambda sp: sp["gia"] >= 1000000, san_pham))
+expensive_products = list(filter(lambda product: product["price"] >= 1000000, products))
 print("💎 Sản phẩm đắt tiền:")
-for sp in sp_dat:
-    print(f"   🛍️ {sp['ten']}: {sp['gia']:,}đ")
+for product in expensive_products:
+    print(f"   🛍️ {product['name']}: {product['price']:,}đ")
 
 # Cập nhật giá (giảm 10%)
-sp_giam_gia = list(map(
-    lambda sp: {**sp, "gia": int(sp["gia"] * 0.9)}, 
-    san_pham
+discounted_products = list(map(
+    lambda product: {**product, "price": int(product["price"] * 0.9)}, 
+    products
 ))
 print("🏷️ Sau khi giảm giá 10%:")
-for sp in sp_giam_gia:
-    print(f"   💸 {sp['ten']}: {sp['gia']:,}đ")
+for product in discounted_products:
+    print(f"   💸 {product['name']}: {product['price']:,}đ")
 ```
 
 ### 3. Lambda với String Processing
 
 ```python
 # Xử lý văn bản
-van_ban = [
+texts = [
     "Python là ngôn ngữ lập trình tuyệt vời",
     "Học Python rất dễ và thú vị", 
     "AI và Machine Learning với Python",
@@ -225,23 +225,23 @@ van_ban = [
 ]
 
 # Đếm từ trong mỗi câu
-dem_tu = list(map(lambda cau: len(cau.split()), van_ban))
-print("📝 Số từ trong mỗi câu:", dem_tu)
+word_counts = list(map(lambda sentence: len(sentence.split()), texts))
+print("📝 Số từ trong mỗi câu:", word_counts)
 
 # Lọc câu có chứa "Python"
-cau_python = list(filter(lambda cau: "Python" in cau, van_ban))
+python_sentences = list(filter(lambda sentence: "Python" in sentence, texts))
 print("🐍 Câu chứa 'Python':")
-for cau in cau_python:
-    print(f"   📄 {cau}")
+for sentence in python_sentences:
+    print(f"   📄 {sentence}")
 
 # Chuyển thành uppercase và lấy 3 từ đầu
-processed = list(map(
-    lambda cau: " ".join(cau.upper().split()[:3]), 
-    van_ban
+processed_texts = list(map(
+    lambda sentence: " ".join(sentence.upper().split()[:3]), 
+    texts
 ))
 print("🔤 3 từ đầu (uppercase):")
-for cau in processed:
-    print(f"   📢 {cau}")
+for text in processed_texts:
+    print(f"   📢 {text}")
 ```
 
 ## 🎯 Lambda vs Regular Functions
@@ -297,158 +297,158 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 
 # Tạo dữ liệu bán hàng demo
-def tao_du_lieu_ban_hang():
+def create_sales_data():
     """Tạo dữ liệu bán hàng mẫu"""
-    san_pham = ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphone", "Webcam"]
-    nhan_vien = ["An", "Bình", "Cường", "Dung", "Em"]
+    products = ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphone", "Webcam"]
+    employees = ["An", "Binh", "Cuong", "Dung", "Em"]
     
-    du_lieu = []
+    data = []
     start_date = datetime.now() - timedelta(days=30)
     
     for i in range(200):  # 200 đơn hàng
-        ngay = start_date + timedelta(days=random.randint(0, 30))
-        don_hang = {
+        date = start_date + timedelta(days=random.randint(0, 30))
+        order = {
             "id": f"DH{i+1:03d}",
-            "san_pham": random.choice(san_pham),
-            "so_luong": random.randint(1, 5),
-            "gia": random.randint(200000, 20000000),
-            "nhan_vien": random.choice(nhan_vien),
-            "ngay": ngay,
-            "khach_vip": random.choice([True, False])
+            "product": random.choice(products),
+            "quantity": random.randint(1, 5),
+            "price": random.randint(200000, 20000000),
+            "employee": random.choice(employees),
+            "date": date,
+            "is_vip_customer": random.choice([True, False])
         }
-        don_hang["tong_tien"] = don_hang["so_luong"] * don_hang["gia"]
-        du_lieu.append(don_hang)
+        order["total_amount"] = order["quantity"] * order["price"]
+        data.append(order)
     
-    return du_lieu
+    return data
 
 class DataAnalyzer:
     """Phân tích dữ liệu với Lambda functions"""
     
-    def __init__(self, du_lieu):
-        self.du_lieu = du_lieu
+    def __init__(self, data):
+        self.data = data
     
-    def thong_ke_tong_quan(self):
+    def general_statistics(self):
         """Thống kê tổng quan"""
         print("📊 THỐNG KÊ TỔNG QUAN")
         print("="*50)
         
         # Tổng doanh thu
-        tong_dt = sum(map(lambda dh: dh["tong_tien"], self.du_lieu))
-        print(f"💰 Tổng doanh thu: {tong_dt:,}đ")
+        total_revenue = sum(map(lambda order: order["total_amount"], self.data))
+        print(f"💰 Tổng doanh thu: {total_revenue:,}đ")
         
         # Số đơn hàng
-        so_don = len(self.du_lieu)
-        print(f"📦 Tổng số đơn: {so_don}")
+        order_count = len(self.data)
+        print(f"📦 Tổng số đơn: {order_count}")
         
         # Đơn hàng trung bình
-        tb_don = tong_dt // so_don if so_don > 0 else 0
-        print(f"📈 Giá trị TB/đơn: {tb_don:,}đ")
+        avg_order = total_revenue // order_count if order_count > 0 else 0
+        print(f"📈 Giá trị TB/đơn: {avg_order:,}đ")
         
         # Đơn hàng lớn nhất
-        don_max = max(self.du_lieu, key=lambda dh: dh["tong_tien"])
-        print(f"🏆 Đơn lớn nhất: {don_max['id']} - {don_max['tong_tien']:,}đ")
+        max_order = max(self.data, key=lambda order: order["total_amount"])
+        print(f"🏆 Đơn lớn nhất: {max_order['id']} - {max_order['total_amount']:,}đ")
     
-    def top_san_pham(self, top_n=3):
+    def top_products(self, top_n=3):
         """Top sản phẩm bán chạy"""
         print(f"\n🏅 TOP {top_n} SẢN PHẨM BÁN CHẠY")
         print("="*50)
         
         # Nhóm theo sản phẩm
-        sp_stats = defaultdict(lambda: {"so_luong": 0, "doanh_thu": 0})
+        product_stats = defaultdict(lambda: {"quantity": 0, "revenue": 0})
         
-        for dh in self.du_lieu:
-            sp = dh["san_pham"]
-            sp_stats[sp]["so_luong"] += dh["so_luong"]
-            sp_stats[sp]["doanh_thu"] += dh["tong_tien"]
+        for order in self.data:
+            product = order["product"]
+            product_stats[product]["quantity"] += order["quantity"]
+            product_stats[product]["revenue"] += order["total_amount"]
         
         # Sắp xếp theo doanh thu
-        top_sp = sorted(
-            sp_stats.items(),
-            key=lambda item: item[1]["doanh_thu"],
+        top_products = sorted(
+            product_stats.items(),
+            key=lambda item: item[1]["revenue"],
             reverse=True
         )[:top_n]
         
-        for i, (sp, stats) in enumerate(top_sp, 1):
-            print(f"{i}. 🛍️ {sp}")
-            print(f"   📦 Bán: {stats['so_luong']} sản phẩm")
-            print(f"   💰 Doanh thu: {stats['doanh_thu']:,}đ")
+        for i, (product, stats) in enumerate(top_products, 1):
+            print(f"{i}. 🛍️ {product}")
+            print(f"   📦 Bán: {stats['quantity']} sản phẩm")
+            print(f"   💰 Doanh thu: {stats['revenue']:,}đ")
     
-    def phan_tich_nhan_vien(self):
+    def employee_analysis(self):
         """Phân tích hiệu suất nhân viên"""
         print(f"\n👥 HIỆU SUẤT NHÂN VIÊN")
         print("="*50)
         
         # Nhóm theo nhân viên
-        nv_stats = defaultdict(lambda: {"don_hang": 0, "doanh_thu": 0})
+        employee_stats = defaultdict(lambda: {"orders": 0, "revenue": 0})
         
-        for dh in self.du_lieu:
-            nv = dh["nhan_vien"]
-            nv_stats[nv]["don_hang"] += 1
-            nv_stats[nv]["doanh_thu"] += dh["tong_tien"]
+        for order in self.data:
+            employee = order["employee"]
+            employee_stats[employee]["orders"] += 1
+            employee_stats[employee]["revenue"] += order["total_amount"]
         
         # Sắp xếp theo doanh thu
-        sorted_nv = sorted(
-            nv_stats.items(),
-            key=lambda item: item[1]["doanh_thu"],
+        sorted_employees = sorted(
+            employee_stats.items(),
+            key=lambda item: item[1]["revenue"],
             reverse=True
         )
         
-        for nv, stats in sorted_nv:
-            tb_don = stats["doanh_thu"] // stats["don_hang"] if stats["don_hang"] > 0 else 0
-            print(f"👤 {nv}:")
-            print(f"   📦 {stats['don_hang']} đơn hàng")
-            print(f"   💰 {stats['doanh_thu']:,}đ")
-            print(f"   📊 TB/đơn: {tb_don:,}đ")
+        for employee, stats in sorted_employees:
+            avg_order = stats["revenue"] // stats["orders"] if stats["orders"] > 0 else 0
+            print(f"👤 {employee}:")
+            print(f"   📦 {stats['orders']} đơn hàng")
+            print(f"   💰 {stats['revenue']:,}đ")
+            print(f"   📊 TB/đơn: {avg_order:,}đ")
     
-    def loc_du_lieu(self):
+    def filter_analysis(self):
         """Lọc và phân tích dữ liệu theo tiêu chí"""
         print(f"\n🔍 PHÂN TÍCH THEO TIÊU CHÍ")
         print("="*50)
         
         # Đơn hàng lớn (>= 5 triệu)
-        don_lon = list(filter(lambda dh: dh["tong_tien"] >= 5000000, self.du_lieu))
-        print(f"💎 Đơn hàng lớn (≥5tr): {len(don_lon)}/{len(self.du_lieu)}")
+        large_orders = list(filter(lambda order: order["total_amount"] >= 5000000, self.data))
+        print(f"💎 Đơn hàng lớn (≥5tr): {len(large_orders)}/{len(self.data)}")
         
-        if don_lon:
-            dt_don_lon = sum(map(lambda dh: dh["tong_tien"], don_lon))
-            print(f"   💰 Doanh thu từ đơn lớn: {dt_don_lon:,}đ")
+        if large_orders:
+            large_orders_revenue = sum(map(lambda order: order["total_amount"], large_orders))
+            print(f"   💰 Doanh thu từ đơn lớn: {large_orders_revenue:,}đ")
         
         # Khách VIP
-        don_vip = list(filter(lambda dh: dh["khach_vip"], self.du_lieu))
-        print(f"⭐ Đơn hàng VIP: {len(don_vip)}/{len(self.du_lieu)}")
+        vip_orders = list(filter(lambda order: order["is_vip_customer"], self.data))
+        print(f"⭐ Đơn hàng VIP: {len(vip_orders)}/{len(self.data)}")
         
-        if don_vip:
-            dt_vip = sum(map(lambda dh: dh["tong_tien"], don_vip))
-            print(f"   💰 Doanh thu từ VIP: {dt_vip:,}đ")
+        if vip_orders:
+            vip_revenue = sum(map(lambda order: order["total_amount"], vip_orders))
+            print(f"   💰 Doanh thu từ VIP: {vip_revenue:,}đ")
         
         # Đơn hàng tuần này
         today = datetime.now()
-        tuan_truoc = today - timedelta(days=7)
+        week_ago = today - timedelta(days=7)
         
-        don_tuan = list(filter(
-            lambda dh: dh["ngay"] >= tuan_truoc, 
-            self.du_lieu
+        recent_orders = list(filter(
+            lambda order: order["date"] >= week_ago, 
+            self.data
         ))
-        print(f"📅 Đơn hàng 7 ngày qua: {len(don_tuan)}")
+        print(f"📅 Đơn hàng 7 ngày qua: {len(recent_orders)}")
         
-        if don_tuan:
-            dt_tuan = sum(map(lambda dh: dh["tong_tien"], don_tuan))
-            print(f"   💰 Doanh thu 7 ngày: {dt_tuan:,}đ")
+        if recent_orders:
+            recent_revenue = sum(map(lambda order: order["total_amount"], recent_orders))
+            print(f"   💰 Doanh thu 7 ngày: {recent_revenue:,}đ")
 
 # Chạy phân tích
 print("🏪 HỆ THỐNG PHÂN TÍCH BÁN HÀNG")
 print("Sử dụng Lambda Functions để xử lý dữ liệu\n")
 
 # Tạo dữ liệu
-du_lieu = tao_du_lieu_ban_hang()
-print(f"📋 Đã tạo {len(du_lieu)} đơn hàng mẫu")
+data = create_sales_data()
+print(f"📋 Đã tạo {len(data)} đơn hàng mẫu")
 
 # Phân tích
-analyzer = DataAnalyzer(du_lieu)
-analyzer.thong_ke_tong_quan()
-analyzer.top_san_pham(3)
-analyzer.phan_tich_nhan_vien()
-analyzer.loc_du_lieu()
+analyzer = DataAnalyzer(data)
+analyzer.general_statistics()
+analyzer.top_products(3)
+analyzer.employee_analysis()
+analyzer.filter_analysis()
 
 print(f"\n🎉 Hoàn thành phân tích!")
 print("💡 Tất cả phép tính đều sử dụng Lambda functions!")

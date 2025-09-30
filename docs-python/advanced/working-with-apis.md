@@ -166,19 +166,19 @@ class WeatherApp:
         """Phân tích và format dữ liệu thời tiết"""
         
         weather_info = {
-            'thanh_pho': data['name'],
-            'quoc_gia': data['sys']['country'],
-            'mo_ta': data['weather'][0]['description'].title(),
-            'nhiet_do': round(data['main']['temp']),
-            'cam_giac': round(data['main']['feels_like']),
-            'nhiet_do_min': round(data['main']['temp_min']),
-            'nhiet_do_max': round(data['main']['temp_max']),
-            'do_am': data['main']['humidity'],
-            'ap_suat': data['main']['pressure'],
-            'toc_do_gio': data['wind']['speed'],
-            'huong_gio': data['wind'].get('deg', 0),
-            'do_che_phu_may': data['clouds']['all'],
-            'thoi_gian_cap_nhat': datetime.fromtimestamp(data['dt'])
+            'city_name': data['name'],
+            'country_code': data['sys']['country'],
+            'description': data['weather'][0]['description'].title(),
+            'temperature': round(data['main']['temp']),
+            'feels_like': round(data['main']['feels_like']),
+            'temp_min': round(data['main']['temp_min']),
+            'temp_max': round(data['main']['temp_max']),
+            'humidity': data['main']['humidity'],
+            'pressure': data['main']['pressure'],
+            'wind_speed': data['wind']['speed'],
+            'wind_direction': data['wind'].get('deg', 0),
+            'cloudiness': data['clouds']['all'],
+            'updated_time': datetime.fromtimestamp(data['dt'])
         }
         
         return weather_info
@@ -190,7 +190,7 @@ class WeatherApp:
             return
         
         # Icon thời tiết đơn giản
-        temp = weather_data['nhiet_do']
+        temp = weather_data['temperature']
         if temp >= 35:
             icon = "🌡️🔥"
         elif temp >= 25:
@@ -200,19 +200,19 @@ class WeatherApp:
         else:
             icon = "🌧️"
         
-        print(f"\n{icon} === THỜI TIẾT {weather_data['thanh_pho'].upper()} ===")
+        print(f"\n{icon} === THỜI TIẾT {weather_data['city_name'].upper()} ===")
         print("-" * 50)
-        print(f"📍 Thành phố: {weather_data['thanh_pho']}, {weather_data['quoc_gia']}")
-        print(f"🌤️ Tình trạng: {weather_data['mo_ta']}")
-        print(f"🌡️ Nhiệt độ: {weather_data['nhiet_do']}°C (Cảm giác {weather_data['cam_giac']}°C)")
-        print(f"📊 Min/Max: {weather_data['nhiet_do_min']}°C / {weather_data['nhiet_do_max']}°C")
-        print(f"💧 Độ ẩm: {weather_data['do_am']}%")
-        print(f"📈 Áp suất: {weather_data['ap_suat']} hPa")
-        print(f"💨 Gió: {weather_data['toc_do_gio']} m/s")
-        print(f"☁️ Mây che phủ: {weather_data['do_che_phu_may']}%")
+        print(f"📍 Thành phố: {weather_data['city_name']}, {weather_data['country_code']}")
+        print(f"🌤️ Tình trạng: {weather_data['description']}")
+        print(f"🌡️ Nhiệt độ: {weather_data['temperature']}°C (Cảm giác {weather_data['feels_like']}°C)")
+        print(f"📊 Min/Max: {weather_data['temp_min']}°C / {weather_data['temp_max']}°C")
+        print(f"💧 Độ ẩm: {weather_data['humidity']}%")
+        print(f"📈 Áp suất: {weather_data['pressure']} hPa")
+        print(f"💨 Gió: {weather_data['wind_speed']} m/s")
+        print(f"☁️ Mây che phủ: {weather_data['cloudiness']}%")
         
-        cap_nhat = weather_data['thoi_gian_cap_nhat'].strftime("%d/%m/%Y %H:%M")
-        print(f"🕐 Cập nhật: {cap_nhat}")
+        updated_time = weather_data['updated_time'].strftime("%d/%m/%Y %H:%M")
+        print(f"🕐 Cập nhật: {updated_time}")
         
     def save_weather_history(self, city, weather_data):
         """Lưu lịch sử thời tiết vào file"""
@@ -280,19 +280,19 @@ def demo_weather_app():
     
     # Mô phỏng dữ liệu thời tiết (vì không có API key thật)
     fake_weather = {
-        'thanh_pho': 'TP. Hồ Chí Minh',
-        'quoc_gia': 'VN',
-        'mo_ta': 'Có Mây Rải Rác',
-        'nhiet_do': 32,
-        'cam_giac': 36,
-        'nhiet_do_min': 28,
-        'nhiet_do_max': 34,
-        'do_am': 75,
-        'ap_suat': 1013,
-        'toc_do_gio': 3.2,
-        'huong_gio': 180,
-        'do_che_phu_may': 40,
-        'thoi_gian_cap_nhat': datetime.now()
+        'city_name': 'TP. Hồ Chí Minh',
+        'country_code': 'VN',
+        'description': 'Có Mây Rải Rác',
+        'temperature': 32,
+        'feels_like': 36,
+        'temp_min': 28,
+        'temp_max': 34,
+        'humidity': 75,
+        'pressure': 1013,
+        'wind_speed': 3.2,
+        'wind_direction': 180,
+        'cloudiness': 40,
+        'updated_time': datetime.now()
     }
     
     print("🌤️ DEMO ỨNG DỤNG THỜI TIẾT")

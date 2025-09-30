@@ -46,16 +46,16 @@ print("=" * 50)
 text = "Tôi yêu Python! Python rất tuyệt vời. Python là tương lai!"
 
 # Tìm tất cả từ "Python"
-ket_qua = re.findall(r'Python', text)
+result = re.findall(r'Python', text)
 print(f"📝 Text: {text}")
-print(f"🔍 Tìm 'Python': {ket_qua}")
-print(f"📊 Tìm được {len(ket_qua)} lần")
+print(f"🔍 Tìm 'Python': {result}")
+print(f"📊 Tìm được {len(result)} lần")
 
 print("\n" + "-" * 50)
 
 # Tìm với case-insensitive (không phân biệt hoa thường)
-ket_qua_2 = re.findall(r'python', text, re.IGNORECASE)
-print(f"🔍 Tìm 'python' (không phân biệt hoa/thường): {ket_qua_2}")
+result_2 = re.findall(r'python', text, re.IGNORECASE)
+print(f"🔍 Tìm 'python' (không phân biệt hoa/thường): {result_2}")
 ```
 
 ## 🔤 Các Ký Tự Đặc Biệt Trong Regex
@@ -303,7 +303,7 @@ def demo_validation():
     print("📧 KIỂM TRA EMAIL:")
     test_emails = [
         "admin@behitek.com",
-        "hocvien123@gmail.com", 
+        "student123@gmail.com", 
         "invalid-email",
         "test@domain",
         "user.name+tag@behitek.co.vn"
@@ -533,7 +533,7 @@ def demo_text_processing():
     print()
     
     # Test social media text
-    social_text = "Học #Python với @behitek rất thú vị! #coding #lập_trình @hocvien123"
+    social_text = "Học #Python với @behitek rất thú vị! #coding #lap_trinh @student123"
     hashtags = processor.extract_hashtags(social_text)
     mentions = processor.extract_mentions(social_text)
     print(f"📱 Phân tích social media:")
@@ -758,3 +758,4 @@ Tạo tool trích xuất thông tin từ văn bản:
 ---
 
 *🎉 **Chúc mừng!** Bạn đã thành thạo Regular Expressions - siêu công cụ xử lý văn bản! Giờ bạn có thể tìm kiếm, validate và manipulate text như một chuyên gia! 🚀*
+

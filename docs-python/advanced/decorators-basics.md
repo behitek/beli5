@@ -78,21 +78,21 @@ def smart_decorator(func):
     return wrapper
 
 @smart_decorator
-def cong_hai_so(a, b):
+def add_two_numbers(a, b):
     """Hàm cộng hai số"""
     return a + b
 
 @smart_decorator
-def chao_hoi(ten, tuoi=16):
+def greet_user(name, age=16):
     """Hàm chào hỏi"""
-    return f"Xin chào {ten}, bạn {tuoi} tuổi!"
+    return f"Xin chào {name}, bạn {age} tuổi!"
 
 # Test decorator với tham số
 print("🧮 TEST DECORATOR VỚI THAM SỐ:")
-ket_qua_1 = cong_hai_so(5, 3)
+result_1 = add_two_numbers(5, 3)
 print()
 
-ket_qua_2 = chao_hoi("An", tuoi=17)
+result_2 = greet_user("An", age=17)
 print()
 ```
 
@@ -144,7 +144,7 @@ def log_function_call(func):
 # Sử dụng nhiều decorator cùng lúc
 @measure_time
 @log_function_call
-def tinh_fibonacci(n):
+def calculate_fibonacci(n):
     """Tính số Fibonacci thứ n (cách chậm để demo timing)"""
     if n <= 1:
         return n
@@ -161,7 +161,7 @@ def tinh_fibonacci(n):
 
 @measure_time
 @log_function_call
-def chia_hai_so(a, b):
+def divide_two_numbers(a, b):
     """Hàm chia có thể gây lỗi"""
     if b == 0:
         raise ValueError("Không thể chia cho 0!")
@@ -172,21 +172,21 @@ print("🧪 TEST TIMING VÀ LOGGING DECORATOR:")
 print("=" * 50)
 
 # Test hàm bình thường
-fibonacci_5 = tinh_fibonacci(5)
+fibonacci_5 = calculate_fibonacci(5)
 print(f"Fibonacci(5) = {fibonacci_5}")
 print()
 
 # Test hàm với lỗi
 try:
-    ket_qua = chia_hai_so(10, 2)
-    print(f"10 / 2 = {ket_qua}")
+    result = divide_two_numbers(10, 2)
+    print(f"10 / 2 = {result}")
 except Exception as e:
     print(f"Lỗi: {e}")
 
 print()
 
 try:
-    ket_qua = chia_hai_so(10, 0)  # Sẽ gây lỗi
+    result = divide_two_numbers(10, 0)  # Sẽ gây lỗi
 except Exception as e:
     print(f"Lỗi đã được bắt: {e}")
 ```

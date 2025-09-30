@@ -12,14 +12,16 @@ Generator giống như một người đầu bếp thông minh:
 
 ```python
 # ❌ Cách thường - tạo tất cả cùng lúc
-def tao_so_binh_thuong():
-    ket_qua = []
+def create_numbers_normal():
+    """Tạo số theo cách thông thường"""
+    result = []
     for i in range(1000000):
-        ket_qua.append(i * i)
-    return ket_qua
+        result.append(i * i)
+    return result
 
 # ✅ Generator - tạo từng cái một khi cần
-def tao_so_generator():
+def create_numbers_generator():
+    """Tạo số bằng generator"""
     for i in range(1000000):
         yield i * i  # 🔑 Keyword "yield"
 ```
@@ -29,7 +31,8 @@ def tao_so_generator():
 ### 1. Generator Function (với `yield`)
 
 ```python
-def dem_so():
+def count_numbers():
+    """Đếm số từ 1 đến 3"""
     print("🏁 Bắt đầu đếm!")
     yield 1
     print("📖 Tiếp tục đếm...")
@@ -39,22 +42,22 @@ def dem_so():
     print("🎉 Hoàn thành!")
 
 # Sử dụng
-bo_dem = dem_so()
-print(next(bo_dem))  # 🏁 Bắt đầu đếm! \n 1
-print(next(bo_dem))  # 📖 Tiếp tục đếm... \n 2
-print(next(bo_dem))  # 📚 Gần xong rồi... \n 3
+counter = count_numbers()
+print(next(counter))  # 🏁 Bắt đầu đếm! \n 1
+print(next(counter))  # 📖 Tiếp tục đếm... \n 2
+print(next(counter))  # 📚 Gần xong rồi... \n 3
 ```
 
 ### 2. Generator Expression
 
 ```python
 # Giống list comprehension nhưng dùng ()
-binh_phuong = (x * x for x in range(5))
-print(list(binh_phuong))  # [0, 1, 4, 9, 16]
+squares = (x * x for x in range(5))
+print(list(squares))  # [0, 1, 4, 9, 16]
 
 # So sánh với list comprehension
-list_binh_phuong = [x * x for x in range(5)]  # Tạo tất cả ngay
-gen_binh_phuong = (x * x for x in range(5))   # Tạo khi cần
+list_squares = [x * x for x in range(5)]  # Tạo tất cả ngay
+gen_squares = (x * x for x in range(5))   # Tạo khi cần
 ```
 
 ## 🎯 Ví dụ thực tế
@@ -62,30 +65,30 @@ gen_binh_phuong = (x * x for x in range(5))   # Tạo khi cần
 ### Đọc file lớn an toàn
 
 ```python
-def doc_file_lon(ten_file):
+def read_large_file(file_name):
     """
     Đọc file lớn từng dòng một
     Giống như đọc sách từng trang thay vì nuốt cả quyển!
     """
     try:
-        with open(ten_file, 'r', encoding='utf-8') as file:
-            for dong in file:
-                yield dong.strip()
+        with open(file_name, 'r', encoding='utf-8') as file:
+            for line in file:
+                yield line.strip()
     except FileNotFoundError:
-        print(f"❌ Không tìm thấy file: {ten_file}")
+        print(f"❌ Không tìm thấy file: {file_name}")
 
 # Tạo file demo
-with open('du_lieu_lon.txt', 'w', encoding='utf-8') as f:
+with open('large_data.txt', 'w', encoding='utf-8') as f:
     for i in range(1000):
         f.write(f"Dòng số {i}: Dữ liệu quan trọng\n")
 
 # Sử dụng generator để đọc
 print("🔍 Đọc 5 dòng đầu:")
-bo_doc = doc_file_lon('du_lieu_lon.txt')
-for i, dong in enumerate(bo_doc):
+file_reader = read_large_file('large_data.txt')
+for i, line in enumerate(file_reader):
     if i >= 5:
         break
-    print(f"  📝 {dong}")
+    print(f"  📝 {line}")
 ```
 
 ### Tạo số Fibonacci vô hạn
@@ -110,57 +113,59 @@ print()
 
 # Hoặc dùng với for loop
 print("📊 Các số Fibonacci < 100:")
-for so in fibonacci():
-    if so >= 100:
+for number in fibonacci():
+    if number >= 100:
         break
-    print(so, end=" ")
+    print(number, end=" ")
 print()
 ```
 
 ### Xử lý dữ liệu pipeline
 
 ```python
-def lay_du_lieu():
+def get_raw_data():
     """Bước 1: Lấy dữ liệu thô"""
-    du_lieu = [
+    data = [
         "Nguyễn Văn An - 85",
         "Trần Thị Bình - 92", 
         "Lê Văn Cường - 78",
         "Phạm Thị Dung - 95"
     ]
-    for dong in du_lieu:
-        yield dong
+    for line in data:
+        yield line
 
-def xu_ly_du_lieu(generator):
+def process_data(generator):
     """Bước 2: Xử lý dữ liệu"""
-    for dong in generator:
-        ten, diem_str = dong.split(" - ")
-        diem = int(diem_str)
-        yield {"ten": ten, "diem": diem}
+    for line in generator:
+        name, score_str = line.split(" - ")
+        score = int(score_str)
+        yield {"name": name, "score": score}
 
-def loc_du_lieu(generator, diem_toi_thieu=80):
+def filter_data(generator, min_score=80):
     """Bước 3: Lọc dữ liệu"""
-    for sinh_vien in generator:
-        if sinh_vien["diem"] >= diem_toi_thieu:
-            yield sinh_vien
+    for student in generator:
+        if student["score"] >= min_score:
+            yield student
 
 # Tạo pipeline xử lý
 print("🏭 Pipeline xử lý dữ liệu:")
-du_lieu_thô = lay_du_lieu()
-du_lieu_xu_ly = xu_ly_du_lieu(du_lieu_thô)
-du_lieu_loc = loc_du_lieu(du_lieu_xu_ly, 85)
+raw_data = get_raw_data()
+processed_data = process_data(raw_data)
+filtered_data = filter_data(processed_data, 85)
 
 print("🌟 Sinh viên giỏi (≥85 điểm):")
-for sv in du_lieu_loc:
-    print(f"  🎓 {sv['ten']}: {sv['diem']} điểm")
+for student in filtered_data:
+    print(f"  🎓 {student['name']}: {student['score']} điểm")
 ```
 
 ## 🎪 Generator với Class
 
 ```python
-class QuanLyThuVien:
+class LibraryManager:
+    """Quản lý thư viện sách"""
+    
     def __init__(self):
-        self.sach = [
+        self.books = [
             "Harry Potter và Hòn đá Phù thủy",
             "Dế Mèn Phiêu Lưu Ký", 
             "Tôi Thấy Hoa Vàng Trên Cỏ Xanh",
@@ -170,30 +175,30 @@ class QuanLyThuVien:
     
     def __iter__(self):
         """Làm cho class có thể dùng trong for loop"""
-        return self.doc_sach()
+        return self.read_books()
     
-    def doc_sach(self):
-        """Generator method"""
-        for i, sach in enumerate(self.sach, 1):
+    def read_books(self):
+        """Generator method để đọc sách"""
+        for i, book in enumerate(self.books, 1):
             print(f"📖 Đang lấy sách thứ {i}...")
-            yield sach
+            yield book
     
-    def tim_sach(self, tu_khoa):
+    def search_books(self, keyword):
         """Tìm sách theo từ khóa"""
-        for sach in self.sach:
-            if tu_khoa.lower() in sach.lower():
-                yield sach
+        for book in self.books:
+            if keyword.lower() in book.lower():
+                yield book
 
 # Sử dụng
-thu_vien = QuanLyThuVien()
+library = LibraryManager()
 
 print("📚 Tất cả sách trong thư viện:")
-for sach in thu_vien:
-    print(f"  📖 {sach}")
+for book in library:
+    print(f"  📖 {book}")
 
 print("\n🔍 Tìm sách có chữ 'Phiêu':")
-for sach in thu_vien.tim_sach("Phiêu"):
-    print(f"  ✨ {sach}")
+for book in library.search_books("Phiêu"):
+    print(f"  ✨ {book}")
 ```
 
 ## ⚡ Tại sao dùng Generator?
@@ -204,11 +209,11 @@ for sach in thu_vien.tim_sach("Phiêu"):
 import sys
 
 # So sánh kích thước bộ nhớ
-danh_sach = [x for x in range(1000000)]
-generator = (x for x in range(1000000))
+numbers_list = [x for x in range(1000000)]
+numbers_generator = (x for x in range(1000000))
 
-print(f"📊 List size: {sys.getsizeof(danh_sach):,} bytes")
-print(f"📊 Generator size: {sys.getsizeof(generator):,} bytes")
+print(f"📊 List size: {sys.getsizeof(numbers_list):,} bytes")
+print(f"📊 Generator size: {sys.getsizeof(numbers_generator):,} bytes")
 
 # Generator nhỏ hơn hàng nghìn lần!
 ```
@@ -216,34 +221,36 @@ print(f"📊 Generator size: {sys.getsizeof(generator):,} bytes")
 ### 2. Xử lý dữ liệu lớn
 
 ```python
-def xu_ly_file_csv_lon(ten_file):
+def process_large_csv(file_name):
     """
     Xử lý file CSV lớn mà không tốn nhiều RAM
     """
-    def doc_csv():
-        with open(ten_file, 'r', encoding='utf-8') as f:
-            for dong in f:
-                yield dong.strip().split(',')
+    def read_csv():
+        """Đọc file CSV từng dòng"""
+        with open(file_name, 'r', encoding='utf-8') as f:
+            for line in f:
+                yield line.strip().split(',')
     
     # Thống kê
-    tong_dong = 0
-    tong_gia_tri = 0
+    total_rows = 0
+    total_value = 0
     
-    for dong in doc_csv():
-        if len(dong) >= 2 and dong[1].isdigit():
-            tong_dong += 1
-            tong_gia_tri += int(dong[1])
+    for row in read_csv():
+        if len(row) >= 2 and row[1].isdigit():
+            total_rows += 1
+            total_value += int(row[1])
     
-    return tong_dong, tong_gia_tri // tong_dong if tong_dong > 0 else 0
+    average = total_value // total_rows if total_rows > 0 else 0
+    return total_rows, average
 
 # Tạo file CSV demo
-with open('du_lieu.csv', 'w', encoding='utf-8') as f:
+with open('data.csv', 'w', encoding='utf-8') as f:
     f.write("ten,diem,lop\n")
     for i in range(10000):
         f.write(f"SinhVien{i},{85 + i % 15},Lop{i % 10}\n")
 
-dong, tb = xu_ly_file_csv_lon('du_lieu.csv')
-print(f"📈 Xử lý {dong:,} dòng, điểm TB: {tb}")
+rows, avg = process_large_csv('data.csv')
+print(f"📈 Xử lý {rows:,} dòng, điểm TB: {avg}")
 ```
 
 ## 🎮 Bài tập thực hành
@@ -254,58 +261,58 @@ print(f"📈 Xử lý {dong:,} dòng, điểm TB: {tb}")
 import random
 import string
 
-def tao_mat_khau(do_dai=8, bao_gom_so=True, bao_gom_ky_tu_dac_biet=True):
+def generate_password(length=8, include_numbers=True, include_special=True):
     """Generator tạo mật khẩu ngẫu nhiên"""
     while True:
-        ky_tu = string.ascii_letters  # a-z, A-Z
+        chars = string.ascii_letters  # a-z, A-Z
         
-        if bao_gom_so:
-            ky_tu += string.digits  # 0-9
+        if include_numbers:
+            chars += string.digits  # 0-9
         
-        if bao_gom_ky_tu_dac_biet:
-            ky_tu += "!@#$%^&*"
+        if include_special:
+            chars += "!@#$%^&*"
         
-        mat_khau = ''.join(random.choice(ky_tu) for _ in range(do_dai))
-        yield mat_khau
+        password = ''.join(random.choice(chars) for _ in range(length))
+        yield password
 
 # Test máy tạo mật khẩu
 print("🔐 Máy tạo mật khẩu:")
-may_tao = tao_mat_khau(12)
+password_generator = generate_password(12)
 for i in range(5):
-    print(f"  🔑 Mật khẩu {i+1}: {next(may_tao)}")
+    print(f"  🔑 Mật khẩu {i+1}: {next(password_generator)}")
 ```
 
 ### Bài 2: Đếm từ trong text
 
 ```python
-def dem_tu_trong_text(text):
+def count_words_in_text(text):
     """Đếm số lần xuất hiện của mỗi từ"""
     from collections import defaultdict
     
-    tu_dict = defaultdict(int)
-    for tu in text.lower().split():
+    word_dict = defaultdict(int)
+    for word in text.lower().split():
         # Loại bỏ dấu câu
-        tu_sach = ''.join(c for c in tu if c.isalnum())
-        if tu_sach:
-            tu_dict[tu_sach] += 1
+        clean_word = ''.join(c for c in word if c.isalnum())
+        if clean_word:
+            word_dict[clean_word] += 1
     
     # Generator trả về từ và số lần xuất hiện
-    for tu, so_lan in sorted(tu_dict.items(), 
+    for word, count in sorted(word_dict.items(), 
                             key=lambda x: x[1], 
                             reverse=True):
-        yield tu, so_lan
+        yield word, count
 
 # Test
-van_ban = """
+text = """
 Python là ngôn ngữ lập trình tuyệt vời.
 Python dễ học và Python rất mạnh mẽ.
 Học Python sẽ giúp bạn làm nhiều việc thú vị.
 """
 
 print("📝 Thống kê từ trong văn bản:")
-for tu, so_lan in dem_tu_trong_text(van_ban):
-    if so_lan > 1:  # Chỉ hiện từ xuất hiện > 1 lần
-        print(f"  📊 '{tu}': {so_lan} lần")
+for word, count in count_words_in_text(text):
+    if count > 1:  # Chỉ hiện từ xuất hiện > 1 lần
+        print(f"  📊 '{word}': {count} lần")
 ```
 
 ## 🏆 Dự án: Hệ thống streaming dữ liệu
@@ -322,50 +329,50 @@ class DataStreamer:
     """
     
     def __init__(self):
-        self.dang_chay = False
+        self.is_running = False
         
-    def du_lieu_cam_bien(self):
+    def sensor_data(self):
         """Generator mô phỏng dữ liệu từ cảm biến"""
-        self.dang_chay = True
-        so_lan_doc = 0
+        self.is_running = True
+        read_count = 0
         
-        while self.dang_chay:
-            nhiet_do = round(random.uniform(20, 35), 1)
-            do_am = round(random.uniform(40, 80), 1)
-            ap_suat = round(random.uniform(990, 1020), 1)
+        while self.is_running:
+            temperature = round(random.uniform(20, 35), 1)
+            humidity = round(random.uniform(40, 80), 1)
+            pressure = round(random.uniform(990, 1020), 1)
             
-            du_lieu = {
+            data = {
                 'timestamp': datetime.now().strftime('%H:%M:%S'),
-                'nhiet_do': nhiet_do,
-                'do_am': do_am, 
-                'ap_suat': ap_suat,
-                'lan_doc': so_lan_doc + 1
+                'temperature': temperature,
+                'humidity': humidity, 
+                'pressure': pressure,
+                'read_count': read_count + 1
             }
             
-            so_lan_doc += 1
-            yield du_lieu
+            read_count += 1
+            yield data
             time.sleep(1)  # Đọc mỗi giây
     
-    def loc_du_lieu_bat_thuong(self, data_stream):
+    def filter_anomalies(self, data_stream):
         """Lọc dữ liệu bất thường"""
-        for du_lieu in data_stream:
+        for data in data_stream:
             # Kiểm tra ngưỡng cảnh báo
-            canh_bao = []
+            warnings = []
             
-            if du_lieu['nhiet_do'] > 30:
-                canh_bao.append("🌡️ Nhiệt độ cao")
-            if du_lieu['do_am'] > 70:
-                canh_bao.append("💧 Độ ẩm cao")
-            if du_lieu['ap_suat'] < 1000:
-                canh_bao.append("🌪️ Áp suất thấp")
+            if data['temperature'] > 30:
+                warnings.append("🌡️ Nhiệt độ cao")
+            if data['humidity'] > 70:
+                warnings.append("💧 Độ ẩm cao")
+            if data['pressure'] < 1000:
+                warnings.append("🌪️ Áp suất thấp")
             
-            if canh_bao:
-                du_lieu['canh_bao'] = canh_bao
-                yield du_lieu
+            if warnings:
+                data['warnings'] = warnings
+                yield data
     
-    def dung_stream(self):
+    def stop_stream(self):
         """Dừng streaming"""
-        self.dang_chay = False
+        self.is_running = False
 
 # Sử dụng hệ thống
 print("🌡️ Hệ thống monitoring thời tiết:")
@@ -376,25 +383,25 @@ streamer = DataStreamer()
 
 try:
     # Tạo pipeline xử lý dữ liệu
-    du_lieu_tho = streamer.du_lieu_cam_bien()
-    du_lieu_loc = streamer.loc_du_lieu_bat_thuong(du_lieu_tho)
+    raw_data = streamer.sensor_data()
+    filtered_data = streamer.filter_anomalies(raw_data)
     
-    for du_lieu in du_lieu_loc:
-        print(f"⚠️  {du_lieu['timestamp']} - Lần đọc #{du_lieu['lan_doc']}")
-        print(f"   🌡️ Nhiệt độ: {du_lieu['nhiet_do']}°C")
-        print(f"   💧 Độ ẩm: {du_lieu['do_am']}%") 
-        print(f"   🌪️ Áp suất: {du_lieu['ap_suat']} hPa")
-        print(f"   🚨 Cảnh báo: {', '.join(du_lieu['canh_bao'])}")
+    for data in filtered_data:
+        print(f"⚠️  {data['timestamp']} - Lần đọc #{data['read_count']}")
+        print(f"   🌡️ Nhiệt độ: {data['temperature']}°C")
+        print(f"   💧 Độ ẩm: {data['humidity']}%") 
+        print(f"   🌪️ Áp suất: {data['pressure']} hPa")
+        print(f"   🚨 Cảnh báo: {', '.join(data['warnings'])}")
         print("-" * 40)
         
         # Demo chỉ chạy 10 lần
-        if du_lieu['lan_doc'] >= 20:
+        if data['read_count'] >= 20:
             break
             
 except KeyboardInterrupt:
     print("\n👋 Dừng hệ thống monitoring!")
 finally:
-    streamer.dung_stream()
+    streamer.stop_stream()
 ```
 
 ## 🎯 Tóm tắt

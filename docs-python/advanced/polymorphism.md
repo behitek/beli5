@@ -21,72 +21,72 @@ graph TD
     A --> C[🎭 Hoàng Tử]
     A --> D[📺 Người Bán Hàng]
     
-    B --> B1[bay(), đấm()]
-    C --> C1[cai_tri(), ra_lenh()]
-    D --> D1[ban_hang(), quang_cao()]
+    B --> B1[fly(), punch()]
+    C --> C1[rule(), command()]
+    D --> D1[sell(), advertise()]
 ```
 
 ## 🐾 Ví Dụ Cơ Bản: Động Vật
 
 ```python
-class DongVat:
+class Animal:
     """Class cơ sở cho tất cả động vật"""
     
-    def __init__(self, ten, loai):
-        self.ten = ten
-        self.loai = loai
+    def __init__(self, name, animal_type):
+        self.name = name
+        self.animal_type = animal_type
     
-    def keu(self):
+    def make_sound(self):
         """Phương thức base - sẽ được override"""
-        print(f"{self.ten} phát ra âm thanh")
+        print(f"{self.name} phát ra âm thanh")
     
-    def di_chuyen(self):
+    def move(self):
         """Phương thức chung"""
-        print(f"{self.ten} đang di chuyển")
+        print(f"{self.name} đang di chuyển")
 
-class Cho(DongVat):
-    """Class chó kế thừa từ DongVat"""
+class Dog(Animal):
+    """Class chó kế thừa từ Animal"""
     
-    def __init__(self, ten):
-        super().__init__(ten, "Chó")
+    def __init__(self, name):
+        super().__init__(name, "Chó")
     
-    def keu(self):
+    def make_sound(self):
         """Override - Chó kêu khác"""
-        print(f"{self.ten}: Gâu gâu! 🐕")
+        print(f"{self.name}: Gâu gâu! 🐕")
     
-    def di_chuyen(self):
-        print(f"{self.ten} chạy bằng 4 chân 🏃‍♂️")
+    def move(self):
+        print(f"{self.name} chạy bằng 4 chân 🏃‍♂️")
 
-class Meo(DongVat):
+class Cat(Animal):
     """Class mèo"""
     
-    def __init__(self, ten):
-        super().__init__(ten, "Mèo")
+    def __init__(self, name):
+        super().__init__(name, "Mèo")
     
-    def keu(self):
-        print(f"{self.ten}: Meo meo! 🐱")
+    def make_sound(self):
+        print(f"{self.name}: Meo meo! 🐱")
     
-    def di_chuyen(self):
-        print(f"{self.ten} đi nhẹ nhàng, thầm lặng 🥷")
+    def move(self):
+        print(f"{self.name} đi nhẹ nhàng, thầm lặng 🥷")
 
-class Chim(DongVat):
+class Bird(Animal):
     """Class chim"""
     
-    def __init__(self, ten):
-        super().__init__(ten, "Chim")
+    def __init__(self, name):
+        super().__init__(name, "Chim")
     
-    def keu(self):
-        print(f"{self.ten}: Chip chip! 🐦")
+    def make_sound(self):
+        print(f"{self.name}: Chip chip! 🐦")
     
-    def di_chuyen(self):
-        print(f"{self.ten} bay lên trời cao 🕊️")
+    def move(self):
+        print(f"{self.name} bay lên trời cao 🕊️")
 
 # Đây là POLYMORPHISM!
-def cho_dong_vat_bieu_dien(dong_vat):
+def make_animal_perform(animal):
     """Hàm này nhận bất kỳ loại động vật nào"""
-    print(f"🎪 Mời {dong_vat.ten} ({dong_vat.loai}) biểu diễn:")
-    dong_vat.keu()        # Polymorphic call
-    dong_vat.di_chuyen()  # Polymorphic call
+    print(f"🎪 Mời {animal.name} ({animal.animal_type}) biểu diễn:")
+    animal.make_sound()        # Polymorphic call
+    animal.move()  # Polymorphic call
     print("-" * 40)
 
 # Demo polymorphism
@@ -94,17 +94,17 @@ print("🎪 BUỔI BIỂU DIỄN ĐỘNG VẬT")
 print("=" * 50)
 
 # Tạo danh sách các động vật khác nhau
-dong_vat_list = [
-    Cho("Vàng"),
-    Meo("Mun"),
-    Chim("Pi"),
-    Cho("Lucky"),
-    Meo("Kitty")
+animal_list = [
+    Dog("Vàng"),
+    Cat("Mun"),
+    Bird("Pi"),
+    Dog("Lucky"),
+    Cat("Kitty")
 ]
 
 # Polymorphism: Cùng một hàm, nhưng hành vi khác nhau!
-for dong_vat in dong_vat_list:
-    cho_dong_vat_bieu_dien(dong_vat)
+for animal in animal_list:
+    make_animal_perform(animal)
 ```
 
 ## 🎮 Ví Dụ Game: Nhân Vật RPG
@@ -113,175 +113,175 @@ for dong_vat in dong_vat_list:
 from abc import ABC, abstractmethod
 import random
 
-class NhanVat(ABC):
+class Character(ABC):
     """Abstract class cho tất cả nhân vật"""
     
-    def __init__(self, ten, hp, mp):
-        self.ten = ten
+    def __init__(self, name, hp, mp):
+        self.name = name
         self.hp = hp
-        self.hp_max = hp
+        self.max_hp = hp
         self.mp = mp
-        self.mp_max = mp
+        self.max_mp = mp
         self.level = 1
     
     @abstractmethod
-    def tan_cong(self, muc_tieu):
+    def attack(self, target):
         """Phương thức trừu tượng - bắt buộc implement"""
         pass
     
     @abstractmethod
-    def ky_nang_dac_biet(self):
+    def special_skill(self):
         """Kỹ năng đặc biệt của từng class"""
         pass
     
-    def nhan_sat_thuong(self, sat_thuong):
+    def take_damage(self, damage):
         """Phương thức chung cho tất cả nhân vật"""
-        self.hp = max(0, self.hp - sat_thuong)
+        self.hp = max(0, self.hp - damage)
         if self.hp == 0:
-            print(f"💀 {self.ten} đã bị hạ gục!")
+            print(f"💀 {self.name} đã bị hạ gục!")
         else:
-            print(f"🩹 {self.ten} mất {sat_thuong} HP, còn {self.hp}/{self.hp_max}")
+            print(f"🩹 {self.name} mất {damage} HP, còn {self.hp}/{self.max_hp}")
     
-    def hoi_phuc(self, amount):
+    def heal(self, amount):
         """Hồi phục HP"""
-        self.hp = min(self.hp_max, self.hp + amount)
-        print(f"💚 {self.ten} hồi {amount} HP, hiện tại: {self.hp}/{self.hp_max}")
+        self.hp = min(self.max_hp, self.hp + amount)
+        print(f"💚 {self.name} hồi {amount} HP, hiện tại: {self.hp}/{self.max_hp}")
 
-class ChienBinh(NhanVat):
+class Warrior(Character):
     """Class Chiến Binh - Tank"""
     
-    def __init__(self, ten):
-        super().__init__(ten, hp=120, mp=30)
-        self.giap = 15
-        self.sat_thuong_vat_ly = 25
+    def __init__(self, name):
+        super().__init__(name, hp=120, mp=30)
+        self.armor = 15
+        self.physical_damage = 25
     
-    def tan_cong(self, muc_tieu):
+    def attack(self, target):
         """Tấn công vật lý mạnh"""
-        sat_thuong = self.sat_thuong_vat_ly + random.randint(-5, 10)
-        print(f"⚔️ {self.ten} chém {muc_tieu.ten} gây {sat_thuong} sát thương!")
-        muc_tieu.nhan_sat_thuong(sat_thuong)
-        return sat_thuong
+        damage = self.physical_damage + random.randint(-5, 10)
+        print(f"⚔️ {self.name} chém {target.name} gây {damage} sát thương!")
+        target.take_damage(damage)
+        return damage
     
-    def ky_nang_dac_biet(self):
+    def special_skill(self):
         """Kỹ năng: Shield Bash"""
         if self.mp >= 15:
             self.mp -= 15
-            sat_thuong = self.sat_thuong_vat_ly * 2
-            print(f"🛡️ {self.ten} dùng Shield Bash!")
-            return sat_thuong
+            damage = self.physical_damage * 2
+            print(f"🛡️ {self.name} dùng Shield Bash!")
+            return damage
         else:
-            print(f"❌ {self.ten} không đủ MP!")
+            print(f"❌ {self.name} không đủ MP!")
             return 0
     
-    def phong_thu(self):
+    def defend(self):
         """Kỹ năng đặc biệt của chiến binh"""
-        print(f"🛡️ {self.ten} tăng cường phòng thủ!")
-        self.giap += 5
+        print(f"🛡️ {self.name} tăng cường phòng thủ!")
+        self.armor += 5
 
-class PhapSu(NhanVat):
+class Mage(Character):
     """Class Pháp Sư - DPS Magic"""
     
-    def __init__(self, ten):
-        super().__init__(ten, hp=80, mp=100)
-        self.suc_manh_phep = 35
+    def __init__(self, name):
+        super().__init__(name, hp=80, mp=100)
+        self.magic_power = 35
     
-    def tan_cong(self, muc_tieu):
+    def attack(self, target):
         """Tấn công phép thuật"""
         if self.mp >= 10:
             self.mp -= 10
-            sat_thuong = self.suc_manh_phep + random.randint(-8, 15)
-            print(f"🔥 {self.ten} dùng phép lửa tấn công {muc_tieu.ten} gây {sat_thuong} sát thương!")
-            muc_tieu.nhan_sat_thuong(sat_thuong)
-            return sat_thuong
+            damage = self.magic_power + random.randint(-8, 15)
+            print(f"🔥 {self.name} dùng phép lửa tấn công {target.name} gây {damage} sát thương!")
+            target.take_damage(damage)
+            return damage
         else:
             # Tấn công vật lý yếu
-            sat_thuong = 8 + random.randint(-2, 4)
-            print(f"🥄 {self.ten} dùng gậy đánh {muc_tieu.ten} gây {sat_thuong} sát thương!")
-            muc_tieu.nhan_sat_thuong(sat_thuong)
-            return sat_thuong
+            damage = 8 + random.randint(-2, 4)
+            print(f"🥄 {self.name} dùng gậy đánh {target.name} gây {damage} sát thương!")
+            target.take_damage(damage)
+            return damage
     
-    def ky_nang_dac_biet(self):
+    def special_skill(self):
         """Kỹ năng: Fireball"""
         if self.mp >= 25:
             self.mp -= 25
-            sat_thuong = self.suc_manh_phep * 2
-            print(f"🔥💥 {self.ten} dùng Fireball cực mạnh!")
-            return sat_thuong
+            damage = self.magic_power * 2
+            print(f"🔥💥 {self.name} dùng Fireball cực mạnh!")
+            return damage
         else:
-            print(f"❌ {self.ten} không đủ MP!")
+            print(f"❌ {self.name} không đủ MP!")
             return 0
 
-class CungThu(NhanVat):
+class Archer(Character):
     """Class Cung Thủ - DPS Range"""
     
-    def __init__(self, ten):
-        super().__init__(ten, hp=90, mp=50)
-        self.do_chinh_xac = 80  # %
-        self.sat_thuong_cung = 30
+    def __init__(self, name):
+        super().__init__(name, hp=90, mp=50)
+        self.accuracy = 80  # %
+        self.bow_damage = 30
     
-    def tan_cong(self, muc_tieu):
+    def attack(self, target):
         """Tấn công tầm xa"""
         # Kiểm tra độ chính xác
-        if random.randint(1, 100) <= self.do_chinh_xac:
-            sat_thuong = self.sat_thuong_cung + random.randint(-5, 12)
-            print(f"🏹 {self.ten} bắn trúng {muc_tieu.ten} gây {sat_thuong} sát thương!")
-            muc_tieu.nhan_sat_thuong(sat_thuong)
-            return sat_thuong
+        if random.randint(1, 100) <= self.accuracy:
+            damage = self.bow_damage + random.randint(-5, 12)
+            print(f"🏹 {self.name} bắn trúng {target.name} gây {damage} sát thương!")
+            target.take_damage(damage)
+            return damage
         else:
-            print(f"🏹💨 {self.ten} bắn trượt {muc_tieu.ten}!")
+            print(f"🏹💨 {self.name} bắn trượt {target.name}!")
             return 0
     
-    def ky_nang_dac_biet(self):
+    def special_skill(self):
         """Kỹ năng: Multi Shot"""
         if self.mp >= 20:
             self.mp -= 20
-            print(f"🏹🏹🏹 {self.ten} dùng Multi Shot!")
+            print(f"🏹🏹🏹 {self.name} dùng Multi Shot!")
             # Bắn 3 mũi tên
-            tong_sat_thuong = 0
+            total_damage = 0
             for i in range(3):
                 if random.randint(1, 100) <= 90:  # Tăng độ chính xác
-                    sat_thuong = self.sat_thuong_cung + random.randint(-3, 8)
-                    tong_sat_thuong += sat_thuong
-                    print(f"  🏹 Mũi tên {i+1}: {sat_thuong} sát thương!")
-            return tong_sat_thuong
+                    damage = self.bow_damage + random.randint(-3, 8)
+                    total_damage += damage
+                    print(f"  🏹 Mũi tên {i+1}: {damage} sát thương!")
+            return total_damage
         else:
-            print(f"❌ {self.ten} không đủ MP!")
+            print(f"❌ {self.name} không đủ MP!")
             return 0
 
-class ThayThuoc(NhanVat):
+class Healer(Character):
     """Class Thầy Thuốc - Healer"""
     
-    def __init__(self, ten):
-        super().__init__(ten, hp=100, mp=120)
-        self.suc_manh_hoi_phuc = 40
+    def __init__(self, name):
+        super().__init__(name, hp=100, mp=120)
+        self.heal_power = 40
     
-    def tan_cong(self, muc_tieu):
+    def attack(self, target):
         """Tấn công yếu"""
-        sat_thuong = 12 + random.randint(-3, 6)
-        print(f"🔨 {self.ten} đánh {muc_tieu.ten} bằng búa nhỏ gây {sat_thuong} sát thương!")
-        muc_tieu.nhan_sat_thuong(sat_thuong)
-        return sat_thuong
+        damage = 12 + random.randint(-3, 6)
+        print(f"🔨 {self.name} đánh {target.name} bằng búa nhỏ gây {damage} sát thương!")
+        target.take_damage(damage)
+        return damage
     
-    def ky_nang_dac_biet(self):
+    def special_skill(self):
         """Kỹ năng: Heal"""
         if self.mp >= 15:
             self.mp -= 15
-            hoi_phuc = self.suc_manh_hoi_phuc + random.randint(-5, 10)
-            print(f"💚✨ {self.ten} dùng phép hồi phục!")
-            return hoi_phuc
+            heal_amount = self.heal_power + random.randint(-5, 10)
+            print(f"💚✨ {self.name} dùng phép hồi phục!")
+            return heal_amount
         else:
-            print(f"❌ {self.ten} không đủ MP!")
+            print(f"❌ {self.name} không đủ MP!")
             return 0
     
-    def chua_lanh_dong_minh(self, dong_minh):
+    def heal_ally(self, ally):
         """Chữa lành cho đồng minh"""
         if self.mp >= 15:
             self.mp -= 15
-            hoi_phuc = self.suc_manh_hoi_phuc + random.randint(-5, 10)
-            print(f"💚 {self.ten} chữa lành cho {dong_minh.ten}!")
-            dong_minh.hoi_phuc(hoi_phuc)
+            heal_amount = self.heal_power + random.randint(-5, 10)
+            print(f"💚 {self.name} chữa lành cho {ally.name}!")
+            ally.heal(heal_amount)
         else:
-            print(f"❌ {self.ten} không đủ MP!")
+            print(f"❌ {self.name} không đủ MP!")
 
 # Game Combat System với Polymorphism
 class GameCombat:
@@ -291,50 +291,50 @@ class GameCombat:
         self.party = []  # Nhóm nhân vật
         self.enemies = []  # Kẻ thù
     
-    def them_nhan_vat(self, nhan_vat):
+    def add_character(self, character):
         """Thêm nhân vật vào party"""
-        self.party.append(nhan_vat)
-        print(f"🎮 {nhan_vat.ten} ({nhan_vat.__class__.__name__}) gia nhập party!")
+        self.party.append(character)
+        print(f"🎮 {character.name} ({character.__class__.__name__}) gia nhập party!")
     
-    def tao_ke_thu(self):
+    def create_enemies(self):
         """Tạo kẻ thù ngẫu nhiên"""
-        ke_thu_types = [ChienBinh, PhapSu, CungThu]
-        ke_thu_names = ["Orc Tối", "Ma Thuật Sư", "Cung Thủ Bóng Tối"]
+        enemy_types = [Warrior, Mage, Archer]
+        enemy_names = ["Orc Tối", "Ma Thuật Sư", "Cung Thủ Bóng Tối"]
         
         for i in range(2):
-            ke_thu_class = random.choice(ke_thu_types)
-            ten = f"{random.choice(ke_thu_names)} #{i+1}"
-            ke_thu = ke_thu_class(ten)
-            self.enemies.append(ke_thu)
-            print(f"👹 {ten} xuất hiện!")
+            enemy_class = random.choice(enemy_types)
+            name = f"{random.choice(enemy_names)} #{i+1}"
+            enemy = enemy_class(name)
+            self.enemies.append(enemy)
+            print(f"👹 {name} xuất hiện!")
     
-    def chien_dau_mot_luot(self):
+    def combat_round(self):
         """Một lượt chiến đấu - Demo Polymorphism"""
         print(f"\n⚔️ LƯỢT CHIẾN ĐẤU")
         print("=" * 40)
         
         # Nhân vật tấn công (Polymorphism!)
-        for nhan_vat in self.party:
-            if nhan_vat.hp > 0 and self.enemies:
-                muc_tieu = random.choice([e for e in self.enemies if e.hp > 0])
-                if muc_tieu:
-                    # Tất cả đều gọi tan_cong(), nhưng mỗi class thực hiện khác nhau!
-                    nhan_vat.tan_cong(muc_tieu)
+        for character in self.party:
+            if character.hp > 0 and self.enemies:
+                target = random.choice([e for e in self.enemies if e.hp > 0])
+                if target:
+                    # Tất cả đều gọi attack(), nhưng mỗi class thực hiện khác nhau!
+                    character.attack(target)
                     
                     # Loại bỏ kẻ thù đã chết
                     self.enemies = [e for e in self.enemies if e.hp > 0]
         
         # Kẻ thù phản công
-        for ke_thu in self.enemies:
-            if ke_thu.hp > 0 and self.party:
-                muc_tieu = random.choice([p for p in self.party if p.hp > 0])
-                if muc_tieu:
-                    ke_thu.tan_cong(muc_tieu)
+        for enemy in self.enemies:
+            if enemy.hp > 0 and self.party:
+                target = random.choice([p for p in self.party if p.hp > 0])
+                if target:
+                    enemy.attack(target)
         
         # Loại bỏ nhân vật đã chết
         self.party = [p for p in self.party if p.hp > 0]
     
-    def kiem_tra_ket_thuc(self):
+    def check_game_end(self):
         """Kiểm tra game kết thúc chưa"""
         if not self.party:
             print("💀 THUA CUỘC! Tất cả nhân vật đã bị hạ gục!")
@@ -344,33 +344,33 @@ class GameCombat:
             return True
         return False
     
-    def bat_dau_game(self):
+    def start_game(self):
         """Bắt đầu game"""
         print("🎮 BẮT ĐẦU GAME RPG!")
         print("=" * 50)
         
         # Tạo party
         party_members = [
-            ChienBinh("Arthur"),
-            PhapSu("Merlin"), 
-            CungThu("Legolas"),
-            ThayThuoc("Gandalf")
+            Warrior("Arthur"),
+            Mage("Merlin"), 
+            Archer("Legolas"),
+            Healer("Gandalf")
         ]
         
         for member in party_members:
-            self.them_nhan_vat(member)
+            self.add_character(member)
         
         # Tạo kẻ thù
-        self.tao_ke_thu()
+        self.create_enemies()
         
         # Combat loop
-        luot = 1
-        while not self.kiem_tra_ket_thuc() and luot <= 10:
-            print(f"\n🔄 LƯỢT {luot}")
-            self.chien_dau_mot_luot()
-            luot += 1
+        round_num = 1
+        while not self.check_game_end() and round_num <= 10:
+            print(f"\n🔄 LƯỢT {round_num}")
+            self.combat_round()
+            round_num += 1
             
-            if luot <= 10 and not self.kiem_tra_ket_thuc():
+            if round_num <= 10 and not self.check_game_end():
                 input("\nNhấn Enter để tiếp tục lượt tiếp theo...")
 
 # Chạy demo game
@@ -378,121 +378,121 @@ print("🎮 DEMO POLYMORPHISM TRONG GAME RPG")
 print("=" * 50)
 
 game = GameCombat()
-game.bat_dau_game()
+game.start_game()
 ```
 
 ## 🚗 Polymorphism với Phương Tiện
 
 ```python
-class PhuongTien:
+class Vehicle:
     """Base class cho phương tiện"""
     
-    def __init__(self, ten, toc_do_toi_da):
-        self.ten = ten
-        self.toc_do_toi_da = toc_do_toi_da
-        self.toc_do_hien_tai = 0
+    def __init__(self, name, max_speed):
+        self.name = name
+        self.max_speed = max_speed
+        self.current_speed = 0
     
-    def khoi_dong(self):
-        print(f"🔧 {self.ten} đang khởi động...")
+    def start_engine(self):
+        print(f"🔧 {self.name} đang khởi động...")
     
-    def tang_toc(self, muc_tang):
-        self.toc_do_hien_tai = min(
-            self.toc_do_toi_da, 
-            self.toc_do_hien_tai + muc_tang
+    def accelerate(self, increase):
+        self.current_speed = min(
+            self.max_speed, 
+            self.current_speed + increase
         )
     
-    def giam_toc(self, muc_giam):
-        self.toc_do_hien_tai = max(0, self.toc_do_hien_tai - muc_giam)
+    def decelerate(self, decrease):
+        self.current_speed = max(0, self.current_speed - decrease)
     
-    def tieng_dong_co(self):
+    def engine_sound(self):
         """Method sẽ được override - Polymorphic!"""
-        print(f"🔊 {self.ten}: Âm thanh động cơ chung chung...")
+        print(f"🔊 {self.name}: Âm thanh động cơ chung chung...")
 
-class XeMay(PhuongTien):
-    def __init__(self, ten):
-        super().__init__(ten, 120)
+class Motorcycle(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, 120)
     
-    def tieng_dong_co(self):
-        print(f"🏍️ {self.ten}: Brrrr... brrrr... (tiếng xe máy)")
+    def engine_sound(self):
+        print(f"🏍️ {self.name}: Brrrr... brrrr... (tiếng xe máy)")
     
-    def khoi_dong(self):
-        super().khoi_dong()
+    def start_engine(self):
+        super().start_engine()
         print(f"   🔑 Xoay chìa khóa xe máy...")
         print(f"   ⚡ Đá khởi động...")
 
-class XeHoi(PhuongTien):
-    def __init__(self, ten):
-        super().__init__(ten, 200)
+class Car(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, 200)
     
-    def tieng_dong_co(self):
-        print(f"🚗 {self.ten}: Vroom... vroom... (tiếng xe hơi)")
+    def engine_sound(self):
+        print(f"🚗 {self.name}: Vroom... vroom... (tiếng xe hơi)")
     
-    def khoi_dong(self):
-        super().khoi_dong()
+    def start_engine(self):
+        super().start_engine()
         print(f"   🔑 Nhấn nút start...")
         print(f"   💺 Điều chỉnh ghế ngồi...")
 
-class XeTai(PhuongTien):
-    def __init__(self, ten):
-        super().__init__(ten, 90)
+class Truck(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, 90)
     
-    def tieng_dong_co(self):
-        print(f"🚛 {self.ten}: VROOOOOM... (tiếng xe tải to lớn)")
+    def engine_sound(self):
+        print(f"🚛 {self.name}: VROOOOOM... (tiếng xe tải to lớn)")
     
-    def khoi_dong(self):
-        super().khoi_dong()
+    def start_engine(self):
+        super().start_engine()
         print(f"   🚛 Kiểm tra hàng hóa...")
         print(f"   📋 Xem lộ trình giao hàng...")
 
-class MayBay(PhuongTien):
-    def __init__(self, ten):
-        super().__init__(ten, 900)
+class Airplane(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, 900)
     
-    def tieng_dong_co(self):
-        print(f"✈️ {self.ten}: Whoooosh... (tiếng máy bay)")
+    def engine_sound(self):
+        print(f"✈️ {self.name}: Whoooosh... (tiếng máy bay)")
     
-    def khoi_dong(self):
-        super().khoi_dong()
+    def start_engine(self):
+        super().start_engine()
         print(f"   ✈️ Kiểm tra hệ thống bay...")
         print(f"   📡 Liên hệ tháp điều khiển...")
     
-    def cat_canh(self):
-        print(f"🛫 {self.ten} đang cất cánh!")
+    def take_off(self):
+        print(f"🛫 {self.name} đang cất cánh!")
 
 # Demo Polymorphism với collection
-def demo_bai_xe():
+def demo_vehicle_garage():
     """Demo quản lý bãi xe với polymorphism"""
     print("🅿️ QUẢN LÝ BÃI XE ĐA DẠNG")
     print("=" * 40)
     
     # Tạo danh sách các phương tiện khác nhau
-    phuong_tien_list = [
-        XeMay("Honda Winner"),
-        XeHoi("Toyota Camry"),
-        XeTai("Hyundai Porter"),
-        MayBay("Boeing 747"),
-        XeMay("Yamaha Exciter"),
-        XeHoi("Mercedes C300")
+    vehicle_list = [
+        Motorcycle("Honda Winner"),
+        Car("Toyota Camry"),
+        Truck("Hyundai Porter"),
+        Airplane("Boeing 747"),
+        Motorcycle("Yamaha Exciter"),
+        Car("Mercedes C300")
     ]
     
-    print(f"🚗 Có {len(phuong_tien_list)} phương tiện trong bãi:")
+    print(f"🚗 Có {len(vehicle_list)} phương tiện trong bãi:")
     
-    for i, xe in enumerate(phuong_tien_list, 1):
-        print(f"\n{i}. {xe.ten} ({xe.__class__.__name__})")
+    for i, vehicle in enumerate(vehicle_list, 1):
+        print(f"\n{i}. {vehicle.name} ({vehicle.__class__.__name__})")
         print("   🔧 Khởi động:")
-        xe.khoi_dong()
+        vehicle.start_engine()
         
         print("   🔊 Âm thanh:")
-        xe.tieng_dong_co()  # Polymorphic call!
+        vehicle.engine_sound()  # Polymorphic call!
         
         # Chỉ máy bay mới có thể cất cánh
-        if isinstance(xe, MayBay):
-            xe.cat_canh()
+        if isinstance(vehicle, Airplane):
+            vehicle.take_off()
         
         print("   ✅ Sẵn sàng!")
 
 # Chạy demo
-demo_bai_xe()
+demo_vehicle_garage()
 ```
 
 ## 🎨 Duck Typing - "Nếu nó kêu như vịt..."
@@ -502,47 +502,47 @@ Python có một dạng polymorphism đặc biệt gọi là **Duck Typing**:
 > "Nếu nó bước như vịt và kêu như vịt, thì nó là vịt!"
 
 ```python
-class Vit:
-    def keu(self):
+class Duck:
+    def make_sound(self):
         print("Quạc quạc! 🦆")
     
-    def boi(self):
+    def swim(self):
         print("Bơi lội tài giỏi! 🏊‍♀️")
 
-class Ngan:
-    def keu(self):
+class Goose:
+    def make_sound(self):
         print("Nga nga! 🪿") 
     
-    def boi(self):
+    def swim(self):
         print("Bơi nhanh như tên lửa! 🚀")
 
-class RobotVit:
-    def keu(self):
+class RobotDuck:
+    def make_sound(self):
         print("BEEP BEEP - Mô phỏng tiếng vịt! 🤖")
     
-    def boi(self):
+    def swim(self):
         print("Chế độ bơi lội được kích hoạt! 🤖🏊‍♀️")
 
 # Duck Typing - không cần kiểm tra type!
-def cho_dong_vat_bieu_dien_ho_boi(dong_vat):
-    """Hàm này nhận bất cứ gì có thể kêu() và boi()"""
+def make_swimming_performance(animal):
+    """Hàm này nhận bất cứ gì có thể make_sound() và swim()"""
     print(f"🏊‍♀️ Biểu diễn bơi lội:")
-    dong_vat.keu()   # Duck typing!
-    dong_vat.boi()   # Duck typing!
+    animal.make_sound()   # Duck typing!
+    animal.swim()   # Duck typing!
     print("-" * 30)
 
-# Tất cả đều "như vịt" - có keu() và boi()
-dong_vat_ho_boi = [
-    Vit(),
-    Ngan(), 
-    RobotVit()
+# Tất cả đều "như vịt" - có make_sound() và swim()
+swimming_animals = [
+    Duck(),
+    Goose(), 
+    RobotDuck()
 ]
 
 print("🏊‍♀️ SHOW BIỂU DIỄN HỒ BƠI")
 print("=" * 40)
 
-for dong_vat in dong_vat_ho_boi:
-    cho_dong_vat_bieu_dien_ho_boi(dong_vat)
+for animal in swimming_animals:
+    make_swimming_performance(animal)
 ```
 
 ## 📊 Ví Dụ Thực Tế: Hệ Thống Báo Cáo
@@ -552,84 +552,84 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 import json
 
-class BaoCaoBase(ABC):
+class ReportBase(ABC):
     """Abstract class cho tất cả loại báo cáo"""
     
-    def __init__(self, tieu_de, du_lieu):
-        self.tieu_de = tieu_de
-        self.du_lieu = du_lieu
-        self.thoi_gian_tao = datetime.now()
+    def __init__(self, title, data):
+        self.title = title
+        self.data = data
+        self.created_time = datetime.now()
     
     @abstractmethod
-    def tao_noi_dung(self):
+    def generate_content(self):
         """Abstract method - bắt buộc implement"""
         pass
     
     @abstractmethod
-    def xuat_file(self, ten_file):
+    def export_file(self, filename):
         """Abstract method cho xuất file"""
         pass
     
-    def hien_thi_thong_tin(self):
+    def display_info(self):
         """Method chung cho tất cả báo cáo"""
-        print(f"📊 Báo cáo: {self.tieu_de}")
-        print(f"📅 Tạo lúc: {self.thoi_gian_tao.strftime('%d/%m/%Y %H:%M:%S')}")
-        print(f"📈 Số dữ liệu: {len(self.du_lieu)}")
+        print(f"📊 Báo cáo: {self.title}")
+        print(f"📅 Tạo lúc: {self.created_time.strftime('%d/%m/%Y %H:%M:%S')}")
+        print(f"📈 Số dữ liệu: {len(self.data)}")
 
-class BaoCaoJSON(BaoCaoBase):
+class JSONReport(ReportBase):
     """Báo cáo định dạng JSON"""
     
-    def tao_noi_dung(self):
-        noi_dung = {
-            "tieu_de": self.tieu_de,
-            "thoi_gian": self.thoi_gian_tao.isoformat(),
-            "du_lieu": self.du_lieu,
-            "tong_ket": self.tinh_tong_ket()
+    def generate_content(self):
+        content = {
+            "title": self.title,
+            "created_time": self.created_time.isoformat(),
+            "data": self.data,
+            "summary": self.calculate_summary()
         }
-        return json.dumps(noi_dung, ensure_ascii=False, indent=2)
+        return json.dumps(content, ensure_ascii=False, indent=2)
     
-    def xuat_file(self, ten_file):
-        with open(f"{ten_file}.json", 'w', encoding='utf-8') as f:
-            f.write(self.tao_noi_dung())
-        print(f"💾 Đã xuất báo cáo JSON: {ten_file}.json")
+    def export_file(self, filename):
+        with open(f"{filename}.json", 'w', encoding='utf-8') as f:
+            f.write(self.generate_content())
+        print(f"💾 Đã xuất báo cáo JSON: {filename}.json")
     
-    def tinh_tong_ket(self):
-        if isinstance(self.du_lieu[0], (int, float)):
+    def calculate_summary(self):
+        if isinstance(self.data[0], (int, float)):
             return {
-                "tong": sum(self.du_lieu),
-                "trung_binh": sum(self.du_lieu) / len(self.du_lieu),
-                "lon_nhat": max(self.du_lieu),
-                "nho_nhat": min(self.du_lieu)
+                "total": sum(self.data),
+                "average": sum(self.data) / len(self.data),
+                "max": max(self.data),
+                "min": min(self.data)
             }
-        return {"so_luong": len(self.du_lieu)}
+        return {"count": len(self.data)}
 
-class BaoCaoCSV(BaoCaoBase):
+class CSVReport(ReportBase):
     """Báo cáo định dạng CSV"""
     
-    def tao_noi_dung(self):
-        lines = [f"# Báo cáo: {self.tieu_de}"]
-        lines.append(f"# Tạo lúc: {self.thoi_gian_tao}")
+    def generate_content(self):
+        lines = [f"# Báo cáo: {self.title}"]
+        lines.append(f"# Tạo lúc: {self.created_time}")
         lines.append("STT,Dữ liệu")
         
-        for i, item in enumerate(self.du_lieu, 1):
+        for i, item in enumerate(self.data, 1):
             lines.append(f"{i},{item}")
         
         return "\n".join(lines)
     
-    def xuat_file(self, ten_file):
-        with open(f"{ten_file}.csv", 'w', encoding='utf-8') as f:
-            f.write(self.tao_noi_dung())
-        print(f"📊 Đã xuất báo cáo CSV: {ten_file}.csv")
+    def export_file(self, filename):
+        with open(f"{filename}.csv", 'w', encoding='utf-8') as f:
+            f.write(self.generate_content())
+        print(f"📊 Đã xuất báo cáo CSV: {filename}.csv")
 
-class BaoCaoHTML(BaoCaoBase):
+class HTMLReport(ReportBase):
     """Báo cáo định dạng HTML"""
     
-    def tao_noi_dung(self):
+    def generate_content(self):
         html = f"""
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{self.tieu_de}</title>
+    <title>{self.title}</title>
     <style>
         body {{ font-family: Arial, sans-serif; margin: 40px; }}
         table {{ border-collapse: collapse; width: 100%; }}
@@ -640,16 +640,16 @@ class BaoCaoHTML(BaoCaoBase):
 </head>
 <body>
     <div class="header">
-        <h1>📊 {self.tieu_de}</h1>
-        <p><strong>Thời gian tạo:</strong> {self.thoi_gian_tao.strftime('%d/%m/%Y %H:%M:%S')}</p>
-        <p><strong>Tổng số dữ liệu:</strong> {len(self.du_lieu)}</p>
+        <h1>📊 {self.title}</h1>
+        <p><strong>Thời gian tạo:</strong> {self.created_time.strftime('%d/%m/%Y %H:%M:%S')}</p>
+        <p><strong>Tổng số dữ liệu:</strong> {len(self.data)}</p>
     </div>
     
     <table>
         <tr><th>STT</th><th>Dữ Liệu</th></tr>
 """
         
-        for i, item in enumerate(self.du_lieu, 1):
+        for i, item in enumerate(self.data, 1):
             html += f"        <tr><td>{i}</td><td>{item}</td></tr>\n"
         
         html += """
@@ -659,83 +659,83 @@ class BaoCaoHTML(BaoCaoBase):
 """
         return html
     
-    def xuat_file(self, ten_file):
-        with open(f"{ten_file}.html", 'w', encoding='utf-8') as f:
-            f.write(self.tao_noi_dung())
-        print(f"🌐 Đã xuất báo cáo HTML: {ten_file}.html")
+    def export_file(self, filename):
+        with open(f"{filename}.html", 'w', encoding='utf-8') as f:
+            f.write(self.generate_content())
+        print(f"🌐 Đã xuất báo cáo HTML: {filename}.html")
 
 # Hệ thống quản lý báo cáo với Polymorphism
-class QuanLyBaoCao:
+class ReportManager:
     """Quản lý nhiều loại báo cáo"""
     
     def __init__(self):
-        self.danh_sach_bao_cao = []
+        self.report_list = []
     
-    def tao_bao_cao(self, loai_bao_cao, tieu_de, du_lieu):
+    def create_report(self, report_type, title, data):
         """Factory method tạo báo cáo"""
-        loai_map = {
-            'json': BaoCaoJSON,
-            'csv': BaoCaoCSV,
-            'html': BaoCaoHTML
+        type_map = {
+            'json': JSONReport,
+            'csv': CSVReport,
+            'html': HTMLReport
         }
         
-        if loai_bao_cao.lower() in loai_map:
-            bao_cao = loai_map[loai_bao_cao.lower()](tieu_de, du_lieu)
-            self.danh_sach_bao_cao.append(bao_cao)
-            print(f"✅ Tạo báo cáo {loai_bao_cao.upper()} thành công!")
-            return bao_cao
+        if report_type.lower() in type_map:
+            report = type_map[report_type.lower()](title, data)
+            self.report_list.append(report)
+            print(f"✅ Tạo báo cáo {report_type.upper()} thành công!")
+            return report
         else:
-            print(f"❌ Loại báo cáo không hỗ trợ: {loai_bao_cao}")
+            print(f"❌ Loại báo cáo không hỗ trợ: {report_type}")
             return None
     
-    def xuat_tat_ca_bao_cao(self, prefix="report"):
+    def export_all_reports(self, prefix="report"):
         """Polymorphism: Xuất tất cả báo cáo, mỗi loại một cách"""
         print(f"\n📤 XUẤT TẤT CẢ BÁO CÁO")
         print("=" * 40)
         
-        for i, bao_cao in enumerate(self.danh_sach_bao_cao):
-            ten_file = f"{prefix}_{i+1}"
+        for i, report in enumerate(self.report_list):
+            filename = f"{prefix}_{i+1}"
             
             # Polymorphic call - mỗi class sẽ xuất theo cách riêng!
-            bao_cao.hien_thi_thong_tin()
-            bao_cao.xuat_file(ten_file)
+            report.display_info()
+            report.export_file(filename)
             print()
     
-    def hien_thi_tat_ca_noi_dung(self):
+    def display_all_content(self):
         """Hiển thị nội dung tất cả báo cáo"""
         print(f"\n👀 XEM TRƯỚC NỘI DUNG")
         print("=" * 50)
         
-        for i, bao_cao in enumerate(self.danh_sach_bao_cao, 1):
-            print(f"\n📋 BÁO CÁO {i}: {bao_cao.tieu_de}")
+        for i, report in enumerate(self.report_list, 1):
+            print(f"\n📋 BÁO CÁO {i}: {report.title}")
             print("-" * 30)
             
             # Polymorphic call - tạo nội dung theo format riêng!
-            noi_dung = bao_cao.tao_noi_dung()
-            print(noi_dung[:300] + "..." if len(noi_dung) > 300 else noi_dung)
+            content = report.generate_content()
+            print(content[:300] + "..." if len(content) > 300 else content)
 
 # Demo hệ thống báo cáo
 print("📊 HỆ THỐNG BÁO CÁO ĐA DẠNG")
 print("=" * 50)
 
 # Tạo dữ liệu mẫu
-diem_so_lop = [8.5, 9.0, 7.8, 6.5, 9.5, 8.2, 7.9, 8.8, 9.2, 7.5]
-san_pham_ban = ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphone"]
-doanh_thu_thang = [15000000, 18000000, 22000000, 19000000, 25000000, 21000000]
+class_scores = [8.5, 9.0, 7.8, 6.5, 9.5, 8.2, 7.9, 8.8, 9.2, 7.5]
+best_selling_products = ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphone"]
+monthly_revenue = [15000000, 18000000, 22000000, 19000000, 25000000, 21000000]
 
 # Tạo hệ thống quản lý
-quan_ly = QuanLyBaoCao()
+manager = ReportManager()
 
 # Tạo các loại báo cáo khác nhau cho cùng dữ liệu
-quan_ly.tao_bao_cao("json", "Báo Cáo Điểm Số Lớp 10A", diem_so_lop)
-quan_ly.tao_bao_cao("csv", "Danh Sách Sản Phẩm Bán Chạy", san_pham_ban)  
-quan_ly.tao_bao_cao("html", "Báo Cáo Doanh Thu 6 Tháng", doanh_thu_thang)
+manager.create_report("json", "Báo Cáo Điểm Số Lớp 10A", class_scores)
+manager.create_report("csv", "Danh Sách Sản Phẩm Bán Chạy", best_selling_products)  
+manager.create_report("html", "Báo Cáo Doanh Thu 6 Tháng", monthly_revenue)
 
 # Hiển thị nội dung
-quan_ly.hien_thi_tat_ca_noi_dung()
+manager.display_all_content()
 
 # Xuất tất cả báo cáo - Polymorphism in action!
-quan_ly.xuat_tat_ca_bao_cao("behitek_report")
+manager.export_all_reports("behitek_report")
 ```
 
 ## 🏆 Tóm Tắt Polymorphism
@@ -763,3 +763,4 @@ quan_ly.xuat_tat_ca_bao_cao("behitek_report")
 
 ---
 **Behitek - Học lập trình Python một cách dễ hiểu nhất! 🚀**
+

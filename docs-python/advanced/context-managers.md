@@ -30,7 +30,7 @@ with open('data.txt', 'r') as file:
 ```python
 # Ghi file an toàn
 print("📝 Ghi file với context manager:")
-with open('du_lieu.txt', 'w', encoding='utf-8') as f:
+with open('data.txt', 'w', encoding='utf-8') as f:
     f.write("Xin chào Python!\n")
     f.write("Context Manager rất tuyệt vời!\n")
     print("✅ Đã ghi xong file")
@@ -38,9 +38,9 @@ with open('du_lieu.txt', 'w', encoding='utf-8') as f:
 
 # Đọc file an toàn  
 print("\n📖 Đọc file:")
-with open('du_lieu.txt', 'r', encoding='utf-8') as f:
-    noi_dung = f.read()
-    print(f"📄 Nội dung: {noi_dung}")
+with open('data.txt', 'r', encoding='utf-8') as f:
+    content = f.read()
+    print(f"📄 Nội dung: {content}")
 ```
 
 ### 2. Threading Locks
@@ -50,31 +50,31 @@ import threading
 import time
 
 # Tạo lock để đồng bộ
-khoa = threading.Lock()
-bien_chung = 0
+lock = threading.Lock()
+shared_variable = 0
 
-def cong_so(ten):
-    global bien_chung
+def add_number(name):
+    global shared_variable
     for i in range(5):
         # Sử dụng lock với context manager
-        with khoa:
-            gia_tri_cu = bien_chung
-            print(f"🔄 {ten}: đọc {gia_tri_cu}")
+        with lock:
+            old_value = shared_variable
+            print(f"🔄 {name}: đọc {old_value}")
             time.sleep(0.1)  # Mô phỏng xử lý
-            bien_chung = gia_tri_cu + 1
-            print(f"✅ {ten}: ghi {bien_chung}")
+            shared_variable = old_value + 1
+            print(f"✅ {name}: ghi {shared_variable}")
 
 # Test threading
 print("🧵 Demo Threading với Context Manager:")
-thread1 = threading.Thread(target=cong_so, args=("Thread-1",))
-thread2 = threading.Thread(target=cong_so, args=("Thread-2",))
+thread1 = threading.Thread(target=add_number, args=("Thread-1",))
+thread2 = threading.Thread(target=add_number, args=("Thread-2",))
 
 thread1.start()
 thread2.start()
 thread1.join()
 thread2.join()
 
-print(f"🎯 Kết quả cuối: {bien_chung}")
+print(f"🎯 Kết quả cuối: {shared_variable}")
 ```
 
 ## 🛠️ Tự tạo Context Manager
@@ -82,21 +82,21 @@ print(f"🎯 Kết quả cuối: {bien_chung}")
 ### 1. Dùng Class (Protocol)
 
 ```python
-class QuanLyDatabase:
+class DatabaseManager:
     """
     Context Manager cho kết nối database
     Giống như một người quản lý cafe - mở cửa, phục vụ, đóng cửa
     """
     
-    def __init__(self, ten_db):
-        self.ten_db = ten_db
-        self.ket_noi = None
+    def __init__(self, db_name):
+        self.db_name = db_name
+        self.connection = None
     
     def __enter__(self):
         """Được gọi khi bắt đầu 'with' block"""
-        print(f"🔌 Đang kết nối đến database: {self.ten_db}")
+        print(f"🔌 Đang kết nối đến database: {self.db_name}")
         # Giả lập kết nối database
-        self.ket_noi = f"connection_to_{self.ten_db}"
+        self.connection = f"connection_to_{self.db_name}"
         print(f"✅ Kết nối thành công!")
         return self  # Trả về object để dùng trong 'as'
     
@@ -105,16 +105,16 @@ class QuanLyDatabase:
         if exc_type:
             print(f"❌ Có lỗi xảy ra: {exc_val}")
         
-        print(f"🔌 Đang đóng kết nối database: {self.ten_db}")
-        self.ket_noi = None
+        print(f"🔌 Đang đóng kết nối database: {self.db_name}")
+        self.connection = None
         print(f"✅ Đã đóng kết nối an toàn!")
         
         # Trả về False để không suppress exception
         return False
     
-    def truy_van(self, sql):
+    def execute_query(self, sql):
         """Thực hiện truy vấn"""
-        if not self.ket_noi:
+        if not self.connection:
             raise Exception("Không có kết nối!")
         
         print(f"📊 Executing: {sql}")
@@ -123,9 +123,9 @@ class QuanLyDatabase:
 # Sử dụng Context Manager tự tạo
 print("🗄️ Demo Database Context Manager:")
 try:
-    with QuanLyDatabase("users_db") as db:
-        ket_qua = db.truy_van("SELECT * FROM users")
-        print(f"📋 {ket_qua}")
+    with DatabaseManager("users_db") as db:
+        result = db.execute_query("SELECT * FROM users")
+        print(f"📋 {result}")
         
         # Giả lập lỗi
         # raise Exception("Lỗi bất ngờ!")
@@ -142,37 +142,37 @@ print("🎉 Chương trình tiếp tục chạy bình thường!")
 from contextlib import contextmanager
 
 @contextmanager
-def quan_ly_timer(ten_hoat_dong):
+def timer_manager(activity_name):
     """
     Context Manager đo thời gian thực hiện
     Như một chiếc đồng hồ bấm giờ thông minh!
     """
     import time
     
-    print(f"⏰ Bắt đầu: {ten_hoat_dong}")
+    print(f"⏰ Bắt đầu: {activity_name}")
     start_time = time.time()
     
     try:
-        yield f"Timer cho {ten_hoat_dong}"  # Giá trị trả về cho 'as'
+        yield f"Timer cho {activity_name}"  # Giá trị trả về cho 'as'
     except Exception as e:
-        print(f"❌ Lỗi trong {ten_hoat_dong}: {e}")
+        print(f"❌ Lỗi trong {activity_name}: {e}")
         raise  # Re-raise exception
     finally:
         end_time = time.time()
-        thoi_gian = end_time - start_time
-        print(f"⏱️ Hoàn thành {ten_hoat_dong} trong {thoi_gian:.2f} giây")
+        duration = end_time - start_time
+        print(f"⏱️ Hoàn thành {activity_name} trong {duration:.2f} giây")
 
 # Sử dụng
 print("⏰ Demo Timer Context Manager:")
-with quan_ly_timer("Tính toán phức tạp") as timer:
+with timer_manager("Tính toán phức tạp") as timer:
     print(f"🔄 Đang sử dụng: {timer}")
     
     # Giả lập công việc mất thời gian
-    tong = 0
+    total = 0
     for i in range(1000000):
-        tong += i
+        total += i
     
-    print(f"🧮 Kết quả tính toán: {tong}")
+    print(f"🧮 Kết quả tính toán: {total}")
 ```
 
 ## 🎯 Ví dụ thực tế nâng cao
@@ -184,16 +184,16 @@ from contextlib import contextmanager
 import time
 
 class APIRateLimit:
-    def __init__(self, max_calls=10, thoi_gian_cho=60):
+    def __init__(self, max_calls=10, time_window=60):
         self.max_calls = max_calls
-        self.thoi_gian_cho = thoi_gian_cho
+        self.time_window = time_window
         self.calls = []
     
-    def cho_phep_goi(self):
+    def is_allowed(self):
         now = time.time()
-        # Loại bỏ calls cũ hơn thời_gian_cho
+        # Loại bỏ calls cũ hơn time_window
         self.calls = [call_time for call_time in self.calls 
-                     if now - call_time < self.thoi_gian_cho]
+                     if now - call_time < self.time_window]
         
         if len(self.calls) < self.max_calls:
             self.calls.append(now)
@@ -201,13 +201,13 @@ class APIRateLimit:
         return False
 
 @contextmanager
-def quan_ly_api_call(api_name, rate_limiter=None):
+def api_call_manager(api_name, rate_limiter=None):
     """Context Manager cho API calls với rate limiting"""
     
-    if rate_limiter and not rate_limiter.cho_phep_goi():
+    if rate_limiter and not rate_limiter.is_allowed():
         print(f"🚫 Rate limit exceeded cho {api_name}. Đợi một chút...")
         time.sleep(1)
-        if not rate_limiter.cho_phep_goi():
+        if not rate_limiter.is_allowed():
             raise Exception(f"Rate limit vẫn exceeded cho {api_name}")
     
     print(f"📡 Bắt đầu API call: {api_name}")
@@ -223,12 +223,12 @@ def quan_ly_api_call(api_name, rate_limiter=None):
         print(f"📡 Hoàn thành {api_name} ({end_time - start_time:.2f}s)")
 
 # Demo
-rate_limiter = APIRateLimit(max_calls=3, thoi_gian_cho=10)
+rate_limiter = APIRateLimit(max_calls=3, time_window=10)
 
 print("📡 Demo API Context Manager:")
 for i in range(5):
     try:
-        with quan_ly_api_call(f"WeatherAPI-Call-{i+1}", rate_limiter) as api:
+        with api_call_manager(f"WeatherAPI-Call-{i+1}", rate_limiter) as api:
             print(f"   🌤️ Lấy dữ liệu thời tiết từ {api}")
             time.sleep(0.5)  # Giả lập API call
             
@@ -283,34 +283,34 @@ class Transaction:
             print(f"   🔄 Khôi phục {key} = {value}")
 
 # Demo với bank account
-class TaiKhoan:
-    def __init__(self, ten, so_du):
-        self.ten = ten
-        self.so_du = so_du
+class Account:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
     
-    def chuyen_tien(self, so_tien, tai_khoan_nhan, transaction):
+    def transfer_money(self, amount, recipient_account, transaction):
         """Chuyển tiền với transaction"""
         # Backup trước khi thay đổi
-        transaction.backup(f"{self.ten}_so_du", self.so_du)
-        transaction.backup(f"{tai_khoan_nhan.ten}_so_du", tai_khoan_nhan.so_du)
+        transaction.backup(f"{self.name}_balance", self.balance)
+        transaction.backup(f"{recipient_account.name}_balance", recipient_account.balance)
         
         # Kiểm tra số dư
-        if self.so_du < so_tien:
-            raise Exception(f"Không đủ tiền! Số dư hiện tại: {self.so_du}")
+        if self.balance < amount:
+            raise Exception(f"Không đủ tiền! Số dư hiện tại: {self.balance}")
         
         # Thực hiện giao dịch
-        self.so_du -= so_tien
-        tai_khoan_nhan.so_du += so_tien
+        self.balance -= amount
+        recipient_account.balance += amount
         
-        transaction.add_operation(f"Chuyển {so_tien} từ {self.ten} đến {tai_khoan_nhan.ten}")
+        transaction.add_operation(f"Chuyển {amount} từ {self.name} đến {recipient_account.name}")
         
     def __str__(self):
-        return f"{self.ten}: {self.so_du:,}đ"
+        return f"{self.name}: {self.balance:,}đ"
 
 # Demo transaction
 print("🏦 Demo Banking Transaction:")
-alice = TaiKhoan("Alice", 1000000)
-bob = TaiKhoan("Bob", 500000)
+alice = Account("Alice", 1000000)
+bob = Account("Bob", 500000)
 
 print("💰 Trước giao dịch:")
 print(f"  👤 {alice}")
@@ -319,7 +319,7 @@ print(f"  👤 {bob}")
 # Giao dịch thành công
 try:
     with Transaction() as tx:
-        alice.chuyen_tien(200000, bob, tx)
+        alice.transfer_money(200000, bob, tx)
         print(f"💸 {tx.operations[-1]}")
         tx.commit()
         
@@ -335,7 +335,7 @@ print("\n" + "="*50)
 print("🔄 Demo giao dịch thất bại:")
 try:
     with Transaction() as tx:
-        alice.chuyen_tien(2000000, bob, tx)  # Số tiền quá lớn!
+        alice.transfer_money(2000000, bob, tx)  # Số tiền quá lớn!
         tx.commit()
         
 except Exception as e:
@@ -354,7 +354,7 @@ import tempfile
 import os
 
 @contextmanager 
-def quan_ly_temp_files(*file_names):
+def temp_files_manager(*file_names):
     """
     Quản lý nhiều temporary files cùng lúc
     Như một người dọn phòng chuyên nghiệp!
@@ -386,7 +386,7 @@ def quan_ly_temp_files(*file_names):
 
 # Sử dụng Multiple Context Manager
 print("📁 Demo Multiple Temp Files:")
-with quan_ly_temp_files("data", "log", "config") as files:
+with temp_files_manager("data", "log", "config") as files:
     data_file, log_file, config_file = files
     
     # Ghi dữ liệu vào từng file
@@ -419,63 +419,63 @@ class ResourceMonitor:
         self.lock = threading.Lock()
     
     @contextmanager
-    def su_dung_tai_nguyen(self, loai_tai_nguyen, ten_tai_nguyen):
+    def use_resource(self, resource_type, resource_name):
         """Context manager cho việc sử dụng tài nguyên"""
         
         start_time = time.time()
         thread_id = threading.current_thread().name
         
         with self.lock:
-            self.resources[loai_tai_nguyen].append({
-                'ten': ten_tai_nguyen,
+            self.resources[resource_type].append({
+                'name': resource_name,
                 'thread': thread_id,
                 'start_time': start_time
             })
-            self.stats[f'{loai_tai_nguyen}_total'] += 1
+            self.stats[f'{resource_type}_total'] += 1
             
-        print(f"🔋 [{thread_id}] Bắt đầu dùng {loai_tai_nguyen}: {ten_tai_nguyen}")
+        print(f"🔋 [{thread_id}] Bắt đầu dùng {resource_type}: {resource_name}")
         
         try:
             yield {
-                'loai': loai_tai_nguyen,
-                'ten': ten_tai_nguyen,
+                'type': resource_type,
+                'name': resource_name,
                 'thread': thread_id
             }
             
         except Exception as e:
-            print(f"❌ [{thread_id}] Lỗi khi dùng {ten_tai_nguyen}: {e}")
+            print(f"❌ [{thread_id}] Lỗi khi dùng {resource_name}: {e}")
             with self.lock:
-                self.stats[f'{loai_tai_nguyen}_errors'] += 1
+                self.stats[f'{resource_type}_errors'] += 1
             raise
             
         finally:
             end_time = time.time()
-            thoi_gian_su_dung = end_time - start_time
+            usage_time = end_time - start_time
             
             with self.lock:
                 # Xóa khỏi danh sách đang sử dụng
-                self.resources[loai_tai_nguyen] = [
-                    r for r in self.resources[loai_tai_nguyen]
-                    if not (r['ten'] == ten_tai_nguyen and r['thread'] == thread_id)
+                self.resources[resource_type] = [
+                    r for r in self.resources[resource_type]
+                    if not (r['name'] == resource_name and r['thread'] == thread_id)
                 ]
                 
-                self.stats[f'{loai_tai_nguyen}_time'] += thoi_gian_su_dung
+                self.stats[f'{resource_type}_time'] += usage_time
                 
-            print(f"✅ [{thread_id}] Hoàn thành {ten_tai_nguyen} ({thoi_gian_su_dung:.2f}s)")
+            print(f"✅ [{thread_id}] Hoàn thành {resource_name} ({usage_time:.2f}s)")
     
-    def hien_thi_trang_thai(self):
+    def display_status(self):
         """Hiển thị trạng thái hiện tại của tài nguyên"""
         with self.lock:
             print("\n" + "="*50)
             print("📊 TRẠNG THÁI TÀI NGUYÊN")
             print("="*50)
             
-            for loai, danh_sach in self.resources.items():
-                if danh_sach:
-                    print(f"\n🔋 {loai.upper()} đang sử dụng ({len(danh_sach)}):")
-                    for resource in danh_sach:
-                        thoi_gian = time.time() - resource['start_time']
-                        print(f"  └─ {resource['ten']} ({resource['thread']}) - {thoi_gian:.1f}s")
+            for resource_type, resource_list in self.resources.items():
+                if resource_list:
+                    print(f"\n🔋 {resource_type.upper()} đang sử dụng ({len(resource_list)}):")
+                    for resource in resource_list:
+                        elapsed_time = time.time() - resource['start_time']
+                        print(f"  └─ {resource['name']} ({resource['thread']}) - {elapsed_time:.1f}s")
             
             print(f"\n📈 THỐNG KÊ:")
             for key, value in self.stats.items():
@@ -486,21 +486,21 @@ class ResourceMonitor:
             print("="*50)
 
 # Demo functions sử dụng resources
-def xu_ly_du_lieu(monitor, ten_file):
+def process_data(monitor, file_name):
     """Mô phỏng xử lý dữ liệu"""
-    with monitor.su_dung_tai_nguyen('database', f'db_conn_{ten_file}'):
-        with monitor.su_dung_tai_nguyen('memory', f'buffer_{ten_file}'):
+    with monitor.use_resource('database', f'db_conn_{file_name}'):
+        with monitor.use_resource('memory', f'buffer_{file_name}'):
             # Giả lập xử lý
-            print(f"  📊 Đang xử lý {ten_file}...")
+            print(f"  📊 Đang xử lý {file_name}...")
             time.sleep(2)
             
-            if 'error' in ten_file:
+            if 'error' in file_name:
                 raise Exception("Lỗi xử lý dữ liệu!")
 
-def tai_file(monitor, ten_file):
+def download_file(monitor, file_name):
     """Mô phỏng tải file"""
-    with monitor.su_dung_tai_nguyen('network', f'download_{ten_file}'):
-        print(f"  ⬇️ Đang tải {ten_file}...")
+    with monitor.use_resource('network', f'download_{file_name}'):
+        print(f"  ⬇️ Đang tải {file_name}...")
         time.sleep(1.5)
 
 # Main demo
@@ -516,13 +516,13 @@ files = ['data1.csv', 'data2.json', 'config.txt', 'error_file.txt', 'log.txt']
 for i, file_name in enumerate(files):
     if i % 2 == 0:
         thread = threading.Thread(
-            target=xu_ly_du_lieu, 
+            target=process_data, 
             args=(monitor, file_name),
             name=f"Worker-{i+1}"
         )
     else:
         thread = threading.Thread(
-            target=tai_file,
+            target=download_file,
             args=(monitor, file_name), 
             name=f"Downloader-{i+1}"
         )
@@ -538,7 +538,7 @@ for thread in threads:
 def monitor_thread():
     for _ in range(6):
         time.sleep(1)
-        monitor.hien_thi_trang_thai()
+        monitor.display_status()
 
 monitor_t = threading.Thread(target=monitor_thread, name="Monitor")
 monitor_t.start()
@@ -551,7 +551,7 @@ monitor_t.join()
 
 # Hiển thị kết quả cuối
 print("\n🎉 TẤT CẢ ĐÃ HOÀN THÀNH!")
-monitor.hien_thi_trang_thai()
+monitor.display_status()
 ```
 
 ## 🎯 Tóm tắt
@@ -578,3 +578,4 @@ Context Manager giúp bạn:
 
 ---
 **Behitek - Học lập trình Python một cách dễ hiểu nhất! 🚀**
+

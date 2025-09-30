@@ -36,26 +36,26 @@ class Shape(ABC):
     """Abstract class cho các hình học"""
     
     @abstractmethod
-    def tinh_dien_tich(self):
+    def calculate_area(self):
         """Phương thức trừu tượng - bắt buộc phải implement"""
         pass
     
     @abstractmethod
-    def tinh_chu_vi(self):
+    def calculate_perimeter(self):
         """Phương thức trừu tượng khác"""
         pass
     
-    def hien_thi_thong_tin(self):
+    def display_info(self):
         """Phương thức cụ thể - có thể dùng trực tiếp"""
         print(f"🔷 Đây là hình {self.__class__.__name__}")
-        print(f"📐 Diện tích: {self.tinh_dien_tich()}")
-        print(f"📏 Chu vi: {self.tinh_chu_vi()}")
+        print(f"📐 Diện tích: {self.calculate_area()}")
+        print(f"📏 Chu vi: {self.calculate_perimeter()}")
 
 # Thử tạo object từ abstract class
 try:
-    hinh = Shape()  # ❌ Sẽ báo lỗi!
-except TypeError as e:
-    print(f"🚫 Lỗi: {e}")
+    shape = Shape()  # ❌ Sẽ báo lỗi!
+except TypeError as error:
+    print(f"🚫 Lỗi: {error}")
 ```
 
 ## 🔺 Concrete Classes - Thực Hiện Abstract
@@ -63,67 +63,67 @@ except TypeError as e:
 ```python
 import math
 
-class HinhTron(Shape):
+class Circle(Shape):
     """Class cụ thể kế thừa từ Abstract Shape"""
     
-    def __init__(self, ban_kinh):
-        self.ban_kinh = ban_kinh
+    def __init__(self, radius):
+        self.radius = radius
     
-    def tinh_dien_tich(self):
+    def calculate_area(self):
         """Bắt buộc implement - từ abstract method"""
-        return math.pi * self.ban_kinh ** 2
+        return math.pi * self.radius ** 2
     
-    def tinh_chu_vi(self):
+    def calculate_perimeter(self):
         """Bắt buộc implement - từ abstract method"""
-        return 2 * math.pi * self.ban_kinh
+        return 2 * math.pi * self.radius
     
     def __str__(self):
-        return f"🔵 Hình tròn bán kính {self.ban_kinh}"
+        return f"🔵 Hình tròn bán kính {self.radius}"
 
-class HinhVuong(Shape):
+class Square(Shape):
     """Class hình vuông"""
     
-    def __init__(self, canh):
-        self.canh = canh
+    def __init__(self, side):
+        self.side = side
     
-    def tinh_dien_tich(self):
-        return self.canh ** 2
+    def calculate_area(self):
+        return self.side ** 2
     
-    def tinh_chu_vi(self):
-        return 4 * self.canh
+    def calculate_perimeter(self):
+        return 4 * self.side
     
     def __str__(self):
-        return f"🟦 Hình vuông cạnh {self.canh}"
+        return f"🟦 Hình vuông cạnh {self.side}"
 
-class HinhChuNhat(Shape):
+class Rectangle(Shape):
     """Class hình chữ nhật"""
     
-    def __init__(self, dai, rong):
-        self.dai = dai
-        self.rong = rong
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
     
-    def tinh_dien_tich(self):
-        return self.dai * self.rong
+    def calculate_area(self):
+        return self.length * self.width
     
-    def tinh_chu_vi(self):
-        return 2 * (self.dai + self.rong)
+    def calculate_perimeter(self):
+        return 2 * (self.length + self.width)
     
     def __str__(self):
-        return f"🟨 Hình chữ nhật {self.dai}x{self.rong}"
+        return f"🟨 Hình chữ nhật {self.length}x{self.width}"
 
 # Test các concrete classes
 print("🎨 DEMO ABSTRACT CLASSES")
 print("=" * 40)
 
-hinh_list = [
-    HinhTron(5),
-    HinhVuong(4),
-    HinhChuNhat(6, 3)
+shape_list = [
+    Circle(5),
+    Square(4),
+    Rectangle(6, 3)
 ]
 
-for hinh in hinh_list:
-    print(f"\n{hinh}")
-    hinh.hien_thi_thong_tin()
+for shape in shape_list:
+    print(f"\n{shape}")
+    shape.display_info()
     print("-" * 25)
 ```
 
@@ -561,12 +561,12 @@ except TypeError as e:
 print(f"\n✅ Nhưng có thể tạo từ Concrete Classes:")
 
 # Tạo từng loại nhân vật
-warriors = Warrior("Conan")
+warrior = Warrior("Conan")
 mage = Mage("Gandalf")
 archer = Archer("Robin Hood")
 healer = Healer("Priestess")
 
-characters = [warriors, mage, archer, healer]
+characters = [warrior, mage, archer, healer]
 
 print(f"\n👥 PARTY MEMBERS:")
 for char in characters:

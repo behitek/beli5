@@ -18,9 +18,9 @@
 
 ```mermaid
 graph TD
-    A[👨 Class Cha - ConNguoi] --> B[👦 Class Con - HocSinh]
-    A --> C[👩‍🏫 Class Con - GiaoVien]
-    A --> D[👨‍⚕️ Class Con - BacSi]
+    A[👨 Class Cha - Person] --> B[👦 Class Con - Student]
+    A --> C[👩‍🏫 Class Con - Teacher]
+    A --> D[👨‍⚕️ Class Con - Doctor]
     
     B --> B1[+ Học bài<br/>+ Làm bài tập<br/>+ Thi cử]
     C --> C1[+ Giảng bài<br/>+ Chấm điểm<br/>+ Quản lý lớp]
@@ -31,500 +31,500 @@ graph TD
 
 ### 🏗️ Class Cha (Parent Class)
 ```python
-class ConNguoi:
+class Person:
     """Class cơ sở mô tả con người"""
     
-    def __init__(self, ho_ten, tuoi, gioi_tinh):
-        self.ho_ten = ho_ten
-        self.tuoi = tuoi
-        self.gioi_tinh = gioi_tinh
-        self.suc_khoe = 100
+    def __init__(self, full_name, age, gender):
+        self.full_name = full_name
+        self.age = age
+        self.gender = gender
+        self.health = 100
         
-    def gioi_thieu(self):
+    def introduce(self):
         """Tự giới thiệu"""
-        return f"Xin chào! Tôi là {self.ho_ten}, {self.tuoi} tuổi"
+        return f"Xin chào! Tôi là {self.full_name}, {self.age} tuổi"
     
-    def an_uong(self, do_an):
+    def eat(self, food):
         """Ăn uống để hồi sức khỏe"""
-        self.suc_khoe = min(100, self.suc_khoe + 10)
-        print(f"😋 {self.ho_ten} ăn {do_an}. Sức khỏe: {self.suc_khoe}")
+        self.health = min(100, self.health + 10)
+        print(f"😋 {self.full_name} ăn {food}. Sức khỏe: {self.health}")
     
-    def ngu_ngoi(self, gio):
+    def sleep(self, hours):
         """Ngủ nghỉ"""
-        self.suc_khoe = min(100, self.suc_khoe + gio * 5)
-        print(f"💤 {self.ho_ten} ngủ {gio} giờ. Sức khỏe: {self.suc_khoe}")
+        self.health = min(100, self.health + hours * 5)
+        print(f"💤 {self.full_name} ngủ {hours} giờ. Sức khỏe: {self.health}")
     
-    def lam_viec(self, cong_viec):
+    def work(self, job):
         """Làm việc chung chung"""
-        self.suc_khoe = max(0, self.suc_khoe - 20)
-        print(f"💼 {self.ho_ten} làm {cong_viec}. Sức khỏe: {self.suc_khoe}")
+        self.health = max(0, self.health - 20)
+        print(f"💼 {self.full_name} làm {job}. Sức khỏe: {self.health}")
 
 ### 👦 Class Con (Child Class)  
-class HocSinh(ConNguoi):  # Kế thừa từ ConNguoi
-    """Class học sinh kế thừa từ ConNguoi"""
+class Student(Person):  # Kế thừa từ Person
+    """Class học sinh kế thừa từ Person"""
     
-    def __init__(self, ho_ten, tuoi, gioi_tinh, lop, truong):
+    def __init__(self, full_name, age, gender, class_name, school):
         # Gọi constructor của class cha
-        super().__init__(ho_ten, tuoi, gioi_tinh)
+        super().__init__(full_name, age, gender)
         
         # Thêm thuộc tính riêng của học sinh
-        self.lop = lop
-        self.truong = truong
-        self.diem_so = {}
-        self.hoc_luc = "Chưa xếp loại"
+        self.class_name = class_name
+        self.school = school
+        self.scores = {}
+        self.academic_performance = "Chưa xếp loại"
     
-    def gioi_thieu(self):
+    def introduce(self):
         """Override - Ghi đè phương thức của class cha"""
-        cha_gioi_thieu = super().gioi_thieu()
-        return f"{cha_gioi_thieu}, học lớp {self.lop} trường {self.truong}"
+        parent_introduction = super().introduce()
+        return f"{parent_introduction}, học lớp {self.class_name} trường {self.school}"
     
-    def hoc_bai(self, mon_hoc):
+    def study(self, subject):
         """Phương thức mới - chỉ có ở class con"""
-        self.suc_khoe = max(0, self.suc_khoe - 5)
-        print(f"📚 {self.ho_ten} học {mon_hoc}. Sức khỏe: {self.suc_khoe}")
+        self.health = max(0, self.health - 5)
+        print(f"📚 {self.full_name} học {subject}. Sức khỏe: {self.health}")
         
         # Thêm điểm ngẫu nhiên cho môn học
         import random
-        diem = random.uniform(6.0, 10.0)
-        if mon_hoc not in self.diem_so:
-            self.diem_so[mon_hoc] = []
-        self.diem_so[mon_hoc].append(diem)
-        print(f"✅ Đã ghi nhận điểm {diem:.1f} môn {mon_hoc}")
+        score = random.uniform(6.0, 10.0)
+        if subject not in self.scores:
+            self.scores[subject] = []
+        self.scores[subject].append(score)
+        print(f"✅ Đã ghi nhận điểm {score:.1f} môn {subject}")
     
-    def lam_bai_tap(self, bai_tap):
+    def do_homework(self, homework):
         """Phương thức đặc biệt của học sinh"""
-        self.suc_khoe = max(0, self.suc_khoe - 10)
-        print(f"✍️ {self.ho_ten} làm bài tập {bai_tap}. Sức khỏe: {self.suc_khoe}")
+        self.health = max(0, self.health - 10)
+        print(f"✍️ {self.full_name} làm bài tập {homework}. Sức khỏe: {self.health}")
     
-    def tinh_diem_trung_binh(self):
+    def calculate_average_score(self):
         """Tính điểm trung bình tất cả môn"""
-        if not self.diem_so:
+        if not self.scores:
             return 0
         
-        tong_diem = 0
-        tong_so_diem = 0
+        total_score = 0
+        total_count = 0
         
-        for mon, danh_sach_diem in self.diem_so.items():
-            tong_diem += sum(danh_sach_diem)
-            tong_so_diem += len(danh_sach_diem)
+        for subject, score_list in self.scores.items():
+            total_score += sum(score_list)
+            total_count += len(score_list)
         
-        return tong_diem / tong_so_diem if tong_so_diem > 0 else 0
+        return total_score / total_count if total_count > 0 else 0
     
-    def xep_loai_hoc_luc(self):
+    def classify_academic_performance(self):
         """Xếp loại học lực"""
-        dtb = self.tinh_diem_trung_binh()
+        avg_score = self.calculate_average_score()
         
-        if dtb >= 9.0:
-            self.hoc_luc = "Xuất sắc"
-        elif dtb >= 8.0:
-            self.hoc_luc = "Giỏi" 
-        elif dtb >= 6.5:
-            self.hoc_luc = "Khá"
-        elif dtb >= 5.0:
-            self.hoc_luc = "Trung bình"
+        if avg_score >= 9.0:
+            self.academic_performance = "Xuất sắc"
+        elif avg_score >= 8.0:
+            self.academic_performance = "Giỏi" 
+        elif avg_score >= 6.5:
+            self.academic_performance = "Khá"
+        elif avg_score >= 5.0:
+            self.academic_performance = "Trung bình"
         else:
-            self.hoc_luc = "Yếu"
+            self.academic_performance = "Yếu"
             
-        return self.hoc_luc
+        return self.academic_performance
     
-    def bao_cao_hoc_tap(self):
+    def generate_academic_report(self):
         """Báo cáo học tập chi tiết"""
-        print(f"\n📊 BÁO CÁO HỌC TẬP - {self.ho_ten}")
+        print(f"\n📊 BÁO CÁO HỌC TẬP - {self.full_name}")
         print("-" * 50)
-        print(f"🎓 Lớp: {self.lop}")
-        print(f"🏫 Trường: {self.truong}")
+        print(f"🎓 Lớp: {self.class_name}")
+        print(f"🏫 Trường: {self.school}")
         
-        if self.diem_so:
-            for mon, diem_list in self.diem_so.items():
-                dtb_mon = sum(diem_list) / len(diem_list)
-                print(f"📚 {mon}: {dtb_mon:.1f} (có {len(diem_list)} điểm)")
+        if self.scores:
+            for subject, score_list in self.scores.items():
+                avg_subject = sum(score_list) / len(score_list)
+                print(f"📚 {subject}: {avg_subject:.1f} (có {len(score_list)} điểm)")
         
-        dtb_chung = self.tinh_diem_trung_binh()
-        hoc_luc = self.xep_loai_hoc_luc()
-        print(f"📈 Điểm TB chung: {dtb_chung:.1f}")
-        print(f"🏆 Học lực: {hoc_luc}")
+        avg_overall = self.calculate_average_score()
+        performance = self.classify_academic_performance()
+        print(f"📈 Điểm TB chung: {avg_overall:.1f}")
+        print(f"🏆 Học lực: {performance}")
 
 # Test kế thừa
 print("=== TEST CLASS CHA ===")
-nguoi = ConNguoi("Anh Nam", 35, "Nam")
-print(nguoi.gioi_thieu())
-nguoi.an_uong("cơm")
-nguoi.lam_viec("lập trình")
+person = Person("Anh Nam", 35, "Nam")
+print(person.introduce())
+person.eat("cơm")
+person.work("lập trình")
 
 print("\n=== TEST CLASS CON ===")
-hoc_sinh = HocSinh("Nguyễn Văn An", 16, "Nam", "10A", "THPT Behitek")
-print(hoc_sinh.gioi_thieu())  # Method được override
+student = Student("Nguyễn Văn An", 16, "Nam", "10A", "THPT Behitek")
+print(student.introduce())  # Method được override
 
 # Sử dụng method từ class cha
-hoc_sinh.an_uong("bánh mì")
-hoc_sinh.ngu_ngoi(8)
+student.eat("bánh mì")
+student.sleep(8)
 
 # Sử dụng method riêng của class con
-hoc_sinh.hoc_bai("Toán")
-hoc_sinh.hoc_bai("Lý") 
-hoc_sinh.hoc_bai("Toán")
-hoc_sinh.lam_bai_tap("Bài tập Hóa học")
+student.study("Toán")
+student.study("Lý") 
+student.study("Toán")
+student.do_homework("Bài tập Hóa học")
 
 # Báo cáo học tập
-hoc_sinh.bao_cao_hoc_tap()
+student.generate_academic_report()
 ```
 
 ## 👩‍🏫 Ví Dụ Phức Tạp Hơn: Hệ Thống Trường Học
 
 ```python
-class ConNguoi:
+class Person:
     """Class cơ sở cho mọi người trong trường"""
     
-    def __init__(self, ho_ten, tuoi, ma_so):
-        self.ho_ten = ho_ten
-        self.tuoi = tuoi
-        self.ma_so = ma_so
-        self.co_mat_trong_truong = False
+    def __init__(self, full_name, age, id_number):
+        self.full_name = full_name
+        self.age = age
+        self.id_number = id_number
+        self.is_in_school = False
     
-    def vao_truong(self):
+    def enter_school(self):
         """Vào trường học"""
-        self.co_mat_trong_truong = True
-        print(f"🏫 {self.ho_ten} đã vào trường")
+        self.is_in_school = True
+        print(f"🏫 {self.full_name} đã vào trường")
     
-    def ra_khoi_truong(self):
+    def leave_school(self):
         """Rời khỏi trường"""
-        self.co_mat_trong_truong = False
-        print(f"🚪 {self.ho_ten} đã rời trường")
+        self.is_in_school = False
+        print(f"🚪 {self.full_name} đã rời trường")
     
-    def gioi_thieu_co_ban(self):
+    def basic_introduction(self):
         """Giới thiệu cơ bản"""
-        return f"Tôi là {self.ho_ten}, mã số {self.ma_so}"
+        return f"Tôi là {self.full_name}, mã số {self.id_number}"
 
-class HocSinh(ConNguoi):
+class Student(Person):
     """Class học sinh"""
     
-    def __init__(self, ho_ten, tuoi, ma_so, lop):
-        super().__init__(ho_ten, tuoi, ma_so)
-        self.lop = lop
-        self.diem_danh = []
-        self.diem_so = {}
+    def __init__(self, full_name, age, id_number, class_name):
+        super().__init__(full_name, age, id_number)
+        self.class_name = class_name
+        self.attendance = []
+        self.scores = {}
     
-    def diem_danh_hoc_sinh(self):
+    def take_attendance(self):
         """Điểm danh học sinh"""
         from datetime import datetime
-        self.diem_danh.append(datetime.now())
-        print(f"✅ Điểm danh {self.ho_ten} - Lớp {self.lop}")
+        self.attendance.append(datetime.now())
+        print(f"✅ Điểm danh {self.full_name} - Lớp {self.class_name}")
     
-    def nop_bai_tap(self, mon_hoc, bai_tap):
+    def submit_homework(self, subject, homework):
         """Nộp bài tập"""
-        print(f"📝 {self.ho_ten} nộp bài tập {mon_hoc}: {bai_tap}")
-        return f"Bài tập {bai_tap} - {self.ho_ten}"
+        print(f"📝 {self.full_name} nộp bài tập {subject}: {homework}")
+        return f"Bài tập {homework} - {self.full_name}"
     
-    def gioi_thieu_co_ban(self):
+    def basic_introduction(self):
         """Override giới thiệu"""
-        return f"{super().gioi_thieu_co_ban()}, học sinh lớp {self.lop}"
+        return f"{super().basic_introduction()}, học sinh lớp {self.class_name}"
 
-class GiaoVien(ConNguoi):
+class Teacher(Person):
     """Class giáo viên"""
     
-    def __init__(self, ho_ten, tuoi, ma_so, mon_day, luong_cb=15000000):
-        super().__init__(ho_ten, tuoi, ma_so)
-        self.mon_day = mon_day
-        self.luong_co_ban = luong_cb
-        self.danh_sach_lop = []
-        self.bai_tap_nhan = []
+    def __init__(self, full_name, age, id_number, subject, base_salary=15000000):
+        super().__init__(full_name, age, id_number)
+        self.subject = subject
+        self.base_salary = base_salary
+        self.class_list = []
+        self.received_homework = []
     
-    def phan_cong_lop(self, lop):
+    def assign_class(self, class_name):
         """Phân công dạy lớp"""
-        self.danh_sach_lop.append(lop)
-        print(f"👩‍🏫 {self.ho_ten} được phân công dạy lớp {lop}")
+        self.class_list.append(class_name)
+        print(f"👩‍🏫 {self.full_name} được phân công dạy lớp {class_name}")
     
-    def giao_bai_tap(self, lop, noi_dung):
+    def assign_homework(self, class_name, content):
         """Giao bài tập cho lớp"""
-        print(f"📋 Cô {self.ho_ten} giao bài tập cho lớp {lop}: {noi_dung}")
-        return f"Bài tập {self.mon_day} - {noi_dung}"
+        print(f"📋 Cô {self.full_name} giao bài tập cho lớp {class_name}: {content}")
+        return f"Bài tập {self.subject} - {content}"
     
-    def nhan_bai_tap(self, bai_tap):
+    def receive_homework(self, homework):
         """Nhận bài tập từ học sinh"""
-        self.bai_tap_nhan.append(bai_tap)
-        print(f"📥 Cô {self.ho_ten} nhận bài: {bai_tap}")
+        self.received_homework.append(homework)
+        print(f"📥 Cô {self.full_name} nhận bài: {homework}")
     
-    def cham_diem(self, ten_hoc_sinh, diem):
+    def grade_homework(self, student_name, score):
         """Chấm điểm cho học sinh"""
-        print(f"📊 Cô {self.ho_ten} chấm điểm {ten_hoc_sinh}: {diem}")
-        return diem
+        print(f"📊 Cô {self.full_name} chấm điểm {student_name}: {score}")
+        return score
     
-    def tinh_luong(self, he_so=1.0, thuong=0):
+    def calculate_salary(self, coefficient=1.0, bonus=0):
         """Tính lương giáo viên"""
-        luong_thang = self.luong_co_ban * he_so + thuong
-        return luong_thang
+        monthly_salary = self.base_salary * coefficient + bonus
+        return monthly_salary
     
-    def gioi_thieu_co_ban(self):
+    def basic_introduction(self):
         """Override giới thiệu"""
-        return f"{super().gioi_thieu_co_ban()}, giáo viên dạy {self.mon_day}"
+        return f"{super().basic_introduction()}, giáo viên dạy {self.subject}"
 
-class HieuTruong(GiaoVien):
-    """Class hiệu trưởng kế thừa từ GiaoVien"""
+class Principal(Teacher):
+    """Class hiệu trưởng kế thừa từ Teacher"""
     
-    def __init__(self, ho_ten, tuoi, ma_so, luong_cb=30000000):
+    def __init__(self, full_name, age, id_number, base_salary=30000000):
         # Hiệu trưởng không dạy môn cụ thể
-        super().__init__(ho_ten, tuoi, ma_so, "Quản lý", luong_cb)
-        self.quyen_han = "Cao nhất"
-        self.danh_sach_giao_vien = []
-        self.danh_sach_hoc_sinh = []
+        super().__init__(full_name, age, id_number, "Quản lý", base_salary)
+        self.authority = "Cao nhất"
+        self.teacher_list = []
+        self.student_list = []
     
-    def tuyen_giao_vien(self, giao_vien):
+    def hire_teacher(self, teacher):
         """Tuyển giáo viên mới"""
-        self.danh_sach_giao_vien.append(giao_vien)
-        print(f"🎉 Hiệu trưởng {self.ho_ten} tuyển giáo viên {giao_vien.ho_ten}")
+        self.teacher_list.append(teacher)
+        print(f"🎉 Hiệu trưởng {self.full_name} tuyển giáo viên {teacher.full_name}")
     
-    def tuyen_hoc_sinh(self, hoc_sinh):
+    def enroll_student(self, student):
         """Tuyển học sinh mới"""
-        self.danh_sach_hoc_sinh.append(hoc_sinh)
-        print(f"📚 Hiệu trưởng {self.ho_ten} tiếp nhận học sinh {hoc_sinh.ho_ten}")
+        self.student_list.append(student)
+        print(f"📚 Hiệu trưởng {self.full_name} tiếp nhận học sinh {student.full_name}")
     
-    def hop_giao_vien(self):
+    def hold_teacher_meeting(self):
         """Tổ chức họp giáo viên"""
-        print(f"🏛️ Hiệu trưởng {self.ho_ten} tổ chức họp với {len(self.danh_sach_giao_vien)} giáo viên")
+        print(f"🏛️ Hiệu trưởng {self.full_name} tổ chức họp với {len(self.teacher_list)} giáo viên")
     
-    def duyet_luong(self, giao_vien, he_so, thuong=0):
+    def approve_salary(self, teacher, coefficient, bonus=0):
         """Duyệt lương cho giáo viên"""
-        luong = giao_vien.tinh_luong(he_so, thuong)
-        print(f"💰 Hiệu trưởng duyệt lương {giao_vien.ho_ten}: {luong:,} VNĐ")
-        return luong
+        salary = teacher.calculate_salary(coefficient, bonus)
+        print(f"💰 Hiệu trưởng duyệt lương {teacher.full_name}: {salary:,} VNĐ")
+        return salary
     
-    def gioi_thieu_co_ban(self):
+    def basic_introduction(self):
         """Override giới thiệu"""
-        return f"Tôi là Hiệu trưởng {self.ho_ten}, mã số {self.ma_so}"
+        return f"Tôi là Hiệu trưởng {self.full_name}, mã số {self.id_number}"
 
 # Mô phỏng hoạt động trường học
 print("🏫 === MÔ PHỎNG TRƯỜNG BEHITEK ACADEMY ===")
 
 # Tạo hiệu trưởng
-hieu_truong = HieuTruong("Nguyễn Văn Minh", 45, "HT001")
-print(hieu_truong.gioi_thieu_co_ban())
+principal = Principal("Nguyễn Văn Minh", 45, "HT001")
+print(principal.basic_introduction())
 
 # Tạo giáo viên
-co_lan = GiaoVien("Trần Thị Lan", 30, "GV001", "Toán", 18000000)
-thay_nam = GiaoVien("Lê Văn Nam", 35, "GV002", "Lý", 20000000)
+teacher_lan = Teacher("Trần Thị Lan", 30, "GV001", "Toán", 18000000)
+teacher_nam = Teacher("Lê Văn Nam", 35, "GV002", "Lý", 20000000)
 
 # Hiệu trưởng tuyển giáo viên
-hieu_truong.tuyen_giao_vien(co_lan)
-hieu_truong.tuyen_giao_vien(thay_nam)
+principal.hire_teacher(teacher_lan)
+principal.hire_teacher(teacher_nam)
 
 # Tạo học sinh
-an = HocSinh("Nguyễn Văn An", 16, "HS001", "10A")
-binh = HocSinh("Trần Thị Bình", 15, "HS002", "10A")
+student_an = Student("Nguyễn Văn An", 16, "HS001", "10A")
+student_binh = Student("Trần Thị Bình", 15, "HS002", "10A")
 
 # Hiệu trưởng tiếp nhận học sinh
-hieu_truong.tuyen_hoc_sinh(an)
-hieu_truong.tuyen_hoc_sinh(binh)
+principal.enroll_student(student_an)
+principal.enroll_student(student_binh)
 
 # Phân công giảng dạy
-co_lan.phan_cong_lop("10A")
-thay_nam.phan_cong_lop("10A")
+teacher_lan.assign_class("10A")
+teacher_nam.assign_class("10A")
 
 # Hoạt động học tập
 print("\n📚 === HOẠT ĐỘNG HỌC TẬP ===")
-an.vao_truong()
-binh.vao_truong()
-co_lan.vao_truong()
+student_an.enter_school()
+student_binh.enter_school()
+teacher_lan.enter_school()
 
-an.diem_danh_hoc_sinh()
-binh.diem_danh_hoc_sinh()
+student_an.take_attendance()
+student_binh.take_attendance()
 
 # Giao và nộp bài tập
-bt_toan = co_lan.giao_bai_tap("10A", "Giải phương trình bậc 2")
-bai_cua_an = an.nop_bai_tap("Toán", "Bài giải phương trình bậc 2")
-co_lan.nhan_bai_tap(bai_cua_an)
-co_lan.cham_diem("An", 9.5)
+math_homework = teacher_lan.assign_homework("10A", "Giải phương trình bậc 2")
+an_homework = student_an.submit_homework("Toán", "Bài giải phương trình bậc 2")
+teacher_lan.receive_homework(an_homework)
+teacher_lan.grade_homework("An", 9.5)
 
 # Họp giáo viên và duyệt lương
 print("\n💼 === QUẢN LÝ TRƯỜNG ===")
-hieu_truong.hop_giao_vien()
-hieu_truong.duyet_luong(co_lan, 1.2, 2000000)
-hieu_truong.duyet_luong(thay_nam, 1.1, 1500000)
+principal.hold_teacher_meeting()
+principal.approve_salary(teacher_lan, 1.2, 2000000)
+principal.approve_salary(teacher_nam, 1.1, 1500000)
 ```
 
 ## 🔄 Các Loại Kế Thừa
 
 ### 1. 🎯 **Single Inheritance** - Kế Thừa Đơn
 ```python
-class DongVat:
-    def __init__(self, ten):
-        self.ten = ten
+class Animal:
+    def __init__(self, name):
+        self.name = name
     
-    def keu(self):
-        print(f"{self.ten} phát ra âm thanh")
+    def make_sound(self):
+        print(f"{self.name} phát ra âm thanh")
 
-class Cho(DongVat):  # Cho kế thừa từ DongVat
-    def keu(self):
-        print(f"{self.ten}: Gâu gâu! 🐕")
+class Dog(Animal):  # Dog kế thừa từ Animal
+    def make_sound(self):
+        print(f"{self.name}: Gâu gâu! 🐕")
 
-class Meo(DongVat):  # Mèo kế thừa từ DongVat  
-    def keu(self):
-        print(f"{self.ten}: Meo meo! 🐱")
+class Cat(Animal):  # Cat kế thừa từ Animal  
+    def make_sound(self):
+        print(f"{self.name}: Meo meo! 🐱")
 
 # Test
-cho_vang = Cho("Vàng")
-meo_mun = Meo("Mun")
+dog_vang = Dog("Vàng")
+cat_mun = Cat("Mun")
 
-cho_vang.keu()
-meo_mun.keu()
+dog_vang.make_sound()
+cat_mun.make_sound()
 ```
 
 ### 2. 🎭 **Multiple Inheritance** - Đa Kế Thừa
 ```python
-class CoTheBay:
+class CanFly:
     """Khả năng bay"""
-    def bay(self):
+    def fly(self):
         print("🦅 Đang bay lên cao!")
 
-class CoBoi:
+class CanSwim:
     """Khả năng bơi"""
-    def boi(self):
+    def swim(self):
         print("🏊‍♀️ Đang bơi trong nước!")
 
-class Vit(DongVat, CoTheBay, CoBoi):  # Kế thừa từ nhiều class
+class Duck(Animal, CanFly, CanSwim):  # Kế thừa từ nhiều class
     """Vịt có thể bay và bơi"""
     
-    def __init__(self, ten):
-        super().__init__(ten)
+    def __init__(self, name):
+        super().__init__(name)
     
-    def keu(self):
-        print(f"{self.ten}: Quạc quạc! 🦆")
+    def make_sound(self):
+        print(f"{self.name}: Quạc quạc! 🦆")
 
 # Test đa kế thừa
-vit_donald = Vit("Donald")
-vit_donald.keu()   # Từ class Vit
-vit_donald.bay()   # Từ class CoTheBay
-vit_donald.boi()   # Từ class CoBoi
+duck_donald = Duck("Donald")
+duck_donald.make_sound()   # Từ class Duck
+duck_donald.fly()          # Từ class CanFly
+duck_donald.swim()         # Từ class CanSwim
 ```
 
 ### 3. 🌲 **Multilevel Inheritance** - Kế Thừa Nhiều Cấp
 ```python
-class PhuongTien:
+class Vehicle:
     """Class cơ sở cho phương tiện"""
-    def __init__(self, ten, toc_do_toi_da):
-        self.ten = ten
-        self.toc_do_toi_da = toc_do_toi_da
-        self.toc_do_hien_tai = 0
+    def __init__(self, name, max_speed):
+        self.name = name
+        self.max_speed = max_speed
+        self.current_speed = 0
     
-    def khoi_dong(self):
-        print(f"🔥 {self.ten} đã khởi động")
+    def start_engine(self):
+        print(f"🔥 {self.name} đã khởi động")
 
-class Xe(PhuongTien):
-    """Class xe kế thừa từ PhuongTien"""
-    def __init__(self, ten, toc_do_toi_da, so_banh):
-        super().__init__(ten, toc_do_toi_da)
-        self.so_banh = so_banh
+class Car(Vehicle):
+    """Class xe kế thừa từ Vehicle"""
+    def __init__(self, name, max_speed, wheel_count):
+        super().__init__(name, max_speed)
+        self.wheel_count = wheel_count
     
-    def chay(self):
-        print(f"🏃‍♂️ {self.ten} với {self.so_banh} bánh đang chạy")
+    def drive(self):
+        print(f"🏃‍♂️ {self.name} với {self.wheel_count} bánh đang chạy")
 
-class XeHoi(Xe):
-    """Class xe hơi kế thừa từ Xe"""
-    def __init__(self, ten, toc_do_toi_da, hang_sx):
-        super().__init__(ten, toc_do_toi_da, 4)  # Xe hơi có 4 bánh
-        self.hang_sx = hang_sx
-        self.dang_mo_cua = False
+class Sedan(Car):
+    """Class xe sedan kế thừa từ Car"""
+    def __init__(self, name, max_speed, brand):
+        super().__init__(name, max_speed, 4)  # Sedan có 4 bánh
+        self.brand = brand
+        self.door_open = False
     
-    def mo_cua(self):
-        self.dang_mo_cua = True
-        print(f"🚪 Mở cửa {self.ten} {self.hang_sx}")
+    def open_door(self):
+        self.door_open = True
+        print(f"🚪 Mở cửa {self.name} {self.brand}")
     
-    def dong_cua(self):
-        self.dang_mo_cua = False
-        print(f"🚪 Đóng cửa {self.ten} {self.hang_sx}")
+    def close_door(self):
+        self.door_open = False
+        print(f"🚪 Đóng cửa {self.name} {self.brand}")
 
 # Test kế thừa nhiều cấp
-xe_camry = XeHoi("Camry", 200, "Toyota")
-xe_camry.khoi_dong()  # Từ PhuongTien (ông)
-xe_camry.chay()       # Từ Xe (cha)
-xe_camry.mo_cua()     # Từ XeHoi (chính nó)
+camry_car = Sedan("Camry", 200, "Toyota")
+camry_car.start_engine()  # Từ Vehicle (ông)
+camry_car.drive()         # Từ Car (cha)
+camry_car.open_door()     # Từ Sedan (chính nó)
 ```
 
 ## 🛠️ Method Override và Super()
 
 ```python
-class MayTinh:
+class Computer:
     """Class máy tính cơ bản"""
     
-    def __init__(self, hang, ram):
-        self.hang = hang
+    def __init__(self, brand, ram):
+        self.brand = brand
         self.ram = ram
-        self.dang_bat = False
+        self.is_running = False
     
-    def bat_may(self):
-        self.dang_bat = True
-        print(f"💻 Máy tính {self.hang} đang khởi động...")
-        self.thong_bao_khoi_dong()
+    def power_on(self):
+        self.is_running = True
+        print(f"💻 Máy tính {self.brand} đang khởi động...")
+        self.startup_notification()
     
-    def thong_bao_khoi_dong(self):
+    def startup_notification(self):
         print("✅ Hệ điều hành đã sẵn sàng")
     
-    def tat_may(self):
-        self.dang_bat = False
-        print(f"🔌 Đã tắt máy tình {self.hang}")
+    def power_off(self):
+        self.is_running = False
+        print(f"🔌 Đã tắt máy tình {self.brand}")
 
-class Laptop(MayTinh):
-    """Class laptop kế thừa từ MayTinh"""
+class Laptop(Computer):
+    """Class laptop kế thừa từ Computer"""
     
-    def __init__(self, hang, ram, pin_percent=100):
-        super().__init__(hang, ram)
-        self.pin_percent = pin_percent
-        self.dang_sac = False
+    def __init__(self, brand, ram, battery_percent=100):
+        super().__init__(brand, ram)
+        self.battery_percent = battery_percent
+        self.is_charging = False
     
-    def thong_bao_khoi_dong(self):
+    def startup_notification(self):
         """Override method của class cha"""
         # Gọi method gốc từ class cha
-        super().thong_bao_khoi_dong()
+        super().startup_notification()
         
         # Thêm thông báo riêng của laptop
-        print(f"🔋 Pin hiện tại: {self.pin_percent}%")
-        if self.pin_percent < 20:
+        print(f"🔋 Pin hiện tại: {self.battery_percent}%")
+        if self.battery_percent < 20:
             print("⚠️ Pin yếu! Hãy sạc máy!")
     
-    def sac_pin(self):
+    def charge_battery(self):
         """Method riêng của laptop"""
-        self.dang_sac = True
-        print(f"⚡ Đang sạc laptop {self.hang}...")
+        self.is_charging = True
+        print(f"⚡ Đang sạc laptop {self.brand}...")
         
         # Mô phỏng sạc pin
-        while self.pin_percent < 100 and self.dang_sac:
-            self.pin_percent = min(100, self.pin_percent + 10)
-            print(f"🔋 Pin: {self.pin_percent}%")
-            if self.pin_percent == 100:
+        while self.battery_percent < 100 and self.is_charging:
+            self.battery_percent = min(100, self.battery_percent + 10)
+            print(f"🔋 Pin: {self.battery_percent}%")
+            if self.battery_percent == 100:
                 print("✅ Đã sạc đầy!")
-                self.dang_sac = False
+                self.is_charging = False
                 break
 
-class LaptopGaming(Laptop):
+class GamingLaptop(Laptop):
     """Class laptop gaming kế thừa từ Laptop"""
     
-    def __init__(self, hang, ram, card_do_hoa, pin_percent=100):
-        super().__init__(hang, ram, pin_percent)
-        self.card_do_hoa = card_do_hoa
-        self.che_do_gaming = False
+    def __init__(self, brand, ram, graphics_card, battery_percent=100):
+        super().__init__(brand, ram, battery_percent)
+        self.graphics_card = graphics_card
+        self.gaming_mode = False
     
-    def thong_bao_khoi_dong(self):
+    def startup_notification(self):
         """Override với thêm thông tin gaming"""
-        super().thong_bao_khoi_dong()  # Gọi từ Laptop
-        print(f"🎮 Card đồ họa: {self.card_do_hoa}")
+        super().startup_notification()  # Gọi từ Laptop
+        print(f"🎮 Card đồ họa: {self.graphics_card}")
         print("🚀 Sẵn sàng cho gaming!")
     
-    def bat_che_do_gaming(self):
+    def enable_gaming_mode(self):
         """Chế độ gaming đặc biệt"""
-        self.che_do_gaming = True
-        print(f"🎯 {self.hang} bật chế độ Gaming Mode!")
+        self.gaming_mode = True
+        print(f"🎯 {self.brand} bật chế độ Gaming Mode!")
         print("⚡ Tăng hiệu năng tối đa!")
         print("🌟 LED RGB bật sáng!")
 
 # Test inheritance với override
 print("=== LAPTOP THƯỜNG ===")
-laptop_dell = Laptop("Dell XPS", "16GB", 15)
-laptop_dell.bat_may()
+dell_laptop = Laptop("Dell XPS", "16GB", 15)
+dell_laptop.power_on()
 
 print("\n=== LAPTOP GAMING ===") 
-laptop_gaming = LaptopGaming("ASUS ROG", "32GB", "RTX 4070", 80)
-laptop_gaming.bat_may()
-laptop_gaming.bat_che_do_gaming()
-laptop_gaming.sac_pin()
+gaming_laptop = GamingLaptop("ASUS ROG", "32GB", "RTX 4070", 80)
+gaming_laptop.power_on()
+gaming_laptop.enable_gaming_mode()
+gaming_laptop.charge_battery()
 ```
 
 ## 💡 Mẹo Hay Ho Về Kế Thừa
@@ -539,20 +539,20 @@ laptop_gaming.sac_pin()
 
 ### 🏆 Bài 1: Hệ Thống Game RPG
 Tạo hệ thống nhân vật với:
-- Class `NhanVat` (base)
-- Class `ChienBinh`, `PhapSu`, `CungThu` (kế thừa)
+- Class `Character` (base)
+- Class `Warrior`, `Mage`, `Archer` (kế thừa)
 - Mỗi class có kỹ năng riêng
 
 ### 🏆 Bài 2: Quản Lý Ngân Hàng
 Tạo hệ thống tài khoản:
-- Class `TaiKhoan` (base) 
-- Class `TaiKhoanTietKiem`, `TaiKhoanVay` (kế thừa)
+- Class `Account` (base) 
+- Class `SavingsAccount`, `LoanAccount` (kế thừa)
 - Các loại tài khoản có lãi suất khác nhau
 
 ### 🏆 Bài 3: Cửa Hàng Điện Tử
 Tạo hệ thống sản phẩm:
-- Class `SanPham` (base)
-- Class `DienThoai`, `Laptop`, `TaiNghe` (kế thừa)
+- Class `Product` (base)
+- Class `Phone`, `Laptop`, `Headphone` (kế thừa)
 - Mỗi loại có tính năng đặc biệt
 
 ## 🔗 Kiến Thức Liên Quan

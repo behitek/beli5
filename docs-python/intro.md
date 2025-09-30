@@ -138,7 +138,3 @@ Bạn đang bắt đầu một hành trình tuyệt vời! Hàng triệu ngườ
 
 **Hãy nhớ**: Mỗi chuyên gia đều từng là người mới bắt đầu. Bạn có thể làm được!
 :::
-
----
-
-*📚 **Lưu ý**: Tất cả nội dung trong khóa học này được tạo ra với sự hỗ trợ của AI để đảm bảo tính nhất quán và chất lượng. Mọi ví dụ code đều được kiểm tra kỹ lưỡng để đảm bảo hoạt động chính xác.*

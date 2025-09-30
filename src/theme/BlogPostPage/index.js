@@ -37,13 +37,14 @@ export default function BlogPostPage(props) {
                         return (
                             <div style={{
                                 maxWidth: '800px',
-                                margin: '0 auto',
-                                padding: '0 1rem 2rem 1rem'
+                                margin: '2rem auto 0 auto',
+                                padding: '0 1rem'
                             }}>
                                 <FacebookComments
                                     url={fullUrl}
                                     numPosts={10}
                                     colorScheme={colorMode === 'dark' ? 'dark' : 'light'}
+                                    width="100%"
                                 />
                             </div>
                         );

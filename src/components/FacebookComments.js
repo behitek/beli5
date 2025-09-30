@@ -29,7 +29,16 @@ export default function FacebookComments({
             console.log('FacebookComments: Loading FB SDK');
             loadFacebookSDK();
         }
-    }, [url, facebookAppId]);
+
+        // Force re-parse khi component update
+        const timer = setTimeout(() => {
+            if (window.FB && window.FB.XFBML) {
+                window.FB.XFBML.parse();
+            }
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [url, facebookAppId, width]);
 
     const loadFacebookSDK = () => {
         // Kiểm tra nếu script đã tồn tại để tránh load nhiều lần
@@ -74,7 +83,9 @@ export default function FacebookComments({
                 <div style={{
                     marginTop: '2rem',
                     padding: '1rem 0',
-                    borderTop: '1px solid var(--ifm-color-emphasis-200)'
+                    borderTop: '1px solid var(--ifm-color-emphasis-200)',
+                    width: '100%',
+                    maxWidth: '100%'
                 }}>
                     <h3 style={{
                         marginBottom: '1rem',
@@ -92,15 +103,24 @@ export default function FacebookComments({
                         Chia sẻ suy nghĩ của bạn hoặc đặt câu hỏi về nội dung này.
                         Cộng đồng Beli5 luôn sẵn sàng giúp đỡ! 🤝
                     </p>
-                    <div
-                        className="fb-comments"
-                        data-href={url}
-                        data-width={width}
-                        data-numposts={numPosts}
-                        data-colorscheme={colorScheme}
-                        data-lazy="true"
-                        data-order-by="social"
-                    ></div>
+                    <div style={{
+                        width: '100%',
+                        minHeight: '200px'
+                    }}>
+                        <div
+                            className="fb-comments"
+                            data-href={url}
+                            data-width="100%"
+                            data-numposts={numPosts}
+                            data-colorscheme={colorScheme}
+                            data-lazy="false"
+                            data-order-by="social"
+                            data-mobile="true"
+                            style={{
+                                width: '100%'
+                            }}
+                        ></div>
+                    </div>
                 </div>
             )}
         </BrowserOnly>

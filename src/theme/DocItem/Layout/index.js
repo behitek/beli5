@@ -17,8 +17,9 @@ export default function DocItemLayout(props) {
     const fullUrl = `${siteConfig.url}${siteConfig.baseUrl}${location.pathname}`.replace(/\/+/g, '/');
 
     // Kiểm tra xem có nên hiển thị comments hay không
-    // Không hiển thị trên trang intro và trang chính
-    const shouldShowComments = !location.pathname.includes('/intro') &&
+    // Chỉ không hiển thị trên trang intro chính và trang home
+    const shouldShowComments = location.pathname !== '/intro' &&
+        location.pathname !== '/beli5/intro' &&
         location.pathname !== '/' &&
         location.pathname !== '/beli5/';
 
@@ -44,12 +45,14 @@ export default function DocItemLayout(props) {
                             return (
                                 <div style={{
                                     marginTop: '2rem',
-                                    padding: '0 1rem'
+                                    padding: '0',
+                                    width: '100%'
                                 }}>
                                     <FacebookComments
                                         url={fullUrl}
                                         numPosts={5}
                                         colorScheme={colorMode === 'dark' ? 'dark' : 'light'}
+                                        width="100%"
                                     />
                                 </div>
                             );

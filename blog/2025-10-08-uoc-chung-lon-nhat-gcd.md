@@ -112,13 +112,13 @@ Nếu d là ước chung của a và b, thì d cũng là ước chung của b v�
 
 ```mermaid
 graph TD
-    A[gcd(48, 18)] --> B[gcd(18, 48 mod 18)]
-    B --> C[gcd(18, 12)]
-    C --> D[gcd(12, 18 mod 12)]
-    D --> E[gcd(12, 6)]
-    E --> F[gcd(6, 12 mod 6)]
-    F --> G[gcd(6, 0)]
-    G --> H[6]
+    A["gcd(48, 18)"] --> B["gcd(18, 48 mod 18)"]
+    B --> C["gcd(18, 12)"]
+    C --> D["gcd(12, 18 mod 12)"]
+    D --> E["gcd(12, 6)"]
+    E --> F["gcd(6, 12 mod 6)"]
+    F --> G["gcd(6, 0)"]
+    G --> H["6"]
     
     style H fill:#90EE90
 ```
@@ -347,14 +347,14 @@ Không chỉ tìm GCD, mà còn tìm hệ số x, y sao cho: **ax + by = gcd(a, 
 
 ```mermaid
 graph TD
-    A[Extended Euclidean] --> B[Tìm GCD]
-    A --> C[Tìm hệ số x, y]
-    C --> D[ax + by = gcd(a,b)]
+    A["Extended Euclidean"] --> B["Tìm GCD"]
+    A --> C["Tìm hệ số x, y"]
+    C --> D["ax + by = gcd(a,b)"]
     
-    E[Ví dụ: a=48, b=18] --> F[GCD=6]
-    E --> G[48x + 18y = 6]
-    G --> H[x=1, y=-2]
-    H --> I[48×1 + 18×(-2) = 6 ✓]
+    E["Ví dụ: a=48, b=18"] --> F["GCD=6"]
+    E --> G["48x + 18y = 6"]
+    G --> H["x=1, y=-2"]
+    H --> I["48×1 + 18×(-2) = 6 ✓"]
     
     style F fill:#90EE90
     style I fill:#90EE90

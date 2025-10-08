@@ -1,10 +1,19 @@
 ---
 slug: boi-chung-nho-nhat-lcm
 title: Tính bội chung nhỏ nhất (LCM) và ứng dụng
-authors: [behitek]
-tags: [basics, lcm, math, gcd, algorithms]
-date: 2025-10-08
-description: "Khám phá bội chung nhỏ nhất (LCM) từ cơ bản đến nâng cao. Học cách tính LCM hiệu quả, mối quan hệ với GCD, và các ứng dụng thực tế trong lập trình và toán học."
+authors:
+  - behitek
+tags:
+  - basics
+  - lcm
+  - math
+  - gcd
+  - algorithms
+date: 2025-10-08T00:00:00.000Z
+description: >-
+  Khám phá bội chung nhỏ nhất (LCM) từ cơ bản đến nâng cao. Học cách tính LCM
+  hiệu quả, mối quan hệ với GCD, và các ứng dụng thực tế trong lập trình và toán
+  học.
 keywords:
   - bội chung nhỏ nhất
   - LCM
@@ -14,7 +23,7 @@ keywords:
   - toán học
   - số học
   - thuật toán
-image: /img/blog/lcm-thumbnail.jpg
+image: /img/blog/generated/boi-chung-nho-nhat-lcm-thumbnail.jpg
 ---
 
 # Tính bội chung nhỏ nhất (LCM) và ứng dụng

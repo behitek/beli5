@@ -1,10 +1,19 @@
 ---
 slug: kiem-tra-so-nguyen-to
 title: Kiểm tra số nguyên tố - Từ cách cơ bản đến tối ưu
-authors: [behitek]
-tags: [basics, prime, math, algorithms, optimization]
-date: 2025-10-08
-description: "Khám phá các thuật toán kiểm tra số nguyên tố từ cơ bản đến nâng cao: Trial Division, Sieve of Eratosthenes, và các tối ưu hóa thông minh. Code mẫu C++, Python, Java với phân tích chi tiết."
+authors:
+  - behitek
+tags:
+  - basics
+  - prime
+  - math
+  - algorithms
+  - optimization
+date: 2025-10-08T00:00:00.000Z
+description: >-
+  Khám phá các thuật toán kiểm tra số nguyên tố từ cơ bản đến nâng cao: Trial
+  Division, Sieve of Eratosthenes, và các tối ưu hóa thông minh. Code mẫu C++,
+  Python, Java với phân tích chi tiết.
 keywords:
   - số nguyên tố
   - prime number
@@ -12,7 +21,7 @@ keywords:
   - trial division
   - thuật toán tối ưu
   - kiểm tra số nguyên tố
-image: /img/blog/prime-number-thumbnail.jpg
+image: /img/blog/generated/kiem-tra-so-nguyen-to-thumbnail.jpg
 ---
 
 # Kiểm tra số nguyên tố - Từ cách cơ bản đến tối ưu

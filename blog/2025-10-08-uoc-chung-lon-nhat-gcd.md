@@ -1,10 +1,19 @@
 ---
 slug: uoc-chung-lon-nhat-gcd
 title: Tìm ước chung lớn nhất (GCD) bằng thuật toán Euclid
-authors: [behitek]
-tags: [basics, gcd, math, euclid, algorithms]
-date: 2025-10-08
-description: "Học thuật toán Euclid để tìm ước chung lớn nhất (GCD) một cách hiệu quả. Từ phương pháp cơ bản đến tối ưu, bao gồm Extended Euclidean Algorithm và ứng dụng thực tế."
+authors:
+  - behitek
+tags:
+  - basics
+  - gcd
+  - math
+  - euclid
+  - algorithms
+date: 2025-10-08T00:00:00.000Z
+description: >-
+  Học thuật toán Euclid để tìm ước chung lớn nhất (GCD) một cách hiệu quả. Từ
+  phương pháp cơ bản đến tối ưu, bao gồm Extended Euclidean Algorithm và ứng
+  dụng thực tế.
 keywords:
   - ước chung lớn nhất
   - GCD
@@ -13,7 +22,7 @@ keywords:
   - euclidean algorithm
   - toán học
   - số học
-image: /img/blog/gcd-thumbnail.jpg
+image: /img/blog/generated/uoc-chung-lon-nhat-gcd-thumbnail.jpg
 ---
 
 # Tìm ước chung lớn nhất (GCD) bằng thuật toán Euclid

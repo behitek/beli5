@@ -1,17 +1,25 @@
 ---
 slug: kiem-tra-so-chinh-phuong
 title: Cài đặt code kiểm tra số chính phương - Từ cơ bản đến tối ưu
-authors: [behitek]
-tags: [basics, math, square-number, algorithms]
-date: 2025-10-08
-description: "Học cách kiểm tra số chính phương bằng nhiều phương pháp khác nhau: từ cách đơn giản nhất đến thuật toán tối ưu. Bài viết bao gồm code mẫu bằng C++, Python, Java và phân tích độ phức tạp."
+authors:
+  - behitek
+tags:
+  - basics
+  - math
+  - square-number
+  - algorithms
+date: 2025-10-08T00:00:00.000Z
+description: >-
+  Học cách kiểm tra số chính phương bằng nhiều phương pháp khác nhau: từ cách
+  đơn giản nhất đến thuật toán tối ưu. Bài viết bao gồm code mẫu bằng C++,
+  Python, Java và phân tích độ phức tạp.
 keywords:
   - số chính phương
   - perfect square
   - kiểm tra số chính phương
   - thuật toán toán học
   - lập trình cơ bản
-image: /img/blog/square-number-thumbnail.jpg
+image: /img/blog/generated/kiem-tra-so-chinh-phuong-thumbnail.jpg
 ---
 
 # Cài đặt code kiểm tra số chính phương - Từ cơ bản đến tối ưu

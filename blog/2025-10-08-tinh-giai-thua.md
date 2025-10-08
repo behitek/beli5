@@ -1,10 +1,19 @@
 ---
 slug: tinh-giai-thua
 title: Tính giai thừa của một số - 3 cách khác nhau
-authors: [behitek]
-tags: [basics, factorial, recursion, math, algorithms]
-date: 2025-10-08
-description: "Khám phá 3 cách tính giai thừa: vòng lặp, đệ quy, và lập trình động. So sánh ưu nhược điểm, xử lý số lớn, và tối ưu hóa hiệu suất. Code mẫu C++, Python, Java chi tiết."
+authors:
+  - behitek
+tags:
+  - basics
+  - factorial
+  - recursion
+  - math
+  - algorithms
+date: 2025-10-08T00:00:00.000Z
+description: >-
+  Khám phá 3 cách tính giai thừa: vòng lặp, đệ quy, và lập trình động. So sánh
+  ưu nhược điểm, xử lý số lớn, và tối ưu hóa hiệu suất. Code mẫu C++, Python,
+  Java chi tiết.
 keywords:
   - giai thừa
   - factorial
@@ -13,7 +22,7 @@ keywords:
   - dynamic programming
   - big integer
   - thuật toán toán học
-image: /img/blog/factorial-thumbnail.jpg
+image: /img/blog/generated/tinh-giai-thua-thumbnail.jpg
 ---
 
 # Tính giai thừa của một số - 3 cách khác nhau

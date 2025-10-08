@@ -1,149 +1,150 @@
-# 📚 Programming Glossary (ELI5 Style)
+# 📚 Từ Điển Lập Trình Dễ Hiểu
 
-:::info 🤖 AI-Generated Content
-This glossary is created by AI and explained in simple terms! Think of it as a dictionary for programming words, but explained like you're 5! 🎉
-:::
+## Trang Này Là Gì?
 
-## What is This Page?
-
-This is like a special dictionary that explains programming words using simple language and fun comparisons. Whenever you see a word you don't understand in the tutorials, come back here!
+Đây là cuốn từ điển đặc biệt giải thích các thuật ngữ lập trình bằng ngôn ngữ đơn giản và những so sánh vui nhộn. Mỗi khi bạn gặp từ không hiểu trong các bài học, hãy quay lại đây nhé!
 
 ---
 
 ## A-C
 
-### **Algorithm** 🧩
-**Simple Explanation**: A step-by-step recipe for solving a problem.
-**Like**: Following a recipe to bake cookies - first you mix flour, then add eggs, then bake for 20 minutes.
-**Example**: "The algorithm for brushing teeth: 1) Get toothbrush, 2) Add toothpaste, 3) Brush for 2 minutes, 4) Rinse."
+### **Thuật Toán (Algorithm)** 🧩
+**Giải thích đơn giản**: Một công thức từng bước để giải quyết vấn đề.
+**Giống như**: Làm theo công thức nấu phở - trước tiên bạn nấu nước dùng, sau đó thêm gia vị, cuối cùng cho bánh phở và thịt vào.
+**Ví dụ**: "Thuật toán để đánh răng: 1) Lấy bàn chải, 2) Bôi kem đánh răng, 3) Đánh răng trong 2 phút, 4) Súc miệng."
 
-### **Bug** 🐛
-**Simple Explanation**: A mistake in your code that makes it not work right.
-**Like**: When you follow a cookie recipe but accidentally use salt instead of sugar - the cookies won't taste good!
-**Example**: "There's a bug in my program - it's supposed to say 'Hello' but it says 'Helo' instead."
+### **Lỗi (Bug)** 🐛
+**Giải thích đơn giản**: Một sai lầm trong code khiến chương trình không hoạt động đúng.
+**Giống như**: Khi bạn nấu phở nhưng nhầm cho muối thay vì đường - món ăn sẽ không ngon!
+**Ví dụ**: "Có lỗi trong chương trình của tôi - nó phải nói 'Xin chào' nhưng lại nói 'Xin chà' thay vì."
 
-### **Code** 💻
-**Simple Explanation**: Instructions written in a special language that computers can understand.
-**Like**: Writing a note to your friend, but using a secret language that only computers know how to read.
-**Example**: `print("Hello!")` is code that tells the computer to say "Hello!"
+### **Code (Mã lệnh)** 💻
+**Giải thích đơn giản**: Những chỉ dẫn được viết bằng ngôn ngữ đặc biệt mà máy tính có thể hiểu.
+**Giống như**: Viết thư cho bạn nhưng dùng ngôn ngữ bí mật mà chỉ máy tính biết cách đọc.
+**Ví dụ**: `print("Xin chào!")` là code bảo máy tính nói "Xin chào!"
 
-### **Compiler** 🏭
-**Simple Explanation**: A special program that translates your human-friendly code into computer language.
-**Like**: A translator who takes your English instructions and turns them into robot language so robots can understand.
-**Example**: You write "print hello" and the compiler turns it into 1s and 0s that the computer understands.
+### **Trình Biên Dịch (Compiler)** 🏭
+**Giải thích đơn giản**: Một chương trình đặc biệt dịch code của bạn sang ngôn ngữ máy tính.
+**Giống như**: Một thông dịch viên chuyển lời nói tiếng Việt của bạn thành ngôn ngữ robot để robot hiểu.
+**Ví dụ**: Bạn viết "in chào" và trình biên dịch chuyển nó thành những số 1 và 0 mà máy tính hiểu được.
 
 ---
 
 ## D-F
 
-### **Debug** 🔍
-**Simple Explanation**: Finding and fixing mistakes (bugs) in your code.
-**Like**: Being a detective who looks for clues to solve the mystery of why your program isn't working.
-**Example**: "I need to debug my calculator - it's adding wrong!"
+### **Gỡ Lỗi (Debug)** 🔍
+**Giải thích đơn giản**: Tìm và sửa những sai lầm (lỗi) trong code của bạn.
+**Giống như**: Làm thám tử tìm manh mối để giải quyết bí ẩn tại sao chương trình không hoạt động.
+**Ví dụ**: "Tôi cần gỡ lỗi máy tính của mình - nó đang cộng sai!"
 
-### **Function** 📦
-**Simple Explanation**: A reusable piece of code that does a specific job.
-**Like**: A magic box where you put something in, it does something special, and gives you something back.
-**Example**: A `add()` function takes two numbers, adds them together, and gives you the answer.
+### **Hàm (Function)** 📦
+**Giải thích đơn giản**: Một đoạn code có thể dùng lại để làm một công việc cụ thể.
+**Giống như**: Một hộp thần kỳ mà bạn bỏ thứ gì đó vào, nó làm một việc đặc biệt, rồi trả lại kết quả cho bạn.
+**Ví dụ**: Hàm `cong()` nhận hai số, cộng chúng lại, và đưa cho bạn kết quả.
 
 ---
 
 ## G-I
 
 ### **Rust** 🦀
-**Simple Explanation**: A programming language that focuses on safety and speed.
-**Like**: Having the ultimate safety gear that prevents all accidents while still letting you work super fast.
-**Example**: Rust prevents your programs from crashing and keeps your data safe automatically.
+**Giải thích đơn giản**: Một ngôn ngữ lập trình tập trung vào sự an toàn và tốc độ.
+**Giống như**: Có bộ đồ bảo hộ siêu cao cấp ngăn ngừa mọi tai nạn nhưng vẫn cho phép bạn làm việc cực nhanh.
+**Ví dụ**: Rust ngăn chương trình của bạn bị lỗi và tự động giữ dữ liệu an toàn.
 
-### **IDE** 🏠
-**Simple Explanation**: A special program where you write and test your code (Integrated Development Environment).
-**Like**: A workshop with all the tools you need to build things - hammers, screwdrivers, and a workbench all in one place.
-**Example**: Visual Studio Code is an IDE where you can write Python, Java, and other code.
+### **IDE (Môi Trường Phát Triển)** 🏠
+**Giải thích đơn giản**: Một chương trình đặc biệt để bạn viết và kiểm tra code.
+**Giống như**: Một xưởng có đầy đủ công cụ cần thiết để chế tạo - búa, tua vít, và bàn làm việc tất cả trong một chỗ.
+**Ví dụ**: Visual Studio Code là một IDE để bạn có thể viết Python, Java và nhiều ngôn ngữ khác.
 
 ---
 
 ## J-L
 
 ### **Java** ☕
-**Simple Explanation**: A programming language that's like building with LEGO blocks.
-**Like**: Using premium LEGO sets with perfect instructions to build amazing things.
-**Example**: Java is used to make Android apps and many video games.
+**Giải thích đơn giản**: Một ngôn ngữ lập trình giống như xây dựng bằng khối LEGO.
+**Giống như**: Sử dụng bộ LEGO cao cấp với hướng dẫn hoàn hảo để xây những thứ tuyệt vời.
+**Ví dụ**: Java được dùng để tạo các ứng dụng Android và nhiều trò chơi điện tử.
 
-### **Loop** 🔄
-**Simple Explanation**: Code that repeats the same instructions over and over.
-**Like**: A hamster running on a wheel - it keeps doing the same thing until you tell it to stop.
-**Example**: A loop that prints "Hello!" 10 times instead of writing `print("Hello!")` 10 separate times.
+### **Vòng Lặp (Loop)** 🔄
+**Giải thích đơn giản**: Code lặp lại cùng một chỉ dẫn nhiều lần.
+**Giống như**: Con chuột hamster chạy trên bánh xe - nó cứ làm cùng một việc cho đến khi bạn bảo nó dừng lại.
+**Ví dụ**: Một vòng lặp in "Xin chào!" 10 lần thay vì phải viết `print("Xin chào!")` 10 lần riêng biệt.
 
 ---
 
 ## M-O
 
-### **Method** 🎯
-**Simple Explanation**: In Java and other languages, a method is like a function - a set of instructions that do a specific job.
-**Like**: A recipe card that tells you exactly how to make one specific dish.
-**Example**: A `calculateArea()` method that figures out how big a rectangle is.
+### **Phương Thức (Method)** 🎯
+**Giải thích đơn giản**: Trong Java và các ngôn ngữ khác, phương thức giống như hàm - một tập hợp chỉ dẫn làm công việc cụ thể.
+**Giống như**: Một thẻ công thức nấu ăn bảo bạn chính xác cách làm một món ăn.
+**Ví dụ**: Phương thức `tinhDienTich()` tính toán xem hình chữ nhật lớn như thế nào.
 
-### **Object** 🧸
-**Simple Explanation**: In programming, a thing that has properties and can do actions.
-**Like**: A toy robot that has a color (property) and can walk (action).
-**Example**: A `Car` object might have a color and speed, and can start or stop.
+### **Đối Tượng (Object)** 🧸
+**Giải thích đơn giản**: Trong lập trình, một thứ có các thuộc tính và có thể thực hiện hành động.
+**Giống như**: Một con robot đồ chơi có màu sắc (thuộc tính) và có thể đi bộ (hành động).
+**Ví dụ**: Đối tượng `XeHoi` có thể có màu sắc và tốc độ, và có thể khởi động hoặc dừng lại.
 
 ---
 
 ## P-R
 
 ### **Python** 🐍
-**Simple Explanation**: A programming language that's friendly and easy to learn.
-**Like**: Having a smart pet snake that can do math, write stories, and help organize your room.
-**Example**: `print("Hello World!")` in Python tells the computer to say "Hello World!"
+**Giải thích đơn giản**: Một ngôn ngữ lập trình thân thiện và dễ học.
+**Giống như**: Có một con rắn thông minh có thể làm toán, viết truyện, và giúp dọn dẹp phòng.
+**Ví dụ**: `print("Xin chào thế giới!")` trong Python bảo máy tính nói "Xin chào thế giới!"
 
-### **Program** 📱
-**Simple Explanation**: A complete set of instructions that tells a computer what to do.
-**Like**: A complete instruction manual for building a LEGO castle - all the steps from start to finish.
-**Example**: A calculator app is a program that helps you do math.
+### **Chương Trình (Program)** 📱
+**Giải thích đơn giản**: Một bộ chỉ dẫn hoàn chỉnh bảo máy tính phải làm gì.
+**Giống như**: Sách hướng dẫn hoàn chỉnh để xây lâu đài LEGO - tất cả các bước từ đầu đến cuối.
+**Ví dụ**: Ứng dụng máy tính là một chương trình giúp bạn làm toán.
 
 ---
 
 ## S-U
 
-### **String** 🧵
-**Simple Explanation**: Text or words in programming.
-**Like**: A necklace made of letter beads - each letter is connected to make words and sentences.
-**Example**: `"Hello, my name is Alex!"` is a string with words and punctuation.
+### **Chuỗi (String)** 🧵
+**Giải thích đơn giản**: Văn bản hoặc từ ngữ trong lập trình.
+**Giống như**: Một sợi dây chuyền làm từ các hạt chữ cái - mỗi chữ cái nối với nhau tạo thành từ và câu.
+**Ví dụ**: `"Xin chào, tên tôi là Minh!"` là một chuỗi chứa từ ngữ và dấu câu.
 
-### **Syntax** 📝
-**Simple Explanation**: The rules for how to write code correctly.
-**Like**: Grammar rules for English - you need to put words in the right order and use the right punctuation.
-**Example**: In Python, you need to write `print("hello")` not `print hello` - the parentheses and quotes are part of the syntax.
+### **Cú Pháp (Syntax)** 📝
+**Giải thích đơn giản**: Những quy tắc để viết code một cách chính xác.
+**Giống như**: Quy tắc ngữ pháp tiếng Việt - bạn cần đặt từ theo thứ tự đúng và dùng dấu câu phù hợp.
+**Ví dụ**: Trong Python, bạn cần viết `print("xin chào")` chứ không phải `print xin chào` - dấu ngoặc và dấu nháy là phần của cú pháp.
 
 ---
 
 ## V-Z
 
-### **Variable** 📦
-**Simple Explanation**: A labeled box where you store information in your program.
-**Like**: A toy box with a label that says "LEGO blocks" - you know exactly what's inside.
-**Example**: `name = "Sarah"` creates a variable called `name` that holds the text "Sarah".
+### **Biến (Variable)** 📦
+**Giải thích đơn giản**: Một cái hộp có nhãn để bạn lưu trữ thông tin trong chương trình.
+**Giống như**: Một hộp đựng đồ chơi có nhãn ghi "Khối LEGO" - bạn biết chính xác bên trong có gì.
+**Ví dụ**: `ten = "Minh"` tạo ra một biến tên là `ten` chứa chữ "Minh".
 
-### **Website** 🏠
-**Simple Explanation**: A collection of web pages that people can visit on the internet.
-**Like**: A house with many rooms - each page is like a different room with different things to see.
-**Example**: YouTube is a website with millions of pages showing different videos.
+### **Trang Web (Website)** 🏠
+**Giải thích đơn giản**: Một tập hợp các trang web mà mọi người có thể truy cập trên internet.
+**Giống như**: Một ngôi nhà có nhiều phòng - mỗi trang giống như một phòng khác nhau với những thứ khác nhau để xem.
+**Ví dụ**: YouTube là một trang web có hàng triệu trang hiển thị các video khác nhau.
+
+### **C++** ⚡
+**Giải thích đơn giản**: Một ngôn ngữ lập trình mạnh mẽ như dụng cụ chuyên nghiệp.
+**Giống như**: Sử dụng bộ dụng cụ thợ máy chuyên nghiệp - phức tạp nhưng có thể làm được mọi việc.
+**Ví dụ**: C++ được dùng để tạo các trò chơi lớn và phần mềm hoạt động rất nhanh.
 
 ---
 
-## Need Help? 🆘
+## Cần Giúp Đỡ? 🆘
 
-If you see a programming word that's not in this glossary:
+Nếu bạn thấy từ lập trình nào không có trong từ điển này:
 
-1. **Ask an adult** - Parents, teachers, or older siblings can help explain
-2. **Look it up online** - Websites like "programming for kids" have simple explanations
-3. **Don't worry!** - Even adult programmers look up words they don't know
+1. **Hỏi người lớn** - Bố mẹ, giáo viên, hoặc anh chị có thể giúp giải thích
+2. **Tìm kiếm trực tuyến** - Các trang web như "lập trình cho trẻ em" có giải thích đơn giản
+3. **Đừng lo lắng!** - Ngay cả các lập trình viên người lớn cũng phải tra cứu những từ họ không biết
 
-:::tip 💡 Remember
-Programming has lots of special words, just like any hobby or sport. You don't need to memorize them all at once - just learn them as you go! Even professional programmers had to learn these words one at a time when they were beginners.
+:::tip 💡 Nhớ nhé
+Lập trình có rất nhiều từ đặc biệt, giống như bất kỳ sở thích hay môn thể thao nào. Bạn không cần phải thuộc lòng tất cả cùng một lúc - chỉ cần học dần dần thôi! Ngay cả các lập trình viên chuyên nghiệp cũng phải học từng từ một khi họ mới bắt đầu.
 :::
 
 ---
 
-**Want to start learning?** Go back to the [home page](/) and pick a programming language to begin your adventure!
+**Muốn bắt đầu học?** Quay lại [trang chủ](/) và chọn một ngôn ngữ lập trình để bắt đầu cuộc phiêu lưu!

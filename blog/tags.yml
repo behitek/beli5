@@ -1,19 +1,52 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+# Tags cho blog hướng dẫn và mẹo lập trình
+python:
+  label: Python
+  permalink: /python-tips
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+java:
+  label: Java
+  permalink: /java-tips
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+cpp:
+  label: C++
+  permalink: /cpp-tips
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+rust:
+  label: Rust
+  permalink: /rust-tips
+
+beginner:
+  label: Người Mới Bắt Đầu
+  permalink: /beginner-tips
+
+intermediate:
+  label: Trung Cấp
+  permalink: /intermediate-tips
+
+advanced:
+  label: Nâng Cao
+  permalink: /advanced-tips
+
+tutorial:
+  label: Hướng Dẫn
+  permalink: /tutorial
+
+tips:
+  label: Mẹo
+  permalink: /tips
+
+best-practices:
+  label: Thực Hành Tốt
+  permalink: /best-practices
+
+debugging:
+  label: Debug
+  permalink: /debugging
+
+algorithms:
+  label: Thuật Toán
+  permalink: /algorithms
+
+data-structures:
+  label: Cấu Trúc Dữ Liệu
+  permalink: /data-structures

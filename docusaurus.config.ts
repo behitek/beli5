@@ -90,6 +90,27 @@ const config: Config = {
         showLastUpdateTime: false,
       },
     ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog',
+        path: 'blog',
+        routeBasePath: 'blog',
+        showReadingTime: true,
+        readingTime: ({content, frontMatter, defaultReadingTime}) =>
+          defaultReadingTime({content, locale: 'vi', frontMatter, options: {wordsPerMinute: 200}}),
+        feedOptions: {
+          type: ['rss', 'atom'],
+          xslt: true,
+        },
+        editUrl: 'https://github.com/behitek/beli5/tree/main/',
+        blogTitle: 'Hướng Dẫn & Mẹo Lập Trình',
+        blogDescription: 'Chia sẻ hướng dẫn, mẹo và kinh nghiệm lập trình dành cho người học',
+        postsPerPage: 10,
+        blogSidebarTitle: 'Bài viết gần đây',
+        blogSidebarCount: 5,
+      },
+    ],
   ],
 
   themes: ['@docusaurus/theme-mermaid'],
@@ -108,6 +129,8 @@ const config: Config = {
       {
         docs: false, // Disable default docs since we're using multiple instances
         blog: {
+          path: 'news',
+          routeBasePath: 'news',
           showReadingTime: true,
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({content, locale: 'vi', frontMatter, options: {wordsPerMinute: 200}}),
@@ -116,10 +139,10 @@ const config: Config = {
             xslt: true,
           },
           editUrl: 'https://github.com/behitek/beli5/tree/main/',
-          blogTitle: 'Cập Nhật Blog ELI5',
-          blogDescription: 'Những cập nhật mới nhất về blog chia sẻ lập trình ELI5',
+          blogTitle: 'Tin Tức & Cập Nhật',
+          blogDescription: 'Những tin tức và cập nhật mới nhất về blog chia sẻ lập trình ELI5',
           postsPerPage: 'ALL',
-          blogSidebarTitle: 'Tất cả bài viết',
+          blogSidebarTitle: 'Tất cả tin tức',
           blogSidebarCount: 'ALL',
         },
         theme: {
@@ -174,7 +197,8 @@ const config: Config = {
         {to: '/java/intro', label: '☕ Java', position: 'left'},
         {to: '/cpp/intro', label: '⚡ C++', position: 'left'},
         {to: '/rust/intro', label: '🦀 Rust', position: 'left'},
-        {to: '/blog', label: '📝 Cập Nhật', position: 'left'},
+        {to: '/blog', label: '📖 Blog', position: 'left'},
+        {to: '/news', label: '📝 Cập Nhật', position: 'left'},
         {
           href: 'https://github.com/behitek/beli5',
           label: 'GitHub',
@@ -229,8 +253,12 @@ const config: Config = {
           title: 'Cộng Đồng & Cập Nhật',
           items: [
             {
-              label: 'Cập Nhật Mới Nhất',
+              label: 'Hướng Dẫn & Mẹo',
               to: '/blog',
+            },
+            {
+              label: 'Tin Tức Mới Nhất',
+              to: '/news',
             },
             {
               label: 'Kho GitHub',

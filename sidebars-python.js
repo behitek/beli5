@@ -140,11 +140,6 @@ const sidebars = {
         },
         {
             type: 'doc',
-            id: 'python-todo',
-            label: '📝 TODO List',
-        },
-        {
-            type: 'doc',
             id: 'help-and-tips',
             label: '🆘 Trợ Giúp & Mẹo Hay',
         },

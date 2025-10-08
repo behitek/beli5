@@ -39,9 +39,9 @@ Hãy tưởng tượng bạn có 48 viên kẹo đỏ và 18 viên kẹo xanh. B
 
 ```mermaid
 graph TD
-    A[48 viên kẹo đỏ<br/>18 viên kẹo xanh] --> B[Chia vào các túi đều nhau]
-    B --> C[GCD(48, 18) = 6]
-    C --> D[6 túi<br/>Mỗi túi: 8 đỏ + 3 xanh]
+    A["48 viên kẹo đỏ<br/>18 viên kẹo xanh"] --> B["Chia vào các túi đều nhau"]
+    B --> C["GCD(48, 18) = 6"]
+    C --> D["6 túi<br/>Mỗi túi: 8 đỏ + 3 xanh"]
     
     style D fill:#90EE90
 ```

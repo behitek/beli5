@@ -305,14 +305,14 @@ Khi cần kiểm tra nhiều số cùng lúc, Sàng Eratosthenes là lựa chọ
 
 ```mermaid
 graph TD
-    A[Tạo mảng boolean size n+1] --> B[Đánh dấu tất cả = true]
-    B --> C[Đánh dấu 0, 1 = false]
-    C --> D[i = 2]
-    D --> E{i² ≤ n?}
-    E -->|Không| F[Kết thúc]
-    E -->|Có| G{arr[i] == true?}
-    G -->|Có| H[Đánh dấu bội số của i = false]
-    G -->|Không| I[i++]
+    A["Tạo mảng boolean size n+1"] --> B["Đánh dấu tất cả = true"]
+    B --> C["Đánh dấu 0, 1 = false"]
+    C --> D["i = 2"]
+    D --> E{"i² ≤ n?"}
+    E -->|"Không"| F["Kết thúc"]
+    E -->|"Có"| G{"arr[i] == true?"}
+    G -->|"Có"| H["Đánh dấu bội số của i = false"]
+    G -->|"Không"| I["i++"]
     H --> I
     I --> E
     

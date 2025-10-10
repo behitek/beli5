@@ -1,60 +1,29 @@
 ---
 sidebar_position: 1
-title: Welcome to Java (AI Tutorial)
-description: AI-generated Java programming tutorial explained like you're 5 years old
-keywords: [java, programming, AI, tutorial, ELI5, beginner, LEGO]
+title: ☕ Java - Sắp Ra Mắt!
+description: Khóa học Java đang được phát triển - Sắp có thêm nội dung tuyệt vời!
+keywords: [java, programming, sắp ra mắt, coming soon, ELI5, beginner]
 ---
 
-# ☕ Welcome to Java Programming! (AI Tutorial)
+# ☕ Java Programming - Sắp Ra Mắt!
 
-:::info 🤖 AI-Generated Content
-This content is created by AI and explained in simple terms! Java is like building with the most organized LEGO set ever made! 🎉
-:::
+## 🚧 Đang Xây Dựng Nội Dung...
 
-## What is This Tutorial?
+Chào bạn! 👋 Hiện tại chúng mình đang tập trung phát triển nội dung **Python** trước. Nội dung **Java** sẽ sớm được cập nhật!
 
-Hi there, future Java builder! 👋 This is a special tutorial that teaches you **Java programming** using LEGO analogies. Think of it like learning to build amazing digital structures with perfectly organized blocks!
+### 🎯 Java Sẽ Có Gì?
 
-### 🎯 What Makes This Special?
+Khi ra mắt, khóa học Java sẽ bao gồm:
 
-- **🤖 AI-Generated**: All content is created by artificial intelligence
-- **🧒 ELI5 Style**: Everything explained "Like You're 5" years old  
-- **🧱 LEGO Analogies**: We compare Java to building with organized blocks
-- **🚀 Your Pace**: Build your programming skills one block at a time!
+- **🧱 Java như LEGO**: So sánh Java với bộ LEGO hoàn hảo
+- **🟢 Kiến Thức Cơ Bản Siêu Dễ**: Học cách xếp những viên gạch đầu tiên
+- **🟡 Đang Nóng Dần Lên**: Xây dựng các cấu trúc phức tạp hơn
+- **🔴 Thời Gian Thách Thức**: Làm chủ nghệ thuật xây dựng
+- **🏆 Dự Án Java Chuyên Nghiệp**: Tạo ra những công trình tuyệt vời!
 
-## Why Java is Like Premium LEGO Blocks! 🧱
+### ☕ Tại Sao Java Đặc Biệt?
 
-Java programming is exactly like having the most well-organized LEGO set with:
-- Perfect instructions that always work
-- Blocks that fit together perfectly every time
-- The ability to build anything from simple houses to complex cities
-- Millions of other builders sharing their creations
-
-### 🟢 Everything Fits Together Perfectly
-- Each piece of Java code connects logically
-- Clear rules make building predictable and safe
-- Works the same way on any computer
-
-### 🟡 You Can Build Anything
-- Android mobile apps
-- Large business applications
-- Video games and interactive software
-- Web applications used by millions
-
-### 🔴 Trusted by Everyone
-- **Android phones** run on Java!
-- **Minecraft** was built with Java!
-- **Netflix** and **Amazon** use Java!
-- Banks and hospitals trust Java for important systems!
-
-## Ready to Start Building? 🚀
-
-Explore the Java tutorials and start building amazing digital structures with your LEGO-like Java blocks!
-
-:::tip 💡 Pro Tip for Young Builders
-Java is like having an unlimited supply of perfectly organized LEGO blocks with the best instruction manual ever written. Every piece has its place and purpose! 🧱
-:::
-
----
-
-**Next Step**: More Java content coming soon! Start building with your blocks! →
+Java giống như có bộ LEGO hoàn hảo:
+- **Dễ Học**: Mọi mảnh ghép đều khớp với nhau một cách logic
+- **Đa Năng**: Xây dựng mọi thứ từ ứng dụng di động đến web
+- **Được Tin Dùng**: Android, Minecraft, Netflix đều dùng Java!

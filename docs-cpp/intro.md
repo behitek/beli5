@@ -1,59 +1,29 @@
 ---
 sidebar_position: 1
-title: Welcome to C++ (AI Tutorial)
-description: AI-generated C++ programming tutorial explained like you're 5 years old
-keywords: [cpp, c++, programming, AI, tutorial, ELI5, beginner, tools]
+title: 🔧 C++ - Sắp Ra Mắt!
+description: Khóa học C++ đang được phát triển - Sắp có thêm nội dung tuyệt vời!
+keywords: [cpp, c++, programming, sắp ra mắt, coming soon, ELI5, beginner]
 ---
 
-# ⚡ Welcome to C++ Programming! (AI Tutorial)
+# 🔧 C++ Programming - Sắp Ra Mắt!
 
-:::info 🤖 AI-Generated Content
-This content is created by AI and explained in simple terms! C++ is like having access to a professional workshop with the most powerful tools! 🎉
-:::
+## 🚧 Đang Xây Dựng Nội Dung...
 
-## What is This Tutorial?
+Chào bạn! 👋 Hiện tại chúng mình đang tập trung phát triển nội dung **Python** trước. Nội dung **C++** sẽ sớm được cập nhật!
 
-Hi there, future programming expert! 👋 This is a special tutorial that teaches you **C++ programming** by comparing it to using professional power tools in an advanced workshop.
+### 🎯 C++ Sẽ Có Gì?
 
-### 🎯 What Makes This Special?
+Khi ra mắt, khóa học C++ sẽ bao gồm:
 
-- **🤖 AI-Generated**: All content is created by artificial intelligence
-- **🧒 ELI5 Style**: Everything explained "Like You're 5" years old
-- **🔧 Workshop Analogies**: We compare C++ to professional tools and equipment
-- **🚀 Your Pace**: Master each tool safely and effectively!
+- **🛠️ C++ như Công Cụ Chuyên Nghiệp**: So sánh C++ với bộ công cụ chuyên nghiệp
+- **🟢 Kiến Thức Cơ Bản Siêu Dễ**: Học cách sử dụng công cụ cơ bản
+- **🟡 Đang Nóng Dần Lên**: Sử dụng công cụ hiệu quả
+- **🔴 Thời Gian Thách Thức**: Làm chủ kỹ thuật nâng cao
+- **🏆 Dự Án C++ Chuyên Nghiệp**: Xây dựng những phần mềm tuyệt vời!
 
-## Why C++ is Like Professional Power Tools! ⚡
+### � Tại Sao C++ Đặc Biệt?
 
-C++ programming is like having access to the most advanced workshop where you can:
-- Build things incredibly fast and efficiently
-- Have complete control over every detail
-- Create software that powers the most important systems
-- Work on everything from tiny devices to massive supercomputers
-
-### 🟢 Incredibly Powerful and Fast
-- Programs run faster than almost any other language
-- Perfect for games, operating systems, and high-performance applications
-- Like having tools that can handle any job, no matter how demanding
-
-### 🟡 Complete Control
-- You decide exactly how your program uses computer resources
-- Perfect for when performance and efficiency matter most
-- Like being able to adjust every setting on your professional tools
-
-### 🔴 Powers the Most Important Things
-- **Operating systems** like Windows and macOS
-- **Game engines** for AAA video games
-- **Web browsers** like Chrome and Firefox
-- **Space missions** and scientific research tools
-
-## Ready to Enter the Workshop? 🚀
-
-Explore the C++ tutorials and learn to use these powerful programming tools safely and effectively!
-
-:::tip 💡 Pro Tip for Future Experts
-C++ is like learning to use professional-grade power tools. It requires patience and practice, but once you master it, you can build absolutely anything! ⚡
-:::
-
----
-
-**Next Step**: More C++ content coming soon! Start learning your tools! →
+C++ giống như có bộ công cụ chuyên nghiệp:
+- **Mạnh Mẽ**: Xây dựng mọi thứ từ trò chơi đến hệ điều hành
+- **Siêu Nhanh**: Tốc độ thực thi cực kỳ nhanh
+- **Được Tin Dùng**: Windows, macOS, Chrome đều được viết bằng C++!

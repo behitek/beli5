@@ -38,9 +38,20 @@ Với số âm, ta chỉ đếm các chữ số và bỏ qua dấu trừ.
 
 ## Các phương pháp giải quyết
 
-### 1. Phương pháp chia lặp
+### 1. Phương pháp chuyển sang chuỗi
 
-Cách đơn giản nhất là chia số đó cho 10 liên tục cho đến khi bằng 0 và đếm số lần chia:
+Đây là phương pháp đơn giản và hiệu quả nhất:
+1. Chuyển số nguyên thành chuỗi (string)
+2. Lấy độ dài của chuỗi
+3. Nếu là số âm thì trừ đi 1 (bỏ dấu trừ)
+
+:::tip Ý tưởng
+Mỗi chữ số tương ứng với một ký tự trong chuỗi. Độ dài chuỗi (trừ đi dấu trừ nếu có) chính là số lượng chữ số.
+:::
+
+### 2. Phương pháp chia lặp
+
+Cách tiếp cận bằng toán học là chia số đó cho 10 liên tục cho đến khi bằng 0 và đếm số lần chia:
 
 ```mermaid
 flowchart LR
@@ -77,10 +88,18 @@ Với n = 123:
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std;
 
+// Phương pháp chuyển sang chuỗi
+int countDigitsString(int n) {
+    // Chuyển số thành chuỗi
+    string numStr = to_string(abs(n));
+    return numStr.length();
+}
+
 // Phương pháp chia lặp
-int countDigits1(int n) {
+int countDigitsDivision(int n) {
     // Chuyển số âm thành dương
     n = abs(n);
     
@@ -96,7 +115,7 @@ int countDigits1(int n) {
 }
 
 // Phương pháp logarit
-int countDigits2(int n) {
+int countDigitsLog(int n) {
     // Chuyển số âm thành dương
     n = abs(n);
     
@@ -111,8 +130,9 @@ int main() {
     cout << "Nhap so n = ";
     cin >> n;
     
-    cout << "So chu so (phuong phap 1): " << countDigits1(n) << endl;
-    cout << "So chu so (phuong phap 2): " << countDigits2(n) << endl;
+    cout << "So chu so (chuoi): " << countDigitsString(n) << endl;
+    cout << "So chu so (chia): " << countDigitsDivision(n) << endl;
+    cout << "So chu so (logarit): " << countDigitsLog(n) << endl;
     
     return 0;
 }
@@ -122,6 +142,10 @@ int main() {
 
 ```python
 import math
+
+def count_digits_string(n: int) -> int:
+    """Đếm số chữ số bằng phương pháp chuyển sang chuỗi"""
+    return len(str(abs(n)))
 
 def count_digits_division(n: int) -> int:
     """Đếm số chữ số bằng phương pháp chia lặp"""
@@ -152,8 +176,9 @@ def count_digits_log(n: int) -> int:
 # Test các hàm
 if __name__ == "__main__":
     n = int(input("Nhap n = "))
-    print(f"So chu so (phuong phap 1): {count_digits_division(n)}")
-    print(f"So chu so (phuong phap 2): {count_digits_log(n)}")
+    print(f"So chu so (chuoi): {count_digits_string(n)}")
+    print(f"So chu so (chia): {count_digits_division(n)}")
+    print(f"So chu so (logarit): {count_digits_log(n)}")
 ```
 
 ### 3. Cài đặt bằng Java
@@ -162,6 +187,12 @@ if __name__ == "__main__":
 import java.util.Scanner;
 
 public class CountDigits {
+    // Phương pháp chuyển sang chuỗi
+    public static int countDigitsString(int n) {
+        // Chuyển số thành chuỗi, bỏ dấu âm nếu có
+        return String.valueOf(Math.abs(n)).length();
+    }
+    
     // Phương pháp chia lặp
     public static int countDigitsDivision(int n) {
         // Chuyển số âm thành dương
@@ -194,8 +225,9 @@ public class CountDigits {
         System.out.print("Nhap n = ");
         int n = scanner.nextInt();
         
-        System.out.println("So chu so (phuong phap 1): " + countDigitsDivision(n));
-        System.out.println("So chu so (phuong phap 2): " + countDigitsLog(n));
+        System.out.println("So chu so (chuoi): " + countDigitsString(n));
+        System.out.println("So chu so (chia): " + countDigitsDivision(n));
+        System.out.println("So chu so (logarit): " + countDigitsLog(n));
         
         scanner.close();
     }
@@ -204,19 +236,32 @@ public class CountDigits {
 
 ## Phân tích độ phức tạp
 
-### 1. Phương pháp chia lặp
+### 1. Phương pháp chuyển sang chuỗi
+- **Thời gian**: O(1) - Chỉ cần chuyển đổi và lấy độ dài
+- **Không gian**: O(log n) - Cần lưu chuỗi có độ dài tương ứng số chữ số
+- **Ưu điểm**: Đơn giản, dễ hiểu và cài đặt
+- **Nhược điểm**: Tốn bộ nhớ để lưu chuỗi
+
+### 2. Phương pháp chia lặp
 - **Thời gian**: O(log n) - Với số n, ta cần chia log₁₀(n) lần
 - **Không gian**: O(1) - Chỉ cần biến đếm
+- **Ưu điểm**: Tiết kiệm bộ nhớ
+- **Nhược điểm**: Chậm hơn các phương pháp khác
 
-### 2. Phương pháp logarit
+### 3. Phương pháp logarit
 - **Thời gian**: O(1) - Chỉ cần tính logarit một lần
 - **Không gian**: O(1) - Không cần thêm biến phụ
+- **Ưu điểm**: Nhanh về mặt lý thuyết
+- **Nhược điểm**: Phép tính logarit có thể chậm trên thực tế
 
 :::tip So sánh
-Phương pháp logarit nhanh hơn về mặt lý thuyết, nhưng trên thực tế:
-1. Với số nhỏ, sự khác biệt không đáng kể
-2. Phép tính logarit có thể chậm hơn phép chia trên một số hệ thống
-3. Phương pháp chia dễ hiểu và cài đặt hơn
+1. **Về tốc độ**: string > logarit > chia lặp
+2. **Về bộ nhớ**: logarit = chia lặp > string
+3. **Về tính đơn giản**: string > chia lặp > logarit
+4. **Khuyến nghị**:
+   - Với số nhỏ: Dùng phương pháp string vì đơn giản
+   - Với số rất lớn: Cân nhắc phương pháp chia lặp để tiết kiệm bộ nhớ
+   - Trong thực tế: Phương pháp string thường là lựa chọn tốt nhất
 :::
 
 ## Mở rộng bài toán

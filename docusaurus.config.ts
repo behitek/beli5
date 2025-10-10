@@ -1,6 +1,8 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -52,6 +54,8 @@ const config: Config = {
         editUrl: 'https://github.com/behitek/beli5/tree/main/',
         showLastUpdateAuthor: false,
         showLastUpdateTime: false,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
       },
     ],
     [
@@ -64,6 +68,8 @@ const config: Config = {
         editUrl: 'https://github.com/behitek/beli5/tree/main/',
         showLastUpdateAuthor: false,
         showLastUpdateTime: false,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
       },
     ],
     [
@@ -76,6 +82,8 @@ const config: Config = {
         editUrl: 'https://github.com/behitek/beli5/tree/main/',
         showLastUpdateAuthor: false,
         showLastUpdateTime: false,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
       },
     ],
     [
@@ -88,6 +96,8 @@ const config: Config = {
         editUrl: 'https://github.com/behitek/beli5/tree/main/',
         showLastUpdateAuthor: false,
         showLastUpdateTime: false,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
       },
     ],
     [
@@ -96,6 +106,8 @@ const config: Config = {
         id: 'blog',
         path: 'blog',
         routeBasePath: 'blog',
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
         showReadingTime: true,
         readingTime: ({content, frontMatter, defaultReadingTime}) =>
           defaultReadingTime({content, locale: 'vi', frontMatter, options: {wordsPerMinute: 200}}),
@@ -123,14 +135,29 @@ const config: Config = {
     },
   },
 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   presets: [
     [
       'classic',
       {
-        docs: false, // Disable default docs since we're using multiple instances
+        docs: {
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
         blog: {
           path: 'news',
           routeBasePath: 'news',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           showReadingTime: true,
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({content, locale: 'vi', frontMatter, options: {wordsPerMinute: 200}}),

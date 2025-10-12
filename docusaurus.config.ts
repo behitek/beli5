@@ -225,6 +225,7 @@ const config: Config = {
         {to: '/cpp/intro', label: '⚡ C++', position: 'left'},
         {to: '/rust/intro', label: '🦀 Rust', position: 'left'},
         {to: '/blog', label: '📖 Blog', position: 'left'},
+        {to: '/feedback', label: '💡 Góp Ý', position: 'right'},
         // Dark mode toggle is automatically added by Docusaurus
       ],
     },
@@ -284,6 +285,10 @@ const config: Config = {
             {
               label: 'Tin Tức Mới Nhất',
               to: '/news',
+            },
+            {
+              label: '💡 Góp Ý & Đề Xuất',
+              to: '/feedback',
             },
             {
               label: 'Báo Lỗi',

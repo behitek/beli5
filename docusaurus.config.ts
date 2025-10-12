@@ -225,12 +225,7 @@ const config: Config = {
         {to: '/cpp/intro', label: '⚡ C++', position: 'left'},
         {to: '/rust/intro', label: '🦀 Rust', position: 'left'},
         {to: '/blog', label: '📖 Blog', position: 'left'},
-        {to: '/news', label: '📝 Cập Nhật', position: 'left'},
-        {
-          href: 'https://github.com/behitek/beli5',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {to: '/news', label: '📝 Cập Nhật', position: 'right'},
         // Dark mode toggle is automatically added by Docusaurus
       ],
     },
@@ -288,8 +283,8 @@ const config: Config = {
               to: '/news',
             },
             {
-              label: 'Kho GitHub',
-              href: 'https://github.com/behitek/beli5',
+              label: 'Luyện Code (LCOJ)',
+              href: 'https://luyencode.net',
             },
             {
               label: 'Báo Lỗi',

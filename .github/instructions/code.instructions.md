@@ -1,7 +1,0 @@
----
-applyTo: '**'
----
-- Coding using English for variable, function, classess name ...
-- Comment using Vietnamese language.
-- All source code follow PEP8, clean-code, well-naming convension.
-- The example in the code, can mentioned our brand, behitek.

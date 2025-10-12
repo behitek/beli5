@@ -225,7 +225,6 @@ const config: Config = {
         {to: '/cpp/intro', label: '⚡ C++', position: 'left'},
         {to: '/rust/intro', label: '🦀 Rust', position: 'left'},
         {to: '/blog', label: '📖 Blog', position: 'left'},
-        {to: '/news', label: '📝 Cập Nhật', position: 'right'},
         // Dark mode toggle is automatically added by Docusaurus
       ],
     },
@@ -262,6 +261,10 @@ const config: Config = {
               to: '/',
             },
             {
+              label: 'Luyện Code (LCOJ)',
+              href: 'https://luyencode.net',
+            },
+            {
               label: 'Từ Điển Lập Trình',
               to: '/glossary',
             },
@@ -281,10 +284,6 @@ const config: Config = {
             {
               label: 'Tin Tức Mới Nhất',
               to: '/news',
-            },
-            {
-              label: 'Luyện Code (LCOJ)',
-              href: 'https://luyencode.net',
             },
             {
               label: 'Báo Lỗi',

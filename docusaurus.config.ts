@@ -120,7 +120,7 @@ const config: Config = {
         blogDescription: 'Chia sẻ hướng dẫn, mẹo và kinh nghiệm lập trình dành cho người học',
         postsPerPage: 10,
         blogSidebarTitle: 'Bài viết gần đây',
-        blogSidebarCount: 5,
+        blogSidebarCount: 10,
       },
     ],
   ],

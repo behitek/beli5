@@ -382,13 +382,13 @@
   - Select và timeout
 
 ### Testing
-- [ ] **advanced/unit-testing.md** - Unit Testing: Kiểm Tra Code
+- [x] **advanced/unit-testing.md** - Unit Testing: Kiểm Tra Code
   - `#[test]` attribute
   - `assert!`, `assert_eq!`, `assert_ne!`
   - `cargo test`
   - Test organization
 
-- [ ] **advanced/integration-testing.md** - Integration Testing
+- [x] **advanced/integration-testing.md** - Integration Testing
   - Tests directory
   - Testing public API
   - Common test utilities

@@ -93,6 +93,8 @@ const sidebars = {
                 'advanced/shared-state',
                 'advanced/async-basics',
                 'advanced/async-tokio',
+                'advanced/unit-testing',
+                'advanced/integration-testing',
             ],
         },
     ],

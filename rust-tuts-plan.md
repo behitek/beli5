@@ -350,19 +350,19 @@
   - When to use?
 
 ### Concurrency
-- [ ] **advanced/threads.md** - Threads: Chạy Đa Nhiệm
+- [x] **advanced/threads.md** - Threads: Chạy Đa Nhiệm
   - Creating threads
   - `thread::spawn`
   - Joining threads
   - Thread safety
 
-- [ ] **advanced/message-passing.md** - Message Passing: Giao Tiếp Giữa Threads
+- [x] **advanced/message-passing.md** - Message Passing: Giao Tiếp Giữa Threads
   - Channels: `mpsc`
   - Sending và receiving
   - Multiple producers
   - Synchronous vs asynchronous
 
-- [ ] **advanced/shared-state.md** - Shared State: Mutex và RwLock
+- [x] **advanced/shared-state.md** - Shared State: Mutex và RwLock
   - `Mutex<T>` - Khóa để truy cập
   - `Arc<Mutex<T>>` pattern
   - `RwLock<T>` - Multiple readers

@@ -112,7 +112,7 @@ let shapes: Vec<Box<dyn Shape>> = vec![
 - Pinning
 - Select! macro
 - Channels và actors
-- Shared state với Arc<Mutex<T>>
+- Shared state với `Arc<Mutex<T>>`
 
 **Example Project**: Real-time Chat Server
 ```rust

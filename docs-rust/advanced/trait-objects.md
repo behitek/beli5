@@ -121,7 +121,7 @@ fn print_area(shape: &dyn Shape) {
 - ❌ Không inline được
 - ❌ Phải dùng reference/pointer
 
-## 📦 Box<dyn Trait>
+## 📦 `Box<dyn Trait>`
 
 ```rust
 trait Animal {

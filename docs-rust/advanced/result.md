@@ -29,14 +29,14 @@ Sau khi hoàn thành bài học này, bạn sẽ:
 - **Thất bại** → Nhận lý do (địa chỉ sai, thiếu tem, ...)
 - Luôn có **kết quả rõ ràng**
 
-✅ **Result<T, E> Trong Rust**:
+✅ **`Result<T, E>` Trong Rust**:
 - `Ok(value)` → Thành công với giá trị
 - `Err(error)` → Thất bại với lỗi
 - **Phải xử lý cả 2 cases**
 
 ### Result vs Option
 
-| Đặc điểm | Option<T> | Result<T, E> |
+| Đặc điểm | `Option<T>` | `Result<T, E>` |
 |----------|-----------|--------------|
 | **Biểu diễn** | Có/Không có | Thành công/Thất bại |
 | **Success** | `Some(T)` | `Ok(T)` |

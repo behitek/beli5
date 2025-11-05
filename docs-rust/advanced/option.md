@@ -28,7 +28,7 @@ Sau khi hoàn thành bài học này, bạn sẽ:
 - Có thể **rỗng** (None) → Mở ra không có gì
 - Phải **kiểm tra** trước khi dùng
 
-🎁 **Option<T> Trong Rust**:
+🎁 **`Option<T>` Trong Rust**:
 - `Some(value)` → Có giá trị
 - `None` → Không có gì
 - **Phải xử lý cả 2 cases**

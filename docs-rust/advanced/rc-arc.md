@@ -11,9 +11,9 @@ description: "Tìm hiểu cách chia sẻ ownership với reference counting"
 Sau khi hoàn thành bài học này, bạn sẽ:
 
 - ✅ Hiểu reference counting
-- ✅ Sử dụng Rc<T> cho single-threaded
-- ✅ Sử dụng Arc<T> cho multi-threaded
-- ✅ Hiểu Weak<T> references
+- ✅ Sử dụng `Rc<T>` cho single-threaded
+- ✅ Sử dụng `Arc<T>` cho multi-threaded
+- ✅ Hiểu `Weak<T>` references
 - ✅ Tránh memory leaks với cycles
 - ✅ So sánh Rc vs Arc vs Box
 
@@ -218,7 +218,7 @@ fn main() {
 }
 ```
 
-| Feature | Rc<T> | Arc<T> |
+| Feature | `Rc<T>` | `Arc<T>` |
 |---------|-------|--------|
 | **Thread-safe** | ❌ No | ✅ Yes |
 | **Performance** | Nhanh hơn | Chậm hơn (atomic ops) |
@@ -243,7 +243,7 @@ struct Node {
 // Nếu A -> B và B -> A, memory leak!
 ```
 
-### Giải Pháp: Weak<T>
+### Giải Pháp: `Weak<T>`
 
 ```rust
 use std::rc::{Rc, Weak};
@@ -568,8 +568,8 @@ fn main() {
 }
 ```
 
-| Feature | Box<T> | Rc<T> | Arc<T> |
-|---------|--------|-------|--------|
+| Feature | `Box<T>` | `Rc<T>` | `Arc<T>` |
+|---------|----------|---------|----------|
 | **Owners** | 1 | Many | Many |
 | **Thread-safe** | N/A | ❌ No | ✅ Yes |
 | **Mutability** | Mutable | Immutable* | Immutable* |
@@ -747,9 +747,9 @@ fn main() {
 
 | Smart Pointer | Thread-Safe | Use Case |
 |---------------|-------------|----------|
-| **Rc<T>** | ❌ No | Shared ownership (single-thread) |
-| **Arc<T>** | ✅ Yes | Shared ownership (multi-thread) |
-| **Weak<T>** | Depends | Avoid cycles, non-owning reference |
+| **`Rc<T>`** | ❌ No | Shared ownership (single-thread) |
+| **`Arc<T>`** | ✅ Yes | Shared ownership (multi-thread) |
+| **`Weak<T>`** | Depends | Avoid cycles, non-owning reference |
 
 **Quy tắc vàng**:
 - ✅ Dùng Rc cho shared ownership trong single thread

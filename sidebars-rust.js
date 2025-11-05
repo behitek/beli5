@@ -67,6 +67,7 @@ const sidebars = {
                 'advanced/ownership-basics',
                 'advanced/borrowing',
                 'advanced/slices',
+                'advanced/lifetimes',
             ],
         },
     ],

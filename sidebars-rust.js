@@ -46,6 +46,9 @@ const sidebars = {
             items: [
                 'intermediate/if-else',
                 'intermediate/match',
+                'intermediate/loop-basic',
+                'intermediate/while-loop',
+                'intermediate/for-loop',
             ],
         },
     ],

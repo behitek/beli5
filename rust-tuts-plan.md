@@ -369,13 +369,13 @@
   - Deadlocks và cách tránh
 
 ### Async Programming
-- [ ] **advanced/async-basics.md** - Async/Await: Lập Trình Bất Đồng Bộ
+- [x] **advanced/async-basics.md** - Async/Await: Lập Trình Bất Đồng Bộ
   - `async fn`
   - `.await` keyword
   - Futures
   - Tokio runtime (giới thiệu)
 
-- [ ] **advanced/async-tokio.md** - Tokio: Async Runtime Phổ Biến
+- [x] **advanced/async-tokio.md** - Tokio: Async Runtime Phổ Biến
   - Setting up Tokio
   - `#[tokio::main]`
   - Async tasks

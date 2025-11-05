@@ -83,6 +83,8 @@ const sidebars = {
                 'advanced/use-and-paths',
                 'advanced/hashmap',
                 'advanced/hashset',
+                'advanced/iterators',
+                'advanced/iterator-adapters',
             ],
         },
     ],

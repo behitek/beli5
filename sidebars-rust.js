@@ -17,8 +17,19 @@ const sidebars = {
         {
             type: 'doc',
             id: 'intro',
-            label: '🦀 Rust - Sắp Ra Mắt!',
-        }
+            label: '🎯 Bắt Đầu Tại Đây!',
+        },
+        {
+            type: 'category',
+            label: '🟢 Cơ Bản Siêu Dễ',
+            collapsed: true,
+            items: [
+                'basics/what-is-rust',
+                'basics/installing-rust',
+                'basics/cargo-basics',
+                'basics/first-program',
+            ],
+        },
     ],
 };
 

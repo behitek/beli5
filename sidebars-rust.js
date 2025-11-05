@@ -71,6 +71,8 @@ const sidebars = {
                 'advanced/structs-basics',
                 'advanced/struct-methods',
                 'advanced/enums',
+                'advanced/option',
+                'advanced/result',
             ],
         },
     ],

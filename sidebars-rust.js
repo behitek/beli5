@@ -81,6 +81,8 @@ const sidebars = {
                 'advanced/modules',
                 'advanced/packages-crates',
                 'advanced/use-and-paths',
+                'advanced/hashmap',
+                'advanced/hashset',
             ],
         },
     ],

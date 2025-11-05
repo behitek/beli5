@@ -98,6 +98,100 @@ const sidebars = {
                 'advanced/declarative-macros',
             ],
         },
+        {
+            type: 'category',
+            label: '🎮 Dự Án Thực Hành',
+            collapsed: true,
+            items: [
+                {
+                    type: 'category',
+                    label: '🌱 Beginner',
+                    collapsed: false,
+                    items: [
+                        'projects/guessing-game',
+                        'projects/calculator',
+                        'projects/temperature-converter',
+                        'projects/fizzbuzz',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: '🌿 Intermediate',
+                    collapsed: false,
+                    items: [
+                        'projects/todo-cli',
+                        'projects/password-generator',
+                        'projects/markdown-parser',
+                        'projects/grep-clone',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: '🌳 Advanced',
+                    collapsed: false,
+                    items: [
+                        'projects/web-server',
+                        'projects/rest-api',
+                        'projects/chat-app',
+                        'projects/cli-tool',
+                    ],
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: '💪 Bài Tập Luyện Tập',
+            collapsed: true,
+            items: [
+                'practice/basic-exercises',
+                'practice/ownership-exercises',
+                'practice/struct-enum-exercises',
+                'practice/iterator-exercises',
+                'practice/error-handling-exercises',
+                'practice/concurrency-exercises',
+                'practice/async-exercises',
+            ],
+        },
+        {
+            type: 'category',
+            label: '📚 Tài Liệu Tham Khảo',
+            collapsed: true,
+            items: [
+                'reference/rust-cheatsheet',
+                'reference/std-library',
+                'reference/cargo-commands',
+                'reference/popular-crates',
+                'reference/best-practices',
+                'reference/compiler-errors',
+                'reference/ownership-patterns',
+                'reference/performance-tips',
+            ],
+        },
+        {
+            type: 'category',
+            label: '📖 Từ Điển Thuật Ngữ',
+            collapsed: true,
+            items: [
+                'glossary/rust-specific',
+                'glossary/programming-terms',
+                'glossary/data-structures',
+                'glossary/rust-ecosystem',
+            ],
+        },
+        {
+            type: 'category',
+            label: '🆘 Trợ Giúp & Mẹo Hay',
+            collapsed: true,
+            items: [
+                'help-and-tips',
+                'debugging-tips',
+            ],
+        },
+        {
+            type: 'doc',
+            id: 'whats-next',
+            label: '🚀 Bước Tiếp Theo',
+        },
     ],
 };
 

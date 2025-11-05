@@ -59,6 +59,16 @@ const sidebars = {
                 'intermediate/string-slicing',
             ],
         },
+        {
+            type: 'category',
+            label: '🔴 Nâng Cao Pro',
+            collapsed: true,
+            items: [
+                'advanced/ownership-basics',
+                'advanced/borrowing',
+                'advanced/slices',
+            ],
+        },
     ],
 };
 

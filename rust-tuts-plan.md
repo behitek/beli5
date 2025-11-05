@@ -25,83 +25,83 @@
 ## 🟢 2. Cơ Bản Siêu Dễ (basics/)
 
 ### Khởi Đầu
-- [ ] **basics/what-is-rust.md** - Rust Là Gì? Tại Sao Nó Đặc Biệt?
+- [x] **basics/what-is-rust.md** - Rust Là Gì? Tại Sao Nó Đặc Biệt?
   - Lịch sử Rust đơn giản
   - Rust vs Python, Java, C++
   - Ví dụ thực tế về an toàn bộ nhớ
   - Mozilla và cộng đồng Rust
 
-- [ ] **basics/installing-rust.md** - Cài Đặt Rust và Công Cụ
+- [x] **basics/installing-rust.md** - Cài Đặt Rust và Công Cụ
   - Cài rustup (công cụ quản lý Rust)
   - Cài đặt trên Windows, Mac, Linux
   - Kiểm tra cài đặt: `rustc --version`, `cargo --version`
   - Thiết lập VS Code / RustRover
 
-- [ ] **basics/cargo-basics.md** - Cargo - Trợ Thủ Đắc Lực Của Rust
+- [x] **basics/cargo-basics.md** - Cargo - Trợ Thủ Đắc Lực Của Rust
   - Cargo là gì? (Như npm cho Node.js)
   - Tạo project mới: `cargo new`, `cargo init`
   - Cấu trúc thư mục Rust project
   - Chạy code: `cargo run`, `cargo build`
   - Cargo.toml - File cấu hình quan trọng
 
-- [ ] **basics/first-program.md** - Chương Trình Rust Đầu Tiên: Hello, World!
+- [x] **basics/first-program.md** - Chương Trình Rust Đầu Tiên: Hello, World!
   - Viết Hello World
   - Giải thích từng dòng code
   - Compile và chạy chương trình
   - Hiểu lỗi compiler cơ bản
 
-- [ ] **basics/printing-output.md** - In Thông Tin Ra Màn Hình
+- [x] **basics/printing-output.md** - In Thông Tin Ra Màn Hình
   - `println!` macro - Dấu chấm than nghĩa là gì?
   - Format strings: `{}`, `{:?}`, `{:#?}`
   - In nhiều giá trị cùng lúc
   - `print!` vs `println!`
 
-- [ ] **basics/comments.md** - Viết Ghi Chú Trong Code
+- [x] **basics/comments.md** - Viết Ghi Chú Trong Code
   - Comment một dòng: `//`
   - Comment nhiều dòng: `/* */`
   - Doc comments: `///` và `//!`
   - Best practices cho comments
 
 ### Biến và Kiểu Dữ Liệu
-- [ ] **basics/variables-and-mutability.md** - Biến Trong Rust: Không Thay Đổi Theo Mặc Định!
+- [x] **basics/variables-and-mutability.md** - Biến Trong Rust: Không Thay Đổi Theo Mặc Định!
   - Khai báo biến: `let`
   - Immutable vs Mutable: `let` vs `let mut`
   - Tại sao mặc định immutable? (An toàn!)
   - Shadowing - Khi nào dùng?
 
-- [ ] **basics/data-types.md** - Các Kiểu Dữ Liệu Cơ Bản
+- [x] **basics/data-types.md** - Các Kiểu Dữ Liệu Cơ Bản
   - Integers: i32, u32, i64, u64, isize, usize
   - Floats: f32, f64
   - Boolean: true, false
   - Characters: 'a', '😊' (Unicode!)
   - Type inference vs explicit types
 
-- [ ] **basics/strings-basics.md** - Chuỗi Ký Tự: String vs &str
+- [x] **basics/strings-basics.md** - Chuỗi Ký Tự: String vs &str
   - String literals: `"Hello"`
   - String type: `String::from()`
   - String slices: `&str`
   - Sự khác biệt quan trọng giữa String và &str
 
-- [ ] **basics/arithmetic-operations.md** - Tính Toán Cơ Bản
+- [x] **basics/arithmetic-operations.md** - Tính Toán Cơ Bản
   - Cộng, trừ, nhân, chia: `+`, `-`, `*`, `/`
   - Chia lấy dư: `%`
   - Type casting: `as`
   - Overflow và cách Rust xử lý
 
-- [ ] **basics/boolean-and-logic.md** - Logic Đúng/Sai
+- [x] **basics/boolean-and-logic.md** - Logic Đúng/Sai
   - Boolean operations: `&&`, `||`, `!`
   - Comparison: `==`, `!=`, `<`, `>`, `<=`, `>=`
   - Thứ tự ưu tiên của operators
 
 ### Nhập Dữ Liệu
-- [ ] **basics/input-output.md** - Nhận Thông Tin Từ Người Dùng
+- [x] **basics/input-output.md** - Nhận Thông Tin Từ Người Dùng
   - Đọc input từ console
   - Module `std::io`
   - `read_line()` và xử lý Result
   - Chuyển đổi String thành số
 
 ### Xử Lý Lỗi Cơ Bản
-- [ ] **basics/error-basics.md** - Lỗi Là Bạn, Không Phải Kẻ Thù!
+- [x] **basics/error-basics.md** - Lỗi Là Bạn, Không Phải Kẻ Thù!
   - Compiler errors - Rust giúp bạn sửa lỗi
   - Runtime errors
   - Đọc hiểu error messages
@@ -112,82 +112,82 @@
 ## 🟡 3. Trung Bình Thú Vị (intermediate/)
 
 ### Control Flow
-- [ ] **intermediate/if-else.md** - Câu Lệnh Điều Kiện: Nếu... Thì...
+- [x] **intermediate/if-else.md** - Câu Lệnh Điều Kiện: Nếu... Thì...
   - if, else if, else
   - if expressions (trả về giá trị!)
   - Nested conditions
   - Pattern với boolean logic
 
-- [ ] **intermediate/match.md** - Match: If-Else Siêu Cấp!
+- [x] **intermediate/match.md** - Match: If-Else Siêu Cấp!
   - Match expressions
   - Pattern matching cơ bản
   - Match với numbers, strings
   - `_` wildcard pattern
 
 ### Loops
-- [ ] **intermediate/loop-basic.md** - Lặp Lại Công Việc: loop
+- [x] **intermediate/loop-basic.md** - Lặp Lại Công Việc: loop
   - `loop` - lặp vô hạn
   - `break` và `continue`
   - Trả về giá trị từ loop
   - Labels cho nested loops
 
-- [ ] **intermediate/while-loop.md** - While: Lặp Khi Điều Kiện Đúng
+- [x] **intermediate/while-loop.md** - While: Lặp Khi Điều Kiện Đúng
   - While loops
   - While vs loop với break
   - Tránh infinite loops
 
-- [ ] **intermediate/for-loop.md** - For: Lặp Qua Dãy Số và Mảng
+- [x] **intermediate/for-loop.md** - For: Lặp Qua Dãy Số và Mảng
   - For loops với ranges: `0..5`, `0..=5`
   - Iterate qua arrays
   - `.iter()`, `.iter_mut()`, `.into_iter()`
   - Enumerate với index
 
 ### Collections
-- [ ] **intermediate/arrays.md** - Mảng: Danh Sách Có Độ Dài Cố Định
+- [x] **intermediate/arrays.md** - Mảng: Danh Sách Có Độ Dài Cố Định
   - Khai báo arrays
   - Truy cập elements
   - Fixed size - Ưu và nhược điểm
   - Array slices
 
-- [ ] **intermediate/vectors.md** - Vector: Danh Sách Có Thể Mở Rộng
+- [x] **intermediate/vectors.md** - Vector: Danh Sách Có Thể Mở Rộng
   - Tạo vectors: `vec![]`, `Vec::new()`
   - Push, pop, insert, remove
   - Truy cập elements an toàn: `.get()`
   - Iterate qua vectors
 
-- [ ] **intermediate/tuples.md** - Tuple: Gói Nhiều Giá Trị Lại
+- [x] **intermediate/tuples.md** - Tuple: Gói Nhiều Giá Trị Lại
   - Tạo tuples
   - Destructuring tuples
   - Truy cập elements: `.0`, `.1`
   - Khi nào dùng tuples?
 
 ### Functions
-- [ ] **intermediate/functions-basics.md** - Hàm: Đóng Gói Code Có Thể Tái Sử Dụng
+- [x] **intermediate/functions-basics.md** - Hàm: Đóng Gói Code Có Thể Tái Sử Dụng
   - Định nghĩa functions
   - Parameters và arguments
   - Return values
   - Expression vs statement
 
-- [ ] **intermediate/function-parameters.md** - Tham Số Hàm: Truyền Dữ Liệu Vào
+- [x] **intermediate/function-parameters.md** - Tham Số Hàm: Truyền Dữ Liệu Vào
   - Multiple parameters
   - Type annotations bắt buộc
   - Mutable parameters
   - Pass by value vs reference (preview)
 
-- [ ] **intermediate/closures.md** - Closures: Hàm Ẩn Danh
+- [x] **intermediate/closures.md** - Closures: Hàm Ẩn Danh
   - Syntax của closures
   - Capturing environment
   - Closures vs functions
   - Sử dụng với iterators
 
 ### String Manipulation
-- [ ] **intermediate/string-methods.md** - Làm Việc Với Chuỗi
+- [x] **intermediate/string-methods.md** - Làm Việc Với Chuỗi
   - `.len()`, `.is_empty()`
   - `.to_uppercase()`, `.to_lowercase()`
   - `.trim()`, `.split()`
   - String concatenation: `+`, `format!`
 
-- [ ] **intermediate/string-slicing.md** - Cắt Chuỗi và Indexing
+- [x] **intermediate/string-slicing.md** - Cắt Chuỗi và Indexing
   - String slicing: `&s[0..5]`
   - UTF-8 và vấn đề indexing
   - `.chars()` và `.bytes()`

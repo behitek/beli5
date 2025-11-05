@@ -286,19 +286,19 @@
   - Object safety
 
 ### Modules và Packages
-- [ ] **advanced/modules.md** - Modules: Tổ Chức Code
+- [x] **advanced/modules.md** - Modules: Tổ Chức Code
   - Module system
   - `mod` keyword
   - `pub` visibility
   - Nested modules
 
-- [ ] **advanced/packages-crates.md** - Packages và Crates
+- [x] **advanced/packages-crates.md** - Packages và Crates
   - Workspace structure
   - Binary vs library crates
   - Dependencies trong Cargo.toml
   - Publishing crates
 
-- [ ] **advanced/use-and-paths.md** - Import và Paths
+- [x] **advanced/use-and-paths.md** - Import và Paths
   - `use` keyword
   - Absolute vs relative paths
   - `pub use` - Re-exporting

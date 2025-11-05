@@ -275,9 +275,9 @@ Sẵn sàng bắt đầu hành trình? Hãy chuyển sang bài đầu tiên:
 
 ### Học Theo Chủ Đề
 - 🟢 **Mới bắt đầu?** → Bắt đầu từ [Cơ Bản Siêu Dễ](basics/what-is-rust)
-- 🟡 **Đã biết lập trình?** → Nhảy vào [Trung Bình Thú Vị](intermediate/if-else)
-- 🔴 **Muốn master Rust?** → Khám phá [Nâng Cao Pro](advanced/ownership-basics)
-- 🎮 **Học qua làm?** → Thử [Dự Án Thực Hành](projects/guessing-game)
+- 🟡 **Đã biết lập trình?** → Nhảy vào Trung Bình Thú Vị (sắp ra mắt!)
+- 🔴 **Muốn master Rust?** → Khám phá Nâng Cao Pro (sắp ra mắt!)
+- 🎮 **Học qua làm?** → Thử Dự Án Thực Hành (sắp ra mắt!)
 
 ---
 

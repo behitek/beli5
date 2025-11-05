@@ -318,13 +318,13 @@
   - Practical uses
 
 ### Iterators
-- [ ] **advanced/iterators.md** - Iterators: Xử Lý Dãy Dữ Liệu Hiệu Quả
+- [x] **advanced/iterators.md** - Iterators: Xử Lý Dãy Dữ Liệu Hiệu Quả
   - Iterator trait
   - `.map()`, `.filter()`, `.collect()`
   - `.fold()`, `.sum()`
   - Lazy evaluation
 
-- [ ] **advanced/iterator-adapters.md** - Iterator Adapters Nâng Cao
+- [x] **advanced/iterator-adapters.md** - Iterator Adapters Nâng Cao
   - `.zip()`, `.enumerate()`
   - `.take()`, `.skip()`
   - `.chain()`, `.flatten()`

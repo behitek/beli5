@@ -55,6 +55,8 @@ const sidebars = {
                 'intermediate/functions-basics',
                 'intermediate/function-parameters',
                 'intermediate/closures',
+                'intermediate/string-methods',
+                'intermediate/string-slicing',
             ],
         },
     ],

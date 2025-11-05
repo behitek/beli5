@@ -331,19 +331,19 @@
   - Creating custom iterators
 
 ### Smart Pointers
-- [ ] **advanced/box.md** - Box: Con Trỏ Thông Minh
+- [x] **advanced/box.md** - Box: Con Trỏ Thông Minh
   - Heap allocation với Box
   - Recursive types
   - Deref trait
   - Khi nào dùng Box?
 
-- [ ] **advanced/rc-arc.md** - Rc và Arc: Chia Sẻ Ownership
+- [x] **advanced/rc-arc.md** - Rc và Arc: Chia Sẻ Ownership
   - Reference counting với Rc
   - Thread-safe với Arc
   - Weak references
   - Memory leaks và cách tránh
 
-- [ ] **advanced/refcell.md** - RefCell: Interior Mutability
+- [x] **advanced/refcell.md** - RefCell: Interior Mutability
   - `.borrow()` và `.borrow_mut()`
   - Runtime borrow checking
   - Rc<RefCell<T>> pattern

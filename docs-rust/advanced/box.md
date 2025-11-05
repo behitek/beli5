@@ -11,7 +11,7 @@ description: "Tìm hiểu cách sử dụng Box để lưu trữ dữ liệu tr�
 Sau khi hoàn thành bài học này, bạn sẽ:
 
 - ✅ Hiểu Stack vs Heap
-- ✅ Biết khi nào dùng Box<T>
+- ✅ Biết khi nào dùng `Box<T>`
 - ✅ Tạo recursive types với Box
 - ✅ Sử dụng Deref trait
 - ✅ Hiểu ownership với Box
@@ -603,7 +603,7 @@ fn main() {
 }
 ```
 
-| Feature | Box<T> | &T |
+| Feature | `Box<T>` | `&T` |
 |---------|--------|----|
 | **Ownership** | Owns data | Borrows |
 | **Location** | Heap | Stack or Heap |
@@ -795,7 +795,7 @@ fn main() {
 
 | Khái Niệm | Mô Tả |
 |-----------|-------|
-| **Box<T>** | Smart pointer lưu data trên heap |
+| **`Box<T>`** | Smart pointer lưu data trên heap |
 | **Stack** | Nhanh, fixed size, tự động quản lý |
 | **Heap** | Linh hoạt, runtime size, cần quản lý |
 | **Recursive types** | Dùng Box để break infinite size |

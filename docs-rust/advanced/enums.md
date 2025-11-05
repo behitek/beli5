@@ -489,7 +489,7 @@ Lỗi: Không thể tính
 
 ## 🌟 Preview: Option và Result
 
-### Option<T>
+### `Option<T>`
 
 Biểu diễn giá trị có thể có hoặc không có:
 
@@ -515,7 +515,7 @@ enum Option<T> {
 }
 ```
 
-### Result<T, E>
+### `Result<T, E>`
 
 Biểu diễn thành công hoặc lỗi:
 

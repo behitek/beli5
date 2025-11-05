@@ -239,7 +239,7 @@ fn main() {
 
 ## 🎲 Generic Enums
 
-### Option<T> và Result<T, E>
+### `Option<T>` và `Result<T, E>`
 
 ```rust
 // Định nghĩa trong std library

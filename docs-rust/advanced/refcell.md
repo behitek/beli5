@@ -11,10 +11,10 @@ description: "Tìm hiểu interior mutability pattern với RefCell"
 Sau khi hoàn thành bài học này, bạn sẽ:
 
 - ✅ Hiểu interior mutability pattern
-- ✅ Sử dụng RefCell<T> để mutate immutable data
+- ✅ Sử dụng `RefCell<T>` để mutate immutable data
 - ✅ Biết `.borrow()` và `.borrow_mut()`
 - ✅ Hiểu runtime borrow checking
-- ✅ Kết hợp Rc<RefCell<T>> pattern
+- ✅ Kết hợp `Rc<RefCell<T>>` pattern
 - ✅ Tránh runtime panics
 
 ## 🤔 RefCell Là Gì?
@@ -171,7 +171,7 @@ fn main() {
 }
 ```
 
-## 🔗 Rc<RefCell<T>> Pattern
+## 🔗 `Rc<RefCell<T>>` Pattern
 
 ### Vấn Đề: Shared Mutable State
 
@@ -189,7 +189,7 @@ fn main() {
 }
 ```
 
-### Giải Pháp: Rc<RefCell<T>>
+### Giải Pháp: `Rc<RefCell<T>>`
 
 ```rust
 use std::rc::Rc;
@@ -498,7 +498,7 @@ fn main() {
 
 ## 🆚 RefCell vs Cell vs Mutex
 
-### Cell<T>
+### `Cell<T>`
 
 ```rust
 use std::cell::Cell;
@@ -518,7 +518,7 @@ fn main() {
 }
 ```
 
-### RefCell<T>
+### `RefCell<T>`
 
 ```rust
 use std::cell::RefCell;
@@ -538,7 +538,7 @@ fn main() {
 }
 ```
 
-### Mutex<T>
+### `Mutex<T>`
 
 ```rust
 use std::sync::Mutex;
@@ -559,9 +559,9 @@ fn main() {
 
 | Type | Thread-Safe | Borrow Check | Overhead | Use Case |
 |------|-------------|--------------|----------|----------|
-| **Cell<T>** | ❌ No | None | Very low | Copy types, single-thread |
-| **RefCell<T>** | ❌ No | Runtime | Low | Any type, single-thread |
-| **Mutex<T>** | ✅ Yes | Runtime | High | Multi-thread |
+| **`Cell<T>`** | ❌ No | None | Very low | Copy types, single-thread |
+| **`RefCell<T>`** | ❌ No | Runtime | Low | Any type, single-thread |
+| **`Mutex<T>`** | ✅ Yes | Runtime | High | Multi-thread |
 
 ## ⚠️ Pitfalls và Best Practices
 
@@ -676,7 +676,7 @@ fn main() {
 ```
 </details>
 
-### Bài 2: Rc<RefCell<T>>
+### Bài 2: `Rc<RefCell<T>>`
 
 ```rust
 use std::rc::Rc;
@@ -795,7 +795,7 @@ fn main() {
 - ✅ RefCell cho interior mutability
 - ✅ Runtime borrow checking (có thể panic!)
 - ✅ Single-threaded only
-- ✅ Kết hợp với Rc<RefCell<T>> cho shared mutable state
+- ✅ Kết hợp với `Rc<RefCell<T>>` cho shared mutable state
 - ✅ Drop borrows sớm để tránh conflicts
 - ✅ Dùng try_borrow* để safe check
 

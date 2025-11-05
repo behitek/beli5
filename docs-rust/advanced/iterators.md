@@ -778,16 +778,16 @@ fn main() {
 
 | Method | Mô Tả | Return |
 |--------|-------|--------|
-| **`.iter()`** | Iterator với &T | Iterator<Item=&T> |
-| **`.iter_mut()`** | Iterator với &mut T | Iterator<Item=&mut T> |
-| **`.into_iter()`** | Iterator với T (owned) | Iterator<Item=T> |
-| **`.map(f)`** | Transform mỗi element | Iterator |
-| **`.filter(f)`** | Lọc elements theo điều kiện | Iterator |
-| **`.collect()`** | Thu thập thành collection | Vec, HashSet, etc. |
+| **`.iter()`** | Iterator với &T | `Iterator<Item=&T>` |
+| **`.iter_mut()`** | Iterator với &mut T | `Iterator<Item=&mut T>` |
+| **`.into_iter()`** | Iterator với T (owned) | `Iterator<Item=T>` |
+| **`.map(f)`** | Transform mỗi element | `Iterator` |
+| **`.filter(f)`** | Lọc elements theo điều kiện | `Iterator` |
+| **`.collect()`** | Thu thập thành collection | `Vec`, `HashSet`, etc. |
 | **`.fold(init, f)`** | Aggregate với accumulator | Single value |
 | **`.sum()`** | Tính tổng | Number |
 | **`.count()`** | Đếm elements | usize |
-| **`.find(f)`** | Tìm element đầu tiên | Option<T> |
+| **`.find(f)`** | Tìm element đầu tiên | `Option<T>` |
 | **`.any(f)`** | Có element nào thỏa không? | bool |
 | **`.all(f)`** | Tất cả đều thỏa không? | bool |
 

@@ -73,6 +73,8 @@ const sidebars = {
                 'advanced/enums',
                 'advanced/option',
                 'advanced/result',
+                'advanced/error-handling-advanced',
+                'advanced/thiserror-anyhow',
             ],
         },
     ],

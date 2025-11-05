@@ -254,13 +254,13 @@
   - Creating custom errors
 
 ### Error Handling
-- [ ] **advanced/error-handling-advanced.md** - Xử Lý Lỗi Chuyên Nghiệp
+- [x] **advanced/error-handling-advanced.md** - Xử Lý Lỗi Chuyên Nghiệp
   - `panic!` vs Result
   - Khi nào dùng panic?
   - Propagating errors với `?`
   - Custom error types
 
-- [ ] **advanced/thiserror-anyhow.md** - Thư Viện Xử Lý Lỗi: thiserror & anyhow
+- [x] **advanced/thiserror-anyhow.md** - Thư Viện Xử Lý Lỗi: thiserror & anyhow
   - Crate thiserror cho library code
   - Crate anyhow cho application code
   - Kết hợp nhiều loại errors

@@ -515,7 +515,7 @@ pool.execute(|| { /* work */ });
 **Hints**:
 - Workers wait for jobs on a channel
 - Jobs are closures (FnOnce)
-- Use Arc<Mutex<Receiver>> for shared receiver
+- Use `Arc<Mutex<Receiver>>` for shared receiver
 - Handle shutdown signal
 
 <details>
@@ -603,7 +603,7 @@ fn main() {
 
 **Learning Points**:
 - Thread pool pattern
-- Sharing receiver with Arc<Mutex>
+- Sharing receiver with `Arc<Mutex>`
 - Trait objects for generic jobs
 - Worker pattern
 

@@ -15,7 +15,7 @@ A reference guide to frequently used items from the Rust standard library.
 
 ## Collections
 
-### Vec<T> - Dynamic Array
+### `Vec<T>` - Dynamic Array
 ```rust
 use std::vec::Vec;
 
@@ -53,7 +53,7 @@ v.reverse();
 v.retain(|x| x % 2 == 0);    // Keep only even numbers
 ```
 
-### HashMap<K, V> - Hash Table
+### `HashMap<K, V>` - Hash Table
 ```rust
 use std::collections::HashMap;
 
@@ -88,7 +88,7 @@ let len = map.len();
 let is_empty = map.is_empty();
 ```
 
-### HashSet<T> - Hash Set
+### `HashSet<T>` - Hash Set
 ```rust
 use std::collections::HashSet;
 
@@ -121,7 +121,7 @@ set1.is_disjoint(&set2);
 for item in &set { }
 ```
 
-### VecDeque<T> - Double-Ended Queue
+### `VecDeque<T>` - Double-Ended Queue
 ```rust
 use std::collections::VecDeque;
 
@@ -140,7 +140,7 @@ deque.front();           // Returns Option<&T>
 deque.back();            // Returns Option<&T>
 ```
 
-### BTreeMap<K, V> - Sorted Map
+### `BTreeMap<K, V>` - Sorted Map
 ```rust
 use std::collections::BTreeMap;
 
@@ -158,7 +158,7 @@ for (key, value) in &map {
 for (key, value) in map.range(1..3) { }
 ```
 
-### BTreeSet<T> - Sorted Set
+### `BTreeSet<T>` - Sorted Set
 ```rust
 use std::collections::BTreeSet;
 

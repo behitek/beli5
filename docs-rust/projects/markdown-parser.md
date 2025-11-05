@@ -399,7 +399,7 @@ fn main() {
 4. Run with `cargo run`
 
 ## Example Code
-```
+```rust
 fn main() {
     println!("Hello, Rust!");
 }

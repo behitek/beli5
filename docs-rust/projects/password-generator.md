@@ -133,7 +133,7 @@ let chars: Vec<char> = "abcd...".chars().collect();
 ```
 
 - `chars()`: Chuyển String thành iterator của char
-- `collect()`: Thu thập thành Vec<char>
+- `collect()`: Thu thập thành `Vec<char>`
 - Bao gồm: chữ thường, chữ hoa, số, ký tự đặc biệt
 
 ### 2. Random Number Generation

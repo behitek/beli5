@@ -735,7 +735,7 @@ fn main() {
 **Requirements**:
 - Convert Option to Result with `ok_or`
 - Convert Result to Option with `ok()`
-- Use `transpose()` for Option<Result<T, E>>
+- Use `transpose()` for `Option<Result<T, E>>`
 - Chain operations mixing both types
 
 **Example**:
@@ -984,7 +984,7 @@ fn main() {
 - Validate multiple fields
 - Collect all errors
 - Return all issues at once
-- Use Vec<Error> or custom type
+- Use `Vec<Error>` or custom type
 
 **Example**:
 ```rust

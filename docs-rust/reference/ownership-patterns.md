@@ -255,7 +255,7 @@ fn process_items_bad(items: &[Item]) -> Vec<ProcessedItem> {
 
 ## Smart Pointers
 
-### Box<T> - Heap Allocation
+### `Box<T>` - Heap Allocation
 
 **Pattern**: Store data on heap
 
@@ -300,7 +300,7 @@ let animal: Box<dyn Animal> = Box::new(Dog);
 animal.speak();
 ```
 
-### Rc<T> - Reference Counting (Single-Threaded)
+### `Rc<T>` - Reference Counting (Single-Threaded)
 
 **Pattern**: Multiple ownership
 
@@ -347,7 +347,7 @@ impl Cache {
 }
 ```
 
-### Arc<T> - Atomic Reference Counting (Thread-Safe)
+### `Arc<T>` - Atomic Reference Counting (Thread-Safe)
 
 **Pattern**: Share data across threads
 
@@ -525,7 +525,7 @@ let config = builder.build()?;
 
 ## Interior Mutability
 
-### RefCell<T> - Runtime Borrow Checking
+### `RefCell<T>` - Runtime Borrow Checking
 
 **Pattern**: Mutate through immutable reference
 
@@ -585,7 +585,7 @@ impl Cache {
 }
 ```
 
-### Cell<T> - Simple Interior Mutability
+### `Cell<T>` - Simple Interior Mutability
 
 **Pattern**: Mutating Copy types
 
@@ -619,7 +619,7 @@ counter.increment();
 println!("Count: {}", counter.get());  // 2
 ```
 
-### Mutex<T> - Thread-Safe Interior Mutability
+### `Mutex<T>` - Thread-Safe Interior Mutability
 
 **Pattern**: Shared mutable state across threads
 
@@ -646,7 +646,7 @@ for handle in handles {
 println!("Result: {}", *counter.lock().unwrap());
 ```
 
-### RwLock<T> - Read-Write Lock
+### `RwLock<T>` - Read-Write Lock
 
 **Pattern**: Many readers, occasional writer
 

@@ -267,19 +267,19 @@
   - Best practices
 
 ### Generics và Traits
-- [ ] **advanced/generics.md** - Generics: Code Cho Nhiều Kiểu Dữ Liệu
+- [x] **advanced/generics.md** - Generics: Code Cho Nhiều Kiểu Dữ Liệu
   - Generic functions
   - Generic structs
   - Generic enums
   - Constraints với traits
 
-- [ ] **advanced/traits.md** - Traits: Hành Vi Chung
+- [x] **advanced/traits.md** - Traits: Hành Vi Chung
   - Defining traits
   - Implementing traits
   - Trait bounds
   - Default implementations
 
-- [ ] **advanced/trait-objects.md** - Trait Objects: Dynamic Dispatch
+- [x] **advanced/trait-objects.md** - Trait Objects: Dynamic Dispatch
   - `dyn Trait`
   - Box<dyn Trait>
   - Static vs dynamic dispatch

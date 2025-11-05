@@ -95,6 +95,7 @@ const sidebars = {
                 'advanced/async-tokio',
                 'advanced/unit-testing',
                 'advanced/integration-testing',
+                'advanced/declarative-macros',
             ],
         },
     ],

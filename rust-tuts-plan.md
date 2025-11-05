@@ -395,7 +395,7 @@
   - Test coverage
 
 ### Macros
-- [ ] **advanced/declarative-macros.md** - Declarative Macros: Viết Code Sinh Code
+- [x] **advanced/declarative-macros.md** - Declarative Macros: Viết Code Sinh Code
   - `macro_rules!`
   - Pattern matching
   - Creating reusable macros

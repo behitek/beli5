@@ -39,6 +39,15 @@ const sidebars = {
                 'basics/error-basics',
             ],
         },
+        {
+            type: 'category',
+            label: '🟡 Trung Bình Thú Vị',
+            collapsed: true,
+            items: [
+                'intermediate/if-else',
+                'intermediate/match',
+            ],
+        },
     ],
 };
 

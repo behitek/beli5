@@ -11,9 +11,9 @@ description: "Tìm hiểu cách share mutable state giữa threads với Mutex v
 Sau khi hoàn thành bài học này, bạn sẽ:
 
 - ✅ Hiểu shared mutable state
-- ✅ Sử dụng Mutex<T> để lock data
-- ✅ Kết hợp Arc<Mutex<T>>
-- ✅ Sử dụng RwLock<T> cho multiple readers
+- ✅ Sử dụng `Mutex<T>` để lock data
+- ✅ Kết hợp `Arc<Mutex<T>>`
+- ✅ Sử dụng `RwLock<T>` cho multiple readers
 - ✅ Tránh deadlocks
 - ✅ So sánh Mutex vs RwLock vs Channels
 
@@ -52,7 +52,7 @@ fn main() {
 }
 ```
 
-## 🔒 Mutex<T>
+## 🔒 `Mutex<T>`
 
 ### Creating Mutex
 
@@ -93,7 +93,7 @@ fn main() {
 }
 ```
 
-## 🧵 Arc<Mutex<T>> Pattern
+## 🧵 `Arc<Mutex<T>>` Pattern
 
 ### Share Mutex Across Threads
 
@@ -154,7 +154,7 @@ fn main() {
 }
 ```
 
-## 📖 RwLock<T>
+## 📖 `RwLock<T>`
 
 ### Multiple Readers, Single Writer
 
@@ -820,12 +820,12 @@ fn main() {
 
 | Type | Access | Readers | Writers | Use Case |
 |------|--------|---------|---------|----------|
-| **Mutex<T>** | Exclusive | 1 at a time | 1 at a time | General shared state |
-| **RwLock<T>** | Shared/Exclusive | Many | 1 at a time | Read-heavy workloads |
+| **`Mutex<T>`** | Exclusive | 1 at a time | 1 at a time | General shared state |
+| **`RwLock<T>`** | Shared/Exclusive | Many | 1 at a time | Read-heavy workloads |
 
 **Quy tắc vàng**:
-- ✅ Arc<Mutex<T>> cho shared mutable state
-- ✅ RwLock cho many readers, few writers
+- ✅ `Arc<Mutex<T>>` cho shared mutable state
+- ✅ `RwLock` cho many readers, few writers
 - ✅ Lock trong scope nhỏ nhất có thể
 - ✅ Luôn lock theo thứ tự để tránh deadlock
 - ✅ Dùng try_lock() để tránh blocking

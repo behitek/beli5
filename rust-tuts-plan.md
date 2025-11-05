@@ -198,56 +198,56 @@
 ## 🔴 4. Nâng Cao Pro (advanced/)
 
 ### Ownership - Trái Tim Của Rust
-- [ ] **advanced/ownership-basics.md** - Ownership: Chỉ Có Một Chủ!
+- [x] **advanced/ownership-basics.md** - Ownership: Chỉ Có Một Chủ!
   - Ba quy tắc ownership
   - Move semantics
   - Scope và drop
   - Ví dụ với String và integers
 
-- [ ] **advanced/borrowing.md** - Mượn Dữ Liệu: Borrowing
+- [x] **advanced/borrowing.md** - Mượn Dữ Liệu: Borrowing
   - References: `&T` và `&mut T`
   - Immutable borrowing
   - Mutable borrowing
   - Quy tắc: Một &mut HOẶC nhiều &
 
-- [ ] **advanced/slices.md** - Slices: Xem Một Phần Dữ Liệu
+- [x] **advanced/slices.md** - Slices: Xem Một Phần Dữ Liệu
   - String slices: `&str`
   - Array slices: `&[T]`
   - Slices và ownership
   - Practical examples
 
-- [ ] **advanced/lifetimes.md** - Lifetimes: Dữ Liệu Sống Bao Lâu?
+- [x] **advanced/lifetimes.md** - Lifetimes: Dữ Liệu Sống Bao Lâu?
   - Lifetime annotations: `'a`
   - Lifetime trong functions
   - Lifetime trong structs
   - Lifetime elision rules
 
 ### Structs và Enums
-- [ ] **advanced/structs-basics.md** - Structs: Tạo Kiểu Dữ Liệu Riêng
+- [x] **advanced/structs-basics.md** - Structs: Tạo Kiểu Dữ Liệu Riêng
   - Định nghĩa structs
   - Creating instances
   - Accessing fields
   - Method syntax: `impl`
 
-- [ ] **advanced/struct-methods.md** - Methods: Hàm Bên Trong Struct
+- [x] **advanced/struct-methods.md** - Methods: Hàm Bên Trong Struct
   - `impl` blocks
   - `&self`, `&mut self`, `self`
   - Associated functions
   - Multiple impl blocks
 
-- [ ] **advanced/enums.md** - Enums: Một Trong Nhiều Khả Năng
+- [x] **advanced/enums.md** - Enums: Một Trong Nhiều Khả Năng
   - Defining enums
   - Enum variants với data
   - Match với enums
   - Option và Result (preview)
 
-- [ ] **advanced/option.md** - Option: Có Hoặc Không Có
+- [x] **advanced/option.md** - Option: Có Hoặc Không Có
   - `Option<T>`: Some và None
   - Tại sao không có null?
   - Pattern matching với Option
   - `.unwrap()`, `.expect()`, và cách an toàn hơn
 
-- [ ] **advanced/result.md** - Result: Thành Công Hay Lỗi?
+- [x] **advanced/result.md** - Result: Thành Công Hay Lỗi?
   - `Result<T, E>`: Ok và Err
   - Error handling với match
   - `?` operator - Cú pháp ngắn gọn

@@ -91,6 +91,8 @@ const sidebars = {
                 'advanced/threads',
                 'advanced/message-passing',
                 'advanced/shared-state',
+                'advanced/async-basics',
+                'advanced/async-tokio',
             ],
         },
     ],

@@ -305,13 +305,13 @@
   - `use` idioms
 
 ### Collections Nâng Cao
-- [ ] **advanced/hashmap.md** - HashMap: Từ Điển Key-Value
+- [x] **advanced/hashmap.md** - HashMap: Từ Điển Key-Value
   - Creating HashMaps
   - Insert, get, remove
   - Iteration
   - Updating values
 
-- [ ] **advanced/hashset.md** - HashSet: Tập Hợp Duy Nhất
+- [x] **advanced/hashset.md** - HashSet: Tập Hợp Duy Nhất
   - Creating sets
   - Union, intersection, difference
   - Checking membership
